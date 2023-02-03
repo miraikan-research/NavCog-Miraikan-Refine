@@ -391,6 +391,7 @@ fileprivate enum MenuSection : CaseIterable {
     case login
     case spex
     case event
+    case today
     case exhibition
     case currentLocation
     case arNavigation
@@ -403,8 +404,10 @@ fileprivate enum MenuSection : CaseIterable {
         switch self {
         case .login:
             return [.login]
+        case .today:
+            return [.miraikanToday]
         case .exhibition:
-            return [.miraikanToday, .permanentExhibition]
+            return [.permanentExhibition]
         case .currentLocation:
             return [.currentPosition]
         case .arNavigation:
@@ -444,6 +447,10 @@ fileprivate enum MenuSection : CaseIterable {
             return NSLocalizedString("Events", comment: "")
         case .exhibition:
             return NSLocalizedString("museum_info", comment: "")
+        case .today:
+            return NSLocalizedString("today_info", comment: "")
+        case .settings:
+            return NSLocalizedString("app_info", comment: "")
         default:
             return nil
         }
@@ -477,6 +484,15 @@ class Home : BaseListView {
         sections = MenuSection.allCases
         if MiraikanUtil.isLoggedIn {
             sections?.removeAll(where: { $0 == .login })
+        }
+        
+        if !UserDefaults.standard.bool(forKey: "OldMode") {
+            sections?.removeAll(where: { $0 == .login })
+            sections?.removeAll(where: { $0 == .spex })
+            sections?.removeAll(where: { $0 == .event })
+            sections?.removeAll(where: { $0 == .today })
+            sections?.removeAll(where: { $0 == .reservation })
+            sections?.removeAll(where: { $0 == .suggestion })
         }
         
         guard let _sections = sections?.enumerated() else { return }

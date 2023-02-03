@@ -117,6 +117,12 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      isOn: UserDefaults.standard.bool(forKey: "DebugMode"),
                                                      isEnabled: nil)))
 
+
+        cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("Old Mode", comment: ""),
+                                                     key: "OldMode",
+                                                     isOn: UserDefaults.standard.bool(forKey: "OldMode"),
+                                                     isEnabled: nil)))
         self.items = cellList
     }
     

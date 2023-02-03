@@ -214,6 +214,8 @@ NavCogの設定画面から
 "spex" = "特別展";
 "Events" = "イベント";
 "museum_info" = "来館者情報";
+"today_info" = "今日のお知らせ";
+"app_info" = "アプリ";
 
 // Menu Titles
 "Miraikan Today" = "今日の未来館";
@@ -300,6 +302,8 @@ NavCogの設定画面から
 "Move Log End" = "移動\n記録\n終了";
 "Location information input" = "位置情報入力";
 "Location Input" = "位置\n入力";
+
+"Old Mode" = "旧表示";
 
 // local push
 "Today's event is over" = "本日のイベントは終了しています";

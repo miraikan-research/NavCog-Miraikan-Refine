@@ -62,15 +62,17 @@ class MiraikanController: BaseController {
         // Accessibility
         UIAccessibility.post(notification: .screenChanged, argument: self.navigationItem.titleView)
         
-        // NavBar
-        let btnSetting = BaseBarButton(image: UIImage(systemName: "gearshape"))
-        btnSetting.accessibilityLabel = NSLocalizedString("Navi Settings", comment: "")
-        btnSetting.tapAction { [weak self] in
-            guard let self = self else { return }
-            let vc = NaviSettingController(title: NSLocalizedString("Navi Settings", comment: ""))
-            self.navigationController?.show(vc, sender: nil)
+        if UserDefaults.standard.bool(forKey: "OldMode") {
+            // NavBar
+            let btnSetting = BaseBarButton(image: UIImage(systemName: "gearshape"))
+            btnSetting.accessibilityLabel = NSLocalizedString("Navi Settings", comment: "")
+            btnSetting.tapAction { [weak self] in
+                guard let self = self else { return }
+                let vc = NaviSettingController(title: NSLocalizedString("Navi Settings", comment: ""))
+                self.navigationController?.show(vc, sender: nil)
+            }
+            self.navigationItem.rightBarButtonItem = btnSetting
         }
-        self.navigationItem.rightBarButtonItem = btnSetting
         
         // TODO: Initialization processing position needs to be changed
         // Load the data
