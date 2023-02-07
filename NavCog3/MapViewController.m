@@ -317,16 +317,29 @@ typedef NS_ENUM(NSInteger, ViewState) {
 - (void)updateTitle {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     UILabel *titleView = [[UILabel alloc] init];
-    UIFont *font = [UIFont boldSystemFontOfSize:[UIFont labelFontSize]];
     NSString* userMode = [ud stringForKey:@"user_mode"];
-    NSString *title = NSLocalizedString(userMode, @"");
-    if([title length] == 0) {
-        title = NSLocalizedString(@"Miraikan", @"");
+    NSMutableAttributedString *attributedString;
+    attributedString = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Miraikan", @"")];
+    NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+    if ([userMode isEqualToString:@"user_wheelchair"]) {
+        attachment.image = [UIImage imageNamed:@"icons8-wheelchair"];
+    } else if ([userMode isEqualToString:@"user_stroller"]) {
+        attachment.image = [UIImage imageNamed:@"icons8-wheelchair"];
+    } else if ([userMode isEqualToString:@"user_blind"]) {
+        attachment.image = [UIImage imageNamed:@"icons8-blind"];
+    } else {
+        attachment.image = [UIImage imageNamed:@"icons8-general"];
     }
-    titleView.text = title;
+    attachment.bounds = CGRectMake(0, -4, 24, 24);
+    [attributedString appendAttributedString:[NSAttributedString attributedStringWithAttachment:attachment]];
+    titleView.attributedText = attributedString;
     titleView.accessibilityLabel = @"( )";
     titleView.isAccessibilityElement = NO;
-    titleView.font = font;
+
+    UIFontMetrics *metrics = [[UIFontMetrics alloc] initForTextStyle:UIFontTextStyleTitle3];
+    UIFontDescriptor *desc = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleTitle3];
+    UIFont *font = [UIFont systemFontOfSize:desc.pointSize weight:UIFontWeightBold];
+    titleView.font = [metrics scaledFontForFont:font];
     self.navigationItem.titleView = titleView;
 }
 

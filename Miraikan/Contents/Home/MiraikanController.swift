@@ -103,6 +103,10 @@ class MiraikanController: BaseController {
         attributedString.append(NSAttributedString(string: title))
         let textAttachment = NSTextAttachment()
         let titleLabel = UILabel()
+        let metrics = UIFontMetrics(forTextStyle: .title3)
+        let desc = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title3)
+        let font = UIFont.systemFont(ofSize: desc.pointSize, weight: .bold)
+        titleLabel.font = metrics.scaledFont(for: font)
         titleLabel.accessibilityLabel = NSLocalizedString("Home pron", comment: "")
 
         switch MiraikanUtil.routeMode {
