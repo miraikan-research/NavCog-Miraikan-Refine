@@ -69,6 +69,10 @@
 		7EF7F7AE1DD1949C000A625A /* NavDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF7F7AD1DD1949C000A625A /* NavDataSource.m */; };
 		A923DA0A1F26DBF60002E3CB /* DefaultTTS.m in Sources */ = {isa = PBXBuildFile; fileRef = A923DA091F26DBF60002E3CB /* DefaultTTS.m */; };
 		D3B684BD87877697DA26A4DE /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		E506A01729923F630046134F /* DestinationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A01629923F630046134F /* DestinationCell.swift */; };
+		E506A01829923F630046134F /* DestinationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A01629923F630046134F /* DestinationCell.swift */; };
+		E506A01B29923FB60046134F /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A01A29923FB60046134F /* DestinationViewController.swift */; };
+		E506A01C29923FB60046134F /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A01A29923FB60046134F /* DestinationViewController.swift */; };
 		E537504C2977D6D700BC3ACA /* AdditionalLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = E5F6FFDE2977CCB600D5C22B /* AdditionalLocation.json */; };
 		E537504D2977D6D700BC3ACA /* CheckPointPosition.json in Resources */ = {isa = PBXBuildFile; fileRef = E5F6FFE22977CCB600D5C22B /* CheckPointPosition.json */; };
 		E537504E2977D6D700BC3ACA /* event.json in Resources */ = {isa = PBXBuildFile; fileRef = E5F6FFE32977CCB600D5C22B /* event.json */; };
@@ -552,6 +556,8 @@
 		A9ED1549213914A6009E1E0C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = SettingUtil/ko.lproj/HLPSettingView.strings; sourceTree = "<group>"; };
 		D604F5B4F497C66164142E1B /* libPods-NavCogMiraikan.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NavCogMiraikan.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6A2933F1F60A0C58188E95C /* Pods-NavCogMiraikan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavCogMiraikan.release.xcconfig"; path = "Pods/Target Support Files/Pods-NavCogMiraikan/Pods-NavCogMiraikan.release.xcconfig"; sourceTree = "<group>"; };
+		E506A01629923F630046134F /* DestinationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCell.swift; sourceTree = "<group>"; };
+		E506A01A29923FB60046134F /* DestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
 		E53814052989F3D30098E082 /* SliderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderModel.swift; sourceTree = "<group>"; };
 		E53814082989F4DC0098E082 /* SwitchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchModel.swift; sourceTree = "<group>"; };
 		E538140B2989F4F50098E082 /* LabelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelModel.swift; sourceTree = "<group>"; };
@@ -963,6 +969,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E506A01929923FA10046134F /* Destination */ = {
+			isa = PBXGroup;
+			children = (
+				E506A01A29923FB60046134F /* DestinationViewController.swift */,
+			);
+			path = Destination;
+			sourceTree = "<group>";
+		};
 		E54F24432980E84100F3A83C /* Event */ = {
 			isa = PBXGroup;
 			children = (
@@ -1163,6 +1177,7 @@
 				E53814142989F57B0098E082 /* SwitchCell.swift */,
 				E53814172989F58C0098E082 /* LabelCell.swift */,
 				E538141A2989F59F0098E082 /* ButtonCell.swift */,
+				E506A01629923F630046134F /* DestinationCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -1244,6 +1259,7 @@
 				E54F244F2980F06C00F3A83C /* AboutMiraikan */,
 				E54F24442980E8F500F3A83C /* AskAI */,
 				E54F24562980F3EC00F3A83C /* BlindExhibition */,
+				E506A01929923FA10046134F /* Destination */,
 				E54F24522980F1B100F3A83C /* DistanceCheck */,
 				E54F24432980E84100F3A83C /* Event */,
 				E54F244A2980ED9400F3A83C /* EventDetail */,
@@ -1695,6 +1711,7 @@
 				E5F6FFB92977CC9300D5C22B /* BaseView.swift in Sources */,
 				E5B61E7A2983C04A00533B6F /* ChevronButton.swift in Sources */,
 				E5F600362977CD0E00D5C22B /* PermanentExhibitionController.swift in Sources */,
+				E506A01729923F630046134F /* DestinationCell.swift in Sources */,
 				E5F600152977CCD500D5C22B /* AudioGuideManager.swift in Sources */,
 				E5F6FFCF2977CCA500D5C22B /* AccessibilityModel.swift in Sources */,
 				E5F6FFAC2977CC9300D5C22B /* VoiceGuideButton.swift in Sources */,
@@ -1770,6 +1787,7 @@
 				7E6E42DE1D90C77C006B6899 /* HLPGeoJSON.m in Sources */,
 				E5F6FFB02977CC9300D5C22B /* LinkRow.swift in Sources */,
 				E5B61E3B29823ACD00533B6F /* OpenCVWrapper.mm in Sources */,
+				E506A01B29923FB60046134F /* DestinationViewController.swift in Sources */,
 				E5F6FF862977CC3700D5C22B /* EventDetailView.swift in Sources */,
 				E5F6001C2977CCE000D5C22B /* UINavigationControllerExtension.swift in Sources */,
 				E5F6FFBA2977CC9300D5C22B /* DescriptionRow.swift in Sources */,
@@ -1854,6 +1872,7 @@
 				E55D4C97297F719E00DE379B /* LocationManager.m in Sources */,
 				E537507B2977D73900BC3ACA /* AccessibilityModel.swift in Sources */,
 				E537507C2977D73900BC3ACA /* AdditionalLocationModel.swift in Sources */,
+				E506A01829923F630046134F /* DestinationCell.swift in Sources */,
 				E537507D2977D73900BC3ACA /* CardModel.swift in Sources */,
 				E537507E2977D73900BC3ACA /* ExhibitionContentModel.swift in Sources */,
 				E537507F2977D73900BC3ACA /* ExhibitionLinkModel.swift in Sources */,
@@ -1929,6 +1948,7 @@
 				E53750692977D71B00BC3ACA /* HTTPAdaptor.swift in Sources */,
 				E537506A2977D71B00BC3ACA /* ImageAdaptor.swift in Sources */,
 				E537506B2977D71B00BC3ACA /* ImageType.swift in Sources */,
+				E506A01C29923FB60046134F /* DestinationViewController.swift in Sources */,
 				E537506C2977D71B00BC3ACA /* LineSegment.swift in Sources */,
 				E537506D2977D71B00BC3ACA /* MapManager.swift in Sources */,
 				E537506E2977D71B00BC3ACA /* MiraikanUtil.swift in Sources */,

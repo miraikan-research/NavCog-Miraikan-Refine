@@ -47,4 +47,8 @@ extension UserDefaults {
     @objc dynamic var DebugLocationInput: Bool {
         return Bool("DebugLocationInput") ?? false
     }
+
+    @objc dynamic var OldMode: Bool {
+        return Bool("OldMode") ?? false
+    }
 }
