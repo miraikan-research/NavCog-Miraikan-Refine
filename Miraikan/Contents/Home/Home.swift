@@ -356,7 +356,11 @@ fileprivate enum MenuItem {
         case .login:
             return createVC(view: LoginView())
         case .permanentExhibition:
-            return PermanentExhibitionController(title: self.name)
+            if UserDefaults.standard.bool(forKey: "OldMode") {
+                return PermanentExhibitionController(title: self.name)
+            } else {
+                return DestinationViewController(title: NSLocalizedString("Permanent Exhibitions", comment: ""))
+            }
         case .miraikanToday:
             return EventListController(title: self.name)
         case .nearestWashroom:

@@ -35,6 +35,8 @@ class MiraikanController: BaseController {
 
     private let home = Home()
 
+    private var oldModeObserver: NSKeyValueObservation?
+
     init(title: String) {
         super.init(home, title: title)
         NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line)")
@@ -58,6 +60,7 @@ class MiraikanController: BaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setKVO()
         setTitle()
         // Accessibility
         UIAccessibility.post(notification: .screenChanged, argument: self.navigationItem.titleView)
@@ -128,5 +131,12 @@ class MiraikanController: BaseController {
         }
         titleLabel.attributedText = attributedString
         self.navigationItem.titleView = titleLabel
+    }
+
+    private func setKVO() {
+        oldModeObserver = UserDefaults.standard.observe(\.OldMode, options: [.initial, .new], changeHandler: { [weak self] (defaults, change) in
+            guard let self = self else { return }
+            self.reload()
+        })
     }
 }
