@@ -138,6 +138,8 @@ typedef enum {
 - (NSArray*) nearestLinksAt:(HLPLocation*)loc withOptions:(NSDictionary*)option;
 - (void)setUpHLPLocationManager;
 
+- (NSArray*)getArExhibitionList;
+
 + (NavDestination*) destinationForCurrentLocation;
 
 @end

@@ -1842,5 +1842,25 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
     return params;
 }
 
+- (NSArray*)getArExhibitionList
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"ar_exhibition" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:path];
+    if (!data) {
+        return nil;
+    }
+    NSError *error;
+    NSArray *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    if (error) {
+        NSLog(@"%@", error);
+        return nil;
+    }
+    if (!json) {
+        NSLog(@"not valid ar exhibition data");
+        return nil;
+    }
+    return json;
+}
+
 @end
 
