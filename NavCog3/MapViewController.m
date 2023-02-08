@@ -36,6 +36,10 @@
 #import <HLPLocationManager/HLPLocationManager+Player.h>
 #import <CoreMotion/CoreMotion.h>
 
+#if NavCogMiraikan
+#import <NavCogMiraikan-Swift.h>
+#endif
+
 @import JavaScriptCore;
 @import CoreMotion;
 
@@ -599,6 +603,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
 - (void)webView:(HLPWebView *)webView didFinishNavigationStart:(NSTimeInterval)start end:(NSTimeInterval)end from:(NSString *)from to:(NSString *)to
 {
+    [self checkDestId];
     destId = nil;
     isNaviStarted = false;
 }
@@ -1185,10 +1190,12 @@ typedef NS_ENUM(NSInteger, ViewState) {
     
     [_webView logToServer:@{@"event": @"navigation", @"status": @"finished"}];
 
+    [self checkDestId];
     [commander didNavigationFinished:properties];
     [previewer didNavigationFinished:properties];
     
-    [[NavDataStore sharedDataStore] clearRoute];  // new
+    [[NavDataStore sharedDataStore] clearRoute];
+    destId = nil;
 }
 
 // basic functions
@@ -1593,6 +1600,55 @@ typedef NS_ENUM(NSInteger, ViewState) {
         [talkButton addTarget:self action:@selector(talkTap:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
+
+- (BOOL)checkDestId
+{
+#if NavCogMiraikan
+    NavDataStore *nds = [NavDataStore sharedDataStore];
+
+    if ((nds.previewMode) && (destId == nil)) {
+        destId = nds.to.item.nodeID;
+    }
+
+    NSArray *arList = nds.getArExhibitionList;
+    for (NSDictionary *data in arList) {
+        if ([destId isEqualToString:data[@"nodeId"]]) {
+            [self nearArAlert];
+            return true;
+        }
+    }
+
+#endif
+    return false;
+}
+
+#if NavCogMiraikan
+- (void)nearArAlert
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Switch to AR navigation", @"")
+                                                                       message:NSLocalizedString(@"Do you want to start the Miraikan AR?", @"")
+                                                                preferredStyle: UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle: NSLocalizedStringFromTable(@"YES", @"BlindView", @"")
+                                                  style: UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction *action) {
+            [self openArView];
+                                                  }]];
+        [alert addAction:[UIAlertAction actionWithTitle: NSLocalizedStringFromTable(@"NO", @"BlindView", @"")
+                                                  style: UIAlertActionStyleDefault
+                                                handler:^(UIAlertAction *action) {
+                                                  }]];
+         [self presentViewController:alert animated:YES completion:nil];
+    });
+}
+
+- (void)openArView
+{
+    ARViewController *arViewController = [[ARViewController alloc] init];
+    [self.navigationController pushViewController:arViewController animated:YES];
+}
+
+#endif
 
 - (void)updateIndicatorStart
 {

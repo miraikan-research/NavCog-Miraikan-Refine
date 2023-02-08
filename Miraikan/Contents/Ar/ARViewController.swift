@@ -44,15 +44,18 @@ class ARViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        self.title = NSLocalizedString("AR navigation", comment: "")
         self.view.backgroundColor = .systemBackground
 
         let chevronLeftImage: UIImage? = UIImage(systemName: "chevron.left")
         let backButtonItem = UIBarButtonItem(image: chevronLeftImage, style: .plain, target: self, action: #selector(backButtonPressed(_:)))
         self.navigationItem.leftBarButtonItem = backButtonItem
 
-        let listButtonItem = UIBarButtonItem(title: "List", style: .done, target: self, action: #selector(listButtonPressed(_:)))
-        self.navigationItem.rightBarButtonItem = listButtonItem
+        if UserDefaults.standard.bool(forKey: "DebugMode") {
+            let listButtonItem = UIBarButtonItem(title: "List", style: .done, target: self, action: #selector(listButtonPressed(_:)))
+            self.navigationItem.rightBarButtonItem = listButtonItem
+        }
 
         sceneView = ARSCNView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         self.view.addSubview(sceneView)

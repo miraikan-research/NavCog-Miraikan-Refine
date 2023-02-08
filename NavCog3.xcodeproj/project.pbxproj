@@ -73,6 +73,7 @@
 		E506A01829923F630046134F /* DestinationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A01629923F630046134F /* DestinationCell.swift */; };
 		E506A01B29923FB60046134F /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A01A29923FB60046134F /* DestinationViewController.swift */; };
 		E506A01C29923FB60046134F /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A01A29923FB60046134F /* DestinationViewController.swift */; };
+		E506A01E29937BB20046134F /* ar_exhibition.json in Resources */ = {isa = PBXBuildFile; fileRef = E506A01D2993790F0046134F /* ar_exhibition.json */; };
 		E537504C2977D6D700BC3ACA /* AdditionalLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = E5F6FFDE2977CCB600D5C22B /* AdditionalLocation.json */; };
 		E537504D2977D6D700BC3ACA /* CheckPointPosition.json in Resources */ = {isa = PBXBuildFile; fileRef = E5F6FFE22977CCB600D5C22B /* CheckPointPosition.json */; };
 		E537504E2977D6D700BC3ACA /* event.json in Resources */ = {isa = PBXBuildFile; fileRef = E5F6FFE32977CCB600D5C22B /* event.json */; };
@@ -558,6 +559,7 @@
 		D6A2933F1F60A0C58188E95C /* Pods-NavCogMiraikan.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NavCogMiraikan.release.xcconfig"; path = "Pods/Target Support Files/Pods-NavCogMiraikan/Pods-NavCogMiraikan.release.xcconfig"; sourceTree = "<group>"; };
 		E506A01629923F630046134F /* DestinationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationCell.swift; sourceTree = "<group>"; };
 		E506A01A29923FB60046134F /* DestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
+		E506A01D2993790F0046134F /* ar_exhibition.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ar_exhibition.json; sourceTree = "<group>"; };
 		E53814052989F3D30098E082 /* SliderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderModel.swift; sourceTree = "<group>"; };
 		E53814082989F4DC0098E082 /* SwitchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchModel.swift; sourceTree = "<group>"; };
 		E538140B2989F4F50098E082 /* LabelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelModel.swift; sourceTree = "<group>"; };
@@ -1318,6 +1320,7 @@
 				E5F6FFE32977CCB600D5C22B /* event.json */,
 				E5F6FFE02977CCB600D5C22B /* exhibition_category.json */,
 				E5F6FFDF2977CCB600D5C22B /* exhibition.json */,
+				E506A01D2993790F0046134F /* ar_exhibition.json */,
 				E5F6FFE12977CCB600D5C22B /* floor_map.json */,
 				E5F6FFE52977CCB700D5C22B /* FloorPlan.json */,
 				E5F6FFDD2977CCB600D5C22B /* GuidePosition.json */,
@@ -1551,6 +1554,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E506A01E29937BB20046134F /* ar_exhibition.json in Resources */,
 				E5B61E5929823DFB00533B6F /* ArUco.json in Resources */,
 				E5B61E5A29823DFB00533B6F /* SoundEffect01.mp3 in Resources */,
 				E5B61E5B29823DFB00533B6F /* SoundEffect02.mp3 in Resources */,
