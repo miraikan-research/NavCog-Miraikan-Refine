@@ -41,15 +41,18 @@ class DestinationCell: UITableViewCell {
     }
 
     private func setupTitleLabel() {
-        titleLabel.font = .preferredFont(forTextStyle: .title2)
+        titleLabel.font = .preferredFont(forTextStyle: .title3)
         titleLabel.numberOfLines = 0
         titleLabel.textColor = .label
         baseView.addSubview(titleLabel)
         
+        let desc = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .title3)
+        let margin = desc.pointSize/2 + 2
+        
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         let leading = titleLabel.leadingAnchor.constraint(equalTo: baseView.leadingAnchor, constant: 0)
-        let top = titleLabel.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 16)
-        let bottom = titleLabel.bottomAnchor.constraint(equalTo: baseView.bottomAnchor, constant: -16)
+        let top = titleLabel.topAnchor.constraint(equalTo: baseView.topAnchor, constant: margin)
+        let bottom = titleLabel.bottomAnchor.constraint(equalTo: baseView.bottomAnchor, constant: -margin)
         let widthConstraint = titleLabel.widthAnchor.constraint(equalTo: baseView.widthAnchor, multiplier: 0.6)
         NSLayoutConstraint.activate([leading, top, bottom, widthConstraint])
     }
@@ -61,11 +64,14 @@ class DestinationCell: UITableViewCell {
         detailLabel.numberOfLines = 0
         baseView.addSubview(detailLabel)
 
+        let desc = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .subheadline)
+        let margin = desc.pointSize/2 + 2
+
         detailLabel.translatesAutoresizingMaskIntoConstraints = false
         let leading = detailLabel.leadingAnchor.constraint(equalTo: titleLabel.trailingAnchor, constant: 0)
         let trailing = detailLabel.trailingAnchor.constraint(equalTo: baseView.trailingAnchor, constant: 0)
-        let top = detailLabel.topAnchor.constraint(equalTo: baseView.topAnchor, constant: 16)
-        let bottom = detailLabel.bottomAnchor.constraint(equalTo: baseView.bottomAnchor, constant: -16)
+        let top = detailLabel.topAnchor.constraint(equalTo: baseView.topAnchor, constant: margin)
+        let bottom = detailLabel.bottomAnchor.constraint(equalTo: baseView.bottomAnchor, constant: -margin)
         NSLayoutConstraint.activate([leading, trailing, top, bottom])
     }
 
@@ -73,7 +79,7 @@ class DestinationCell: UITableViewCell {
         self.model = model
         titleLabel.text = model.title
         detailLabel.text = model.subtitle
-        self.accessibilityLabel = model.titlePron + "。" + model.subtitlePron
+        self.accessibilityLabel = model.titlePron + NSLocalizedString("PERIOD", comment: "") + model.subtitlePron
         self.accessibilityTraits = .button
     }
 }

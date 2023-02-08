@@ -36,7 +36,8 @@ class DestinationViewController: BaseListController, BaseListDelegate {
 
     override func initTable() {
         super.initTable()
-        
+        self.tableView.separatorStyle = .singleLine
+
         self.baseDelegate = self
         self.tableView.register(DestinationCell.self, forCellReuseIdentifier: destinationId)
         
@@ -126,8 +127,9 @@ class DestinationViewController: BaseListController, BaseListDelegate {
     }
 
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let baseView = UITableViewHeaderFooterView(frame: CGRect(x:0, y:0, width: tableView.frame.width, height: 30))
-        let label = UILabel(frame: CGRect(x:10, y:0, width: tableView.frame.width, height: 30))
+        let desc = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .subheadline)
+        let baseView = UITableViewHeaderFooterView(frame: CGRect(x:0, y:0, width: tableView.frame.width, height: desc.pointSize * 2))
+        let label = UILabel(frame: CGRect(x:10, y:0, width: tableView.frame.width, height: desc.pointSize * 2))
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         if let items = items as? [HLPDirectorySection],
            section <  items.count {
@@ -148,7 +150,8 @@ class DestinationViewController: BaseListController, BaseListDelegate {
     }
 
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        let desc = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .subheadline)
+        return desc.pointSize * 2
     }
 
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
