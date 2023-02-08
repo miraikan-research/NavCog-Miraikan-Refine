@@ -94,7 +94,7 @@ class DestinationViewController: BaseListController, BaseListDelegate {
                 return list.count
             }
         }
-        return 3
+        return 0
     }
 
     func getCell(_ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell? {

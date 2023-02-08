@@ -47,6 +47,7 @@ static int continueFloorCount;
        
        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestLocationRestart:) name:REQUEST_LOCATION_RESTART object:nil];
        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestLocationStop:) name:REQUEST_LOCATION_STOP object:nil];
+       [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestLocationStart:) name:REQUEST_LOCATION_START object:nil];
        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestLocationHeadingReset:) name:REQUEST_LOCATION_HEADING_RESET object:nil];
        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestLocationReset:) name:REQUEST_LOCATION_RESET object:nil];
        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestLocationUnknown:) name:REQUEST_LOCATION_UNKNOWN object:nil];
@@ -121,6 +122,11 @@ static int continueFloorCount;
 - (void) requestLocationStop:(NSNotification*) note
 {
     [[HLPLocationManager sharedManager] stop];
+}
+
+- (void) requestLocationStart:(NSNotification*) note
+{
+    [[HLPLocationManager sharedManager] start];
 }
 
 - (void) requestLocationUnknown:(NSNotification*) note
