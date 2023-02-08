@@ -28,6 +28,7 @@
 #import "SettingViewController.h"
 #import "SettingDataManager.h"
 #import "ExpandedFunction.h"
+#import "LocationEvent.h"
 
 #import "MarkerWorldTransform.h"
 #import "OpenCVWrapper.h"

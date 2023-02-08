@@ -43,6 +43,7 @@ class NaviSettingController : BaseListController, BaseListDelegate {
     
     override func initTable() {
         super.initTable()
+        setHeaderFooter()
         
         AudioGuideManager.shared.isDisplayButton(false)
 
@@ -123,6 +124,41 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      key: "OldMode",
                                                      isOn: UserDefaults.standard.bool(forKey: "OldMode"),
                                                      isEnabled: nil)))
+
+        cellList.append(CellModel(cellId: buttonId,
+                                  model: ButtonModel(title: NSLocalizedString("Reset_Location", comment: ""),
+                                                     key: "",
+                                                     isEnabled: nil,
+                                                     tapAction: { [weak self] in
+                                                        guard let self = self else { return }
+            
+            let center = NotificationCenter.default
+            center.post(name: NSNotification.Name(rawValue: REQUEST_LOCATION_RESTART), object: self)
+            self.navigationController?.popViewController(animated: true)
+        })))
+        
+        cellList.append(CellModel(cellId: buttonId,
+                                  model: ButtonModel(title: NSLocalizedString("Stop_Location", comment: ""),
+                                                     key: "",
+                                                     isEnabled: nil,
+                                                     tapAction: { [weak self] in
+                                                        guard let self = self else { return }
+            
+            let center = NotificationCenter.default
+            center.post(name: NSNotification.Name(rawValue: REQUEST_LOCATION_STOP), object: self)
+            self.navigationController?.popViewController(animated: true)
+        })))
+        cellList.append(CellModel(cellId: buttonId,
+                                  model: ButtonModel(title: NSLocalizedString("Start_Location", comment: ""),
+                                                     key: "",
+                                                     isEnabled: nil,
+                                                     tapAction: { [weak self] in
+                                                        guard let self = self else { return }
+            
+            let center = NotificationCenter.default
+            center.post(name: NSNotification.Name(rawValue: REQUEST_LOCATION_START), object: self)
+            self.navigationController?.popViewController(animated: true)
+        })))
         self.items = cellList
     }
     
@@ -169,5 +205,14 @@ class NaviSettingController : BaseListController, BaseListDelegate {
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 0
+    }
+
+
+    private func setHeaderFooter() {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: CGFloat.leastNonzeroMagnitude))
+        self.tableView.tableHeaderView = headerView
+
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 100.0))
+        self.tableView.tableFooterView = footerView
     }
 }

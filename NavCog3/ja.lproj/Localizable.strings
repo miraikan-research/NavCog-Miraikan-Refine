@@ -121,6 +121,8 @@
 "for_bone_conduction_headset" = "骨伝導ヘッドフォン用の効果音";
 
 "Reset_Location" = "位置推定をやり直す";
+"Stop_Location" = "位置推定停止";
+"Start_Location" = "位置推定開始";
 
 "Open_with_Safari" = "Safariで開く";
 "Open_with_Safari_Message" = "ウェブページをSafariで開きますが、よろしいですか？";
