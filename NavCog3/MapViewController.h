@@ -43,12 +43,6 @@
 @property (weak, nonatomic) IBOutlet UIView *coverView;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *indicator;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *updateIndicator;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *backButton;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *doneButton;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *searchButton;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *settingButton;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *stopButton;
 @property (weak, nonatomic) IBOutlet UIButton *retryButton;
 @property (weak, nonatomic) IBOutlet UILabel *errorMessage;
 
