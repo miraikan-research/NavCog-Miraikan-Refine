@@ -86,6 +86,12 @@ typedef NS_ENUM(NSInteger, ViewState) {
     BOOL isNaviStarted; // new
     
     NavTalkButton *talkButton;
+    UIBarButtonItem *backButton;
+    UIBarButtonItem *doneButton;
+    UIBarButtonItem *stopButton;
+    UIBarButtonItem *cancelButton;
+    UIBarButtonItem *searchButton;
+    UIBarButtonItem *settingButton;
 }
 
 @end
@@ -138,13 +144,20 @@ typedef NS_ENUM(NSInteger, ViewState) {
     _webView.delegate = self;
     _webView.tts = self;
     [_webView setFullScreenForView:self.view];
-    
-    [self.stopButton setAccessibilityLabel:NSLocalizedStringFromTable(@"Stop Navigation", @"BlindView", @"")];
-    [self.searchButton setAccessibilityLabel:NSLocalizedStringFromTable(@"Search Route", @"BlindView", @"")];
-    [self.settingButton setAccessibilityLabel:NSLocalizedStringFromTable(@"Settings", @"BlindView", @"")];
-    [self.backButton setAccessibilityLabel:NSLocalizedStringFromTable(@"Back", @"BlindView", @"")];
-    [self.cancelButton setAccessibilityLabel:NSLocalizedStringFromTable(@"Cancel", @"BlindView", @"")];
-    [self.doneButton setAccessibilityLabel:NSLocalizedStringFromTable(@"Done", @"BlindView", @"")];
+
+    backButton = [[UIBarButtonItem alloc] initWithImage:[UIImage systemImageNamed:@"chevron.backward"] style:UIBarButtonItemStylePlain target:self action:@selector(doBack:)];
+    doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStyleDone target:self action:@selector(doDone:)];
+    stopButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(stopNavigation:)];
+    cancelButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(doCancel:)];
+    searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(doSearch:)];
+    settingButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Menu"] style:UIBarButtonItemStylePlain target:self action:@selector(doSetting:)];
+
+    [backButton setAccessibilityLabel:NSLocalizedStringFromTable(@"Back", @"BlindView", @"")];
+    [doneButton setAccessibilityLabel:NSLocalizedStringFromTable(@"Done", @"BlindView", @"")];
+    [stopButton setAccessibilityLabel:NSLocalizedStringFromTable(@"Stop Navigation", @"BlindView", @"")];
+    [cancelButton setAccessibilityLabel:NSLocalizedStringFromTable(@"Cancel", @"BlindView", @"")];
+    [searchButton setAccessibilityLabel:NSLocalizedStringFromTable(@"Search Route", @"BlindView", @"")];
+    [settingButton setAccessibilityLabel:NSLocalizedStringFromTable(@"Settings", @"BlindView", @"")];
     [self.retryButton setAccessibilityLabel:NSLocalizedStringFromTable(@"Retry", @"BlindView", @"")];
 
     navigator = [[NavNavigator alloc] init];
@@ -348,67 +361,67 @@ typedef NS_ENUM(NSInteger, ViewState) {
     dispatch_async(dispatch_get_main_queue(), ^{
         BOOL hasCenter = [[NavDataStore sharedDataStore] mapCenter] != nil;
         BOOL isActive = [navigator isActive];
-        
         if (isBlindMode) {
-            self.searchButton.enabled = hasCenter;
+            searchButton.enabled = hasCenter;
 
             if (isActive) {
-                self.navigationItem.rightBarButtonItems = @[self.stopButton];
-                self.navigationItem.leftBarButtonItems = @[self.backButton];
+                self.navigationItem.rightBarButtonItems = @[stopButton];
+                self.navigationItem.leftBarButtonItems = @[backButton];
             } else {
                 if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DebugMode"]) {
-                    self.navigationItem.rightBarButtonItems = @[self.searchButton, self.settingButton];
+                    self.navigationItem.rightBarButtonItems = @[searchButton, settingButton];
                 } else {
-                    self.navigationItem.rightBarButtonItems = @[self.settingButton];
+                    self.navigationItem.rightBarButtonItems = @[settingButton];
                 }
-                self.navigationItem.leftBarButtonItems = @[self.backButton];
+                self.navigationItem.leftBarButtonItems = @[backButton];
             }
 
         } else {
+            searchButton.enabled = true;
             switch(state) {
                 case ViewStateMap:
                     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DebugMode"]) {
-                        self.navigationItem.rightBarButtonItems = @[self.searchButton, self.settingButton];
+                        self.navigationItem.rightBarButtonItems = @[searchButton, settingButton];
                     } else {
-                        self.navigationItem.rightBarButtonItems = @[self.settingButton];
+                        self.navigationItem.rightBarButtonItems = @[settingButton];
                     }
-                    self.navigationItem.leftBarButtonItems = @[self.backButton];
+                    self.navigationItem.leftBarButtonItems = @[backButton];
                     break;
                 case ViewStateSearch:
-                    self.navigationItem.rightBarButtonItems = @[self.settingButton];
-                    self.navigationItem.leftBarButtonItems = @[self.backButton];
+                    self.navigationItem.rightBarButtonItems = @[settingButton];
+                    self.navigationItem.leftBarButtonItems = @[backButton];
                     break;
                 case ViewStateSearchDetail:
                     self.navigationItem.rightBarButtonItems = @[];
-                    self.navigationItem.leftBarButtonItems = @[self.backButton];
+                    self.navigationItem.leftBarButtonItems = @[backButton];
                     break;
                 case ViewStateSearchSetting:
                     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DebugMode"]) {
-                        self.navigationItem.rightBarButtonItems = @[self.searchButton];
+                        self.navigationItem.rightBarButtonItems = @[searchButton];
                     } else {
                         self.navigationItem.rightBarButtonItems = @[];
                     }
-                    self.navigationItem.leftBarButtonItems = @[self.backButton];
+                    self.navigationItem.leftBarButtonItems = @[backButton];
                     break;
                 case ViewStateNavigation:
-                    self.navigationItem.rightBarButtonItems = @[self.stopButton];
-                    self.navigationItem.leftBarButtonItems = @[self.backButton];
+                    self.navigationItem.rightBarButtonItems = @[stopButton];
+                    self.navigationItem.leftBarButtonItems = @[backButton];
                     break;
                 case ViewStateRouteConfirm:
                     self.navigationItem.rightBarButtonItems = @[];
-                    self.navigationItem.leftBarButtonItems = @[self.cancelButton];
+                    self.navigationItem.leftBarButtonItems = @[cancelButton];
                     break;
                 case ViewStateRouteCheck:
-                    self.navigationItem.rightBarButtonItems = @[self.doneButton];
-                    self.navigationItem.leftBarButtonItems = @[self.backButton];
+                    self.navigationItem.rightBarButtonItems = @[doneButton];
+                    self.navigationItem.leftBarButtonItems = @[backButton];
                     break;
                 case ViewStateTransition:
                     self.navigationItem.rightBarButtonItems = @[];
-                    self.navigationItem.leftBarButtonItems = @[self.backButton];
+                    self.navigationItem.leftBarButtonItems = @[backButton];
                     break;
                 case ViewStateLoading:
-                    self.navigationItem.rightBarButtonItems = @[self.settingButton];
-                    self.navigationItem.leftBarButtonItems = @[self.backButton];
+                    self.navigationItem.rightBarButtonItems = @[settingButton];
+                    self.navigationItem.leftBarButtonItems = @[backButton];
                     break;
             }
         }
@@ -615,7 +628,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
     if (isBlindMode) {
         if ([navigator isActive] ||
             self.navigationController.topViewController != self ||
-            !self.searchButton.enabled) {
+            !searchButton.enabled) {
             
             [[NavSound sharedInstance] playFail];
             return;

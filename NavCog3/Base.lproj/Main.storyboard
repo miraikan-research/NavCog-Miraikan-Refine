@@ -872,60 +872,13 @@
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <navigationItem key="navigationItem" id="FIi-sx-rK5">
-                        <leftBarButtonItems>
-                            <barButtonItem title="Back" image="chevron.backward" catalog="system" id="Im0-uB-JEw" userLabel="Back">
-                                <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="doBack:" destination="BCl-Kr-XcS" id="P4s-tj-1w5"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="cancel" id="f5C-kO-xMy">
-                                <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="doCancel:" destination="BCl-Kr-XcS" id="8M6-jh-dxO"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="done" id="CMI-uf-kKA">
-                                <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="doDone:" destination="BCl-Kr-XcS" id="mvQ-u5-vme"/>
-                                </connections>
-                            </barButtonItem>
-                        </leftBarButtonItems>
-                        <rightBarButtonItems>
-                            <barButtonItem style="done" systemItem="search" id="qdn-AW-6Of">
-                                <color key="tintColor" red="0.0" green="0.32757011060000002" blue="0.57671862839999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <action selector="doSearch:" destination="BCl-Kr-XcS" id="vjN-zG-kTv"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem image="Menu" id="Ywn-mt-AeI">
-                                <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="doSetting:" destination="BCl-Kr-XcS" id="Bo1-rG-LA9"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="stop" id="z2A-VN-sRB">
-                                <color key="tintColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <connections>
-                                    <action selector="stopNavigation:" destination="BCl-Kr-XcS" id="hj9-eQ-LVu"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="FIi-sx-rK5"/>
                     <connections>
-                        <outlet property="backButton" destination="Im0-uB-JEw" id="ZjD-jB-Yjl"/>
                         <outlet property="baseView" destination="I9s-Sf-GFJ" id="EH5-8w-phz"/>
-                        <outlet property="cancelButton" destination="f5C-kO-xMy" id="Uzz-BZ-fw0"/>
                         <outlet property="coverView" destination="hNz-5f-bS4" id="VhI-kt-cPX"/>
-                        <outlet property="doneButton" destination="CMI-uf-kKA" id="xMo-ZS-JWC"/>
                         <outlet property="errorMessage" destination="MFV-dq-tXC" id="47w-gr-bfL"/>
                         <outlet property="indicator" destination="KO5-lz-wZv" id="La8-1J-hLP"/>
                         <outlet property="retryButton" destination="pcn-y1-x92" id="hPa-aR-01k"/>
-                        <outlet property="searchButton" destination="qdn-AW-6Of" id="hmc-n3-gnH"/>
-                        <outlet property="settingButton" destination="Ywn-mt-AeI" id="XJh-yU-Fs6"/>
-                        <outlet property="stopButton" destination="z2A-VN-sRB" id="FNa-80-ZfG"/>
                         <outlet property="updateIndicator" destination="SO9-cE-nwu" id="lcD-s5-WIv"/>
                         <segue destination="5By-Wf-lM7" kind="show" identifier="user_settings" id="A1O-vz-eor"/>
                         <segue destination="YRz-sv-vaW" kind="show" identifier="show_dialog_wc" id="x4o-MY-LrH"/>

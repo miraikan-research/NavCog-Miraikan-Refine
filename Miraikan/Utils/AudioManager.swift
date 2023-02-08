@@ -80,7 +80,7 @@ final public class AudioManager: NSObject {
 
     func setupInitialize() {
         
-        var msg = NSLocalizedString("If you point your smartphone's camera at the front, you'll get an explanation of the exhibition, and if you point it at the ground, you'll be guided through the route.", comment: "")
+        var msg = NSLocalizedString("Point your phone's camera at the front and slowly move left and right to look for sound guidance.", comment: "")
         msg += NSLocalizedString("Audio stops when you double tap the screen.", comment: "")
         self.speakTexts.append(msg)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
