@@ -14,14 +14,8 @@ class MainTabController: UITabBarController, UITabBarControllerDelegate {
     
     private var buttonBaseView = ThroughView()
     private var voiceGuideButton = VoiceGuideButton()
-//    private var logButton = LocationRecordingButton()
-//    private var locationButton = LocationInputButton()
-//    private var locationInputView = LocationInputView()
     var voiceGuideObserver: NSKeyValueObservation?
     var footerButtonViewObserver: NSKeyValueObservation?
-//    var debugObserver: NSKeyValueObservation?
-//    var debugLocationObserver: NSKeyValueObservation?
-//    var locationObserver: NSKeyValueObservation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,81 +96,40 @@ class MainTabController: UITabBarController, UITabBarControllerDelegate {
                 self.buttonBaseView.isHidden = !change
             }
         })
-
-//        locationObserver = UserDefaults.standard.observe(\.isLocationInput, options: [.initial, .new], changeHandler: { [weak self] (defaults, change) in
-//            guard let self = self else { return }
-//            if let change = change.newValue {
-//                self.locationInputView.isDisplayButton(change)
-//            }
-//        })
-//
-//        debugObserver = UserDefaults.standard.observe(\.DebugMode, options: [.initial, .new], changeHandler: { [weak self] (defaults, change) in
-//            guard let self = self else { return }
-//            if let change = change.newValue {
-//                UserDefaults.standard.set(false, forKey: "isMoveLogStart")
-//                self.logButton.isDisplayButton(change)
-//            }
-//        })
-//
-//        debugLocationObserver = UserDefaults.standard.observe(\.DebugLocationInput, options: [.initial, .new], changeHandler: { [weak self] (defaults, change) in
-//            guard let self = self else { return }
-//            if let change = change.newValue {
-//                self.locationButton.isDisplayButton(change)
-//                if !change {
-//                    let center = NotificationCenter.default
-//                    center.post(name: NSNotification.Name(rawValue: "request_location_restart"), object: self)
-//                }
-//            }
-//        })
     }
 
     private func setLayerButton() {
-        var rightPadding: CGFloat = 0
-//        var leftPadding: CGFloat = 0
-        var bottomPadding: CGFloat = 0
-        if let window = UIApplication.shared.windows.first {
-            rightPadding = window.safeAreaInsets.right
-//            leftPadding = window.safeAreaInsets.left
-            bottomPadding = window.safeAreaInsets.bottom
-        }
+        setLayerBaseView()
+        setLayerVoiceGuideButton()
+    }
 
-        let tabHeight = self.tabBar.frame.height
-
-        buttonBaseView.frame = CGRect(x: 0,
-                                      y: UIScreen.main.bounds.height - 100 - tabHeight - bottomPadding,
-                                      width: UIScreen.main.bounds.width,
-                                      height: 100)
+    func setLayerBaseView() {
         buttonBaseView.backgroundColor = .clear
         self.view.addSubview(buttonBaseView)
 
-        voiceGuideButton.frame = CGRect(x: UIScreen.main.bounds.width - 100 - rightPadding,
-                                        y: 10,
-                                        width: 80,
-                                        height: 80)
-        buttonBaseView.addSubview(voiceGuideButton)
+        var bottomPadding: CGFloat = 0
+        if let window = UIApplication.shared.windows.first {
+            bottomPadding = window.safeAreaInsets.bottom
+        }
+        let tabHeight = self.tabBar.frame.height
+        
+        buttonBaseView.translatesAutoresizingMaskIntoConstraints = false
+        let leading = buttonBaseView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0)
+        let trailing = buttonBaseView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
+        let bottom = buttonBaseView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -(tabHeight + bottomPadding))
+        let heightConstraint = buttonBaseView.heightAnchor.constraint(equalToConstant: 100)
+        NSLayoutConstraint.activate([leading, trailing, bottom, heightConstraint])
 
-//        logButton.frame = CGRect(x: UIScreen.main.bounds.width - 100 - 10 - 60 - rightPadding,
-//                                 y: 20,
-//                                 width: 60,
-//                                 height: 60)
-//        buttonBaseView.addSubview(logButton)
-//
-//        locationButton.frame = CGRect(x: leftPadding + leftPadding + 100,
-//                                      y: 20,
-//                                      width: 60,
-//                                      height: 60)
-//        buttonBaseView.addSubview(locationButton)
-//
-//        locationInputView.frame = CGRect(x: 0,
-//                                         y: 0,
-//                                         width: 360,
-//                                         height: 440)
-//        locationInputView.center = CGPoint(x: UIScreen.main.bounds.width / 2, y: UIScreen.main.bounds.height / 3)
-//        self.view.addSubview(locationInputView)
     }
-
-//    private func showSettings() {
-//        let vc = NaviSettingController(title: NSLocalizedString("Navi Settings", comment: ""))
-//        self.present(vc, animated: true, completion: nil)
-//    }
+    
+    func setLayerVoiceGuideButton() {
+        buttonBaseView.addSubview(voiceGuideButton)
+        
+        voiceGuideButton.translatesAutoresizingMaskIntoConstraints = false
+        let trailing = voiceGuideButton.trailingAnchor.constraint(equalTo: buttonBaseView.trailingAnchor, constant: -10)
+        let centerYConstraint = voiceGuideButton.centerYAnchor.constraint(equalTo: buttonBaseView.centerYAnchor)
+        let widthConstraint = voiceGuideButton.widthAnchor.constraint(equalToConstant: 80)
+        let heightConstraint = voiceGuideButton.heightAnchor.constraint(equalToConstant: 80)
+        NSLayoutConstraint.activate([trailing, centerYConstraint, widthConstraint, heightConstraint])
+    }
 }
