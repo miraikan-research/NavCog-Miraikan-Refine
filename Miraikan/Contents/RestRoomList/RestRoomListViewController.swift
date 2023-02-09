@@ -83,10 +83,6 @@ class RestRoomListViewController: BaseListController, BaseListDelegate {
     }
 
     // MARK: UITableView
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return nil
-    }
-
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if (indexPath.row % 2 == 0) {
             cell.backgroundColor = .tertiarySystemGroupedBackground

@@ -104,7 +104,7 @@ class DestinationViewController: BaseListController, BaseListDelegate {
             let item = items[indexPath.section]
             if let list = item.items,
                indexPath.row < list.count {
-                if let cell = tableView.dequeueReusableCell(withIdentifier: "DestinationCell",
+                if let cell = tableView.dequeueReusableCell(withIdentifier: destinationId,
                                                             for: indexPath) as? DestinationCell {
                     cell.configure(list[indexPath.row])
                     return cell

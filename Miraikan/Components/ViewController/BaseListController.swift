@@ -51,7 +51,7 @@ class BaseListController: UITableViewController {
 
     // MARK: init
     init(title: String?) {
-        super.init(style: .grouped)
+        super.init(style: .plain)
         self.title = title
     }
 
