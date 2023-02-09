@@ -111,21 +111,22 @@ class MiraikanController: BaseController {
         let font = UIFont.systemFont(ofSize: desc.pointSize, weight: .bold)
         titleLabel.font = metrics.scaledFont(for: font)
         titleLabel.accessibilityLabel = NSLocalizedString("Home pron", comment: "")
+        let pointSize = desc.pointSize
 
         switch MiraikanUtil.routeMode {
         case .general:
             textAttachment.image = UIImage(named: "icons8-general")
-            textAttachment.bounds = CGRect(x: 0, y: -4, width: 24, height: 24)
+            textAttachment.bounds = CGRect(x: 0, y: -pointSize/5, width: pointSize * 6/5, height: pointSize * 6/5)
             attributedString.append(NSAttributedString(attachment: textAttachment))
             break
         case .wheelchair:
             textAttachment.image = UIImage(named: "icons8-wheelchair")
-            textAttachment.bounds = CGRect(x: 0, y: -4, width: 24, height: 24)
+            textAttachment.bounds = CGRect(x: 0, y: -pointSize/5, width: pointSize * 6/5, height: pointSize * 6/5)
             attributedString.append(NSAttributedString(attachment: textAttachment))
             break
         case .blind:
             textAttachment.image = UIImage(named: "icons8-blind")
-            textAttachment.bounds = CGRect(x: 0, y: -4, width: 24, height: 24)
+            textAttachment.bounds = CGRect(x: 0, y: -pointSize/5, width: pointSize * 6/5, height: pointSize * 6/5)
             attributedString.append(NSAttributedString(attachment: textAttachment))
             break
         }
