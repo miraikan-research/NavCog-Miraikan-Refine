@@ -281,7 +281,7 @@ fileprivate class NewsRow : BaseRow {
 /**
  The menu items for the home screen
  */
-fileprivate enum MenuItem {
+enum MenuItem {
     case login
     case miraikanToday
     case permanentExhibition
@@ -475,7 +475,7 @@ class Home : BaseListView {
         // init the tableView
         super.initTable(isSelectionAllowed: true)
 
-        self.tableView.register(BaseRow.self, forCellReuseIdentifier: menuCellId)
+        self.tableView.register(MenuCell.self, forCellReuseIdentifier: menuCellId)
         self.tableView.register(CardRow.self, forCellReuseIdentifier: cardCellId)
         self.tableView.register(NewsRow.self, forCellReuseIdentifier: newsCellId)
         
@@ -566,25 +566,10 @@ class Home : BaseListView {
             return cell
         } else {
             let rowItem = (items as? [Int: [Any]])?[sec]?[row]
-            if let menuItem = rowItem as? MenuItem {
-               let menuRow = tableView.dequeueReusableCell(withIdentifier: menuCellId, for: indexPath)
-                // Normal Menu Row
-                let attrStr = NSMutableAttributedString()
-                attrStr.append(NSAttributedString(string:(menuItem.name)))
-                
-                if let image = UIImage(systemName: "chevron.right") {
-                    let attachment = NSTextAttachment(image: image)
-                    attrStr.append(NSAttributedString(string: " "))
-                    attrStr.append(NSAttributedString(attachment: attachment))
-                }
-                menuRow.textLabel?.attributedText = attrStr
-                menuRow.textLabel?.font = .preferredFont(forTextStyle: .body)
-                menuRow.textLabel?.isEnabled = menuItem.isAvailable
-                menuRow.selectionStyle = menuItem.isAvailable ? .default : .none
-                menuRow.accessibilityLabel = menuItem.isAvailable ? menuItem.name : NSLocalizedString("blank_description", comment: "")
-                menuRow.accessibilityTraits = .button
-
-                return menuRow
+            if let menuItem = rowItem as? MenuItem,
+                let menuCell = tableView.dequeueReusableCell(withIdentifier: menuCellId, for: indexPath) as? MenuCell {
+                    menuCell.configure(menuItem)
+                    return menuCell
             } else if let cardModel = rowItem as? CardModel,
                       let cardRow = tableView.dequeueReusableCell(withIdentifier: cardCellId,
                                                                   for: indexPath) as? CardRow {
@@ -604,15 +589,47 @@ class Home : BaseListView {
         return UITableViewCell()
     }
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sections?[section].title
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let desc = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .subheadline)
+        let baseView = UITableViewHeaderFooterView(frame: CGRect(x:0, y:0, width: tableView.frame.width, height: desc.pointSize * 2))
+        let label = UILabel(frame: CGRect(x:10, y:0, width: tableView.frame.width, height: desc.pointSize * 2))
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        if let sections = sections,
+           section < sections.count,
+           let title = sections[section].title,
+           !title.isEmpty {
+            label.text = sections[section].title
+            label.isAccessibilityElement = false
+            
+            baseView.accessibilityLabel = sections[section].title
+            baseView.accessibilityTraits = .header
+        } else {
+            return nil
+        }
+        baseView.addSubview(label)
+        
+        if #available(iOS 14.0, *) {
+            var backgroundConfiguration = UIBackgroundConfiguration.listPlainHeaderFooter()
+            backgroundConfiguration.backgroundColor = .systemFill
+            baseView.backgroundConfiguration = backgroundConfiguration
+        }
+        return baseView
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if let sections = sections,
+           section < sections.count,
+           let title = sections[section].title,
+           !title.isEmpty {
+            let desc = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .subheadline)
+            return desc.pointSize * 2
+        } else {
+            return 0
+        }
     }
 
     func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        view.tintColor = .systemGray
-        if let header = view as? UITableViewHeaderFooterView {
-            header.textLabel?.textColor = .white
-        }
+        view.tintColor = .systemFill
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
