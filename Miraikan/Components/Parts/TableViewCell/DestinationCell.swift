@@ -77,9 +77,23 @@ class DestinationCell: UITableViewCell {
 
     public func configure(_ model: HLPDirectoryItem) {
         self.model = model
-        titleLabel.text = model.title
-        detailLabel.text = model.subtitle
-        self.accessibilityLabel = model.titlePron + NSLocalizedString("PERIOD", comment: "") + model.subtitlePron
+        var title = model.title
+        var subtitle = model.subtitle
+        
+        titleLabel.text = title
+        detailLabel.text = subtitle
+
+        if let titlePron = model.titlePron {
+            title = titlePron
+        }
+        if let subtitlePron = model.subtitlePron {
+            subtitle = subtitlePron
+        }
+
+        subtitle = StrUtil.getFloorVoiceString(str: subtitle)
+
+        let destination = (title ?? "") + NSLocalizedString("PERIOD", comment: "") + (subtitle ?? "")
+        self.accessibilityLabel = String(format: NSLocalizedString("Guide to %@", comment: ""), destination)
         self.accessibilityTraits = .button
     }
 }

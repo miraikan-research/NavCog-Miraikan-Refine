@@ -346,7 +346,4 @@ NavCogの設定画面から
 
 "metre" = "%d メートル";
 
-"Switch to Miraikan app" = "未来館アプリ切り替え";
-"Do you want to start the Miraikan app?" = "未来館アプリに切り替えますか？";
-"YES" = "YES";
-"NO" = "NO";
+"Exhibitions_List_key" = "展示";
