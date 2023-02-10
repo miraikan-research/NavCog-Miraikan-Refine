@@ -107,4 +107,25 @@ class StrUtil: NSObject {
         }
         return phonationModel
     }
+
+    static public func getFloorVoiceString(str: String?) -> String? {
+
+        if let str = str {
+            var tmpStr = ""
+            let array = str.split(separator: " ")
+            for data in array {
+                var str = String(data)
+                for i in -2..<8 {
+                    if str == "\(i)F" {
+                        str = NSLocalizedString("floor \(i)", tableName: "BlindView", comment: "")
+                        break
+                    }
+                }
+                tmpStr += str + " "
+            }
+            return tmpStr.trimmingCharacters(in: .whitespaces) 
+        }
+        return nil
+    }
+
 }

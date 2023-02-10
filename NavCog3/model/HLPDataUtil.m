@@ -111,7 +111,7 @@
             return;
         }
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DebugMode"]) {
-            [self saveToPlistWithDictionary:json fileName:@"jsonloadDirectoryAtLat.plist"];
+            [self saveToPlistWithDictionary:json fileName:[NSString stringWithFormat:@"jsonloadDirectoryAtLat_%@.plist", lang]];
         }
         NSMutableArray *array = [@[] mutableCopy];
         if (json[@"landmarks"] != nil) {
@@ -168,7 +168,7 @@
             return;
         }
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DebugMode"]) {
-            [self saveToPlistWithDictionary:json fileName:@"jsonloadLandmarksAtLat.plist"];
+            [self saveToPlistWithDictionary:json fileName:[NSString stringWithFormat:@"jsonloadLandmarksAtLat_%@.plist", lang]];
         }
         NSMutableArray *array = [@[] mutableCopy];
         if (json[@"landmarks"] != nil) {
@@ -229,7 +229,7 @@
             return;
         }
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DebugMode"]) {
-            [self saveToPlistWithArray:json fileName:[NSString stringWithFormat:@"jsonloadRouteFromNode_%@_%@.plist", from, to]];
+            [self saveToPlistWithArray:json fileName:[NSString stringWithFormat:@"jsonloadRouteFromNode_%@_%@_%@.plist", from, to, lang]];
         }
         NSMutableArray *array = [@[] mutableCopy];
         for(NSDictionary* dic in json) {
@@ -276,7 +276,7 @@
         }
         
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DebugMode"]) {
-            [self saveToPlistWithDictionary:json fileName:@"jsonloadLandmarksAtLat.plist"];
+            [self saveToPlistWithDictionary:json fileName:[NSString stringWithFormat:@"jsonloadLandmarksAtLat_%@.plist", lang]];
         }
 
         NSMutableArray *array = [@[] mutableCopy];

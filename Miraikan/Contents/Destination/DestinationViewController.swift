@@ -58,7 +58,7 @@ class DestinationViewController: BaseListController, BaseListDelegate {
                 for section in sections {
                     if let subItems = section.items {
                         for subItem in subItems {
-                            if subItem.title == "展示" {
+                            if subItem.title == NSLocalizedString("Exhibitions_List_key", comment: "") {
                                 items = subItem.content.sections
                                 return
                             }
@@ -133,10 +133,10 @@ class DestinationViewController: BaseListController, BaseListDelegate {
         label.font = UIFont.preferredFont(forTextStyle: .subheadline)
         if let items = items as? [HLPDirectorySection],
            section <  items.count {
-            label.text = items[section].title
+           let item = items[section]
+            label.text = item.title
             label.isAccessibilityElement = false
-            
-            baseView.accessibilityLabel = items[section].title
+            baseView.accessibilityLabel = item.title
             baseView.accessibilityTraits = .header
         }
         baseView.addSubview(label)
