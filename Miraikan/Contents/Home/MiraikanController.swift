@@ -111,6 +111,7 @@ class MiraikanController: BaseController {
         let font = UIFont.systemFont(ofSize: desc.pointSize, weight: .bold)
         titleLabel.font = metrics.scaledFont(for: font)
         titleLabel.accessibilityLabel = NSLocalizedString("Home pron", comment: "")
+        titleLabel.adjustsFontSizeToFitWidth = true
         let pointSize = desc.pointSize
 
         switch MiraikanUtil.routeMode {
