@@ -333,7 +333,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
 - (void)updateTitle {
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    UILabel *titleView = [[UILabel alloc] init];
+    UILabel *titleLabel = [[UILabel alloc] init];
     NSString* userMode = [ud stringForKey:@"user_mode"];
     NSMutableAttributedString *attributedString;
     attributedString = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Miraikan", @"")];
@@ -349,15 +349,16 @@ typedef NS_ENUM(NSInteger, ViewState) {
     }
     attachment.bounds = CGRectMake(0, -4, 24, 24);
     [attributedString appendAttributedString:[NSAttributedString attributedStringWithAttachment:attachment]];
-    titleView.attributedText = attributedString;
-    titleView.accessibilityLabel = @"( )";
-    titleView.isAccessibilityElement = NO;
+    titleLabel.attributedText = attributedString;
+    titleLabel.accessibilityLabel = @"( )";
+    titleLabel.isAccessibilityElement = NO;
+    titleLabel.adjustsFontSizeToFitWidth = YES;
 
     UIFontMetrics *metrics = [[UIFontMetrics alloc] initForTextStyle:UIFontTextStyleTitle3];
     UIFontDescriptor *desc = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleTitle3];
     UIFont *font = [UIFont systemFontOfSize:desc.pointSize weight:UIFontWeightBold];
-    titleView.font = [metrics scaledFontForFont:font];
-    self.navigationItem.titleView = titleView;
+    titleLabel.font = [metrics scaledFontForFont:font];
+    self.navigationItem.titleView = titleLabel;
 }
 
 - (void)updateView
