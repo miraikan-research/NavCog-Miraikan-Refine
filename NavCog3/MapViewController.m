@@ -1588,16 +1588,23 @@ typedef NS_ENUM(NSInteger, ViewState) {
 - (void)setTalkButton
 {
     if (!talkButton) {
-        double scale = 0.75;
-        double size = (113*scale)/2;
-        double x = size+8;
-        double y = self.view.bounds.size.height + self.view.bounds.origin.y - (size+8);
-        y -= self.view.safeAreaInsets.bottom;
+        double size = 40;
 
-        talkButton = [[NavTalkButton alloc] initWithFrame:CGRectMake(x - size, y - size, size * 2, size * 2)];
+        talkButton = [[NavTalkButton alloc] init];
         [talkButton setHidden:true];
         [self.view addSubview: talkButton];
         [talkButton addTarget:self action:@selector(talkTap:) forControlEvents:UIControlEventTouchUpInside];
+
+        [talkButton setTranslatesAutoresizingMaskIntoConstraints:NO];
+        NSLayoutConstraint* leftAnchor = [talkButton.leftAnchor constraintEqualToAnchor:self.view.leftAnchor constant: 8];
+        NSLayoutConstraint* bottomAnchor = [talkButton.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor constant: -8];
+        NSLayoutConstraint* heightAnchor = [talkButton.heightAnchor constraintEqualToConstant: size * 2];
+        NSLayoutConstraint* widthAnchor = [talkButton.widthAnchor constraintEqualToConstant: size * 2];
+
+        [self.view addConstraint:leftAnchor];
+        [self.view addConstraint:bottomAnchor];
+        [self.view addConstraint:heightAnchor];
+        [self.view addConstraint:widthAnchor];
     }
 }
 

@@ -67,15 +67,23 @@
 
 - (void)setImage:(CGRect)rect
 {
-    UIImage *aImage = [UIImage imageNamed:@"icons8-microphone"];
+    UIImage *image = [UIImage imageNamed:@"icons8-microphone"];
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
 
-    aImage = [aImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-    UIImageView *aImageView = [[UIImageView alloc] initWithImage:aImage];
-
-    aImageView.tintColor = [UIColor colorWithRed: 50.0/255.0 green:92.0/255.0 blue:128.0/255.0 alpha:1];
-    aImageView.center = CGPointMake(rect.size.width  / 2,
-                                    rect.size.height / 2);
-    [self addSubview:aImageView];
+    imageView.tintColor = [UIColor colorWithRed: 50.0/255.0 green:92.0/255.0 blue:128.0/255.0 alpha:1];
+    [self addSubview:imageView];
+    
+    [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
+    NSLayoutConstraint* centerXAnchor = [imageView.centerXAnchor constraintEqualToAnchor:self.centerXAnchor];
+    NSLayoutConstraint* centerYAnchor = [imageView.centerYAnchor constraintEqualToAnchor:self.centerYAnchor];
+    NSLayoutConstraint* heightAnchor = [imageView.heightAnchor constraintEqualToAnchor:self.heightAnchor multiplier:0.5];
+    NSLayoutConstraint* widthAnchor = [imageView.widthAnchor constraintEqualToAnchor:self.widthAnchor multiplier:0.5];
+    
+    [self addConstraint:centerXAnchor];
+    [self addConstraint:centerYAnchor];
+    [self addConstraint:heightAnchor];
+    [self addConstraint:widthAnchor];
 }
 
 @end
