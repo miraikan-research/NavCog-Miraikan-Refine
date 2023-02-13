@@ -93,6 +93,11 @@ final public class ArManager: NSObject {
             }
         }
 
+        if (arUcoModel.markerPoint ?? false) && isDebug {
+            let phonation = arUcoModel.titlePron + NSLocalizedString("PERIOD", comment: "") + NSLocalizedString("to the entrance", comment: "") + meterString
+            phonationModel.append(str: phonation)
+        }
+
         if !isGuideMarker() {
             if let flatGuideList = arUcoModel.flatGuide,
                distance < 3.0 {
