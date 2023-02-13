@@ -48,6 +48,7 @@ class IDListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         view.addSubview(tableView)
+        setHeaderFooter()
 
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleTap(_:)))
         doubleTapGesture.numberOfTapsRequired = 2
@@ -103,6 +104,11 @@ extension IDListViewController: UITableViewDelegate {
 
 extension IDListViewController {
     
+    private func setHeaderFooter() {
+        let footerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 300.0))
+        self.tableView.tableFooterView = footerView
+    }
+
     @objc func doubleTap(_ gesture: UITapGestureRecognizer) {
         AudioManager.shared.stop()
     }
@@ -114,7 +120,7 @@ extension IDListViewController {
         transform.yaw = 90
 
         let phonationModel = ArManager.shared.setSpeakStr(arUcoModel: arUcoModel, transform: transform, isDebug: true)
-        cell.textLabel?.text = String(arUcoModel.id) + "\n" + phonationModel.string
+        cell.textLabel?.text = String(arUcoModel.id) + "  markerSize  " + String(arUcoModel.marker ?? 10) + "cm\n" + phonationModel.string
         cell.textLabel?.accessibilityLabel = phonationModel.phonation
     }
 }
