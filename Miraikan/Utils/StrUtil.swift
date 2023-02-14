@@ -43,68 +43,57 @@ class StrUtil: NSObject {
         }
     }
 
-    // 上を正面で角度0度、左回りに角度が加算される時の方角文字列
-//    static public func getDirectionString(angle: Float) -> PhonationModel {
-//        let phonationModel = PhonationModel()
-//        let HourAngle = Float(360 / 24)
-//
-//        if HourAngle < angle && angle <= HourAngle * 3 {
-//            phonationModel.setUp(string: "11時の方向", phonation: "11時の方向")
-//        } else if HourAngle * 3 < angle && angle <= HourAngle * 5 {
-//            phonationModel.setUp(string: "10時の方向", phonation: "10時の方向")
-//        } else if HourAngle * 5 < angle && angle <= HourAngle * 7 {
-//            phonationModel.setUp(string: "左方向", phonation: "左方向")
-//        } else if HourAngle * 7 < angle && angle <= HourAngle * 9 {
-//            phonationModel.setUp(string: "8時の方向", phonation: "8時の方向")
-//        } else if HourAngle * 9 < angle && angle <= HourAngle * 11 {
-//            phonationModel.setUp(string: "7時の方向", phonation: "7時の方向")
-//        } else if HourAngle * 11 < angle && angle <= HourAngle * 13 {
-//            phonationModel.setUp(string: "後ろ", phonation: "後ろ")
-//        } else if HourAngle * 13 < angle && angle <= HourAngle * 15 {
-//            phonationModel.setUp(string: "5時の方向", phonation: "5時の方向")
-//        } else if HourAngle * 15 < angle && angle <= HourAngle * 17 {
-//            phonationModel.setUp(string: "4時の方向", phonation: "4時の方向")
-//        } else if HourAngle * 17 < angle && angle <= HourAngle * 19 {
-//            phonationModel.setUp(string: "右方向", phonation: "右方向")
-//        } else if HourAngle * 19 < angle && angle <= HourAngle * 21 {
-//            phonationModel.setUp(string: "2時の方向", phonation: "2時の方向")
-//        } else if HourAngle * 21 < angle && angle <= HourAngle * 23 {
-//            phonationModel.setUp(string: "1時の方向", phonation: "1時の方向")
-//        } else {
-//            phonationModel.setUp(string: "正面", phonation: "正面")
-//        }
-//        return phonationModel
-//    }
+    static public func getClockPosition(angle: Double) -> PhonationModel {
+        let phonationModel = PhonationModel()
+
+        let clockPosition = 12 - Int(floor(Double(angle + 15) / 30 )) % 12
+        let str = String(format: NSLocalizedString("clock position %@", tableName: "BlindView", comment: ""), String(clockPosition))
+        phonationModel.setUp(string: str, phonation: str)
+        return phonationModel
+    }
 
     static public func getDirectionString(angle: Double) -> PhonationModel {
         let phonationModel = PhonationModel()
         let HourAngle = Double(360 / 24)
 
+        // 正面 -30 ~ +30 //
+        var str = NSLocalizedString("in front of you", tableName: "BlindView", comment: "")
+        
         if HourAngle < angle && angle <= HourAngle * 3 {
-            phonationModel.setUp(string: "やや左方向", phonation: "やや左方向")
+            // やや左方向 +15 ~ +45 //
+            str = NSLocalizedString("slightly to the left", tableName: "BlindView", comment: "")
         } else if HourAngle * 3 < angle && angle <= HourAngle * 5 {
-            phonationModel.setUp(string: "斜め左方向", phonation: "斜め左方向")
+            // 斜め左方向 +45 ~ +75 //
+            str = NSLocalizedString("The slant left direction", tableName: "BlindView", comment: "")
         } else if HourAngle * 5 < angle && angle <= HourAngle * 7 {
-            phonationModel.setUp(string: "左方向", phonation: "左方向")
+            // 左方向 +75 ~ +105 //
+            str = NSLocalizedString("LEFT_DIRECTION", tableName: "BlindView", comment: "")
         } else if HourAngle * 7 < angle && angle <= HourAngle * 9 {
-            phonationModel.setUp(string: "左斜め後ろ方向", phonation: "左斜め後ろ方向")
+            // 左斜め後ろ方向 +105 ~ +135 //
+            str = NSLocalizedString("LEFT_BACK_DIRECTION", tableName: "BlindView", comment: "")
         } else if HourAngle * 9 < angle && angle <= HourAngle * 11 {
-            phonationModel.setUp(string: "左斜め後ろ方向", phonation: "左斜め後ろ方向")
+            // 左斜め後ろ方向 +135 ~ +165 //
+            str = NSLocalizedString("LEFT_BACK_DIRECTION", tableName: "BlindView", comment: "")
         } else if HourAngle * 11 < angle && angle <= HourAngle * 13 {
-            phonationModel.setUp(string: "後ろ", phonation: "後ろ")
+            // 後ろ +165 ~ +195 //
+            str = NSLocalizedString("BACK_DIRECTION", tableName: "BlindView", comment: "")
         } else if HourAngle * 13 < angle && angle <= HourAngle * 15 {
-            phonationModel.setUp(string: "右斜め後ろ方向", phonation: "右斜め後ろ方向")
+            // 右斜め後ろ方向 +195 ~ +225 //
+            str = NSLocalizedString("RIGHT_BACK_DIRECTION", tableName: "BlindView", comment: "")
         } else if HourAngle * 15 < angle && angle <= HourAngle * 17 {
-            phonationModel.setUp(string: "右斜め後ろ方向", phonation: "右斜め後ろ方向")
+            // 右斜め後ろ方向 +225 ~ +255 //
+            str = NSLocalizedString("RIGHT_BACK_DIRECTION", tableName: "BlindView", comment: "")
         } else if HourAngle * 17 < angle && angle <= HourAngle * 19 {
-            phonationModel.setUp(string: "右方向", phonation: "右方向")
+            // 右方向 +255 ~ +285 //
+            str = NSLocalizedString("RIGHT_DIRECTION", tableName: "BlindView", comment: "")
         } else if HourAngle * 19 < angle && angle <= HourAngle * 21 {
-            phonationModel.setUp(string: "斜め右方向", phonation: "斜め右方向")
+            // 斜め右方向 +285 ~ +315 //
+            str = NSLocalizedString("The slant right direction", tableName: "BlindView", comment: "")
         } else if HourAngle * 21 < angle && angle <= HourAngle * 23 {
-            phonationModel.setUp(string: "やや右方向", phonation: "やや右方向")
-        } else {
-            phonationModel.setUp(string: "正面", phonation: "正面")
+            // やや右方向 +315 ~ +345 //
+            str = NSLocalizedString("slightly to the right", tableName: "BlindView", comment: "")
         }
+        phonationModel.setUp(string: str, phonation: str)
         return phonationModel
     }
 
