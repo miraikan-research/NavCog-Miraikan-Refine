@@ -26,64 +26,95 @@
 
 import UIKit
 
-/**
- A button for HTML style RadioGroup
- */
+
 class RadioButton: UIButton {
-    
-    private var action: ((UIButton)->())?
+
+    private var action: ((UIView)->())?
+    private let baseView = UIView()
+    private let radioImage = UIImageView()
+    private let valueLabel = UILabel()
 
     var isChecked: Bool {
         didSet {
             setImage()
-            layoutSubviews()
+            self.isSelected = isChecked
         }
     }
-
-    private let radioSize = CGSize(width: 30, height: 30)
-    private var img: UIImage?
 
     override init(frame: CGRect) {
         isChecked = false
         super.init(frame: frame)
+        self.isAccessibilityElement = true
+        setupBaseView()
         setImage()
+        setupImageView()
+        setupValueLabel()
+        
+        self.isUserInteractionEnabled = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self,
+                                                          action: #selector(_tapAction(_:)))
+        self.addGestureRecognizer(tapGestureRecognizer)
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    private func setupBaseView() {
+        self.addSubview(baseView)
+
+        baseView.translatesAutoresizingMaskIntoConstraints = false
+        let widthConstraint = baseView.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.95)
+        let heightConstraint = baseView.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.95)
+        let centerXConstraint = baseView.centerXAnchor.constraint(equalTo: self.centerXAnchor)
+        let centerYConstraint = baseView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+        NSLayoutConstraint.activate([widthConstraint, heightConstraint, centerXConstraint, centerYConstraint])
+    }
+
     private func setImage() {
         let imgName = isChecked ? "icons8-checked-radio-button" : "icons8-unchecked-radio-button"
-        img = UIImage(named: imgName)
-        self.titleLabel?.sizeToFit()
-        self.setImage(img, for: .normal)
+        radioImage.image = UIImage(named: imgName)
     }
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        let imageAdaptor = ImageAdaptor(img: img)
-        let rescaledSize = imageAdaptor.scaleImage(viewSize: radioSize,
-                                                   frameWidth: radioSize.width)
-        self.imageView?.frame = CGRect(origin: .zero, size: rescaledSize)
-        self.titleLabel?.frame.size = CGSize(width: self.frame.width - radioSize.width,
-                                             height: self.titleLabel!.intrinsicContentSize.height)
-        self.titleLabel?.frame.origin.x = radioSize.width + CGFloat(10)
-        self.titleLabel?.center.y = self.imageView!.center.y
+    private func setupImageView() {
+        baseView.addSubview(radioImage)
+
+        let desc = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .callout)
+        radioImage.translatesAutoresizingMaskIntoConstraints = false
+        let widthConstraint = radioImage.widthAnchor.constraint(equalToConstant: desc.pointSize * 2)
+        let heightConstraint = radioImage.heightAnchor.constraint(equalToConstant: desc.pointSize * 2)
+        let leading = radioImage.leadingAnchor.constraint(equalTo: baseView.leadingAnchor, constant: 0)
+        let centerYConstraint = radioImage.centerYAnchor.constraint(equalTo: baseView.centerYAnchor)
+        NSLayoutConstraint.activate([widthConstraint, heightConstraint, leading, centerYConstraint])
     }
 
-    override func sizeThatFits(_ size: CGSize) -> CGSize {
-        let height = min(radioSize.height, self.titleLabel!.intrinsicContentSize.height)
-        return CGSize(width: size.width, height: height)
-    }
+    private func setupValueLabel() {
+        valueLabel.font = .preferredFont(forTextStyle: .callout)
+        valueLabel.numberOfLines = 0
+        valueLabel.lineBreakMode = .byClipping
+        baseView.addSubview(valueLabel)
 
-    @objc public func tapAction(_ action: @escaping ((UIButton)->())) {
-        self.action = action
-        self.addTarget(self, action: #selector(_tapAction(_:)), for: .touchUpInside)
+        let desc = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .callout)
+
+        valueLabel.translatesAutoresizingMaskIntoConstraints = false
+        let leading = valueLabel.leadingAnchor.constraint(equalTo: radioImage.trailingAnchor, constant: desc.pointSize / 2)
+        let trailing = valueLabel.trailingAnchor.constraint(equalTo: baseView.trailingAnchor, constant: -desc.pointSize / 2)
+        let top = valueLabel.topAnchor.constraint(equalTo: baseView.topAnchor, constant: desc.pointSize / 2)
+        let bottom = valueLabel.bottomAnchor.constraint(equalTo: baseView.bottomAnchor, constant: -desc.pointSize / 2)
+        NSLayoutConstraint.activate([leading, trailing, top, bottom])
+        valueLabel.setContentHuggingPriority(.defaultLow, for: .vertical)
     }
     
-    @objc private func _tapAction(_ sender: UIButton) {
+    func setText(text: String) {
+        valueLabel.text = text
+        self.accessibilityLabel = text
+    }
+
+    @objc public func tapAction(_ action: @escaping ((UIView)->())) {
+        self.action = action
+    }
+    
+    @objc private func _tapAction(_ sender: UIView) {
         if let _f = self.action {
             _f(self)
         }
