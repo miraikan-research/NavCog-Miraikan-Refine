@@ -307,6 +307,8 @@ NavCogの設定画面から
 
 "Old Mode" = "旧表示";
 
+"AR marker immediate loading standby" = "ARマーカー即時読み込み待機";
+
 // local push
 "Today's event is over" = "本日のイベントは終了しています";
 "It will start soon. Please head to the venue" = "まもなく開始されます。会場に向かってください";

@@ -42,32 +42,22 @@ final public class AudioManager: NSObject {
     private let tts = DefaultTTS()
     private(set) var isPlaying = false
     private(set) var isSoundEffect = false
-    private var cacheTexts = [String](repeating: "", count: 3)
-    private var ids = [Int?](repeating: nil, count: 3)
-    
-    private var voiceList = [VoiceModel?](repeating: nil, count: 3)
-    
-    private var speakTexts: [String] = []
-    private var repeatText: String?
+
+    private var voiceList: [VoiceModel] = []
+
+    private var speakingData: VoiceModel?
     private var player: AVAudioPlayer?
 
-    private var initializeTime: Double = 0
-
+    private var lastSpeakTime: Double = 0
     private var soundEffectTime: Double = 0
     private var intervalTime: Double = 0
 
-    @objc dynamic var isDisplay = true
-    private var isActive = true
-
-    private let checkTime: Double = 1
-
-    private var filePath: URL?
     private var lang = ""
 
     private override init() {
         super.init()
         lang = NSLocalizedString("lang", comment: "")
-        initializeTime = Date().timeIntervalSince1970
+        lastSpeakTime = Date().timeIntervalSince1970
         
         let center = NotificationCenter.default
         center.addObserver(self,
@@ -82,7 +72,7 @@ final public class AudioManager: NSObject {
         
         var msg = NSLocalizedString("Point your phone's camera at the front and slowly move left and right to look for sound guidance.", comment: "")
         msg += NSLocalizedString("Audio stops when you double tap the screen.", comment: "")
-        self.speakTexts.append(msg)
+        self.voiceList.append(VoiceModel(id: nil, message: msg, priority: 10))
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             _ = self.dequeueSpeak()
         }
@@ -90,40 +80,58 @@ final public class AudioManager: NSObject {
 
     func setupStartingPoint() {
         self.stop()
-        self.speakTexts.append(NSLocalizedString("With your smartphone's camera facing forward and upwards, slowly turn left and right, looking for sound guidance.", comment: ""))
+        let msg = NSLocalizedString("With your smartphone's camera facing forward and upwards, slowly turn left and right, looking for sound guidance.", comment: "")
+        self.voiceList.append(VoiceModel(id: nil, message: msg, priority: 10))
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             _ = self.dequeueSpeak()
         }
     }
 
-    func isDisplayButton(_ isDisplay: Bool) {
-        self.isDisplay = isDisplay
-    }
-
-    func isActive(_ isActive: Bool) {
-        self.speakTexts.removeAll()
-        self.isActive = isActive
-    }
-
-    func isStack() -> Bool {
-        !self.speakTexts.isEmpty
-    }
-
     func addGuide(text: String, id: Int? = nil, priority: Int = 10) {
-        
-        if let voiceData = self.voiceList.first,
-           let voicePriority = voiceData?.priority,
-           voicePriority < priority {
-            self.voiceList.removeAll()
-        } else if self.isPlaying {
-            return
+        if text.isEmpty { return }
+
+        if UserDefaults.standard.bool(forKey: "ARMarkerWait") {
+            if self.isPlaying {
+                return
+            }
         }
 
-        if !text.isEmpty {
-            self.voiceList.removeFirst()
-            self.voiceList.append(VoiceModel(id: id, message: text, priority: priority))
-            self.speakTexts.append(text)
+        var waitTime = 0.0
+        
+        if self.isPlaying {
+            if self.speakingData?.id == id ||
+                id == nil {
+                // 再生中の同一音声は追加しない
+                return
+            }
+            if let model = voiceList.last,
+               model.id != nil,
+               id == model.id {
+                // 再生中で最後に追加された音声と同一の内容は追加しない
+                return
+            }
+            
+            self.stop()
+            self.voiceList.removeAll()
+            waitTime = 1.0
+        } else if let model = voiceList.last,
+                  model.id != nil {
+
+            if id == model.id {
+                if lastSpeakTime + 3.0 > Date().timeIntervalSince1970 {
+                    return
+                }
+            } else {
+                if lastSpeakTime + 1.0 > Date().timeIntervalSince1970 {
+                    return
+                }
+            }
+        }
+        
+        self.voiceList.removeAll()
+        self.voiceList.append(VoiceModel(id: id, message: text, priority: priority))
+        DispatchQueue.main.asyncAfter(deadline: .now() + waitTime) {
             _ = self.dequeueSpeak()
         }
     }
@@ -135,37 +143,37 @@ final public class AudioManager: NSObject {
 
     func repeatSpeak() {
         if !self.isPlaying,
-           let repeatText = repeatText {
-            self.play(text: repeatText)
+           let speakingData = self.speakingData {
+            self.play(model: speakingData)
         }
     }
 
     func forcedSpeak(text: String) {
         self.stop()
-        self.play(text: text)
+        self.play(model: VoiceModel(id: nil, message: text, priority: 100))
     }
 
-    private func play(text: String) {
+    private func play(model: VoiceModel) {
         if self.isPlaying { return }
 
         self.isPlaying = true
-        tts.speak(text, callback: { [weak self] in
+        self.speakingData = model
+        tts.speak(model.message, callback: { [weak self] in
             guard let self = self else { return }
             self.isPlaying = false
         })
 
         if let delegate = delegate {
-            delegate.speakingMessage(message: text)
+            delegate.speakingMessage(message: model.message)
         }
     }
 
     private func dequeueSpeak() -> Bool {
         if self.isPlaying { return false }
 //        if UIAccessibility.isVoiceOverRunning { return false }
-        if let text = speakTexts.first {
-            repeatText = text
-            self.play(text: text)
-            self.speakTexts.removeFirst()
+        if let model = voiceList.first {
+            self.play(model: model)
+            self.voiceList.removeFirst()
         }
         return true
     }
@@ -213,6 +221,7 @@ extension AudioManager: AVSpeechSynthesizerDelegate {
 
     public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
         self.isPlaying = false
+        lastSpeakTime = Date().timeIntervalSince1970
         _ = self.dequeueSpeak()
     }
 }

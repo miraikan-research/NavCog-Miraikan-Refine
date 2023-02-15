@@ -249,8 +249,7 @@ final public class ArManager: NSObject {
                 guideSoundTime = now
                 markerCenterFlag = true
             } else if guideSoundTime != 0 &&
-                        guideSoundTime + 1.0 < now &&
-                        !AudioManager.shared.isStack() {
+                        guideSoundTime + 1.0 < now {
                 guideSoundTime = now + 10.0
                 markerCenterFlag = true
 
