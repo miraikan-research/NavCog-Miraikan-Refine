@@ -73,7 +73,13 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      name: "speech_speed",
                                                      desc: NSLocalizedString("Speech Speed Description",
                                                                              comment: "Description for VoiceOver"))))
-        
+
+        cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("AR marker immediate loading standby", comment: ""),
+                                                     key: "ARMarkerWait",
+                                                     isOn: UserDefaults.standard.bool(forKey: "ARMarkerWait"),
+                                                     isEnabled: nil)))
+
         if MiraikanUtil.isLoggedIn {
             cellList.append(CellModel(cellId: buttonId,
                                       model: ButtonModel(title: NSLocalizedString("Logout", comment: ""),
