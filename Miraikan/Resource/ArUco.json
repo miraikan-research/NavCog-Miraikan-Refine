@@ -21,9 +21,9 @@
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 100,
-        "message": "500",
+        "message": "message",
         "message_en": "",
-        "message_pron": "500",
+        "message_pron": "message",
     },
 },
 {
