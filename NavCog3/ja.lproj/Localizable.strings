@@ -349,3 +349,11 @@ NavCogの設定画面から
 "metre" = "%d メートル";
 
 "Exhibitions_List_key" = "展示";
+
+"target marker" = "目標マーカー";
+
+"exposition marker" = "説明マーカー";
+
+"floor marker" = "床マーカー";
+
+"guide marker" = "案内マーカー";

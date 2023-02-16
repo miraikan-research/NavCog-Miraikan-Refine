@@ -119,8 +119,23 @@ extension IDListViewController {
         transform.horizontalDistance = 0.4
         transform.yaw = 90
 
+        let arType = ArManager.shared.getArType(arUcoModel)
+        var markerType = ""
+        switch arType {
+        case .target:
+            markerType =  NSLocalizedString("target marker", comment: "")
+        case .exposition:
+            markerType =  NSLocalizedString("exposition marker", comment: "")
+        case .floor:
+            markerType =  NSLocalizedString("floor marker", comment: "")
+        case .guide:
+            markerType =  NSLocalizedString("guide marker", comment: "")
+        default:
+            break
+        }
+        
         let phonationModel = ArManager.shared.setSpeakStr(arUcoModel: arUcoModel, transform: transform, isDebug: true)
-        cell.textLabel?.text = String(arUcoModel.id) + "  markerSize  " + String(arUcoModel.marker ?? 10) + "cm\n" + phonationModel.string
+        cell.textLabel?.text = String(arUcoModel.id) + "  markerSize  " + String(arUcoModel.marker ?? 10) + "cm  " + markerType + "\n" + phonationModel.string
         cell.textLabel?.accessibilityLabel = phonationModel.phonation
     }
 }
