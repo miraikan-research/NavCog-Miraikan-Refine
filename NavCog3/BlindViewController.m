@@ -643,6 +643,7 @@
     _errorMessage.hidden = YES;
 }
 
+#pragma mark - NavPreviewerDelegate
 - (double)turnAction
 {
     return turnAction;
