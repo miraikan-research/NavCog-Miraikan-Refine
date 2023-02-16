@@ -993,24 +993,22 @@ typedef NS_ENUM(NSInteger, ViewState) {
 }
 
 // blind
+#pragma mark - NavPreviewerDelegate
 - (double)turnAction
 {
     return turnAction;
 }
 
-// blind
 - (BOOL)forwardAction
 {
     return forwardAction;
 }
 
-// blind
 - (void)stopAction
 {
     [motionManager stopDeviceMotionUpdates];
 }
 
-// blind
 - (void)startAction
 {
     BOOL exerciseMode = [NavDataStore sharedDataStore].exerciseMode;
@@ -1332,8 +1330,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
     }];
 }
 
-#pragma mark - NavCommanderDelegate
-
+#pragma mark - HLPTTSProtocol
 - (void)speak:(NSString *)text force:(BOOL)isForce completionHandler:(void (^)(void))handler
 {
     if (!isBlindMode &&
@@ -1345,7 +1342,13 @@ typedef NS_ENUM(NSInteger, ViewState) {
     [[NavDeviceTTS sharedTTS] speak:text withOptions:@{@"force": @(isForce)} completionHandler:handler];
 }
 
+- (BOOL)isSpeaking
+{
+    return [[NavDeviceTTS sharedTTS] isSpeaking];
+}
+
 // blind
+#pragma mark - NavCommanderDelegate
 - (void)speak:(NSString*)text withOptions:(NSDictionary*)options completionHandler:(void (^)(void))handler
 {
     if (!isBlindMode &&
@@ -1357,7 +1360,6 @@ typedef NS_ENUM(NSInteger, ViewState) {
     [[NavDeviceTTS sharedTTS] speak:text withOptions:options completionHandler:handler];
 }
 
-// blind
 - (void)playSuccess
 {
     BOOL result = [[NavSound sharedInstance] vibrate:nil];
@@ -1365,11 +1367,6 @@ typedef NS_ENUM(NSInteger, ViewState) {
     if (result) {
         [[NavDeviceTTS sharedTTS] pause:NAV_SOUND_DELAY];
     }
-}
-
-- (BOOL)isSpeaking
-{
-    return [[NavDeviceTTS sharedTTS] isSpeaking];
 }
 
 - (void)vibrate
@@ -1385,7 +1382,6 @@ typedef NS_ENUM(NSInteger, ViewState) {
     }
 }
 
-// blind
 - (void)executeCommand:(NSString *)command
 {
     JSContext *ctx = [[JSContext alloc] init];
@@ -1471,6 +1467,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
     });
 }
 
+#pragma mark - WebViewControllerDelegate
 - (void)webViewControllerClosed:(WebViewController *)controller
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:REQUEST_NAVIGATION_RESUME object:nil];
