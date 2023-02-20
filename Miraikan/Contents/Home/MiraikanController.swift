@@ -125,6 +125,11 @@ class MiraikanController: BaseController {
             textAttachment.bounds = CGRect(x: 0, y: -pointSize/5, width: pointSize * 6/5, height: pointSize * 6/5)
             attributedString.append(NSAttributedString(attachment: textAttachment))
             break
+        case .stroller:
+            textAttachment.image = UIImage(named: "icons8-stroller")
+            textAttachment.bounds = CGRect(x: 0, y: -pointSize/5, width: pointSize * 6/5, height: pointSize * 6/5)
+            attributedString.append(NSAttributedString(attachment: textAttachment))
+            break
         case .blind:
             textAttachment.image = UIImage(named: "icons8-blind")
             textAttachment.bounds = CGRect(x: 0, y: -pointSize/5, width: pointSize * 6/5, height: pointSize * 6/5)

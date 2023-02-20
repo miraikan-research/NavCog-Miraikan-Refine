@@ -76,6 +76,10 @@
 		E506A01E29937BB20046134F /* ar_exhibition.json in Resources */ = {isa = PBXBuildFile; fileRef = E506A01D2993790F0046134F /* ar_exhibition.json */; };
 		E506A0232994BEB80046134F /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A0222994BEB80046134F /* MenuCell.swift */; };
 		E506A0242994BEB80046134F /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A0222994BEB80046134F /* MenuCell.swift */; };
+		E52D54B629A32B8700D48CF9 /* RadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52D54B529A32B8700D48CF9 /* RadioCell.swift */; };
+		E52D54B729A32B8700D48CF9 /* RadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52D54B529A32B8700D48CF9 /* RadioCell.swift */; };
+		E52D54BA29A335A900D48CF9 /* RadioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52D54B929A335A900D48CF9 /* RadioModel.swift */; };
+		E52D54BB29A335A900D48CF9 /* RadioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52D54B929A335A900D48CF9 /* RadioModel.swift */; };
 		E537504C2977D6D700BC3ACA /* AdditionalLocation.json in Resources */ = {isa = PBXBuildFile; fileRef = E5F6FFDE2977CCB600D5C22B /* AdditionalLocation.json */; };
 		E537504D2977D6D700BC3ACA /* CheckPointPosition.json in Resources */ = {isa = PBXBuildFile; fileRef = E5F6FFE22977CCB600D5C22B /* CheckPointPosition.json */; };
 		E537504E2977D6D700BC3ACA /* event.json in Resources */ = {isa = PBXBuildFile; fileRef = E5F6FFE32977CCB600D5C22B /* event.json */; };
@@ -563,6 +567,8 @@
 		E506A01A29923FB60046134F /* DestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
 		E506A01D2993790F0046134F /* ar_exhibition.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ar_exhibition.json; sourceTree = "<group>"; };
 		E506A0222994BEB80046134F /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		E52D54B529A32B8700D48CF9 /* RadioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioCell.swift; sourceTree = "<group>"; };
+		E52D54B929A335A900D48CF9 /* RadioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioModel.swift; sourceTree = "<group>"; };
 		E53814052989F3D30098E082 /* SliderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderModel.swift; sourceTree = "<group>"; };
 		E53814082989F4DC0098E082 /* SwitchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchModel.swift; sourceTree = "<group>"; };
 		E538140B2989F4F50098E082 /* LabelModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelModel.swift; sourceTree = "<group>"; };
@@ -1184,6 +1190,7 @@
 				E538141A2989F59F0098E082 /* ButtonCell.swift */,
 				E506A01629923F630046134F /* DestinationCell.swift */,
 				E506A0222994BEB80046134F /* MenuCell.swift */,
+				E52D54B529A32B8700D48CF9 /* RadioCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -1312,6 +1319,7 @@
 				E53814082989F4DC0098E082 /* SwitchModel.swift */,
 				E538140B2989F4F50098E082 /* LabelModel.swift */,
 				E538140E2989F50B0098E082 /* ButtonModel.swift */,
+				E52D54B929A335A900D48CF9 /* RadioModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1733,6 +1741,7 @@
 				E5F6FFD02977CCA500D5C22B /* HLPSectionModel.swift in Sources */,
 				7EF45E331E3F1E3700208042 /* DownloadViewController.m in Sources */,
 				E5F600302977CD0E00D5C22B /* EventDetailViewController.swift in Sources */,
+				E52D54BA29A335A900D48CF9 /* RadioModel.swift in Sources */,
 				E5B61E7D2983C08000533B6F /* StyledButton.swift in Sources */,
 				E5B61E4F29823B0F00533B6F /* ArManager.swift in Sources */,
 				E5F6FFFB2977CCC100D5C22B /* NaviSettingController.swift in Sources */,
@@ -1741,6 +1750,7 @@
 				7E96D9361DAD185800D57C8C /* DestinationTableViewController.m in Sources */,
 				E5F6FFB42977CC9300D5C22B /* ScheduleRow.swift in Sources */,
 				E5F6FFD82977CCA500D5C22B /* FloorPlanModel.swift in Sources */,
+				E52D54B629A32B8700D48CF9 /* RadioCell.swift in Sources */,
 				7EF7F7AE1DD1949C000A625A /* NavDataSource.m in Sources */,
 				E5F6000E2977CCD500D5C22B /* ImageAdaptor.swift in Sources */,
 				E5F600102977CCD500D5C22B /* ExhibitionDataStore.swift in Sources */,
@@ -1895,6 +1905,7 @@
 				E53750872977D73900BC3ACA /* RegularExhibitionModel.swift in Sources */,
 				E53750882977D73900BC3ACA /* ScheduleRowModel.swift in Sources */,
 				E53750892977D73900BC3ACA /* AskAIViewController.swift in Sources */,
+				E52D54BB29A335A900D48CF9 /* RadioModel.swift in Sources */,
 				E537508A2977D73900BC3ACA /* DistanceCheckView.swift in Sources */,
 				E53814192989F58C0098E082 /* LabelCell.swift in Sources */,
 				E537508B2977D73900BC3ACA /* EventDetailView.swift in Sources */,
@@ -1903,6 +1914,7 @@
 				E537508E2977D73900BC3ACA /* ExhibitionView.swift in Sources */,
 				E537508F2977D73900BC3ACA /* FloorMapView.swift in Sources */,
 				E5B61E7629838DEE00533B6F /* IDListViewController.swift in Sources */,
+				E52D54B729A32B8700D48CF9 /* RadioCell.swift in Sources */,
 				E53750902977D73900BC3ACA /* FloorMapViewController.swift in Sources */,
 				E53750912977D73900BC3ACA /* Home.swift in Sources */,
 				E53750922977D73900BC3ACA /* VoiceGuideController.swift in Sources */,
