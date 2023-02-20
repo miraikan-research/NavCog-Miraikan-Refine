@@ -46,7 +46,7 @@ class RouteModeRow: UITableViewCell {
     private func setupTitleLabel() {
         titleLabel.isAccessibilityElement = false
         titleLabel.font = .preferredFont(forTextStyle: .callout)
-        titleLabel.text = NSLocalizedString("Mode", comment: "")
+//        titleLabel.text = NSLocalizedString("Mode", comment: "")
         baseView.addSubview(titleLabel)
 
         titleLabel.translatesAutoresizingMaskIntoConstraints = false

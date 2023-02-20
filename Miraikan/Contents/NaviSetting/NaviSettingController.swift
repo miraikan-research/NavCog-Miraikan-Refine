@@ -36,9 +36,14 @@ class NaviSettingController : BaseListController, BaseListDelegate {
     private let sliderId = "sliderCell"
     private let buttonId = "buttonCell"
     
+    private struct SectionModel {
+        let title: String
+        let items: [CellModel]
+    }
+
     private struct CellModel {
-        let cellId : String
-        let model : Any?
+        let cellId: String
+        let model: Any?
     }
     
     override func initTable() {
@@ -55,14 +60,21 @@ class NaviSettingController : BaseListController, BaseListDelegate {
         self.tableView.register(ButtonCell.self, forCellReuseIdentifier: buttonId)
         self.tableView.separatorStyle = .singleLine
 
+        var sectionList: [SectionModel] = []
         var cellList: [CellModel] = []
 
+        var title = NSLocalizedString("Mode", comment: "")
+        cellList.removeAll()
         cellList.append(CellModel(cellId: routeModeId, model: nil))
+        sectionList.append(SectionModel(title: title, items: cellList))
+        
+        title = NSLocalizedString("Voice", comment: "")
+        cellList.removeAll()
         cellList.append(CellModel(cellId: switchId,
-                model: SwitchModel(desc: NSLocalizedString("Voice Guide", comment: ""),
-                                   key: "isVoiceGuideOn",
-                                   isOn: UserDefaults.standard.bool(forKey: "isVoiceGuideOn"),
-                                   isEnabled: nil)))
+                                  model: SwitchModel(desc: NSLocalizedString("Voice Guide", comment: ""),
+                                                     key: "isVoiceGuideOn",
+                                                     isOn: UserDefaults.standard.bool(forKey: "isVoiceGuideOn"),
+                                                     isEnabled: nil)))
         cellList.append(CellModel(cellId: sliderId,
                                   model: SliderModel(min: 0.1,
                                                      max: 1,
@@ -73,14 +85,20 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      name: "speech_speed",
                                                      desc: NSLocalizedString("Speech Speed Description",
                                                                              comment: "Description for VoiceOver"))))
+        sectionList.append(SectionModel(title: title, items: cellList))
 
+        title = NSLocalizedString("Augmented Reality", comment: "")
+        cellList.removeAll()
         cellList.append(CellModel(cellId: switchId,
                                   model: SwitchModel(desc: NSLocalizedString("AR marker immediate loading standby", comment: ""),
                                                      key: "ARMarkerWait",
                                                      isOn: UserDefaults.standard.bool(forKey: "ARMarkerWait"),
                                                      isEnabled: nil)))
+        sectionList.append(SectionModel(title: title, items: cellList))
 
         if MiraikanUtil.isLoggedIn {
+            title = NSLocalizedString("Login", comment: "")
+            cellList.removeAll()
             cellList.append(CellModel(cellId: buttonId,
                                       model: ButtonModel(title: NSLocalizedString("Logout", comment: ""),
                                                          key: "LoggedIn",
@@ -89,6 +107,7 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                             guard let self = self else { return }
                                                             self.navigationController?.popViewController(animated: true)
             })))
+            sectionList.append(SectionModel(title: title, items: cellList))
         }
         var locationStr: String
         if MiraikanUtil.isLocated,
@@ -97,6 +116,9 @@ class NaviSettingController : BaseListController, BaseListDelegate {
         } else {
             locationStr = NSLocalizedString("not_located", comment: "")
         }
+
+        title = NSLocalizedString("Debug", comment: "")
+        cellList.removeAll()
         cellList.append(CellModel(cellId: labelId,
                                   model: LabelModel(title: NSLocalizedString("Current Location", comment: ""),
                                                     value: locationStr
@@ -165,32 +187,41 @@ class NaviSettingController : BaseListController, BaseListDelegate {
             center.post(name: NSNotification.Name(rawValue: REQUEST_LOCATION_START), object: self)
             self.navigationController?.popViewController(animated: true)
         })))
-        self.items = cellList
+        sectionList.append(SectionModel(title: title, items: cellList))
+        
+        self.items = sectionList
     }
     
     func getCell(_ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell? {
-        let item = (items as? [CellModel])?[indexPath.row]
-        guard let cellId = item?.cellId else { return nil }
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-        
-        if let cell = cell as? RouteModeRow {
-            return cell
-        } else if let cell = cell as? LabelCell, let model = item?.model as? LabelModel {
-            cell.configure(model)
-            return cell
-        } else if let cell = cell as? SwitchCell, let model = item?.model as? SwitchModel {
-            cell.configure(model)
-            return cell
-        } else if let cell = cell as? SliderCell,
-                    let model = item?.model as? SliderModel {
-            cell.configure(model)
-            return cell
-        } else if let cell = cell as? ButtonCell,
-                    let model = item?.model as? ButtonModel {
-            cell.configure(model)
-            return cell
+        if let items = items as? [SectionModel] {
+            if  items.count  < indexPath.section {
+                return nil
+            }
+            let sectionData = items[indexPath.section]
+            if sectionData.items.count < indexPath.row {
+                return nil
+            }
+            let item = sectionData.items[indexPath.row]
+            let cellId = item.cellId
+            let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+            if let cell = cell as? RouteModeRow {
+                return cell
+            } else if let cell = cell as? LabelCell, let model = item.model as? LabelModel {
+                cell.configure(model)
+                return cell
+            } else if let cell = cell as? SwitchCell, let model = item.model as? SwitchModel {
+                cell.configure(model)
+                return cell
+            } else if let cell = cell as? SliderCell,
+                        let model = item.model as? SliderModel {
+                cell.configure(model)
+                return cell
+            } else if let cell = cell as? ButtonCell,
+                        let model = item.model as? ButtonModel {
+                cell.configure(model)
+                return cell
+            }
         }
-        
         return nil
     }
     
@@ -205,12 +236,53 @@ class NaviSettingController : BaseListController, BaseListDelegate {
         }
     }
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if let items = items as? [SectionModel] {
+            return items.count
+        }
+        return 0
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if let items = items as? [SectionModel] {
+            if section < items.count {
+                let sectionData = items[section]
+                return sectionData.items.count
+            }
+        }
+        return 0
+    }
+
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UIView()
+        let desc = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .subheadline)
+        let baseView = UITableViewHeaderFooterView(frame: CGRect(x:0, y:0, width: tableView.frame.width, height: desc.pointSize * 2))
+        let label = UILabel(frame: CGRect(x:10, y:0, width: tableView.frame.width, height: desc.pointSize * 2))
+        label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+        if let items = items as? [SectionModel],
+           section <  items.count {
+           let item = items[section]
+            label.text = item.title
+            label.isAccessibilityElement = false
+            baseView.accessibilityLabel = item.title
+            baseView.accessibilityTraits = .header
+        }
+        baseView.addSubview(label)
+        
+        if #available(iOS 14.0, *) {
+            var backgroundConfiguration = UIBackgroundConfiguration.listPlainHeaderFooter()
+            backgroundConfiguration.backgroundColor = .systemFill
+            baseView.backgroundConfiguration = backgroundConfiguration
+        }
+        return baseView
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
+        let desc = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .subheadline)
+        return desc.pointSize * 2
+    }
+
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        view.tintColor = .systemFill
     }
 
 
