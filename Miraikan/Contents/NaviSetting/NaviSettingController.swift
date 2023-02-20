@@ -30,7 +30,7 @@ import UIKit
 
 class NaviSettingController : BaseListController, BaseListDelegate {
     
-    private let routeModeId = "routeModeCell"
+    private let radioId = "radioCell"
     private let labelId = "labelCell"
     private let switchId = "switchCell"
     private let sliderId = "sliderCell"
@@ -53,19 +53,59 @@ class NaviSettingController : BaseListController, BaseListDelegate {
         AudioGuideManager.shared.isDisplayButton(false)
 
         self.baseDelegate = self
-        self.tableView.register(RouteModeRow.self, forCellReuseIdentifier: routeModeId)
+        self.tableView.register(RadioCell.self, forCellReuseIdentifier: radioId)
         self.tableView.register(LabelCell.self, forCellReuseIdentifier: labelId)
         self.tableView.register(SwitchCell.self, forCellReuseIdentifier: switchId)
         self.tableView.register(SliderCell.self, forCellReuseIdentifier: sliderId)
         self.tableView.register(ButtonCell.self, forCellReuseIdentifier: buttonId)
-        self.tableView.separatorStyle = .singleLine
+        self.tableView.separatorStyle = .none
 
         var sectionList: [SectionModel] = []
         var cellList: [CellModel] = []
 
+        let sectionNum = sectionList.count
         var title = NSLocalizedString("Mode", comment: "")
         cellList.removeAll()
-        cellList.append(CellModel(cellId: routeModeId, model: nil))
+        cellList.append(CellModel(cellId: radioId,
+                                  model: RadioModel(title: NSLocalizedString("user_general", comment: ""),
+                                                    key: "general",
+                                                    group: "RouteMode",
+                                                    isEnabled: nil,
+                                                    tapAction: { [weak self] in
+            guard let self = self else { return }
+            self.reloadSection(sectionNum)
+        })))
+
+        cellList.append(CellModel(cellId: radioId,
+                                  model: RadioModel(title: NSLocalizedString("user_wheelchair", comment: ""),
+                                                    key: "wheelchair",
+                                                    group: "RouteMode",
+                                                    isEnabled: nil,
+                                                    tapAction: { [weak self] in
+            guard let self = self else { return }
+            self.reloadSection(sectionNum)
+        })))
+
+//        cellList.append(CellModel(cellId: radioId,
+//                                  model: RadioModel(title: NSLocalizedString("user_stroller", comment: ""),
+//                                                    key: "stroller",
+//                                                    group: "RouteMode",
+//                                                    isEnabled: nil,
+//                                                    tapAction: { [weak self] in
+//            guard let self = self else { return }
+//            self.reloadSection(sectionNum)
+//        })))
+
+        cellList.append(CellModel(cellId: radioId,
+                                  model: RadioModel(title: NSLocalizedString("user_blind", comment: ""),
+                                                    key: "blind",
+                                                    group: "RouteMode",
+                                                    isEnabled: nil,
+                                                    tapAction: { [weak self] in
+            guard let self = self else { return }
+            self.reloadSection(sectionNum)
+        })))
+
         sectionList.append(SectionModel(title: title, items: cellList))
         
         title = NSLocalizedString("Voice", comment: "")
@@ -192,6 +232,12 @@ class NaviSettingController : BaseListController, BaseListDelegate {
         self.items = sectionList
     }
     
+    func reloadSection(_ section: Int) {
+        DispatchQueue.main.async {
+            self.tableView.reloadSections(IndexSet(integer: section), with: .none)
+        }
+    }
+    
     func getCell(_ tableView: UITableView, _ indexPath: IndexPath) -> UITableViewCell? {
         if let items = items as? [SectionModel] {
             if  items.count  < indexPath.section {
@@ -204,7 +250,8 @@ class NaviSettingController : BaseListController, BaseListDelegate {
             let item = sectionData.items[indexPath.row]
             let cellId = item.cellId
             let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
-            if let cell = cell as? RouteModeRow {
+            if let cell = cell as? RadioCell, let model = item.model as? RadioModel {
+                cell.configure(model)
                 return cell
             } else if let cell = cell as? LabelCell, let model = item.model as? LabelModel {
                 cell.configure(model)

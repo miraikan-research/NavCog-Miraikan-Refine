@@ -341,7 +341,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
     if ([userMode isEqualToString:@"user_wheelchair"]) {
         attachment.image = [UIImage imageNamed:@"icons8-wheelchair"];
     } else if ([userMode isEqualToString:@"user_stroller"]) {
-        attachment.image = [UIImage imageNamed:@"icons8-wheelchair"];
+        attachment.image = [UIImage imageNamed:@"icons8-stroller"];
     } else if ([userMode isEqualToString:@"user_blind"]) {
         attachment.image = [UIImage imageNamed:@"icons8-blind"];
     } else {

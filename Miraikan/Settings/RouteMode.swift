@@ -14,7 +14,7 @@ import Foundation
 enum RouteMode: String, CaseIterable {
     case general
     case wheelchair
-//    case stroller
+    case stroller
     case blind
     
     var description: String {
@@ -23,8 +23,8 @@ enum RouteMode: String, CaseIterable {
             return NSLocalizedString("user_general", comment: "")
         case .wheelchair:
             return NSLocalizedString("user_wheelchair", comment: "")
-//        case .stroller:
-//            return NSLocalizedString("user_stroller", comment: "")
+        case .stroller:
+            return NSLocalizedString("user_stroller", comment: "")
         case .blind:
             return NSLocalizedString("user_blind", comment: "")
         }
@@ -36,8 +36,8 @@ enum RouteMode: String, CaseIterable {
             return 1
         case .wheelchair:
             return 2
-//        case .stroller:
-//            return 3
+        case .stroller:
+            return 3
         case .blind:
             return 9
         }
