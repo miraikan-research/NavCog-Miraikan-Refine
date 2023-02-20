@@ -307,6 +307,10 @@ NavCogの設定画面から
 
 "Old Mode" = "旧表示";
 
+"Voice" = "音声";
+"Augmented Reality" = "AR";
+"Debug" = "デバッグ";
+
 "AR marker immediate loading standby" = "ARマーカー即時読み込み待機";
 
 // local push
