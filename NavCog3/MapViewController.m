@@ -1322,8 +1322,33 @@ typedef NS_ENUM(NSInteger, ViewState) {
     dispatch_async(dispatch_get_main_queue(), ^{
         [NavUtil showModalWaitingWithMessage:NSLocalizedString(@"Loading, please wait",@"")];
     });
+    
+    NSString *destinationId;
+    if (destId != nil) {
+        destinationId = destId;
+    } else if (nds.to._id != nil ) {
+        destinationId = nds.to._id;
+    } else {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [NavUtil hideModalWaiting];
+            
+            NSString *title = NSLocalizedString(@"Error", @"");
+            NSString *message = NSLocalizedString(@"Pathfinding failed", @"");
+            NSString *ok = NSLocalizedString(@"OK", @"");
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
+                                                                           message:message
+                                                                    preferredStyle:UIAlertControllerStyleAlert];
+            [alert addAction:[UIAlertAction actionWithTitle:ok
+                                                      style:UIAlertActionStyleDefault
+                                                    handler:^(UIAlertAction *action) {
+                                                      }]];
+            [[self topMostController] presentViewController:alert animated:YES completion:nil];
+        });
+        return;
+    }
+
     [nds requestRerouteFrom:[NavDataStore destinationForCurrentLocation]._id
-                         To:nds.to._id
+                         To:destinationId
             withPreferences:prefs
                    complete:^{
         dispatch_async(dispatch_get_main_queue(), ^{
