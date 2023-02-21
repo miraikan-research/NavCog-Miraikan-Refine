@@ -119,7 +119,17 @@ final public class AudioManager: NSObject {
                   model.id != nil {
 
             if id == model.id {
-                if lastSpeakTime + 3.0 > Date().timeIntervalSince1970 {
+                if lastSpeakTime + 2.0 > Date().timeIntervalSince1970 {
+                    return
+                }
+            } else {
+                if lastSpeakTime + 1.0 > Date().timeIntervalSince1970 {
+                    return
+                }
+            }
+        } else if self.speakingData?.id == id {
+            if id != nil {
+                if lastSpeakTime + 2.0 > Date().timeIntervalSince1970 {
                     return
                 }
             } else {
@@ -161,6 +171,9 @@ final public class AudioManager: NSObject {
         tts.speak(model.message, callback: { [weak self] in
             guard let self = self else { return }
             self.isPlaying = false
+            self.lastSpeakTime = Date().timeIntervalSince1970
+            _ = self.dequeueSpeak()
+
         })
 
         if let delegate = delegate {
@@ -211,18 +224,6 @@ final public class AudioManager: NSObject {
 //        NSLog("\(UIAccessibility.isVoiceOverRunning)")
 //        if UIAccessibility.isVoiceOverRunning { return }
         _ = dequeueSpeak()
-    }
-}
-
-extension AudioManager: AVSpeechSynthesizerDelegate {
-    public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didStart utterance: AVSpeechUtterance) {
-        AudioServicesPlaySystemSound(1102)
-    }
-
-    public func speechSynthesizer(_ synthesizer: AVSpeechSynthesizer, didFinish utterance: AVSpeechUtterance) {
-        self.isPlaying = false
-        lastSpeakTime = Date().timeIntervalSince1970
-        _ = self.dequeueSpeak()
     }
 }
 
