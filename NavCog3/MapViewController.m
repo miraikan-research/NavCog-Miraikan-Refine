@@ -1189,8 +1189,11 @@ typedef NS_ENUM(NSInteger, ViewState) {
     
     [_webView logToServer:@{@"event": @"navigation", @"status": @"finished"}];
 
-    [self checkDestId];
+    BOOL isNearArAlert = [self checkDestId];
     [commander didNavigationFinished:properties];
+    if (!UIAccessibilityIsVoiceOverRunning() || !isNearArAlert) {
+        [commander approaching:properties];
+    }
     [previewer didNavigationFinished:properties];
     
     [[NavDataStore sharedDataStore] clearRoute];

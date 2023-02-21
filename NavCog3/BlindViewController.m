@@ -814,6 +814,7 @@
     [_webView logToServer:@{@"event": @"navigation", @"status": @"finished"}];
 
     [commander didNavigationFinished:properties];
+    [commander approaching:properties];
     [previewer didNavigationFinished:properties];
 }
 

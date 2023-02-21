@@ -93,6 +93,7 @@
 - (void)couldNotStartNavigation:(NSDictionary*)properties;
 - (void)didNavigationStarted:(NSDictionary*)properties;
 - (void)didNavigationFinished:(NSDictionary*)properties;
+- (void)approaching:(NSDictionary *)properties;
 
 // basic functions
 - (void)userNeedsToChangeHeading:(NSDictionary*)properties;
