@@ -588,7 +588,11 @@
             [[NavDataStore sharedDataStore] clearRoute];
         }
     }];
+}
 
+- (void)approaching:(NSDictionary *)properties
+{
+    NSArray *destPois = [properties[@"pois"] filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"forAfterEnd == YES AND isDestination == YES"]];
     for(NavPOI *poi in destPois) {
         [self userIsApproachingToPOI:
          @{
