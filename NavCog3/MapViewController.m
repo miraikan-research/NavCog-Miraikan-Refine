@@ -1528,6 +1528,11 @@ typedef NS_ENUM(NSInteger, ViewState) {
     destId = destinationId;
     
     NavDataStore *nds = [NavDataStore sharedDataStore];
+    if (nds.directory != nil) {
+        nds.from = [NavDataStore destinationForCurrentLocation];
+        nds.to = [nds destinationByID:destId];
+    }
+
     HLPLocation *loc = [nds currentLocation];
     BOOL validLocation = loc && !isnan(loc.lat) && !isnan(loc.lng) && !isnan(loc.floor);
     if (!validLocation) {
