@@ -39,7 +39,7 @@ typedef enum {
     NavDestinationTypeDirectoryItem
 } NavDestinationType;
 
-@interface NavDestination : NSObject <NSCoding>
+@interface NavDestination : NSObject <NSSecureCoding>
 @property (readonly) NavDestinationType type;
 @property (readonly) NSString* name;
 @property (readonly) NSString* namePron;

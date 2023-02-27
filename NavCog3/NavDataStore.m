@@ -37,6 +37,11 @@
     HLPDirectoryItem *_item;
 }
 
++ (BOOL)supportsSecureCoding
+{
+    return YES;
+}
+
 - (BOOL) isEqual:(NavDestination*)obj
 {
     if (_type != obj.type) {
@@ -779,23 +784,59 @@ static NavDataStore* instance_ = nil;
     NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString* path = [documentsPath stringByAppendingPathComponent:@"history.object"];
 
+    NSSet *allowedClasses = [NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSMutableData class], [NSString class], [NSNumber class],
+                             [NavDestination class], [HLPLandmark class] ,[HLPLocation class], [HLPDirectoryItem class], [HLPEntrance class], [HLPDirectorySection class], [HLPGeometry class], [HLPGeoJSONFeature class], [HLPGeoJSON class], nil];
+    NSError* error;
+
     NSArray *history = @[];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        history = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        NSArray *dataList = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
+                                                      fromData:data
+                                                         error:&error];
+        if (error != nil) {
+            NSLog(@"%s: %d, %@", __func__, __LINE__, error);
+        } else if (dataList != nil) {
+            history = dataList;
+        }
     }
     
+    NSData* fromData = [NSKeyedArchiver archivedDataWithRootObject:_from requiringSecureCoding:true error:&error];
+    if (error != nil) {
+        NSLog(@"%s: %d, %@", __func__, __LINE__, error);
+        return;
+    }
+    NSData* toData = [NSKeyedArchiver archivedDataWithRootObject:_to requiringSecureCoding:true error:&error];
+    if (error != nil) {
+        NSLog(@"%s: %d, %@", __func__, __LINE__, error);
+        return;
+    }
+
     NSDictionary *newHist = @{
-                              @"from":[NSKeyedArchiver archivedDataWithRootObject:_from],
-                              @"to":[NSKeyedArchiver archivedDataWithRootObject:_to]};
+                              @"from":fromData,
+                              @"to":toData};
     
     
     if ([history count] > 0) {
         BOOL __block flag = YES;
         [newHist enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             
-            NavDestination *dest1 = [NSKeyedUnarchiver unarchiveObjectWithData:[history firstObject][key]];
-            NavDestination *dest2 = [NSKeyedUnarchiver unarchiveObjectWithData:obj];
-            
+            NSError* error;
+            NavDestination *dest1 = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
+                                                                        fromData:[history firstObject][key]
+                                                                           error:&error];
+            if (error != nil) {
+                NSLog(@"%s: %d, %@", __func__, __LINE__, error);
+                return;
+            }
+            NavDestination *dest2 = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
+                                                                        fromData:obj
+                                                                           error:&error];
+            if (error != nil) {
+                NSLog(@"%s: %d, %@", __func__, __LINE__, error);
+                return;
+            }
+
             flag = flag && [dest1 isEqual:dest2];
         }];
         if (flag) {
@@ -809,7 +850,13 @@ static NavDataStore* instance_ = nil;
     while([temp count] > 5) {
         [temp removeLastObject];
     }
-    [NSKeyedArchiver archiveRootObject:temp toFile:path];
+    
+    NSData* tempData = [NSKeyedArchiver archivedDataWithRootObject:temp requiringSecureCoding:true error:&error];
+    if (error != nil) {
+        NSLog(@"%s: %d, %@", __func__, __LINE__, error);
+        return;
+    }
+    [tempData writeToURL: [NSURL fileURLWithPath:path] atomically:YES];
 }
 
 - (void)requestRouteFrom:(NSString *)fromID To:(NSString *)toID withPreferences:(NSDictionary *)prefs complete:(void (^)(void))complete
@@ -1344,7 +1391,19 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
     
     NSArray *history = @[];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        history = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        NSSet *allowedClasses = [NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSMutableData class], [NSString class], [NSNumber class],
+                                 [NavDestination class], [HLPLandmark class] ,[HLPLocation class], [HLPDirectoryItem class], [HLPEntrance class], [HLPDirectorySection class], [HLPGeometry class], [HLPGeoJSONFeature class], [HLPGeoJSON class], nil];
+        NSError* error;
+
+        NSData *data = [NSData dataWithContentsOfFile:path];
+        NSArray *dataList = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
+                                                      fromData:data
+                                                         error:&error];
+        if (error != nil) {
+            NSLog(@"%s: %d, %@", __func__, __LINE__, error);
+        } else if (dataList != nil) {
+            history = dataList;
+        }
     }
 
     return history;

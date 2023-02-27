@@ -34,7 +34,7 @@ typedef enum: int {
     HLPToiletTypeForWomen = 2
 } HLPToiletType;
 
-@interface HLPDirectoryItem : MTLModel<MTLJSONSerializing, NSCoding>
+@interface HLPDirectoryItem : MTLModel<MTLJSONSerializing, NSSecureCoding>
 @property (nonatomic, readonly) NSString *title;
 @property (nonatomic, readonly) NSString *titlePron;
 @property (nonatomic, readonly) NSString *subtitle;
@@ -51,7 +51,7 @@ typedef enum: int {
 - (NSString*) getItemSubtitlePron;
 @end
 
-@interface HLPDirectorySection : MTLModel<MTLJSONSerializing, NSCoding>
+@interface HLPDirectorySection : MTLModel<MTLJSONSerializing, NSSecureCoding>
 @property (nonatomic) NSString *title;
 @property (nonatomic, readonly) NSString *pron;
 @property (nonatomic, readonly) NSString *indexTitle;
@@ -60,7 +60,7 @@ typedef enum: int {
 - (void) walk:(BOOL(^)(HLPDirectoryItem*))func withBuffer:(NSMutableArray*)buffer;
 @end
 
-@interface HLPDirectory : MTLModel<MTLJSONSerializing, NSCoding>
+@interface HLPDirectory : MTLModel<MTLJSONSerializing, NSSecureCoding>
 @property (nonatomic, readonly) BOOL showSectionIndex;
 @property (nonatomic) NSArray<HLPDirectorySection*> *sections;
 

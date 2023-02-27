@@ -339,8 +339,22 @@
     
     if ([historySource isKnownHist:hist]) {
         NavDataStore *nds = [NavDataStore sharedDataStore];
-        nds.to = [NSKeyedUnarchiver unarchiveObjectWithData:hist[@"to"]];
-        nds.from = [NSKeyedUnarchiver unarchiveObjectWithData:hist[@"from"]];
+        NSSet *allowedClasses = [NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSMutableData class], [NSString class], [NSNumber class],
+                                 [NavDestination class], [HLPLandmark class] ,[HLPLocation class], [HLPDirectoryItem class], [HLPEntrance class], [HLPDirectorySection class], [HLPGeometry class], [HLPGeoJSONFeature class], [HLPGeoJSON class], nil];
+        NSError* error;
+
+        nds.to = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
+                                                     fromData:hist[@"to"]
+                                                        error:&error];
+        if (error != nil) {
+            NSLog(@"%s: %d, %@", __func__, __LINE__, error);
+        }
+        nds.from = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
+                                                     fromData:hist[@"from"]
+                                                        error:&error];
+        if (error != nil) {
+            NSLog(@"%s: %d, %@", __func__, __LINE__, error);
+        }
         [self updateViewWithFlag:YES];
     }
 }

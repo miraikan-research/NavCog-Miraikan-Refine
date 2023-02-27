@@ -24,6 +24,11 @@
 
 @implementation HLPDirectoryItem
 
++ (BOOL)supportsSecureCoding
+{
+    return YES;
+}
+
 -(id) copyWithZone:(NSZone *) zone
 {
     HLPDirectoryItem *object = [super copyWithZone:zone];
@@ -83,6 +88,11 @@
 
 @implementation HLPDirectorySection
 
++ (BOOL)supportsSecureCoding
+{
+    return YES;
+}
+
 -(id) copyWithZone:(NSZone *) zone
 {
     HLPDirectorySection *object = [super copyWithZone:zone];
@@ -120,6 +130,11 @@
 @end
 
 @implementation HLPDirectory
+
++ (BOOL)supportsSecureCoding
+{
+    return YES;
+}
 
 -(id) copyWithZone:(NSZone *) zone
 {
