@@ -202,7 +202,7 @@
         dialogHelper.scale = scale;
         [dialogHelper inactive];
         [dialogHelper setup:self.view position:CGPointMake(x, y)];
-        dialogHelper.delegate = self;
+//        dialogHelper.delegate = self;
         dialogHelper.helperView.hidden = YES;
     }
 }

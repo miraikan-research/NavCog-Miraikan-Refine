@@ -258,7 +258,7 @@ Head to the correct orientation
 "destination is in distance" = "%1$@ is in %2$@";
 
 /* distance to a destination name */
-"distance to %1$@" = "%2$@ to %1$@";
+"distance %2$@ to %1$@" = "%2$@ to %1$@";
 
 /* distance to the destination */
 "distance to the destination" = "%1$@ to the destination";
