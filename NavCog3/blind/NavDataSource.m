@@ -585,8 +585,23 @@
 
 - (BOOL)isKnownHist:(NSDictionary*)dic
 {
-    NavDestination *from = [NSKeyedUnarchiver unarchiveObjectWithData:dic[@"from"]];
-    NavDestination *to = [NSKeyedUnarchiver unarchiveObjectWithData:dic[@"to"]];
+    NSSet *allowedClasses = [NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSMutableData class], [NSString class], [NSNumber class],
+                             [NavDestination class], [HLPLandmark class] ,[HLPLocation class], [HLPDirectoryItem class], [HLPEntrance class], [HLPDirectorySection class], [HLPGeometry class], [HLPGeoJSONFeature class], [HLPGeoJSON class], nil];
+    NSError* error;
+    NavDestination *from = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
+                                                                fromData:dic[@"from"]
+                                                                   error:&error];
+    if (error != nil) {
+        NSLog(@"%s: %d, %@", __func__, __LINE__, error);
+    }
+
+    NavDestination *to = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
+                                                                fromData:dic[@"to"]
+                                                                   error:&error];
+    if (error != nil) {
+        NSLog(@"%s: %d, %@", __func__, __LINE__, error);
+    }
+
     return [[NavDataStore sharedDataStore] isKnownDestination:from] &&
     [[NavDataStore sharedDataStore] isKnownDestination:to];
 }
@@ -615,8 +630,22 @@
     NSDictionary *dic = hist[indexPath.row];
     BOOL isKnown = [self isKnownHist:dic];
     
-    NavDestination *from = [NSKeyedUnarchiver unarchiveObjectWithData:dic[@"from"]];
-    NavDestination *to = [NSKeyedUnarchiver unarchiveObjectWithData:dic[@"to"]];
+    NSSet *allowedClasses = [NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSMutableData class], [NSString class], [NSNumber class],
+                             [NavDestination class], [HLPLandmark class] ,[HLPLocation class], [HLPDirectoryItem class], [HLPEntrance class], [HLPDirectorySection class], [HLPGeometry class], [HLPGeoJSONFeature class], [HLPGeoJSON class], nil];
+    NSError* error;
+    NavDestination *from = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
+                                                                fromData:dic[@"from"]
+                                                                   error:&error];
+    if (error != nil) {
+        NSLog(@"%s: %d, %@", __func__, __LINE__, error);
+    }
+
+    NavDestination *to = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
+                                                                fromData:dic[@"to"]
+                                                                   error:&error];
+    if (error != nil) {
+        NSLog(@"%s: %d, %@", __func__, __LINE__, error);
+    }
     
     cell.textLabel.numberOfLines = 1;
     cell.textLabel.adjustsFontSizeToFitWidth = YES;

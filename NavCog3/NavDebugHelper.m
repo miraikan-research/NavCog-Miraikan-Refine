@@ -24,6 +24,9 @@
 #import "LocationEvent.h"
 #import "NavDeviceTTS.h"
 
+#import "NavDataStore.h"
+#import "HLPGeoJSON.h"
+
 #import <CoreLocation/CoreLocation.h>
 #import <sys/sysctl.h>
 
@@ -78,12 +81,19 @@ static NavDebugHelper* instance;
 
     NSDictionary *userInfo = [note userInfo];
 
+    NSError* error;
     NSData *data = [NSKeyedArchiver archivedDataWithRootObject:
                     @{
                       @"name": name,
                       @"timestamp": @([[NSDate date] timeIntervalSince1970]),
                       @"userInfo": userInfo?userInfo:[NSNull null]
-                      }];
+                      }
+                                         requiringSecureCoding:true
+                                                         error:&error];
+    if (error != nil) {
+        NSLog(@"%s: %d, %@", __func__, __LINE__, error);
+        return;
+    }
     if (data) {
         [self sendData:data];
     }
@@ -165,7 +175,16 @@ didReceiveStream:(NSInputStream *)stream
 
 - (void) processReceivedData:(NSData*)data
 {
-    NSDictionary *json = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    NSSet *allowedClasses = [NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSMutableData class], [NSString class], [NSNumber class],
+                             [NavDestination class], [HLPLandmark class] ,[HLPLocation class], [HLPDirectoryItem class], [HLPEntrance class], [HLPDirectorySection class], [HLPGeometry class], [HLPGeoJSONFeature class], [HLPGeoJSON class], nil];
+    NSError* error;
+    NSDictionary *json = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
+                                                             fromData:data
+                                                                error:&error];
+    if (error != nil) {
+        NSLog(@"%s: %d, %@", __func__, __LINE__, error);
+    }
+
     dispatch_async(dispatch_get_main_queue(), ^{
         if (json) {
             NSString *name = json[@"name"];

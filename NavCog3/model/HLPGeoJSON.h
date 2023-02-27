@@ -68,7 +68,7 @@
 #define POI_IS_NOT_READ_FLAG @"_no_read_"
 
 
-@interface HLPGeometry : MTLModel<MTLJSONSerializing, NSCoding>
+@interface HLPGeometry : MTLModel<MTLJSONSerializing, NSSecureCoding>
 @property (nonatomic, readonly) NSString *type;
 @property (nonatomic, readonly) NSArray *coordinates;
 
@@ -79,7 +79,7 @@
 @end
 
 
-@interface HLPGeoJSONFeature : MTLModel<MTLJSONSerializing, NSCoding> {
+@interface HLPGeoJSONFeature : MTLModel<MTLJSONSerializing, NSSecureCoding> {
 @protected
     NSString *_type;
     HLPGeometry *_geometry;
@@ -91,7 +91,7 @@
 - (HLPLocation*)nearestLocationTo:(HLPLocation*) location;
 @end
 
-@interface HLPGeoJSON : MTLModel<MTLJSONSerializing, NSCoding>
+@interface HLPGeoJSON : MTLModel<MTLJSONSerializing, NSSecureCoding>
 @property (nonatomic, readonly) NSString *type;
 @property (nonatomic, readonly) NSArray<HLPGeoJSONFeature*> *features;
 @property (nonatomic, readonly) NSString *crs;
@@ -185,7 +185,7 @@ typedef enum: int {
 // 6：横断歩道の路面標示の無い交差点の道路、7：動く歩道、8：自由通路、
 // 9：踏切、10：エレベーター、11：エスカレーター、12：階段、13：スロープ、99：不明
 
-@interface HLPPOIFlags: NSObject <NSCoding>
+@interface HLPPOIFlags: NSObject <NSSecureCoding>
 - (instancetype)initWithString:(NSString *)str;
 @property (nonatomic, readonly) BOOL flagCaution;
 @property (nonatomic, readonly) BOOL flagOnomastic;

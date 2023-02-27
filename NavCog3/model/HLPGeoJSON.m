@@ -25,6 +25,12 @@
 #import "objc/runtime.h"
 
 @implementation HLPGeometry
+
++ (BOOL)supportsSecureCoding
+{
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{
@@ -89,6 +95,11 @@
     HLPLocation *loc3;
 }
 
++ (BOOL)supportsSecureCoding
+{
+    return YES;
+}
+
 +(NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{
@@ -143,6 +154,11 @@
 @end
 
 @implementation  HLPGeoJSON
+
++ (BOOL)supportsSecureCoding
+{
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
@@ -493,6 +509,11 @@
 }
 
 static NSRegularExpression *patternHLPPOIFlags;
+
++ (BOOL)supportsSecureCoding
+{
+    return YES;
+}
 
 - (instancetype)initWithString:(NSString *)str
 {
