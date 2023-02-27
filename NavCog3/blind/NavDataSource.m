@@ -32,6 +32,15 @@
 - (NavDestination*) destinationForRowAtIndexPath:(NSIndexPath *)indexPath {
     return nil;
 }
+
+- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
+    return nil;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 0;
+}
+
 @end
 
 @implementation NavDirectoryDataSource {
@@ -124,14 +133,14 @@
     return _directory.sections[section].items.count;
 }
 
-- (HLPDirectoryItem*) itemForRowAtIndexPath:(NSIndexPath *)indexPath
+- (id) itemForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return _directory.sections[indexPath.section].items[indexPath.row];
 }
 
 - (NavDestination*) destinationForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    HLPDirectoryItem *item = [self itemForRowAtIndexPath:indexPath];
+    id item = [self itemForRowAtIndexPath:indexPath];
     if ([item isKindOfClass:HLPDirectoryItem.class]) {
         return [[NavDestination alloc] initWithDirectoryItem:item];
     }
