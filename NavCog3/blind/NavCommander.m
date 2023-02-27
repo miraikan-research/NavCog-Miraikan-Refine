@@ -555,7 +555,7 @@
     [string appendString:[self welcomePOIString:pois]];
     
     if (destination && ![destination isEqual:[NSNull null]] && [destination length] > 0){
-        [string appendFormat:NSLocalizedStringFromTable(@"distance to %1$@", @"BlindView", @"distance to a destination name"), destination, totalDist];
+        [string appendFormat:NSLocalizedStringFromTable(@"distance %2$@ to %1$@", @"BlindView", @"distance to a destination name"), destination, totalDist];
     } else {
         [string appendFormat:NSLocalizedStringFromTable(@"distance to the destination", @"BlindView", @"distance to the destination"), totalDist];
     }
@@ -639,14 +639,9 @@
 - (void)userIsApproachingToTarget:(NSDictionary*)properties
 {
     NSLog(@"%@", NSStringFromSelector(_cmd));
-    NSString *action = [self actionString:properties];
     NSString *string = nil;
     
-    if (false && action) {
-        string = [NSString stringWithFormat:NSLocalizedStringFromTable(@"approaching to %@",@"BlindView",@"approaching to do something") , action];
-    } else {
-        string = NSLocalizedStringFromTable(@"approaching",@"BlindView",@"approaching");
-    }
+    string = NSLocalizedStringFromTable(@"approaching",@"BlindView",@"approaching");
     properties = [properties mtl_dictionaryByAddingEntriesFromDictionary:@{@"force":@(YES)}];
     [_delegate speak:string withOptions:properties completionHandler:^{}];
 }

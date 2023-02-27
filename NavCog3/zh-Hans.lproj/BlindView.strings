@@ -130,7 +130,7 @@
 "Disabled" = "%@。无效";
 
 /* distance to a destination name */
-"distance to %1$@" = "到%1$@为止还剩%2$@";
+"distance %2$@ to %1$@" = "到%1$@为止还剩%2$@";
 
 /* distance to the destination */
 "distance to the destination" = "离开目的地还剩%1$@";

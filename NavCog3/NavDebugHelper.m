@@ -234,7 +234,7 @@ didReceiveStream:(NSInputStream *)stream
     
     for(CLBeacon *beacon in beacons) {
         NSString* id = [NSString stringWithFormat:@"%@-%@-%@",
-                        beacon.proximityUUID.UUIDString,
+                        beacon.UUID.description,
                         beacon.major,
                         beacon.minor];
         NSDictionary* obj = @{

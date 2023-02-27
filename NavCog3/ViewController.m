@@ -146,7 +146,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
         dialogHelper.scale = scale;
         [dialogHelper inactive];
         [dialogHelper setup:self.view position:CGPointMake(x, y)];
-        dialogHelper.delegate = self;
+//        dialogHelper.delegate = self;
         dialogHelper.helperView.hidden = YES;
     }
 }
@@ -191,10 +191,10 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
 - (void)updateView
 {
-    NavDataStore *nds = [NavDataStore sharedDataStore];
-    HLPLocation *loc = [nds currentLocation];
-    BOOL validLocation = loc && !isnan(loc.lat) && !isnan(loc.lng) && !isnan(loc.floor);
-    BOOL isPreviewDisabled = [[ServerConfig sharedConfig] isPreviewDisabled];
+//    NavDataStore *nds = [NavDataStore sharedDataStore];
+//    HLPLocation *loc = [nds currentLocation];
+//    BOOL validLocation = loc && !isnan(loc.lat) && !isnan(loc.lng) && !isnan(loc.floor);
+//    BOOL isPreviewDisabled = [[ServerConfig sharedConfig] isPreviewDisabled];
     BOOL peerExists = [[[NavDebugHelper sharedHelper] peers] count] > 0;
 
     switch(state) {
