@@ -295,9 +295,9 @@ static ServerConfig *instance;
     NSURL* url = self.selected.configFileURL;
     [HLPDataUtil getJSON:url withCallback:^(NSObject *result) {
         if (result && [result isKindOfClass:NSDictionary.class]) {
-            _selectedServerConfig = (NSDictionary*)result;
-            _selectedServerConfig = [self convertRelativePath:_selectedServerConfig withHostName:url.host];
-            complete(_selectedServerConfig);
+            self->_selectedServerConfig = (NSDictionary*)result;
+            self->_selectedServerConfig = [self convertRelativePath:self->_selectedServerConfig withHostName:url.host];
+            complete(self->_selectedServerConfig);
         } else {
             [self.selected failed];
             complete(nil);
@@ -412,8 +412,8 @@ static ServerConfig *instance;
     
     [HLPDataUtil getJSON:url withCallback:^(NSObject *result) {
         if (result && [result isKindOfClass:NSDictionary.class]) {
-            _agreementConfig = (NSDictionary*)result;
-            complete(_agreementConfig);
+            self->_agreementConfig = (NSDictionary*)result;
+            complete(self->_agreementConfig);
         } else {
             [self.selected failed];
             complete(nil);

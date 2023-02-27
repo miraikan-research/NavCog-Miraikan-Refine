@@ -619,7 +619,7 @@
     NSLog(@"%@", NSStringFromSelector(_cmd));
     dispatch_async(dispatch_get_main_queue(), ^{
         NSLog(@"speak,<play success sound>");
-        [_delegate playSuccess];
+        [self->_delegate playSuccess];
     });
 }
 
@@ -874,7 +874,7 @@
             if ([result count] < 2) {
                 return;
             }
-            [_delegate executeCommand:result[1]];
+            [self->_delegate executeCommand:result[1]];
         }];
         lastPOIAnnounceTime = now;
     }

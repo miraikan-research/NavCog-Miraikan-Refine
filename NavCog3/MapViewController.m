@@ -365,68 +365,68 @@ typedef NS_ENUM(NSInteger, ViewState) {
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         BOOL hasCenter = [[NavDataStore sharedDataStore] mapCenter] != nil;
-        BOOL isActive = [navigator isActive];
-        if (isBlindMode) {
-            searchButton.enabled = hasCenter;
+        BOOL isActive = [self->navigator isActive];
+        if (self->isBlindMode) {
+            self->searchButton.enabled = hasCenter;
 
             if (isActive) {
-                self.navigationItem.rightBarButtonItems = @[stopButton];
-                self.navigationItem.leftBarButtonItems = @[backButton];
+                self.navigationItem.rightBarButtonItems = @[self->stopButton];
+                self.navigationItem.leftBarButtonItems = @[self->backButton];
             } else {
                 if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DebugMode"]) {
-                    self.navigationItem.rightBarButtonItems = @[searchButton, settingButton];
+                    self.navigationItem.rightBarButtonItems = @[self->searchButton, self->settingButton];
                 } else {
-                    self.navigationItem.rightBarButtonItems = @[settingButton];
+                    self.navigationItem.rightBarButtonItems = @[self->settingButton];
                 }
-                self.navigationItem.leftBarButtonItems = @[backButton];
+                self.navigationItem.leftBarButtonItems = @[self->backButton];
             }
 
         } else {
-            searchButton.enabled = true;
-            switch(state) {
+            self->searchButton.enabled = true;
+            switch(self->state) {
                 case ViewStateMap:
                     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DebugMode"]) {
-                        self.navigationItem.rightBarButtonItems = @[searchButton, settingButton];
+                        self.navigationItem.rightBarButtonItems = @[self->searchButton, self->settingButton];
                     } else {
-                        self.navigationItem.rightBarButtonItems = @[settingButton];
+                        self.navigationItem.rightBarButtonItems = @[self->settingButton];
                     }
-                    self.navigationItem.leftBarButtonItems = @[backButton];
+                    self.navigationItem.leftBarButtonItems = @[self->backButton];
                     break;
                 case ViewStateSearch:
-                    self.navigationItem.rightBarButtonItems = @[settingButton];
-                    self.navigationItem.leftBarButtonItems = @[backButton];
+                    self.navigationItem.rightBarButtonItems = @[self->settingButton];
+                    self.navigationItem.leftBarButtonItems = @[self->backButton];
                     break;
                 case ViewStateSearchDetail:
                     self.navigationItem.rightBarButtonItems = @[];
-                    self.navigationItem.leftBarButtonItems = @[backButton];
+                    self.navigationItem.leftBarButtonItems = @[self->backButton];
                     break;
                 case ViewStateSearchSetting:
                     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DebugMode"]) {
-                        self.navigationItem.rightBarButtonItems = @[searchButton];
+                        self.navigationItem.rightBarButtonItems = @[self->searchButton];
                     } else {
                         self.navigationItem.rightBarButtonItems = @[];
                     }
-                    self.navigationItem.leftBarButtonItems = @[backButton];
+                    self.navigationItem.leftBarButtonItems = @[self->backButton];
                     break;
                 case ViewStateNavigation:
-                    self.navigationItem.rightBarButtonItems = @[stopButton];
-                    self.navigationItem.leftBarButtonItems = @[backButton];
+                    self.navigationItem.rightBarButtonItems = @[self->stopButton];
+                    self.navigationItem.leftBarButtonItems = @[self->backButton];
                     break;
                 case ViewStateRouteConfirm:
                     self.navigationItem.rightBarButtonItems = @[];
-                    self.navigationItem.leftBarButtonItems = @[cancelButton];
+                    self.navigationItem.leftBarButtonItems = @[self->cancelButton];
                     break;
                 case ViewStateRouteCheck:
-                    self.navigationItem.rightBarButtonItems = @[doneButton];
-                    self.navigationItem.leftBarButtonItems = @[backButton];
+                    self.navigationItem.rightBarButtonItems = @[self->doneButton];
+                    self.navigationItem.leftBarButtonItems = @[self->backButton];
                     break;
                 case ViewStateTransition:
                     self.navigationItem.rightBarButtonItems = @[];
-                    self.navigationItem.leftBarButtonItems = @[backButton];
+                    self.navigationItem.leftBarButtonItems = @[self->backButton];
                     break;
                 case ViewStateLoading:
-                    self.navigationItem.rightBarButtonItems = @[settingButton];
-                    self.navigationItem.leftBarButtonItems = @[backButton];
+                    self.navigationItem.rightBarButtonItems = @[self->settingButton];
+                    self.navigationItem.leftBarButtonItems = @[self->backButton];
                     break;
             }
         }
@@ -842,13 +842,13 @@ typedef NS_ENUM(NSInteger, ViewState) {
         
         double orientation = -location.orientation / 180 * M_PI;
         
-        if (lastOrientationSent + 0.2 < now) {
-            [_webView sendData:@[@{
+        if (self->lastOrientationSent + 0.2 < now) {
+            [self->_webView sendData:@[@{
                                      @"type":@"ORIENTATION",
                                      @"z":@(orientation)
                                      }]
                       withName:@"Sensor"];
-            lastOrientationSent = now;
+            self->lastOrientationSent = now;
         }
         
         location = locations[@"actual"];
@@ -856,7 +856,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
             return;
         }
         
-        if (now < lastLocationSent + [[NSUserDefaults standardUserDefaults] doubleForKey:@"webview_update_min_interval"]) {
+        if (now < self->lastLocationSent + [[NSUserDefaults standardUserDefaults] doubleForKey:@"webview_update_min_interval"]) {
             if (!location.params) {
                 return;
             }
@@ -865,7 +865,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
         double floor = location.floor;
         
-        [_webView sendData:@{
+        [self->_webView sendData:@{
                              @"lat":@(location.lat),
                              @"lng":@(location.lng),
                              @"floor":@(floor),
@@ -877,10 +877,10 @@ typedef NS_ENUM(NSInteger, ViewState) {
                              }
                   withName:@"XYZ"];
         
-        lastLocationSent = now;
+        self->lastLocationSent = now;
         [self dialogHelperUpdate];  // blind
 
-        if (!destId || isNaviStarted) {
+        if (!self->destId || self->isNaviStarted) {
             return;
         }
         [self startNavi];
@@ -1022,51 +1022,51 @@ typedef NS_ENUM(NSInteger, ViewState) {
     }
     if (previewWithAction) {
         [motionManager startDeviceMotionUpdatesToQueue:motionQueue withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
-            yaws[yawsIndex] = motion.attitude.yaw;
-            yawsIndex = (yawsIndex+1)%10;
+            self->yaws[self->yawsIndex] = motion.attitude.yaw;
+            self->yawsIndex = (self->yawsIndex+1)%10;
             double ave = 0;
             for(int i = 0; i < 10; i++) {
-                ave += yaws[i]*0.1;
+                ave += self->yaws[i]*0.1;
             }
             //NSLog(@"angle=, %f, %f, %f", ave, motion.attitude.yaw, fabs(ave - motion.attitude.yaw));
             if (fabs(ave - motion.attitude.yaw) > M_PI*10/180) {
-                turnAction = ave - motion.attitude.yaw;
+                self->turnAction = ave - motion.attitude.yaw;
             } else {
-                turnAction = 0;
+                self->turnAction = 0;
             }
             
             CMAcceleration acc =  motion.userAcceleration;
             double d = sqrt(pow(acc.x, 2)+pow(acc.y, 2)+pow(acc.z, 2));
-            accs[accsIndex] = d;
-            accsIndex = (accsIndex+1)%10;
+            self->accs[self->accsIndex] = d;
+            self->accsIndex = (self->accsIndex+1)%10;
             ave = 0;
             for(int i = 0; i < 10; i++) {
-                ave += accs[i]*0.1;
+                ave += self->accs[i]*0.1;
             }
             //NSLog(@"angle=, %f", ave);
-            forwardAction = ave > 0.3;
+            self->forwardAction = ave > 0.3;
             
         }];
     }
     if (exerciseMode) {
         [motionManager startDeviceMotionUpdatesToQueue:motionQueue withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
-            if (yawsIndex > 0) {
-                turnAction = [HLPLocation normalizeDegree:-(motion.attitude.yaw - yaws[0])/M_PI*180];
+            if (self->yawsIndex > 0) {
+                self->turnAction = [HLPLocation normalizeDegree:-(motion.attitude.yaw - self->yaws[0])/M_PI*180];
             } else {
-                turnAction = 0;
+                self->turnAction = 0;
             }
-            yaws[0] = motion.attitude.yaw;
-            yawsIndex = 1;
+            self->yaws[0] = motion.attitude.yaw;
+            self->yawsIndex = 1;
             
             CMAcceleration acc =  motion.userAcceleration;
             double d = sqrt(pow(acc.x, 2)+pow(acc.y, 2)+pow(acc.z, 2));
-            accs[accsIndex] = d;
-            accsIndex = (accsIndex+1)%10;
+            self->accs[self->accsIndex] = d;
+            self->accsIndex = (self->accsIndex+1)%10;
             double ave = 0;
             for(int i = 0; i < 10; i++) {
-                ave += accs[i]*0.1;
+                ave += self->accs[i]*0.1;
             }
-            forwardAction = ave > 0.05;
+            self->forwardAction = ave > 0.05;
         }];
         
     }
@@ -1092,7 +1092,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
             [self updateIndicatorStart];
             NSString *script = @"$hulop.map.setSync(true);";
             [self writeData:script];
-            [_webView evaluateJavaScript:script
+            [self->_webView evaluateJavaScript:script
                        completionHandler:^(id _Nullable result, NSError * _Nullable error) {
                 [self updateIndicatorStop];
             }];
@@ -1118,7 +1118,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
             double delayInSeconds = 2.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
             dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                [previewer setAutoProceed:YES];
+                [self->previewer setAutoProceed:YES];
             });
         }
 
@@ -1163,7 +1163,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
         [self updateIndicatorStart];
         NSString *script = [NSString stringWithFormat:@"$hulop.map.getMap().getView().setZoom(%f);", [[NSUserDefaults standardUserDefaults] doubleForKey:@"zoom_for_navigation"]];
         [self writeData:script];
-        [_webView evaluateJavaScript:script
+        [self->_webView evaluateJavaScript:script
                    completionHandler:^(id _Nullable result, NSError * _Nullable error) {
             [self updateIndicatorStop];
         }];
@@ -1464,17 +1464,17 @@ typedef NS_ENUM(NSInteger, ViewState) {
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (contentURL == nil && name == nil) {
-            if (showingPage) {
-                [showingPage.navigationController popViewControllerAnimated:YES];
+            if (self->showingPage) {
+                [self->showingPage.navigationController popViewControllerAnimated:YES];
             }
             return;
         }
-        if (showingPage) {
+        if (self->showingPage) {
             return;
         }
         
-        showingPage = [WebViewController getInstance];
-        showingPage.delegate = self;
+        self->showingPage = [WebViewController getInstance];
+        self->showingPage.delegate = self;
         
         NSURL *url = nil;
         if ([contentURL hasPrefix:@"bundle://"]) {
@@ -1488,9 +1488,9 @@ typedef NS_ENUM(NSInteger, ViewState) {
             url = [NSURL URLWithString:contentURL];
         }
         
-        showingPage.title = name;
-        showingPage.url = url;
-        [self.navigationController showViewController:showingPage sender:self];
+        self->showingPage.title = name;
+        self->showingPage.url = url;
+        [self.navigationController showViewController:self->showingPage sender:self];
         [[NSNotificationCenter defaultCenter] postNotificationName:REQUEST_NAVIGATION_PAUSE object:nil];
     });
 }
@@ -1517,7 +1517,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
         [self updateIndicatorStart];
         NSString *script = @"document.getElementById('map-footer').style.display ='none';";
         [self writeData:script];
-        [_webView evaluateJavaScript:script
+        [self->_webView evaluateJavaScript:script
                        completionHandler:^(id _Nullable result, NSError * _Nullable error) {
             [self updateIndicatorStop];
         }];
@@ -1603,7 +1603,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
     [self updateIndicatorStart];
     dispatch_async(dispatch_get_main_queue(), ^{
-        isNaviStarted = YES;
+        self->isNaviStarted = YES;
         [nds requestRouteFrom:from.singleId
                            To:to._id
               withPreferences:prefs
@@ -1691,16 +1691,16 @@ typedef NS_ENUM(NSInteger, ViewState) {
 - (void)updateIndicatorStart
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [_updateIndicator startAnimating];
-        _updateIndicator.hidden = NO;
+        [self->_updateIndicator startAnimating];
+        self->_updateIndicator.hidden = NO;
     });
 }
 
 - (void)updateIndicatorStop
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        [_updateIndicator stopAnimating];
-        _updateIndicator.hidden = YES;
+        [self->_updateIndicator stopAnimating];
+        self->_updateIndicator.hidden = YES;
     });
 }
 

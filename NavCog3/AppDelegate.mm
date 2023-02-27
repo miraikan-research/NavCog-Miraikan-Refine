@@ -122,8 +122,8 @@ void uncaughtExceptionHandler(NSException *exception)
 
     UIApplication *app = [UIApplication sharedApplication];
     backgroundID = [app beginBackgroundTaskWithExpirationHandler:^{
-        [app endBackgroundTask:backgroundID];
-        backgroundID = UIBackgroundTaskInvalid;
+        [app endBackgroundTask:self->backgroundID];
+        self->backgroundID = UIBackgroundTaskInvalid;
     }];
 }
 

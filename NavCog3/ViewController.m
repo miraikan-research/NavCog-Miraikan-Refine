@@ -473,13 +473,13 @@ typedef NS_ENUM(NSInteger, ViewState) {
         
         double orientation = -location.orientation / 180 * M_PI;
         
-        if (lastOrientationSent + 0.2 < now) {
-            [_webView sendData:@[@{
+        if (self->lastOrientationSent + 0.2 < now) {
+            [self->_webView sendData:@[@{
                                      @"type":@"ORIENTATION",
                                      @"z":@(orientation)
                                      }]
                       withName:@"Sensor"];
-            lastOrientationSent = now;
+            self->lastOrientationSent = now;
         }
         
         location = locations[@"actual"];
@@ -487,7 +487,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
             return;
         }
         
-        if (now < lastLocationSent + [[NSUserDefaults standardUserDefaults] doubleForKey:@"webview_update_min_interval"]) {
+        if (now < self->lastLocationSent + [[NSUserDefaults standardUserDefaults] doubleForKey:@"webview_update_min_interval"]) {
             if (!location.params) {
                 return;
             }
@@ -496,7 +496,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
         
         double floor = location.floor;
         
-        [_webView sendData:@{
+        [self->_webView sendData:@{
                              @"lat":@(location.lat),
                              @"lng":@(location.lng),
                              @"floor":@(floor),
@@ -508,7 +508,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
                              }
                   withName:@"XYZ"];
         
-        lastLocationSent = now;
+        self->lastLocationSent = now;
     });
 }
 
