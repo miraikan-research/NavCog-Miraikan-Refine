@@ -313,7 +313,6 @@
 		E5F6FF2C2977B2F700D5C22B /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA49A341F9AE21900E1369B /* WebViewController.m */; };
 		E5F6FF2D2977B2F700D5C22B /* NavSound.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF6FBB11DA4DD8200382F76 /* NavSound.m */; };
 		E5F6FF2E2977B2F700D5C22B /* AuthManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF45E391E3F1E5600208042 /* AuthManager.m */; };
-		E5F6FF302977B2F700D5C22B /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E9657EF1F619B9300A6B489 /* AssetsLibrary.framework */; };
 		E5F6FF312977B2F700D5C22B /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAE818E1E41E89C007B50D3 /* CoreBluetooth.framework */; };
 		E5F6FF322977B2F700D5C22B /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EEA2F2B1D376BAD00FF25C4 /* CoreMotion.framework */; };
 		E5F6FF332977B2F700D5C22B /* HLPDialog in Frameworks */ = {isa = PBXBuildFile; productRef = E5F6FF002977B2F700D5C22B /* HLPDialog */; };
@@ -739,7 +738,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5F6FF302977B2F700D5C22B /* AssetsLibrary.framework in Frameworks */,
 				E5F6FF312977B2F700D5C22B /* CoreBluetooth.framework in Frameworks */,
 				E5F6FF312977B2F700D5C22B /* CoreBluetooth.framework in Frameworks */,
 				E5F6FF322977B2F700D5C22B /* CoreMotion.framework in Frameworks */,
@@ -1493,10 +1491,9 @@
 			};
 			buildConfigurationList = 7EDEDC171D1E0C6800AC111A /* Build configuration list for PBXProject "NavCog3" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 				ja,

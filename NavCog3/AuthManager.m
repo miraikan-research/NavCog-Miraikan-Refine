@@ -61,6 +61,9 @@ static AuthManager *instance;
     return [self isAuthorizedForName:@"dev" withKey:hash];
 }
 
+// TODO: 'CC_MD5' is deprecated: first deprecated in iOS 13.0
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 + (NSString *)MD5Hash:(NSString *)original
 {
     if (original.length == 0) {
@@ -76,5 +79,6 @@ static AuthManager *instance;
     }
     return ms;
 }
+#pragma clang diagnostic pop
 
 @end
