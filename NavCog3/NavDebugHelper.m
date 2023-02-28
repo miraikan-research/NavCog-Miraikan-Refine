@@ -178,9 +178,11 @@ didReceiveStream:(NSInputStream *)stream
     NSSet *allowedClasses = [NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSMutableData class], [NSString class], [NSNumber class],
                              [NavDestination class], [HLPLandmark class] ,[HLPLocation class], [HLPDirectoryItem class], [HLPEntrance class], [HLPDirectorySection class], [HLPGeometry class], [HLPGeoJSONFeature class], [HLPGeoJSON class], nil];
     NSError* error;
-    NSDictionary *json = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
-                                                             fromData:data
-                                                                error:&error];
+    NSKeyedUnarchiver* unarchiver;
+    
+    unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:&error];
+    NSDictionary *json = [unarchiver decodeObjectOfClasses:allowedClasses forKey:NSKeyedArchiveRootObjectKey];
+
     if (error != nil) {
         NSLog(@"%s: %d, %@", __func__, __LINE__, error);
     }

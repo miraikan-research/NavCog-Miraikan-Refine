@@ -787,13 +787,13 @@ static NavDataStore* instance_ = nil;
     NSSet *allowedClasses = [NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSMutableData class], [NSString class], [NSNumber class],
                              [NavDestination class], [HLPLandmark class] ,[HLPLocation class], [HLPDirectoryItem class], [HLPEntrance class], [HLPDirectorySection class], [HLPGeometry class], [HLPGeoJSONFeature class], [HLPGeoJSON class], nil];
     NSError* error;
+    NSKeyedUnarchiver* unarchiver;
 
     NSArray *history = @[];
     if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
         NSData *data = [NSData dataWithContentsOfFile:path];
-        NSArray *dataList = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
-                                                      fromData:data
-                                                         error:&error];
+        unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:&error];
+        NSArray *dataList = [unarchiver decodeObjectOfClasses:allowedClasses forKey:NSKeyedArchiveRootObjectKey];
         if (error != nil) {
             NSLog(@"%s: %d, %@", __func__, __LINE__, error);
         } else if (dataList != nil) {
@@ -822,16 +822,20 @@ static NavDataStore* instance_ = nil;
         [newHist enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
             
             NSError* error;
-            NavDestination *dest1 = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
-                                                                        fromData:[history firstObject][key]
-                                                                           error:&error];
+            NSKeyedUnarchiver* unarchiver;
+            NSData *data;
+            data = [history firstObject][key];
+            unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:&error];
+            NavDestination *dest1 = [unarchiver decodeObjectOfClasses:allowedClasses forKey:NSKeyedArchiveRootObjectKey];
+
             if (error != nil) {
                 NSLog(@"%s: %d, %@", __func__, __LINE__, error);
                 return;
             }
-            NavDestination *dest2 = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
-                                                                        fromData:obj
-                                                                           error:&error];
+            data = obj;
+            unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:obj error:&error];
+            NavDestination *dest2 = [unarchiver decodeObjectOfClasses:allowedClasses forKey:NSKeyedArchiveRootObjectKey];
+
             if (error != nil) {
                 NSLog(@"%s: %d, %@", __func__, __LINE__, error);
                 return;
@@ -1394,11 +1398,11 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
         NSSet *allowedClasses = [NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSMutableData class], [NSString class], [NSNumber class],
                                  [NavDestination class], [HLPLandmark class] ,[HLPLocation class], [HLPDirectoryItem class], [HLPEntrance class], [HLPDirectorySection class], [HLPGeometry class], [HLPGeoJSONFeature class], [HLPGeoJSON class], nil];
         NSError* error;
-
+        NSKeyedUnarchiver* unarchiver;
         NSData *data = [NSData dataWithContentsOfFile:path];
-        NSArray *dataList = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
-                                                      fromData:data
-                                                         error:&error];
+        unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:&error];
+        NSArray *dataList = [unarchiver decodeObjectOfClasses:allowedClasses forKey:NSKeyedArchiveRootObjectKey];
+
         if (error != nil) {
             NSLog(@"%s: %d, %@", __func__, __LINE__, error);
         } else if (dataList != nil) {

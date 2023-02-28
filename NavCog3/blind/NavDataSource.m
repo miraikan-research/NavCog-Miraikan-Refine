@@ -597,16 +597,18 @@
     NSSet *allowedClasses = [NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSMutableData class], [NSString class], [NSNumber class],
                              [NavDestination class], [HLPLandmark class] ,[HLPLocation class], [HLPDirectoryItem class], [HLPEntrance class], [HLPDirectorySection class], [HLPGeometry class], [HLPGeoJSONFeature class], [HLPGeoJSON class], nil];
     NSError* error;
-    NavDestination *from = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
-                                                                fromData:dic[@"from"]
-                                                                   error:&error];
+    NSKeyedUnarchiver* unarchiver;
+    NSData *data;
+    data = dic[@"from"];
+    unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:&error];
+    NavDestination *from = [unarchiver decodeObjectOfClasses:allowedClasses forKey:NSKeyedArchiveRootObjectKey];
     if (error != nil) {
         NSLog(@"%s: %d, %@", __func__, __LINE__, error);
     }
 
-    NavDestination *to = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
-                                                                fromData:dic[@"to"]
-                                                                   error:&error];
+    data = dic[@"to"];
+    unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:&error];
+    NavDestination *to = [unarchiver decodeObjectOfClasses:allowedClasses forKey:NSKeyedArchiveRootObjectKey];
     if (error != nil) {
         NSLog(@"%s: %d, %@", __func__, __LINE__, error);
     }
@@ -629,7 +631,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NSString *CellIdentifier = @"historyCell";
-    //UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if(!cell){
@@ -642,16 +643,18 @@
     NSSet *allowedClasses = [NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSMutableData class], [NSString class], [NSNumber class],
                              [NavDestination class], [HLPLandmark class] ,[HLPLocation class], [HLPDirectoryItem class], [HLPEntrance class], [HLPDirectorySection class], [HLPGeometry class], [HLPGeoJSONFeature class], [HLPGeoJSON class], nil];
     NSError* error;
-    NavDestination *from = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
-                                                                fromData:dic[@"from"]
-                                                                   error:&error];
+    NSKeyedUnarchiver* unarchiver;
+    NSData *data;
+    data = dic[@"from"];
+    unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:&error];
+    NavDestination *from = [unarchiver decodeObjectOfClasses:allowedClasses forKey:NSKeyedArchiveRootObjectKey];
     if (error != nil) {
         NSLog(@"%s: %d, %@", __func__, __LINE__, error);
     }
 
-    NavDestination *to = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
-                                                                fromData:dic[@"to"]
-                                                                   error:&error];
+    data = dic[@"to"];
+    unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:&error];
+    NavDestination *to = [unarchiver decodeObjectOfClasses:allowedClasses forKey:NSKeyedArchiveRootObjectKey];
     if (error != nil) {
         NSLog(@"%s: %d, %@", __func__, __LINE__, error);
     }
