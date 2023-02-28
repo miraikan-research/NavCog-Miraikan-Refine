@@ -260,6 +260,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
     // blind
 
     [self setTalkButton];
+    [[NSUserDefaults standardUserDefaults] setValue:@(YES) forKey:@"isFooterButtonView"];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
