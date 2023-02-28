@@ -2,7 +2,7 @@ project 'NavCog3'
 inhibit_all_warnings!
 
 def install_pods
-  platform :ios, '9.0'
+  platform :ios, '13.0'
   pod 'FormatterKit'
   pod 'OpenCV', :podspec => './podspecs/OpenCV.podspec'
   pod 'boost', :podspec => './podspecs/boost.podspec.json'
