@@ -21,7 +21,6 @@
  *******************************************************************************/
 
 #import "NavCommander.h"
-#import <FormatterKit/TTTOrdinalNumberFormatter.h>
 #import "NavDataStore.h"
 #import "LocationEvent.h"
 
@@ -48,35 +47,13 @@
 
 - (NSString*) floorString:(double) floor
 {
-    NSString *type = NSLocalizedStringFromTable(@"FloorNumType", @"BlindView", @"floor num type");
     
-    if ([type isEqualToString:@"ordinal"]) {
-        TTTOrdinalNumberFormatter*ordinalNumberFormatter = [[TTTOrdinalNumberFormatter alloc] init];
-        
-        NSString *localeStr = [[NSUserDefaults standardUserDefaults] stringForKey:@"AppleLocale"];
-        NSLocale *locale = [NSLocale localeWithLocaleIdentifier:localeStr];
-        [ordinalNumberFormatter setLocale:locale];
-        [ordinalNumberFormatter setGrammaticalGender:TTTOrdinalNumberFormatterMaleGender];
-        
-        floor = round(floor*2.0)/2.0;
-        
-        if (floor < 0) {
-            NSString *ordinalNumber = [ordinalNumberFormatter stringFromNumber:@(fabs(floor))];
-            
-            return [NSString localizedStringWithFormat:NSLocalizedStringFromTable(@"FloorBasementD", @"BlindView", @"basement floor"), ordinalNumber];
-        } else {
-            NSString *ordinalNumber = [ordinalNumberFormatter stringFromNumber:@(floor+1)];
-            
-            return [NSString localizedStringWithFormat:NSLocalizedStringFromTable(@"FloorD", @"BlindView", @"floor"), ordinalNumber];
-        }
+    floor = round(floor*2.0)/2.0;
+
+    if (floor < 0) {
+        return [NSString localizedStringWithFormat:NSLocalizedStringFromTable(@"FloorBasementD", @"BlindView", @"basement floor"), @(fabs(floor))];
     } else {
-        floor = round(floor*2.0)/2.0;
-        
-        if (floor < 0) {
-            return [NSString localizedStringWithFormat:NSLocalizedStringFromTable(@"FloorBasementD", @"BlindView", @"basement floor"), @(fabs(floor))];
-        } else {
-            return [NSString localizedStringWithFormat:NSLocalizedStringFromTable(@"FloorD", @"BlindView", @"floor"), @(floor+1)];
-        }
+        return [NSString localizedStringWithFormat:NSLocalizedStringFromTable(@"FloorD", @"BlindView", @"floor"), @(floor+1)];
     }
 }
 

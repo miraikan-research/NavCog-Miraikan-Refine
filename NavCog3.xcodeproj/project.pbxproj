@@ -67,7 +67,7 @@
 		7EF7F7AB1DD189B0000A625A /* NavPreviewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF7F7AA1DD189B0000A625A /* NavPreviewer.m */; };
 		7EF7F7AE1DD1949C000A625A /* NavDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF7F7AD1DD1949C000A625A /* NavDataSource.m */; };
 		A923DA0A1F26DBF60002E3CB /* DefaultTTS.m in Sources */ = {isa = PBXBuildFile; fileRef = A923DA091F26DBF60002E3CB /* DefaultTTS.m */; };
-		D3B684BD87877697DA26A4DE /* (null) in Frameworks */ = {isa = PBXBuildFile; };
+		D3B684BD87877697DA26A4DE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
 		E506A01729923F630046134F /* DestinationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A01629923F630046134F /* DestinationCell.swift */; };
 		E506A01829923F630046134F /* DestinationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A01629923F630046134F /* DestinationCell.swift */; };
 		E506A01B29923FB60046134F /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A01A29923FB60046134F /* DestinationViewController.swift */; };
@@ -727,7 +727,7 @@
 				3008B8B326DDFC42008C27B1 /* HLPDialog in Frameworks */,
 				7E1F9F2C1DEEB671003E1B23 /* MultipeerConnectivity.framework in Frameworks */,
 				30F54F4C270CCDC000ABD9FC /* HLPWebView in Frameworks */,
-				D3B684BD87877697DA26A4DE /* (null) in Frameworks */,
+				D3B684BD87877697DA26A4DE /* BuildFile in Frameworks */,
 				30D2DAC02710BA2F001CA62E /* Mantle in Frameworks */,
 				686A6A6F6A5460934A7B1FA9 /* libPods-NavCog3.a in Frameworks */,
 			);
@@ -1423,7 +1423,6 @@
 				7EDEDC191D1E0C6800AC111A /* Frameworks */,
 				7E7ED5A61F5EDF620033814B /* ShellScript */,
 				7EDEDC1A1D1E0C6800AC111A /* Resources */,
-				3CB98F53EB42ACE8E61D6511 /* [CP] Copy Pods Resources */,
 				30647B382706482C000536D2 /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -1449,7 +1448,6 @@
 				E5F6FF2F2977B2F700D5C22B /* Frameworks */,
 				E5F6FF382977B2F700D5C22B /* ShellScript */,
 				E5F6FF392977B2F700D5C22B /* Resources */,
-				E5F6FF4E2977B2F700D5C22B /* [CP] Copy Pods Resources */,
 				E5F6FF4F2977B2F700D5C22B /* Embed Frameworks */,
 			);
 			buildRules = (
@@ -1602,24 +1600,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3CB98F53EB42ACE8E61D6511 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NavCog3/Pods-NavCog3-resources.sh",
-				"${PODS_ROOT}/FormatterKit/FormatterKit/FormatterKit.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FormatterKit.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NavCog3/Pods-NavCog3-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		411E67F404EF85208367F33F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1681,24 +1661,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "git log --oneline | head -n 1 | cut -f 1 -d' ' > $SRCROOT/lastcommit.txt\n";
-		};
-		E5F6FF4E2977B2F700D5C22B /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NavCogMiraikan/Pods-NavCogMiraikan-resources.sh",
-				"${PODS_ROOT}/FormatterKit/FormatterKit/FormatterKit.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FormatterKit.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NavCogMiraikan/Pods-NavCogMiraikan-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
