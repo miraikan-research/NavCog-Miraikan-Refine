@@ -345,16 +345,19 @@
         NSSet *allowedClasses = [NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSMutableData class], [NSString class], [NSNumber class],
                                  [NavDestination class], [HLPLandmark class] ,[HLPLocation class], [HLPDirectoryItem class], [HLPEntrance class], [HLPDirectorySection class], [HLPGeometry class], [HLPGeoJSONFeature class], [HLPGeoJSON class], nil];
         NSError* error;
+        NSKeyedUnarchiver* unarchiver;
+        NSData *data;
+        data = hist[@"to"];
+        unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:&error];
+        nds.to = [unarchiver decodeObjectOfClasses:allowedClasses forKey:NSKeyedArchiveRootObjectKey];
 
-        nds.to = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
-                                                     fromData:hist[@"to"]
-                                                        error:&error];
         if (error != nil) {
             NSLog(@"%s: %d, %@", __func__, __LINE__, error);
         }
-        nds.from = [NSKeyedUnarchiver unarchivedObjectOfClasses:allowedClasses
-                                                     fromData:hist[@"from"]
-                                                        error:&error];
+
+        data = hist[@"from"];
+        unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:data error:&error];
+        nds.from = [unarchiver decodeObjectOfClasses:allowedClasses forKey:NSKeyedArchiveRootObjectKey];
         if (error != nil) {
             NSLog(@"%s: %d, %@", __func__, __LINE__, error);
         }
