@@ -43,6 +43,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // AudioGuid hidden
+    [[NSUserDefaults standardUserDefaults] setValue:@(NO) forKey:@"isFooterButtonView"];
+    
     self.fromButton.titleLabel.numberOfLines = 1;
     self.fromButton.titleLabel.adjustsFontSizeToFitWidth = YES;
     self.fromButton.titleLabel.lineBreakMode = NSLineBreakByClipping;
