@@ -339,6 +339,10 @@ typedef NS_ENUM(NSInteger, ViewState) {
     NSMutableAttributedString *attributedString;
     attributedString = [[NSMutableAttributedString alloc] initWithString:NSLocalizedString(@"Miraikan", @"")];
     NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+    UIFontMetrics *metrics = [[UIFontMetrics alloc] initForTextStyle:UIFontTextStyleTitle3];
+    UIFontDescriptor *desc = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleTitle3];
+    UIFont *font = [UIFont systemFontOfSize:desc.pointSize weight:UIFontWeightBold];
+    CGFloat pointSize = desc.pointSize;
     if ([userMode isEqualToString:@"user_wheelchair"]) {
         attachment.image = [UIImage imageNamed:@"icons8-wheelchair"];
     } else if ([userMode isEqualToString:@"user_stroller"]) {
@@ -348,16 +352,13 @@ typedef NS_ENUM(NSInteger, ViewState) {
     } else {
         attachment.image = [UIImage imageNamed:@"icons8-general"];
     }
-    attachment.bounds = CGRectMake(0, -4, 24, 24);
+    attachment.bounds = CGRectMake(0, -pointSize / 5, pointSize * 6 / 5, pointSize * 6 / 5);
     [attributedString appendAttributedString:[NSAttributedString attributedStringWithAttachment:attachment]];
     titleLabel.attributedText = attributedString;
     titleLabel.accessibilityLabel = @"( )";
     titleLabel.isAccessibilityElement = NO;
     titleLabel.adjustsFontSizeToFitWidth = YES;
 
-    UIFontMetrics *metrics = [[UIFontMetrics alloc] initForTextStyle:UIFontTextStyleTitle3];
-    UIFontDescriptor *desc = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleTitle3];
-    UIFont *font = [UIFont systemFontOfSize:desc.pointSize weight:UIFontWeightBold];
     titleLabel.font = [metrics scaledFontForFont:font];
     self.navigationItem.titleView = titleLabel;
 }
