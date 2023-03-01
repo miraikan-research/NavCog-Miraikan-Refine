@@ -109,7 +109,6 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 NavDataStore *nds = [NavDataStore sharedDataStore];
                 nds.previewMode = !self.startButton.enabled;
-                nds.exerciseMode = NO;
                 
                 NSMutableDictionary *override = [@{} mutableCopy];
                 if (param[@"use_stair"]) {
@@ -257,14 +256,12 @@
 - (IBAction)previewNavigation:(id)sender {
     NavDataStore *nds = [NavDataStore sharedDataStore];
     nds.previewMode = YES;
-    nds.exerciseMode = NO;
     [self _startNavigation:nil];
 }
 
 - (IBAction)startNavigation:(id)sender {
     NavDataStore *nds = [NavDataStore sharedDataStore];
     nds.previewMode = NO;
-    nds.exerciseMode = NO;
     [self _startNavigation:nil];
 }
 

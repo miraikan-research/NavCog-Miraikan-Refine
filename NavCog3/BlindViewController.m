@@ -265,7 +265,7 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         BOOL hasCenter = [[NavDataStore sharedDataStore] mapCenter] != nil;
         BOOL previewMode = [NavDataStore sharedDataStore].previewMode;
-        BOOL exerciseMode = [NavDataStore sharedDataStore].exerciseMode;
+        BOOL exerciseMode = NO;
         BOOL peerExists = [[[NavDebugHelper sharedHelper] peers] count] > 0;
         BOOL isActive = [navigator isActive];
 
@@ -661,7 +661,7 @@
 
 - (void)startAction
 {
-    BOOL exerciseMode = [NavDataStore sharedDataStore].exerciseMode;
+    BOOL exerciseMode = NO;
     BOOL previewWithAction = [[NSUserDefaults standardUserDefaults] boolForKey:@"preview_with_action"] && !exerciseMode;
     if (!motionManager && (previewWithAction || exerciseMode)) {
         motionManager = [[CMMotionManager alloc] init];
@@ -1101,7 +1101,6 @@
         
         [_webView logToServer:@{@"event": @"navigation", @"status": @"canceled"}];
         [NavDataStore sharedDataStore].previewMode = NO;
-        [NavDataStore sharedDataStore].exerciseMode = NO;
         [previewer setAutoProceed:NO];
 
         return NO;

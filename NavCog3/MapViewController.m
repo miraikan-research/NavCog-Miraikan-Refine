@@ -936,7 +936,6 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
             [_webView logToServer:@{@"event": @"navigation", @"status": @"canceled"}];
             [NavDataStore sharedDataStore].previewMode = NO;
-            [NavDataStore sharedDataStore].exerciseMode = NO;
             [previewer setAutoProceed:NO];
         }
     } else {
@@ -1013,9 +1012,8 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
 - (void)startAction
 {
-    BOOL exerciseMode = [NavDataStore sharedDataStore].exerciseMode;
-    BOOL previewWithAction = [[NSUserDefaults standardUserDefaults] boolForKey:@"preview_with_action"] && !exerciseMode;
-    if (!motionManager && (previewWithAction || exerciseMode)) {
+    BOOL previewWithAction = [[NSUserDefaults standardUserDefaults] boolForKey:@"preview_with_action"];
+    if (!motionManager && previewWithAction) {
         motionManager = [[CMMotionManager alloc] init];
         motionManager.deviceMotionUpdateInterval = 0.1;
         motionQueue = [[NSOperationQueue alloc] init];
@@ -1049,28 +1047,6 @@ typedef NS_ENUM(NSInteger, ViewState) {
             forwardAction = ave > 0.3;
             
         }];
-    }
-    if (exerciseMode) {
-        [motionManager startDeviceMotionUpdatesToQueue:motionQueue withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
-            if (yawsIndex > 0) {
-                turnAction = [HLPLocation normalizeDegree:-(motion.attitude.yaw - yaws[0])/M_PI*180];
-            } else {
-                turnAction = 0;
-            }
-            yaws[0] = motion.attitude.yaw;
-            yawsIndex = 1;
-            
-            CMAcceleration acc =  motion.userAcceleration;
-            double d = sqrt(pow(acc.x, 2)+pow(acc.y, 2)+pow(acc.z, 2));
-            accs[accsIndex] = d;
-            accsIndex = (accsIndex+1)%10;
-            double ave = 0;
-            for(int i = 0; i < 10; i++) {
-                ave += accs[i]*0.1;
-            }
-            forwardAction = ave > 0.05;
-        }];
-        
     }
 }
 
@@ -1612,7 +1588,6 @@ typedef NS_ENUM(NSInteger, ViewState) {
                      complete:^{
             if (self == nil) return;
             nds.previewMode = NO;
-            nds.exerciseMode = NO;
             [self updateIndicatorStop];
         }];
     });
