@@ -69,7 +69,6 @@ typedef enum {
 @property NavDestination *to;
 @property NavDestination *from;
 @property BOOL previewMode;
-@property BOOL exerciseMode;
 @property BOOL toolMode;
 @property NSString* userID;
 @property HLPLocation *mapCenter;
@@ -124,7 +123,6 @@ typedef enum {
 - (void) manualLocationReset:(NSDictionary*)location;
 - (void) clearSearchHistory;
 - (BOOL) isKnownDestination:(NavDestination*)dest;
-- (void) startExercise;
 
 - (BOOL) isElevatorNode:(HLPNode*)node;
 - (BOOL) hasRoute;
