@@ -1,5 +1,4 @@
 //
-//
 //  LinkRow.swift
 //  NavCogMiraikan
 //
@@ -25,7 +24,7 @@
  * THE SOFTWARE.
  *******************************************************************************/
 
-import Foundation
+import UIKit
 
 /**
  The customized UITableViewCell for the "link"

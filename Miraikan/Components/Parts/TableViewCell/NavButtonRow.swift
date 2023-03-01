@@ -1,5 +1,4 @@
 //
-//
 //  NavButtonRow.swift
 //  NavCogMiraikan
 //
@@ -25,7 +24,7 @@
  * THE SOFTWARE.
  *******************************************************************************/
 
-import Foundation
+import UIKit
 
 class NavButtonRow: BaseRow {
 

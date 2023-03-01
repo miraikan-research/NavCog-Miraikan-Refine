@@ -25,7 +25,6 @@
  * THE SOFTWARE.
  *******************************************************************************/
 
-import Foundation
 import UIKit
 import HLPDialog
 

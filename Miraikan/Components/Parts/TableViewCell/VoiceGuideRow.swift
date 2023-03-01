@@ -1,5 +1,4 @@
 //
-//
 //  VoiceGuideRow.swift
 //  NavCogMiraikan
 //
@@ -25,8 +24,7 @@
  * THE SOFTWARE.
  *******************************************************************************/
 
-import Foundation
-
+import UIKit
 
 class VoiceGuideRow : BaseRow {
     

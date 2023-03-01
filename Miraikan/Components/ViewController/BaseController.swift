@@ -24,7 +24,6 @@
  * THE SOFTWARE.
  *******************************************************************************/
 
-import Foundation
 import UIKit
 
 /**
@@ -37,13 +36,6 @@ import UIKit
 class BaseController: UIViewController {
 
     private let sceneView: UIView
-
-//    var nav: BaseNavController? {
-//        if let nav = self.navigationController as? BaseNavController {
-//            return nav
-//        }
-//        return nil
-//    }
 
     // MARK: init
     @objc init(_ view: UIView, title: String?) {
