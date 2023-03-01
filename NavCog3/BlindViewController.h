@@ -28,8 +28,6 @@
 #import <MultipeerConnectivity/MultipeerConnectivity.h>
 #import "WebViewController.h"
 
-//@import HLPDialog;
-
 @interface BlindViewController: UIViewController <
     HLPWebViewDelegate,
     HLPTTSProtocol,
@@ -37,7 +35,6 @@
     NavCommanderDelegate,
     NavPreviewerDelegate,
     MCBrowserViewControllerDelegate,
-  //  DialogViewDelegate,
     WebViewControllerDelegate
 >
 
