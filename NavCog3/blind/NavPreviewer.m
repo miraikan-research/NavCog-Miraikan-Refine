@@ -40,11 +40,6 @@
     NavDataStore *nds = [NavDataStore sharedDataStore];
     if (_autoProceed) {
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-        BOOL needAction = [ud boolForKey:@"preview_with_action"];
-        if (needAction) {
-            [self.delegate startAction];
-        }
-
         double ps = 1.0 / [ud doubleForKey:@"preview_speed"];
         ps = nds.previewMode?ps:0.1;
         
@@ -61,79 +56,40 @@
 
 - (void) processPreview:(NSTimer*)timer
 {
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    BOOL previewWithAction = [ud boolForKey:@"preview_with_action"];
+    //NSLog(@"angle=%f, dist=%f, floor=%f", _targetAngle, _targetDistance, _targetFloor);
+    if (fabs(_targetAngle) > 5) {
+        if (isnan(_targetDistance) || _targetDistance < 0) {
+            if (fabs(_targetAngle) > 1) {
+                const double PREVIEW_TURN_RATE = 0.75;
+                [self manualTurn:_targetAngle*PREVIEW_TURN_RATE];
+                _targetAngle *= (1.0-PREVIEW_TURN_RATE);
+                return;
+            }
+        } else {
+            [self manualTurn:_targetAngle<0?-5:5];
+            _targetAngle -= _targetAngle<0?-5:5;
+        }
+    }
 
-    double turnAction = _delegate.turnAction;
-    BOOL forwardAction = _delegate.forwardAction;
-    //NSLog(@"angle=%f, dist=%f, floor=%f, forward=%d, turn=%f, previewWithAction=%d", _targetAngle, _targetDistance, _targetFloor, forwardAction, turnAction, previewWithAction);
-    
-    if (previewWithAction) {
-        if (fabs(_targetAngle) > 5 && turnAction != 0) {
-            if (_targetAngle < 0 && turnAction < 0) {
-                [self manualTurn:_targetAngle];
-                _targetAngle = 0;
-            } else if (_targetAngle > 0 && turnAction > 0) {
-                [self manualTurn:_targetAngle];
-                _targetAngle = 0;
-            }
+    if (!isnan(_targetDistance) && _targetDistance > 0.2) {
+        [self manualGoForward:0.2];
+        _targetDistance -= 0.2;
+        return;
+    }
+
+    if (!isnan(_targetFloor)) {
+        [self manualGoFloor:_targetFloor];
+        _targetFloor = NAN;
+        if (_targetLocation) {
+            [self manualLocation:_targetLocation];
+            _targetLocation = nil;
         }
-        
-        if (!isnan(_targetDistance) && _targetDistance > 0 && forwardAction) {
-            [self manualGoForward:0.2];
-            _targetDistance -= 0.2;
-            return;
+        if (!isnan(_targetOrientation)) {
+            double diff = [HLPLocation normalizeDegree:[NavDataStore sharedDataStore].currentLocation.orientation - _targetOrientation];
+            [self manualTurn:diff];
+            _targetOrientation = NAN;
         }
-        
-        if (!isnan(_targetFloor) && turnAction) {
-            [self manualGoFloor:_targetFloor];
-            _targetFloor = NAN;
-            if (_targetLocation) {
-                [self manualLocation:_targetLocation];
-                _targetLocation = nil;
-            }
-            if (!isnan(_targetOrientation)) {
-                double diff = [HLPLocation normalizeDegree:[NavDataStore sharedDataStore].currentLocation.orientation - _targetOrientation];
-                [self manualTurn:diff];
-                _targetOrientation = NAN;
-            }
-            return;
-        }
-    } else {
-        if (fabs(_targetAngle) > 5) {
-            if (isnan(_targetDistance) || _targetDistance < 0) {
-                if (fabs(_targetAngle) > 1) {
-                    const double PREVIEW_TURN_RATE = 0.75;
-                    [self manualTurn:_targetAngle*PREVIEW_TURN_RATE];
-                    _targetAngle *= (1.0-PREVIEW_TURN_RATE);
-                    return;
-                }
-            } else {
-                [self manualTurn:_targetAngle<0?-5:5];
-                _targetAngle -= _targetAngle<0?-5:5;
-            }
-        }
-        
-        if (!isnan(_targetDistance) && _targetDistance > 0.2) {
-            [self manualGoForward:0.2];
-            _targetDistance -= 0.2;
-            return;
-        }
-        
-        if (!isnan(_targetFloor)) {
-            [self manualGoFloor:_targetFloor];
-            _targetFloor = NAN;
-            if (_targetLocation) {
-                [self manualLocation:_targetLocation];
-                _targetLocation = nil;
-            }
-            if (!isnan(_targetOrientation)) {
-                double diff = [HLPLocation normalizeDegree:[NavDataStore sharedDataStore].currentLocation.orientation - _targetOrientation];
-                [self manualTurn:diff];
-                _targetOrientation = NAN;
-            }
-            return;
-        }
+        return;
     }
     [[NavDataStore sharedDataStore] manualLocation:nil];
 }
@@ -214,10 +170,6 @@
         double diffHeading = [properties[@"diffHeading"] doubleValue];
         _targetAngle = diffHeading;
     }
-//    if (properties[@"nextTargetHeight"]) {
-//        int targetHeight = [properties[@"nextTargetHeight"] intValue];
-//        _targetFloor = targetHeight;
-//    }
     if (properties[@"distance"]) {
         _targetDistance = [properties[@"distance"] doubleValue];
     }
@@ -335,7 +287,7 @@
 }
 
 - (void)currentStatus:(NSDictionary *)properties
-{    
+{
 }
 
 @end
