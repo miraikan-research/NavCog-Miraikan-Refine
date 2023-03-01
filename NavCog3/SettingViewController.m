@@ -370,7 +370,6 @@ static HLPSetting *userModeLabel, *userBlindLabel, *userWheelchairLabel, *userSt
     speechSpeedSetting = [userSettingHelper addSettingWithType:NavCogSettingTypeDouble Label:NSLocalizedString(@"Speech speed", @"label for speech speed option")
                                      Name:@"speech_speed" DefaultValue:@(0.55) Min:0.1 Max:1 Interval:0.05];
     previewSpeedSetting = [userSettingHelper addSettingWithType:NavCogSettingTypeDouble Label:NSLocalizedString(@"Preview speed", @"") Name:@"preview_speed" DefaultValue:@(1) Min:1 Max:10 Interval:1];
-    previewWithActionSetting = [userSettingHelper addSettingWithType:NavCogSettingTypeBoolean Label:NSLocalizedString(@"Preview with action", @"") Name:@"preview_with_action" DefaultValue:@(NO) Accept:nil];
     ignoreFacility = [userSettingHelper addSettingWithType:NavCogSettingTypeBoolean Label:NSLocalizedString(@"Ignore facility info.", @"") Name:@"ignore_facility" DefaultValue:@(NO) Accept:nil];
     showPOI = [userSettingHelper addSettingWithType:NavCogSettingTypeBoolean Label:NSLocalizedString(@"Show POI with Action", @"") Name:@"show_poi_with_action" DefaultValue:@(NO) Accept:nil];
     vibrateSetting = [userSettingHelper addSettingWithType:NavCogSettingTypeBoolean Label:NSLocalizedString(@"vibrateSetting", @"") Name:@"vibrate" DefaultValue:@(YES) Accept:nil];
@@ -434,7 +433,6 @@ static HLPSetting *userModeLabel, *userBlindLabel, *userWheelchairLabel, *userSt
         //[speechSpeedSetting setVisible:blindMode];
         
         [previewSpeedSetting setVisible:blindMode && (!isPreviewDisabled)];
-        [previewWithActionSetting setVisible:blindMode && (!isPreviewDisabled)];
         [ignoreFacility setVisible:blindMode];
         [showPOI setVisible:blindMode];
         [vibrateSetting setVisible:blindMode];

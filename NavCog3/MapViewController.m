@@ -63,7 +63,6 @@ typedef NS_ENUM(NSInteger, ViewState) {
     ViewState state;
     NSDictionary *uiState;
     
-    NSTimeInterval lastShake;
     NSTimeInterval lastLocationSent;
     NSTimeInterval lastOrientationSent;
     
@@ -654,23 +653,6 @@ typedef NS_ENUM(NSInteger, ViewState) {
 }
 
 // blind
-- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
-{
-    if(event.type == UIEventSubtypeMotionShake)
-    {
-        NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
-        if (now - lastShake < 5) {
-            [[NSNotificationCenter defaultCenter] postNotificationName:REQUEST_LOCATION_UNKNOWN object:self];
-            [[NavSound sharedInstance] vibrate:@{@"repeat":@(2)}];
-            lastShake = 0;
-        } else {
-            [[NavSound sharedInstance] vibrate:nil];
-            lastShake = now;
-        }
-    }
-}
-
-// blind
 - (void) logReplay:(NSNotification*)note
 {
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -1010,44 +992,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
     [motionManager stopDeviceMotionUpdates];
 }
 
-- (void)startAction
-{
-    BOOL previewWithAction = [[NSUserDefaults standardUserDefaults] boolForKey:@"preview_with_action"];
-    if (!motionManager && previewWithAction) {
-        motionManager = [[CMMotionManager alloc] init];
-        motionManager.deviceMotionUpdateInterval = 0.1;
-        motionQueue = [[NSOperationQueue alloc] init];
-        motionQueue.maxConcurrentOperationCount = 1;
-        motionQueue.qualityOfService = NSQualityOfServiceBackground;
-    }
-    if (previewWithAction) {
-        [motionManager startDeviceMotionUpdatesToQueue:motionQueue withHandler:^(CMDeviceMotion * _Nullable motion, NSError * _Nullable error) {
-            yaws[yawsIndex] = motion.attitude.yaw;
-            yawsIndex = (yawsIndex+1)%10;
-            double ave = 0;
-            for(int i = 0; i < 10; i++) {
-                ave += yaws[i]*0.1;
-            }
-            //NSLog(@"angle=, %f, %f, %f", ave, motion.attitude.yaw, fabs(ave - motion.attitude.yaw));
-            if (fabs(ave - motion.attitude.yaw) > M_PI*10/180) {
-                turnAction = ave - motion.attitude.yaw;
-            } else {
-                turnAction = 0;
-            }
-            
-            CMAcceleration acc =  motion.userAcceleration;
-            double d = sqrt(pow(acc.x, 2)+pow(acc.y, 2)+pow(acc.z, 2));
-            accs[accsIndex] = d;
-            accsIndex = (accsIndex+1)%10;
-            ave = 0;
-            for(int i = 0; i < 10; i++) {
-                ave += accs[i]*0.1;
-            }
-            //NSLog(@"angle=, %f", ave);
-            forwardAction = ave > 0.3;
-            
-        }];
-    }
+- (void)startAction {
 }
 
 // blind
@@ -1075,7 +1020,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
                 [self updateIndicatorStop];
             }];
         });
-            
+
         if ([[NSUserDefaults standardUserDefaults] boolForKey:@"reset_as_start_point"] && !rerouteFlag) {
             [[NavDataStore sharedDataStore] manualLocationReset:properties];
             if ([[NSUserDefaults standardUserDefaults] boolForKey:@"reset_as_start_heading"]) {
@@ -1128,7 +1073,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
                                                   style:UIAlertActionStyleDefault
                                                 handler:^(UIAlertAction *action) {
             [self backViewController];
-                                                  }]];
+        }]];
         [[self topMostController] presentViewController:alert animated:YES completion:nil];
 
     });
@@ -1284,18 +1229,18 @@ typedef NS_ENUM(NSInteger, ViewState) {
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDictionary *prefs = @{
-                            @"dist":@"500",
-                            @"preset":@"9",
-                            @"min_width":@"8",
-                            @"slope":@"9",
-                            @"road_condition":@"9",
-                            @"deff_LV":@"9",
-                            @"stairs":[ud boolForKey:@"route_use_stairs"]?@"9":@"1",
-                            @"esc":[ud boolForKey:@"route_use_escalator"]?@"9":@"1",
-                            @"elv":[ud boolForKey:@"route_use_elevator"]?@"9":@"1",
-                            @"mvw":[ud boolForKey:@"route_use_moving_walkway"]?@"9":@"1",
-                            @"tactile_paving":[ud boolForKey:@"route_tactile_paving"]?@"1":@"",
-                            };
+        @"dist":@"500",
+        @"preset":@"9",
+        @"min_width":@"8",
+        @"slope":@"9",
+        @"road_condition":@"9",
+        @"deff_LV":@"9",
+        @"stairs":[ud boolForKey:@"route_use_stairs"]?@"9":@"1",
+        @"esc":[ud boolForKey:@"route_use_escalator"]?@"9":@"1",
+        @"elv":[ud boolForKey:@"route_use_elevator"]?@"9":@"1",
+        @"mvw":[ud boolForKey:@"route_use_moving_walkway"]?@"9":@"1",
+        @"tactile_paving":[ud boolForKey:@"route_tactile_paving"]?@"1":@"",
+    };
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [NavUtil showModalWaitingWithMessage:NSLocalizedString(@"Loading, please wait",@"")];
@@ -1319,7 +1264,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
             [alert addAction:[UIAlertAction actionWithTitle:ok
                                                       style:UIAlertActionStyleDefault
                                                     handler:^(UIAlertAction *action) {
-                                                      }]];
+            }]];
             [[self topMostController] presentViewController:alert animated:YES completion:nil];
         });
         return;
@@ -1417,15 +1362,15 @@ typedef NS_ENUM(NSInteger, ViewState) {
         
         [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"BlindView", @"")
                                                   style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                                                  }]];
+        }]];
         [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"OK", @"BlindView", @"")
                                                   style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-                                                      dispatch_async(dispatch_get_main_queue(), ^(void){
-                                                          [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]
-                                                                                             options:@{}
-                                                                                   completionHandler:^(BOOL success) {}];
-                                                      });
-                                                  }]];
+            dispatch_async(dispatch_get_main_queue(), ^(void){
+                [[UIApplication sharedApplication] openURL:[NSURL URLWithString:url]
+                                                   options:@{}
+                                         completionHandler:^(BOOL success) {}];
+            });
+        }]];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             [self presentViewController:alert animated:YES completion:nil];
@@ -1648,12 +1593,12 @@ typedef NS_ENUM(NSInteger, ViewState) {
                                                   style: UIAlertActionStyleDefault
                                                 handler:^(UIAlertAction *action) {
             [self openArView];
-                                                  }]];
+        }]];
         [alert addAction:[UIAlertAction actionWithTitle: NSLocalizedStringFromTable(@"NO", @"BlindView", @"")
                                                   style: UIAlertActionStyleDefault
                                                 handler:^(UIAlertAction *action) {
-                                                  }]];
-         [self presentViewController:alert animated:YES completion:nil];
+        }]];
+        [self presentViewController:alert animated:YES completion:nil];
     });
 }
 
