@@ -2092,6 +2092,7 @@ static NavNavigatorConstants *_instance;
                 
                 if (!poi.hasBeenHeaded &&
                     fabs(poi.diffAngleFromUserOrientation) < C.ADJUST_HEADING_MARGIN) {
+                    // 向いて音声ガイド
                     if ([self.delegate respondsToSelector:@selector(userIsHeadingToPOI:)]) {
                         [self.delegate userIsHeadingToPOI:
                          @{
@@ -2104,6 +2105,7 @@ static NavNavigatorConstants *_instance;
                 }
                 if (poi.hasBeenHeaded &&
                     fabs(linkInfo.diffBearingAtSnappedLocationOnLink) < C.ADJUST_HEADING_MARGIN) {
+                    // 向いて音声ガイド
                     if ([self.delegate respondsToSelector:@selector(userIsHeadingToPOI:)]) {
                         [self.delegate userIsHeadingToPOI:
                          @{

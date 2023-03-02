@@ -127,6 +127,15 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                                              comment: "Description for VoiceOver"))))
         sectionList.append(SectionModel(title: title, items: cellList))
 
+        title = NSLocalizedString("Navigation", comment: "")
+        cellList.removeAll()
+        cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("vibrateSetting", comment: ""),
+                                                     key: "vibrate",
+                                                     isOn: UserDefaults.standard.bool(forKey: "vibrate"),
+                                                     isEnabled: nil)))
+        sectionList.append(SectionModel(title: title, items: cellList))
+
         title = NSLocalizedString("Augmented Reality", comment: "")
         cellList.removeAll()
         cellList.append(CellModel(cellId: switchId,

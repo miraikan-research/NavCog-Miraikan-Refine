@@ -1329,7 +1329,10 @@ typedef NS_ENUM(NSInteger, ViewState) {
             [[NavDeviceTTS sharedTTS] pause:NAV_SOUND_DELAY];
         }
     } else {
-        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:@"vibrate"]) {
+            // 振動で通知
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+        }
     }
 }
 
