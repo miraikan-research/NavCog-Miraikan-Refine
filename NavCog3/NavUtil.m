@@ -33,7 +33,7 @@
 static NSMutableDictionary<NSString*, UIView*>* waitingViewMap;
 static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
 
-+(void)showModalWaitingWithMessage:(NSString *)message
++ (void)showModalWaitingWithMessage:(NSString *)message
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSArray *subViews = [[[[UIApplication sharedApplication] delegate] window] subviews];
@@ -42,7 +42,7 @@ static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
     });
 }
 
-+(void)hideModalWaiting
++ (void)hideModalWaiting
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSArray *subViews = [[[[UIApplication sharedApplication] delegate] window] subviews];
@@ -51,7 +51,7 @@ static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
     });
 }
 
-+(void)showWaitingForView:(UIView*)view withMessage:(NSString *)message
++ (void)showWaitingForView:(UIView*)view withMessage:(NSString *)message
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSString *address = [NSString stringWithFormat:@"%ld", (long) view];
@@ -66,7 +66,7 @@ static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
         CGFloat h = view.frame.size.height;
         CGFloat size = 30;
         UIActivityIndicatorView *indicator = [[UIActivityIndicatorView alloc] initWithFrame:CGRectMake((w-size)/2, (h-size)/2, size, size)];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, (h+size)/2+size, w, size*5)];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, (h+size)/2 + size, w, size * 5)];
         label.text = message;
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
@@ -92,7 +92,7 @@ static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
     });
 }
 
-+(void)hideWaitingForView:(UIView*)view
++ (void)hideWaitingForView:(UIView*)view
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSString *address = [NSString stringWithFormat:@"%ld", (long) view];
@@ -104,7 +104,7 @@ static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
     });
 }
 
-+(UIMessageView*)showMessageView:(UIView *)view
++ (UIMessageView*)showMessageView:(UIView *)view
 {
     NSString *address = [NSString stringWithFormat:@"%ld", (long) view];
     
@@ -120,13 +120,13 @@ static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
     
     UIMessageView *overlay = [[UIMessageView alloc]initWithFrame:CGRectMake(0, 0, w, size)];
 
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, w-size, size)];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, w - size, size)];
     label.text = @"Log Replaying";
     label.font = [UIFont fontWithName:@"Courier" size:14];
     label.numberOfLines = 0;
     //[label setTranslatesAutoresizingMaskIntoConstraints:NO];
     
-    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(w-size, 0, size, size)];
+    UIButton *btn = [[UIButton alloc]initWithFrame:CGRectMake(w - size, 0, size, size)];
     [btn setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
     //[btn setTranslatesAutoresizingMaskIntoConstraints:NO];
 
@@ -146,7 +146,7 @@ static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
     return overlay;
 }
 
-+(void)hideMessageView:(UIView *)view
++ (void)hideMessageView:(UIView *)view
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         NSString *address = [NSString stringWithFormat:@"%ld", (long) view];
@@ -156,7 +156,7 @@ static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
     });
 }
 
-+(void)openURL:(NSURL*) url onViewController:(UIViewController*)controller
++ (void)openURL:(NSURL*)url onViewController:(UIViewController*)controller
 {
     if (url == nil) {
         return;
@@ -178,7 +178,7 @@ static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
     [controller presentViewController:alert animated:YES completion:nil];
 }
 
-+(NSString*)deviceModel
++ (NSString*)deviceModel
 {
     struct utsname sysinfo;
     uname(&sysinfo);

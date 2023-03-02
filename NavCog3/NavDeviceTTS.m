@@ -43,7 +43,7 @@ static NavDeviceTTS *instance = nil;
     return instance;
 }
 
-- (instancetype) init
+- (instancetype)init
 {
     self = [super init];
     
@@ -100,7 +100,7 @@ static NavDeviceTTS *instance = nil;
     });
 }
 
-- (void) routeChanged
+- (void)routeChanged
 {
     NSLog(@"Routing Changed");
     if (voice) {
@@ -110,7 +110,7 @@ static NavDeviceTTS *instance = nil;
     voice.delegate = self;
 }
 
-- (void) stop:(BOOL) immediate
+- (void)stop:(BOOL)immediate
 {
     if (isSpeaking) {
         isSpeaking = NO;
@@ -156,7 +156,7 @@ static NavDeviceTTS *instance = nil;
     return [AVSpeechSynthesisVoice voiceWithLanguage:voiceLangCode];
 }
 
-- (void) pause:(double)duration
+- (void)pause:(double)duration
 {
     HLPSpeechEntry *se = [[HLPSpeechEntry alloc] init];
     se.pauseDuration = duration;
@@ -207,17 +207,17 @@ static NavDeviceTTS *instance = nil;
     return [self _speak:text force:flag selfvoicing:YES nohistory:YES quickAnswer:NO voice:nil completionHandler:handler];
 }
 
-- (AVSpeechUtterance*) speak: (NSString*) text completionHandler:(void (^)(void))handler
+- (AVSpeechUtterance*)speak: (NSString*) text completionHandler:(void (^)(void))handler
 {
     return [self speak:text force:NO completionHandler:handler];
 }
 
-- (AVSpeechUtterance*) speak:(NSString*)text force:(BOOL)flag completionHandler:(void (^)(void))handler
+- (AVSpeechUtterance*)speak:(NSString*)text force:(BOOL)flag completionHandler:(void (^)(void))handler
 {
     return [self _speak:text force:flag selfvoicing:NO nohistory:NO quickAnswer:NO voice:nil completionHandler:handler];
 }
 
-- (AVSpeechUtterance*) _speak:(NSString*)text
+- (AVSpeechUtterance*)_speak:(NSString*)text
                         force:(BOOL)flag
                   selfvoicing:(BOOL)selfvoicing
                     nohistory:(BOOL)nohistory
@@ -297,7 +297,7 @@ static NavDeviceTTS *instance = nil;
     return se.ut;
 }
 
-- (void) processSpeak:(NSTimer*) timer
+- (void)processSpeak:(NSTimer*)timer
 {
     NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
     if (!isnan(expire) && now > expire) {
@@ -350,7 +350,7 @@ static NavDeviceTTS *instance = nil;
 }
 
 
--(void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didCancelSpeechUtterance:(AVSpeechUtterance *)utterance
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didCancelSpeechUtterance:(AVSpeechUtterance *)utterance
 {
     isSpeaking = NO;
     isProcessing = NO;
@@ -372,7 +372,7 @@ static NavDeviceTTS *instance = nil;
     //isSpeaking = YES;
 }
 
--(void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer willSpeakRangeOfSpeechString:(NSRange)characterRange utterance:(AVSpeechUtterance *)utterance
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer willSpeakRangeOfSpeechString:(NSRange)characterRange utterance:(AVSpeechUtterance *)utterance
 {
     HLPSpeechEntry *se = [processing objectForKey:utterance.speechString];
     if (se && se.quickAnswer) {
@@ -437,7 +437,7 @@ static NavDeviceTTS *instance = nil;
     }    
 }
 
-- (BOOL) speakWithVoiceOver:(NSString*)str
+- (BOOL)speakWithVoiceOver:(NSString*)str
 {
     UIApplicationState applicationState = [[UIApplication sharedApplication] applicationState];
 

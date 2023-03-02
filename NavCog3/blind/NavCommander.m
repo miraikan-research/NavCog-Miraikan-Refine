@@ -32,7 +32,7 @@
 
 #pragma mark - string builder functions
 
-- (instancetype) init
+- (instancetype)init
 {
     self = [super self];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(requestNearestPOI:) name:REQUEST_NEAREST_POI object:nil];
@@ -45,7 +45,7 @@
     //NSLog(@"NavCommander dealloc");
 }
 
-- (NSString*) floorString:(double) floor
+- (NSString*)floorString:(double)floor
 {
     
     floor = round(floor*2.0)/2.0;
@@ -243,7 +243,7 @@
     return string;
 }
 
-- (NSString*) doorString:(NavPOI*)poi withOption:option
+- (NSString*)doorString:(NavPOI*)poi withOption:option
 {
     BOOL shortSentence = option && option[@"short"] && [option[@"short"] boolValue];
     NSString *format = @"DoorPOIString";
@@ -254,7 +254,7 @@
     return [NSString stringWithFormat:NSLocalizedStringFromTable(format, @"BlindView", @""), poi.count];
 }
 
-- (NSString*) obstacleString:(NavPOI*)poi withOption:option
+- (NSString*)obstacleString:(NavPOI*)poi withOption:option
 {
     NSString *side = nil;
     if (poi.leftSide && poi.rightSide) {
@@ -277,7 +277,7 @@
     return nil;
 }
 
-- (NSString*) rampString:(NavPOI*)poi withOption:option
+- (NSString*)rampString:(NavPOI*)poi withOption:option
 {
     BOOL shortSentence = option && option[@"short"] && [option[@"short"] boolValue];
     NSString *format = @"RampPOIString";
@@ -286,7 +286,7 @@
     return NSLocalizedStringFromTable(format, @"BlindView", @"");
 }
 
-- (NSString*) brailleBlockString:(NavPOI*)poi withOption:option
+- (NSString*)brailleBlockString:(NavPOI*)poi withOption:option
 {
     BOOL shortSentence = option && option[@"short"] && [option[@"short"] boolValue];
     NSString *format = @"BrailleBlockPOIString";
@@ -296,12 +296,12 @@
     return NSLocalizedStringFromTable(format, @"BlindView", @"");
 }
 
-- (NSString*) poiString:(NavPOI*) poi
+- (NSString*)poiString:(NavPOI*) poi
 {
     return [self poiString:poi withOption:nil];
 }
 
-- (NSString*) poiString:(NavPOI*) poi withOption:(NSDictionary*)option
+- (NSString*)poiString:(NavPOI*) poi withOption:(NSDictionary*)option
 {
     if (poi == nil) {
         return @"";
@@ -347,7 +347,7 @@
     return string;
 }
 
-- (NSString*) welcomePOIString:(NSArray*) pois
+- (NSString*)welcomePOIString:(NSArray*) pois
 {
     if (pois == nil || [pois count] == 0) {
         return @"";
@@ -361,7 +361,7 @@
     return string;
 }
 
-- (NSString*) startPOIString:(NSArray*) pois
+- (NSString*)startPOIString:(NSArray*) pois
 {
     if (pois == nil || [pois count] == 0) {
         return @"";
@@ -386,7 +386,7 @@
     return string;
 }
 
-- (NSString*) floorPOIString:(NSArray*)pois
+- (NSString*)floorPOIString:(NSArray*)pois
 {
     pois = [pois filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"forFloor == YES && forBeforeStart == NO"]];
     
@@ -407,19 +407,19 @@
     return text;
 }
 
-- (BOOL) isCornerEnd:(NSArray*)pois
+- (BOOL)isCornerEnd:(NSArray*)pois
 {
     pois = [pois filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"forCorner == YES && forBeforeStart == NO && forCornerEnd == YES"]];
     return [pois count] > 0;
 }
 
-- (BOOL) isCornerWarningBlock:(NSArray*)pois
+- (BOOL)isCornerWarningBlock:(NSArray*)pois
 {
     pois = [pois filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"forCorner == YES && forBeforeStart == NO && forCornerWarningBlock == YES"]];
     return [pois count] > 0;
 }
 
-- (NSString*) cornerPOIString:(NSArray*)pois
+- (NSString*)cornerPOIString:(NSArray*)pois
 {
     pois = [pois filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"forCorner == YES && forBeforeStart == NO"]];
     NSString *text = nil;
@@ -435,7 +435,7 @@
     return text;
 }
 
-- (NSString*) headingActionString:(NSDictionary*)properties
+- (NSString*)headingActionString:(NSDictionary*)properties
 {
     double diffHeading = [properties[@"diffHeading"] doubleValue];
     double threshold = [properties[@"threshold"] doubleValue];
@@ -480,7 +480,7 @@
     return string;
 }
 
-- (NSString*) directionString:(NSDictionary*)properties
+- (NSString*)directionString:(NSDictionary*)properties
 {
     double diffHeading = [properties[@"diffHeading"] doubleValue];
     NSString *string = nil;
@@ -1044,7 +1044,7 @@
     [self.delegate speak:string withOptions:properties completionHandler:^{}];
 }
 
--(void)reroute:(NSDictionary *)properties
+- (void)reroute:(NSDictionary *)properties
 {
     NSString *string = NSLocalizedStringFromTable(@"REROUTING", @"BlindView", @"");
     [self.delegate vibrate];

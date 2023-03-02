@@ -25,7 +25,7 @@
 #import "NavDataStore.h"
 #import "HLPDirectory.h"
 
-@interface NavTableDataSource: NSObject <UITableViewDataSource>{
+@interface NavTableDataSource: NSObject<UITableViewDataSource> {
     @protected NSDictionary *_filter;
     @protected BOOL _showCurrentLocation;
     @protected BOOL _showFacility;
@@ -35,16 +35,16 @@
 @property BOOL showCurrentLocation;
 @property BOOL showFacility;
 @property BOOL showDialog;
-- (NavDestination*) destinationForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (NavDestination*)destinationForRowAtIndexPath:(NSIndexPath *)indexPath;
 @end
 
-@interface NavDirectoryDataSource : NavTableDataSource
+@interface NavDirectoryDataSource: NavTableDataSource
 @property HLPDirectory *directory;
 - (instancetype)initWithDirectory:(HLPDirectory*)directory;
 - (void)update:(NSNotification*)note;
 @end
 
-@interface NavDestinationDataSource : NavTableDataSource
+@interface NavDestinationDataSource: NavTableDataSource
 @property NSInteger selectedRow;
 @property NSDictionary *defaultFilter;
 @property HLPDirectory *directory;
@@ -56,11 +56,11 @@
 @property BOOL showShopBuilding;
 @property BOOL showShopFloor;
 
-- (NavDestination*) destinationForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (NavDestination*)destinationForRowAtIndexPath:(NSIndexPath *)indexPath;
 - (void)update:(NSNotification*)note;
 @end
 
-@interface NavSearchHistoryDataSource : NSObject < UITableViewDataSource>
-- (NSDictionary*) historyAtIndexPath:(NSIndexPath*)indexPath;
+@interface NavSearchHistoryDataSource: NSObject<UITableViewDataSource>
+- (NSDictionary*)historyAtIndexPath:(NSIndexPath*)indexPath;
 - (BOOL)isKnownHist:(NSDictionary*)hist;
 @end

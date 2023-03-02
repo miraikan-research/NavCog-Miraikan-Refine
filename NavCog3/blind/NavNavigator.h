@@ -32,7 +32,7 @@
 - (NSInteger)currentIndex;
 @end
 
-@interface NavNavigatorConstants : NSObject
+@interface NavNavigatorConstants: NSObject
     
 @property (readonly) double PREVENT_REMAINING_DISTANCE_EVENT_FOR_FIRST_N_METERS;
 @property (readonly) double APPROACHING_DISTANCE_THRESHOLD;
@@ -77,11 +77,13 @@
 
 @property (readonly) double MINIMUM_OBSTACLES_POI;
 
-+ (instancetype) constants;
-+ (NSArray*) propertyNames;
-+ (NSDictionary*) defaults;
++ (instancetype)constants;
++ (NSArray*)propertyNames;
++ (NSDictionary*)defaults;
 
 @end
+
+
 
 @protocol NavNavigatorDelegate <NSObject>
 - (void)didActiveStatusChanged:(NSDictionary*)properties;
@@ -127,7 +129,9 @@
 
 @end
 
-@interface NavLinkInfo : NSObject
+
+
+@interface NavLinkInfo: NSObject
 @property (readonly) HLPLink* link;
 @property (readonly) HLPLink* nextLink;
 @property (readonly) NSDictionary* options;
@@ -186,7 +190,9 @@
 
 @end
 
-@interface NavPOI : NSObject
+
+
+@interface NavPOI: NSObject
 @property (readonly) id origin;
 @property (readonly) NSString *text;
 @property (readonly) NSString *longDescription;
@@ -243,14 +249,15 @@
 - (void)updateWithLink:(HLPLink*)link andUserLocation:(HLPLocation*)userLocation;
 @end
 
+
+
 @interface NavNavigator : NSObject <NavFutureSummarySource>
 @property (readonly) BOOL isActive;
 @property (readonly) BOOL isPaused;
 @property (weak) id<NavNavigatorDelegate> delegate;
 
-- (void) stop;
-- (void) pause;
-- (void) resume;
-//- (void)preventRemainingDistanceEventFor:(NSTimeInterval)timeInSeconds;
-//- (void)preventRemainingDistanceEventBy:(double)nextTargetDistance;
+- (void)stop;
+- (void)pause;
+- (void)resume;
+
 @end

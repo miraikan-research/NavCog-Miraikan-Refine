@@ -38,7 +38,7 @@ typedef enum {
     SpeechPriorityCanBeDelayed,
 } SpeechPriority;
 
-@interface HLPSpeechEntry : NSObject
+@interface HLPSpeechEntry: NSObject
 @property double pauseDuration;
 @property (strong, nonatomic) AVSpeechUtterance *ut;
 @property SpeechSoundEffectType type;
@@ -54,7 +54,7 @@ typedef enum {
 @property BOOL quickAnswer;
 @end
 
-@interface NavDeviceTTS : NSObject <AVSpeechSynthesizerDelegate>{
+@interface NavDeviceTTS: NSObject <AVSpeechSynthesizerDelegate> {
     BOOL isSpeaking;
     BOOL isProcessing;
     NSMutableArray *speaking;
@@ -66,17 +66,17 @@ typedef enum {
 + (instancetype) sharedTTS;
 + (NSString *)removeDots:(NSString *)str;
 
-- (AVSpeechUtterance*) speak:(NSString*)text withOptions:(NSDictionary*)options completionHandler:(void(^)(void))handler;
+- (AVSpeechUtterance*)speak:(NSString*)text withOptions:(NSDictionary*)options completionHandler:(void(^)(void))handler;
 
-- (AVSpeechUtterance*) speak:(NSString*)text completionHandler:(void(^)(void))handler __attribute__ ((deprecated));
-- (AVSpeechUtterance*) speak:(NSString*)text force:(BOOL)flag completionHandler:(void(^)(void))handler __attribute__ ((deprecated));
-- (AVSpeechUtterance*) selfspeak:(NSString*)text completionHandler:(void(^)(void))handler __attribute__ ((deprecated));
-- (AVSpeechUtterance*) selfspeak:(NSString*)text force:(BOOL)flag completionHandler:(void(^)(void))handler __attribute__ ((deprecated));
+- (AVSpeechUtterance*)speak:(NSString*)text completionHandler:(void(^)(void))handler __attribute__ ((deprecated));
+- (AVSpeechUtterance*)speak:(NSString*)text force:(BOOL)flag completionHandler:(void(^)(void))handler __attribute__ ((deprecated));
+- (AVSpeechUtterance*)selfspeak:(NSString*)text completionHandler:(void(^)(void))handler __attribute__ ((deprecated));
+- (AVSpeechUtterance*)selfspeak:(NSString*)text force:(BOOL)flag completionHandler:(void(^)(void))handler __attribute__ ((deprecated));
 
-- (void) pause:(double)duration;
-- (void) reset;
-- (void) stop:(BOOL)immediate;
-- (BOOL) isSpeaking;
+- (void)pause:(double)duration;
+- (void)reset;
+- (void)stop:(BOOL)immediate;
+- (BOOL)isSpeaking;
 
 @end
     
