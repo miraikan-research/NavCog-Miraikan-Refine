@@ -66,7 +66,7 @@
 "Meter" = "メートル";
 
 /* No comment provided by engineer. */
-"Navigation" = "案内の履歴";
+"Navigation History" = "案内の履歴";
 
 /* No comment provided by engineer. */
 "Prefer Tactile Paving" = "点字ブロックを優先する";
@@ -308,6 +308,7 @@ NavCogの設定画面から
 "Old Mode" = "旧表示";
 
 "Voice" = "音声";
+"Navigation" = "ナビゲーション";
 "Augmented Reality" = "AR";
 "Debug" = "デバッグ";
 

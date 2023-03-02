@@ -631,6 +631,7 @@
     double heading = [properties[@"heading"] doubleValue];
     double threshold = [properties[@"threshold"] doubleValue];
     if (showPOIwithAction) {
+        // 向いて音声ガイド
         if (poi == lastApproachedPOI) {
             if (fabs(heading) < threshold) {
                 [self requestNearestPOI:nil];
@@ -784,6 +785,7 @@
     
     BOOL ignoreFacility = [[NSUserDefaults standardUserDefaults] boolForKey:@"ignore_facility"];
     if (ignoreFacility && [poi.origin isKindOfClass:HLPEntrance.class]) {
+        // 周辺施設情報を読み上げない
         return;
     }
     

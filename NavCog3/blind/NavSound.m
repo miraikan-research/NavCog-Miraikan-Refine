@@ -81,6 +81,7 @@ static NavSound *instance;
     };
     
     if (for_bone_conduction_headset) {
+        // 骨伝導ヘッドフォン用の効果音
         loadSound(@"Modern/calendar_alert_chord.caf", &successSoundID);
         loadSound(@"RingerChanged.caf", &AnnounceNotificationSoundID);
         loadSound(@"Tink.caf", &VoiceRecoStartSoundID);
@@ -117,6 +118,7 @@ static NavSound *instance;
 - (BOOL)_playSystemSound:(SystemSoundID)soundID
 {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"sound_effect"]) {
+        // 効果音で通知
         AudioServicesPlaySystemSound(soundID);
         return YES;
     }
@@ -207,14 +209,15 @@ static NavSound *instance;
 - (BOOL)vibrate:(NSDictionary*)param
 {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"vibrate"]) {
+        // 振動で通知
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         NSLog(@"%@,%f", NSStringFromSelector(_cmd), NSDate.date.timeIntervalSince1970);
         if (param) {
             int repeat = [param[@"repeat"] intValue];
             if (repeat > 1) {
-                double interval = param[@"interval"]?[param[@"interval"] doubleValue]:0.5;
+                double interval = param[@"interval"] ? [param[@"interval"] doubleValue] : 0.5;
                 [NSTimer scheduledTimerWithTimeInterval:interval repeats:NO block:^(NSTimer * _Nonnull timer) {
-                    [self vibrate:@{@"repeat":@(repeat-1),@"interval":@(interval)}];
+                    [self vibrate:@{@"repeat":@(repeat - 1), @"interval":@(interval)}];
                 }];
             }
         }
