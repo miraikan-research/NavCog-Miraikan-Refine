@@ -31,7 +31,7 @@
 - (void)showPOI:(NSString *)contentURL withName:(NSString*)name;
 @end
 
-@interface NavCommander : NSObject <NavNavigatorDelegate>
+@interface NavCommander: NSObject<NavNavigatorDelegate>
 
 @property id<NavCommanderDelegate> delegate;
 

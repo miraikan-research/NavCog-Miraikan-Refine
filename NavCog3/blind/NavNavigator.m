@@ -38,18 +38,12 @@
 
 static NavNavigatorConstants *_instance;
 
-+ (instancetype) constants
++ (instancetype)constants
 {
     return [[NavNavigatorConstants alloc] init];
-    /*
-     if (!_instance) {
-     _instance = [[NavNavigatorConstants alloc] init];
-     }
-     return _instance;
-     */
 }
 
-- (instancetype) init
+- (instancetype)init
 {
     self = [super init];
     
@@ -69,7 +63,7 @@ static NavNavigatorConstants *_instance;
     return self;
 }
 
-+ (NSArray*) allPropertyNames
++ (NSArray*)allPropertyNames
 {
     unsigned int outCount, i;
     
@@ -88,7 +82,7 @@ static NavNavigatorConstants *_instance;
     return array;
 }
 
-+ (NSArray*) propertyNames
++ (NSArray*)propertyNames
 {
     NSArray *names = [NavNavigatorConstants allPropertyNames];
     NSDictionary *defaults = [NavNavigatorConstants defaults];
@@ -99,7 +93,7 @@ static NavNavigatorConstants *_instance;
     }]];
 }
 
-+ (NSDictionary*) defaults
++ (NSDictionary*)defaults
 {
     return @{//Property name: @[default value, min value, max value, interval, FIXED prevents to be changed in setting view
              @"PREVENT_REMAINING_DISTANCE_EVENT_FOR_FIRST_N_METERS": @[@(7.0), @(0), @(20), @(1), FIXED],
@@ -166,7 +160,7 @@ static NavNavigatorConstants *_instance;
     return self;
 }
 
-- (void) reset
+- (void)reset
 {
     if (_nextLink) {
         double aCurrent = _link.lastBearingForTarget;
@@ -740,7 +734,7 @@ static NavNavigatorConstants *_instance;
     _pois = filtered;
 }
 
-- (NSString*) description
+- (NSString*)description
 {
     NSMutableString *string = [[NSMutableString alloc] initWithString:@"\n"];
     
@@ -804,7 +798,7 @@ static NavNavigatorConstants *_instance;
 
 @implementation NavPOI
 
--(instancetype)initWithText:(NSString *)text Location:(HLPLocation *)location Options:(NSDictionary *)options
+- (instancetype)initWithText:(NSString *)text Location:(HLPLocation *)location Options:(NSDictionary *)options
 {
     self = [super self];
     _text = text;
@@ -848,12 +842,12 @@ static NavNavigatorConstants *_instance;
     _userLocation = userLocation;
 }
 
-- (BOOL) hasContent
+- (BOOL)hasContent
 {
     return self.contentURL.length > 0;
 }
     
-- (NSString*) contentURL
+- (NSString*)contentURL
 {
     if (![self.origin isKindOfClass:HLPEntrance.class]) {
         return nil;
@@ -863,7 +857,7 @@ static NavNavigatorConstants *_instance;
     return [facility getContentPath];
 }
 
-- (NSString*) contentName
+- (NSString*)contentName
 {
     if (![self.origin isKindOfClass:HLPEntrance.class]) {
         return nil;
@@ -933,13 +927,13 @@ static NavNavigatorConstants *_instance;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void) reset
+- (void)reset
 {
     isFirst = YES;
     lastElevatorResetTime = NAN;
 }
 
-- (void) stop
+- (void)stop
 {
     _isActive = NO;
     _isPaused = NO;
@@ -949,12 +943,12 @@ static NavNavigatorConstants *_instance;
        }];
 }
 
-- (void) pause
+- (void)pause
 {
     _isPaused = YES;
 }
 
-- (void) resume
+- (void)resume
 {
     _isPaused = NO;
 }
@@ -1838,17 +1832,6 @@ static NavNavigatorConstants *_instance;
                                    @"distance": @(distance)
                                    }];
                             }
-                            /*
-                             if (elevatorPOI) {
-                             if ([self.delegate respondsToSelector:@selector(userIsApproachingToPOI:)]) {
-                             [self.delegate userIsApproachingToPOI:
-                             @{
-                             @"poi": elevatorPOI,
-                             @"heading": @(NAN)
-                             }];
-                             }
-                             }
-                             */
                             linkInfo.hasBeenActivated = YES;
                         }
                     }
@@ -2269,45 +2252,6 @@ static NavNavigatorConstants *_instance;
                     } else {
                         linkInfo.lastBearingDetected = 0;
                     }
-                    
-                    /*
-                    double BEARING_TARGET_DISTANCE = 20;
-                    double BEARING_DIFF_THRETHOLD = 2.0;
-                    double BEARING_DURATION_FACTOR = 0.1;
-                    double BEARING_NOTIFY_WAIT = 0.0; // 3.0;
-                    
-                    double distance = MIN(BEARING_TARGET_DISTANCE, linkInfo.distanceToTargetFromUserLocation);
-                    
-                    HLPLocation *bearingTarget = [linkInfo.userLocation offsetLocationByDistance:distance Bearing:[linkInfo.userLocation bearingTo:linkInfo.targetLocation]];
-                    
-                    HLPLocation *predicted = [linkInfo.userLocation offsetLocationByDistance:distance Bearing:linkInfo.userLocation.orientation];
-                    
-                    double diffBearingDistance = [bearingTarget distanceTo:predicted];
-                    double bearingThreshold = BEARING_DIFF_THRETHOLD + distance / walkingSpeed * BEARING_DURATION_FACTOR;
-                    if (diffBearingDistance > bearingThreshold) {
-                        if (linkInfo.lastBearingDetected == 0) {
-                            linkInfo.lastBearingDetected = now;
-                        }
-                        
-                        if (now - linkInfo.lastBearingDetected > BEARING_NOTIFY_WAIT &&
-                            linkInfo.diffBearingAtUserLocation < 60
-                            ) {
-                            //NSLog(@"needs to bearing: %f degree", linkInfo.diffBearingAtUserLocation);
-                            if ([self.delegate respondsToSelector:@selector(userNeedsToChangeHeading:)]) {
-                                [self.delegate userNeedsToChangeHeading:
-                                 @{
-                                   @"diffHeading": @(linkInfo.diffBearingAtUserLocation),
-                                   @"threshold": @(0)
-                                   }];
-                            }
-                            linkInfo.hasBeenBearing = YES;
-                            linkInfo.bearingTargetThreshold = fabs(linkInfo.diffBearingAtUserLocation / 2);
-                            linkInfo.lastBearingDetected = 0;
-                        }
-                    } else {
-                        linkInfo.lastBearingDetected = 0;
-                    }
-                     */
                 }
             }
             
@@ -2401,18 +2345,18 @@ static NavNavigatorConstants *_instance;
     return nil;
 }
 
-- (void) requestResume:(NSNotification*)note
+- (void)requestResume:(NSNotification*)note
 {
     isResumed = YES;
 }
 
-- (void) requestStatus:(NSNotification*)note
+- (void)requestStatus:(NSNotification*)note
 {
     [self _requestStatus:@{@"resume":@(isResumed)}];
     isResumed = false;
 }
 
-- (void) _requestStatus:(NSDictionary*)options
+- (void)_requestStatus:(NSDictionary*)options
 {
     if (!_isActive) {
         HLPLocation *loc = [[NavDataStore sharedDataStore] currentLocation];

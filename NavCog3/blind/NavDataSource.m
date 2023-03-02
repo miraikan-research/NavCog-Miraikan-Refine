@@ -28,7 +28,7 @@
 
 
 @implementation NavTableDataSource
-- (NavDestination*) destinationForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (NavDestination*)destinationForRowAtIndexPath:(NSIndexPath *)indexPath {
     return nil;
 }
 
@@ -47,7 +47,7 @@
     HLPDirectory *_directory;
 }
 
-- (instancetype) init {
+- (instancetype)init {
     self = [super init];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update:) name:DESTINATIONS_CHANGED_NOTIFICATION object:nil];
     return self;
@@ -60,23 +60,23 @@
     return self;
 }
 
-- (void) setDirectory:(HLPDirectory *)directory
+- (void)setDirectory:(HLPDirectory *)directory
 {
     _original = directory;
     _directory = directory.copy;
 }
 
-- (HLPDirectory*) directory
+- (HLPDirectory*)directory
 {
     return _directory;
 }
 
-- (void) dealloc
+- (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void) update:(NSNotification*)note {
+- (void)update:(NSNotification*)note {
     _directory = _original.copy;
     
     if (_showDialog) {
@@ -132,12 +132,12 @@
     return _directory.sections[section].items.count;
 }
 
-- (id) itemForRowAtIndexPath:(NSIndexPath *)indexPath
+- (id)itemForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return _directory.sections[indexPath.section].items[indexPath.row];
 }
 
-- (NavDestination*) destinationForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NavDestination*)destinationForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     id item = [self itemForRowAtIndexPath:indexPath];
     if ([item isKindOfClass:HLPDirectoryItem.class]) {
@@ -170,7 +170,7 @@
     //UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if(!cell){
+    if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
@@ -225,19 +225,19 @@
     NSArray *sections;
 }
 
-- (instancetype) init {
+- (instancetype)init {
     self = [super init];
     _defaultFilter = @{};
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(update:) name:DESTINATIONS_CHANGED_NOTIFICATION object:nil];
     return self;
 }
 
-- (void) dealloc
+- (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void) update:(NSNotification*)note {
+- (void)update:(NSNotification*)note {
     if (!_filter) {
         _filter = _defaultFilter;
     } else {
@@ -433,7 +433,7 @@
     return [[sections objectAtIndex:section][@"rows"] count];
 }
 
-- (NavDestination*) destinationForRowAtIndexPath:(NSIndexPath *)indexPath
+- (NavDestination*)destinationForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     NavDestination *ret = [[sections objectAtIndex:indexPath.section][@"rows"] objectAtIndex:indexPath.row];
     
@@ -463,7 +463,7 @@
     //UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if(!cell){
+    if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
@@ -477,28 +477,6 @@
     cell.detailTextLabel.lineBreakMode = NSLineBreakByClipping;
     cell.detailTextLabel.minimumScaleFactor = 0.5;
     cell.detailTextLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    /*
-    NSArray *c = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-[textLabel(<=280)]-(>=2)-[detailTextLabel]-|"
-                                                                    options:0
-                                                                    metrics:@{@"space": @(10)}
-                                                                      views:@{@"textLabel": cell.textLabel,
-                                                                              @"detailTextLabel": cell.detailTextLabel}];
-    [cell.contentView addConstraints:c];
-    NSLayoutConstraint *lc = [NSLayoutConstraint constraintWithItem:cell.textLabel
-                                     attribute:NSLayoutAttributeCenterY
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:cell.contentView
-                                     attribute:NSLayoutAttributeCenterY
-                                    multiplier:1.f constant:0.f];
-    [cell.contentView addConstraint:lc];
-    lc = [NSLayoutConstraint constraintWithItem:cell.detailTextLabel
-                                     attribute:NSLayoutAttributeCenterY
-                                     relatedBy:NSLayoutRelationEqual
-                                        toItem:cell.contentView
-                                     attribute:NSLayoutAttributeCenterY
-                                    multiplier:1.f constant:0.f];
-    [cell.contentView addConstraint:lc];
-     */
     
     NavDestination *dest = [self destinationForRowAtIndexPath:indexPath];
     NSString *floor = @"";
@@ -529,12 +507,12 @@
     return cell;
 }
 
-- (NSString*) floorString:(HLPLandmark*) landmark
+- (NSString*)floorString:(HLPLandmark*)landmark
 {
     double floor = landmark.nodeHeight;
     floor = round(floor*2.0)/2.0;
     
-    floor = (floor >= 0)?floor+1:floor;
+    floor = (floor >= 0) ? floor + 1 : floor;
     
     if (landmark.isGround) {
         return @"G";
@@ -545,7 +523,7 @@
     }
 }
 
-- (NSString*) floorStringPron:(HLPLandmark*) landmark
+- (NSString*)floorStringPron:(HLPLandmark*)landmark
 {
     double floor = landmark.nodeHeight;
     
@@ -608,7 +586,7 @@
     NSString *CellIdentifier = @"historyCell";
     
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if(!cell){
+    if (!cell) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     NSArray *hist = [[NavDataStore sharedDataStore] searchHistory];
@@ -638,17 +616,17 @@
     cell.textLabel.adjustsFontSizeToFitWidth = YES;
     cell.textLabel.lineBreakMode = NSLineBreakByClipping;
     cell.textLabel.text = to.name;
-    cell.textLabel.accessibilityLabel = isKnown?to.namePron:[NSString stringWithFormat:NSLocalizedStringFromTable(@"Disabled", @"BlindView", @""), to.namePron];
+    cell.textLabel.accessibilityLabel = isKnown ? to.namePron : [NSString stringWithFormat:NSLocalizedStringFromTable(@"Disabled", @"BlindView", @""), to.namePron];
     
     cell.detailTextLabel.text = [NSString stringWithFormat:NSLocalizedStringFromTable(@"from: %@", @"BlindView", @""), from.name];
     cell.detailTextLabel.accessibilityLabel = [NSString stringWithFormat:NSLocalizedStringFromTable(@"from: %@", @"BlindView", @""), from.namePron];
     
-    cell.contentView.layer.opacity = isKnown?1.0:0.5;
+    cell.contentView.layer.opacity = isKnown ? 1.0 : 0.5;
     
     return cell;
 }
 
--(NSDictionary *)historyAtIndexPath:(NSIndexPath *)indexPath
+- (NSDictionary *)historyAtIndexPath:(NSIndexPath *)indexPath
 {
     NSArray *hist = [[NavDataStore sharedDataStore] searchHistory];
     return [hist objectAtIndex:indexPath.row];

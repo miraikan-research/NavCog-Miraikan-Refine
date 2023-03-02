@@ -39,7 +39,7 @@ typedef enum {
     NavDestinationTypeDirectoryItem
 } NavDestinationType;
 
-@interface NavDestination : NSObject <NSSecureCoding>
+@interface NavDestination: NSObject<NSSecureCoding>
 @property (readonly) NavDestinationType type;
 @property (readonly) NSString* name;
 @property (readonly) NSString* namePron;
@@ -50,21 +50,23 @@ typedef enum {
 @property (readonly) HLPLandmark* landmark;
 @property (readonly) NSArray<HLPLandmark*>* landmarks;
 
--(instancetype)initWithDirectoryItem:(HLPDirectoryItem*)item;
--(instancetype)initWithLandmark:(HLPLandmark*)landmark;
--(instancetype)initWithLocation:(HLPLocation*)location;
--(instancetype)initWithLabel:(NSString*)label Filter:(NSDictionary*)filter;
--(void)addLandmark:(HLPLandmark*)landmark;
--(HLPLocation*)location;
--(HLPDirectoryItem*)item;
--(BOOL)isCurrentLocation;
--(BOOL)isMultiple;
-+(instancetype)selectStart;
-+(instancetype)selectDestination;
-+(instancetype)dialogSearch;
+- (instancetype)initWithDirectoryItem:(HLPDirectoryItem*)item;
+- (instancetype)initWithLandmark:(HLPLandmark*)landmark;
+- (instancetype)initWithLocation:(HLPLocation*)location;
+- (instancetype)initWithLabel:(NSString*)label Filter:(NSDictionary*)filter;
+- (void)addLandmark:(HLPLandmark*)landmark;
+- (HLPLocation*)location;
+- (HLPDirectoryItem*)item;
+- (BOOL)isCurrentLocation;
+- (BOOL)isMultiple;
++ (instancetype)selectStart;
++ (instancetype)selectDestination;
++ (instancetype)dialogSearch;
 @end
 
-@interface NavDataStore : NSObject
+
+
+@interface NavDataStore: NSObject
 
 @property NavDestination *to;
 @property NavDestination *from;
@@ -91,54 +93,54 @@ typedef enum {
 
 + (instancetype) sharedDataStore;
 
-- (void) reset;
-- (void) searchDestinations:(NSString*)query withComplete:(void(^)(HLPDirectory*))complete;
-- (BOOL) reloadDestinations:(BOOL)force withComplete:(void(^)(NSArray*, HLPDirectory*))complete;
-- (BOOL) reloadDestinations:(BOOL)force;
-- (BOOL) reloadDestinationsAtLat:(double)lat Lng:(double)lng forUser:(NSString*)user withUserLang:(NSString*)user_lang;
-- (BOOL) reloadDestinationsAtLat:(double)lat Lng:(double)lng forUser:(NSString*)user withUserLang:(NSString*)user_lang withComplete:(void(^)(NSArray*, HLPDirectory*))complete;
-- (BOOL) reloadDestinationsAtLat:(double)lat Lng:(double)lng Dist:(int)dist forUser:(NSString*)user withUserLang:(NSString*)user_lang;
-- (BOOL) reloadDestinationsAtLat:(double)lat Lng:(double)lng Dist:(int)dist forUser:(NSString*)user withUserLang:(NSString*)user_lang withComplete:(void(^)(NSArray*, HLPDirectory*))complete;
-- (void) requestRouteFrom:(NSString*)fromID To:(NSString*)toID withPreferences:(NSDictionary*)prefs complete:(void(^)(void))complete;
-- (void) requestRerouteFrom:(NSString*)fromID To:(NSString*)toID withPreferences:(NSDictionary*)prefs complete:(void(^)(void))complete;
-- (void) requestServerConfigWithComplete:(void(^)(void))complete;
-- (void) clearRoute;
-- (NSArray*) destinations;
-- (HLPDirectory*) directory;
-- (HLPLocation*) currentLocation;
-- (NSArray*) route;
-- (NSArray*) features;
-- (NSString*) userLanguage;
-- (NSArray*) userLanguageCandidates;
-- (BOOL) selectUserLanguage:(NSString*)newLanguage;
-- (NSArray*) searchHistory;
-- (BOOL) isManualLocation;
+- (void)reset;
+- (void)searchDestinations:(NSString*)query withComplete:(void(^)(HLPDirectory*))complete;
+- (BOOL)reloadDestinations:(BOOL)force withComplete:(void(^)(NSArray*, HLPDirectory*))complete;
+- (BOOL)reloadDestinations:(BOOL)force;
+- (BOOL)reloadDestinationsAtLat:(double)lat Lng:(double)lng forUser:(NSString*)user withUserLang:(NSString*)user_lang;
+- (BOOL)reloadDestinationsAtLat:(double)lat Lng:(double)lng forUser:(NSString*)user withUserLang:(NSString*)user_lang withComplete:(void(^)(NSArray*, HLPDirectory*))complete;
+- (BOOL)reloadDestinationsAtLat:(double)lat Lng:(double)lng Dist:(int)dist forUser:(NSString*)user withUserLang:(NSString*)user_lang;
+- (BOOL)reloadDestinationsAtLat:(double)lat Lng:(double)lng Dist:(int)dist forUser:(NSString*)user withUserLang:(NSString*)user_lang withComplete:(void(^)(NSArray*, HLPDirectory*))complete;
+- (void)requestRouteFrom:(NSString*)fromID To:(NSString*)toID withPreferences:(NSDictionary*)prefs complete:(void(^)(void))complete;
+- (void)requestRerouteFrom:(NSString*)fromID To:(NSString*)toID withPreferences:(NSDictionary*)prefs complete:(void(^)(void))complete;
+- (void)requestServerConfigWithComplete:(void(^)(void))complete;
+- (void)clearRoute;
+- (NSArray*)destinations;
+- (HLPDirectory*)directory;
+- (HLPLocation*)currentLocation;
+- (NSArray*)route;
+- (NSArray*)features;
+- (NSString*)userLanguage;
+- (NSArray*)userLanguageCandidates;
+- (BOOL)selectUserLanguage:(NSString*)newLanguage;
+- (NSArray*)searchHistory;
+- (BOOL)isManualLocation;
 
-- (void) switchFromTo;
-- (NavDestination*) destinationByID:(NSString*)key;
-- (NavDestination*) destinationByIDs:(NSArray*)keys;
-- (NavDestination*) closestDestinationInLandmarks:(NSArray*)landmarks;
-- (void) manualTurn:(double)diffOrientation;
-- (void) manualLocation:(HLPLocation*)location;
-- (void) manualLocationReset:(NSDictionary*)location;
-- (void) clearSearchHistory;
-- (BOOL) isKnownDestination:(NavDestination*)dest;
+- (void)switchFromTo;
+- (NavDestination*)destinationByID:(NSString*)key;
+- (NavDestination*)destinationByIDs:(NSArray*)keys;
+- (NavDestination*)closestDestinationInLandmarks:(NSArray*)landmarks;
+- (void)manualTurn:(double)diffOrientation;
+- (void)manualLocation:(HLPLocation*)location;
+- (void)manualLocationReset:(NSDictionary*)location;
+- (void)clearSearchHistory;
+- (BOOL)isKnownDestination:(NavDestination*)dest;
 
-- (BOOL) isElevatorNode:(HLPNode*)node;
-- (BOOL) hasRoute;
-- (BOOL) isOnRoute:(NSString*)objID;
-- (BOOL) isOnDestination:(NSString*)nodeID;
-- (BOOL) isOnStart:(NSString*)nodeID;
-- (HLPLink*) firstRouteLink:(double)ignoreDistance;
-- (HLPLink*) lastRouteLink:(double)ignoreDistance;
-- (HLPLink*) routeLinkById:(NSString*)linkID;
-- (HLPLink*) findElevatorLink:(HLPLink*)link;
-- (NSArray*) nearestLinksAt:(HLPLocation*)loc withOptions:(NSDictionary*)option;
+- (BOOL)isElevatorNode:(HLPNode*)node;
+- (BOOL)hasRoute;
+- (BOOL)isOnRoute:(NSString*)objID;
+- (BOOL)isOnDestination:(NSString*)nodeID;
+- (BOOL)isOnStart:(NSString*)nodeID;
+- (HLPLink*)firstRouteLink:(double)ignoreDistance;
+- (HLPLink*)lastRouteLink:(double)ignoreDistance;
+- (HLPLink*)routeLinkById:(NSString*)linkID;
+- (HLPLink*)findElevatorLink:(HLPLink*)link;
+- (NSArray*)nearestLinksAt:(HLPLocation*)loc withOptions:(NSDictionary*)option;
 - (void)setUpHLPLocationManager;
 
 - (NSArray*)getArExhibitionList;
 
-+ (NavDestination*) destinationForCurrentLocation;
++ (NavDestination*)destinationForCurrentLocation;
 
 @end
 

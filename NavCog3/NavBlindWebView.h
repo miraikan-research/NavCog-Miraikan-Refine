@@ -34,7 +34,7 @@
 - (void)clearRoute;
 - (void)showRoute:(NSArray*)route;
 - (void)getCenterWithCompletion:(void(^)(HLPLocation*))completion;
-- (void) manualLocation: (HLPLocation*) loc withSync:(BOOL)sync;
-- (void) logToServer: (NSDictionary*) content;
+- (void)manualLocation: (HLPLocation*) loc withSync:(BOOL)sync;
+- (void)logToServer: (NSDictionary*) content;
 
 @end

@@ -43,7 +43,7 @@
     }
     
     NSData *data = [NSJSONSerialization dataWithJSONObject:@{@"landmarks":temp} options:0 error:nil];
-    NSString *dataStr = [[NSString alloc] initWithData:data  encoding:NSUTF8StringEncoding];
+    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
     NSString *script = [NSString stringWithFormat:@"$hulop.map.initTarget(%@, null)", dataStr];
     [self writeData:script];
@@ -76,7 +76,7 @@
     }
     
     NSData *data = [NSJSONSerialization dataWithJSONObject:temp options:0 error:nil];
-    NSString *dataStr = [[NSString alloc] initWithData:data  encoding:NSUTF8StringEncoding];
+    NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
     NSString *script = [NSString stringWithFormat:@"$hulop.map.showRoute(%@, null, true, true);/*$hulop.map.showResult(true);*/$('#map-page').trigger('resize');", dataStr];
     [self writeData:script];
@@ -103,7 +103,7 @@
 }
 
 
-- (void) manualLocation: (HLPLocation*) loc withSync:(BOOL)sync
+- (void)manualLocation:(HLPLocation*)loc withSync:(BOOL)sync
 {
     NSMutableString* script = [[NSMutableString alloc] init];
     if (loc && !isnan(loc.floor) ) {
@@ -132,7 +132,7 @@
                           @{@"timestamp": @(timestamp),
                             @"mode": @"blind"}];
     
-    NSString *jsonstr = [[NSString alloc] initWithData: [NSJSONSerialization dataWithJSONObject:data options:0 error:nil]encoding:NSUTF8StringEncoding];
+    NSString *jsonstr = [[NSString alloc] initWithData: [NSJSONSerialization dataWithJSONObject:data options:0 error:nil] encoding:NSUTF8StringEncoding];
     
     NSString *script = [NSString stringWithFormat:@"$hulop.logging && $hulop.logging.onData(%@);",jsonstr];
     [self writeData:script];
@@ -162,7 +162,7 @@
         return NO;
     }
 
-    NSData *data = [[NSString stringWithFormat: @"%@, %@\n", dateString, writeLine] dataUsingEncoding: NSUTF8StringEncoding];
+    NSData *data = [[NSString stringWithFormat: @"%@, %@\n", dateString, writeLine] dataUsingEncoding:NSUTF8StringEncoding];
     [_logFileHandle writeData:data];
 
     return YES;

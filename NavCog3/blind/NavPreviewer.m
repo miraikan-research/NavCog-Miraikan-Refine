@@ -41,7 +41,7 @@
     if (_autoProceed) {
         NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
         double ps = 1.0 / [ud doubleForKey:@"preview_speed"];
-        ps = nds.previewMode?ps:0.1;
+        ps = nds.previewMode ? ps : 0.1;
         
         _autoTimer = [NSTimer timerWithTimeInterval:ps target:self selector:@selector(processPreview:) userInfo:nil repeats:YES];
         [[NSRunLoop mainRunLoop] addTimer:_autoTimer forMode:NSDefaultRunLoopMode];
@@ -54,20 +54,20 @@
     }
 }
 
-- (void) processPreview:(NSTimer*)timer
+- (void)processPreview:(NSTimer*)timer
 {
     //NSLog(@"angle=%f, dist=%f, floor=%f", _targetAngle, _targetDistance, _targetFloor);
     if (fabs(_targetAngle) > 5) {
         if (isnan(_targetDistance) || _targetDistance < 0) {
             if (fabs(_targetAngle) > 1) {
                 const double PREVIEW_TURN_RATE = 0.75;
-                [self manualTurn:_targetAngle*PREVIEW_TURN_RATE];
-                _targetAngle *= (1.0-PREVIEW_TURN_RATE);
+                [self manualTurn:_targetAngle * PREVIEW_TURN_RATE];
+                _targetAngle *= (1.0 - PREVIEW_TURN_RATE);
                 return;
             }
         } else {
-            [self manualTurn:_targetAngle<0?-5:5];
-            _targetAngle -= _targetAngle<0?-5:5;
+            [self manualTurn:_targetAngle < 0 ? -5 : 5];
+            _targetAngle -= _targetAngle < 0 ? -5 : 5;
         }
     }
 
@@ -94,7 +94,7 @@
     [[NavDataStore sharedDataStore] manualLocation:nil];
 }
 
-- (BOOL) autoProceed
+- (BOOL)autoProceed
 {
     return _autoProceed;
 }
@@ -201,9 +201,9 @@
     if (properties[@"nextSourceHeight"]) {
         int targetHeight = [properties[@"nextSourceHeight"] intValue];
         
-        double delayInSeconds = [NavDataStore sharedDataStore].toolMode?0:5;
+        double delayInSeconds = [NavDataStore sharedDataStore].toolMode ? 0 : 5;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
             _targetFloor = targetHeight;
         });
     }

@@ -42,7 +42,7 @@
     return YES;
 }
 
-- (BOOL) isEqual:(NavDestination*)obj
+- (BOOL)isEqual:(NavDestination*)obj
 {
     if (_type != obj.type) {
         return NO;
@@ -147,7 +147,7 @@
     _filter = filter;
     return self;
 }
--(void)addLandmark:(HLPLandmark *)landmark
+- (void)addLandmark:(HLPLandmark *)landmark
 {
     if (!_landmarks) {
         _landmarks = @[_landmark];
@@ -226,7 +226,7 @@
                 loc = _location;
             }
             floor = (int)round(loc.floor);
-            floor = (floor >= 0)?floor+1:floor;
+            floor = (floor >= 0) ? floor + 1 : floor;
             return [NSString stringWithFormat:@"latlng:%f:%f:%d", loc.lat, loc.lng, floor];
         default:
             return nil;
@@ -266,15 +266,15 @@
             if (_location == nil) {
                 loc = [[NavDataStore sharedDataStore] mapCenter];
                 floor = (int)round(loc.floor);
-                floor = (floor >= 0)?floor+1:floor;
+                floor = (floor >= 0) ? floor + 1 : floor;
                 return [NSString stringWithFormat:@"%@(%f,%f,%@%dF)",
-                        NSLocalizedStringFromTable(@"_nav_latlng", @"BlindView", @""),loc.lat,loc.lng,floor<0?@"B":@"",abs(floor)];
+                        NSLocalizedStringFromTable(@"_nav_latlng", @"BlindView", @""), loc.lat, loc.lng, floor < 0 ?@"B" : @"", abs(floor)];
             } else {
                 loc = _location;
                 floor = (int)round(loc.floor);
-                floor = (floor >= 0)?floor+1:floor;
+                floor = (floor >= 0) ? floor + 1 : floor;
                 return [NSString stringWithFormat:@"%@(%f,%f,%@%dF)",
-                        NSLocalizedStringFromTable(@"_nav_latlng_fix", @"BlindView", @""),loc.lat,loc.lng,floor<0?@"B":@"",abs(floor)];
+                        NSLocalizedStringFromTable(@"_nav_latlng_fix", @"BlindView", @""), loc.lat, loc.lng, floor < 0 ? @"B" : @"", abs(floor)];
             }
         case NavDestinationTypeSelectStart:
             return NSLocalizedStringFromTable(@"_nav_select_start", @"BlindView", @"");
@@ -395,18 +395,18 @@ static NavDataStore* instance_ = nil;
     NSMutableArray* userLanguageCandidates = [[NSMutableArray alloc] init];
     NSString* separator = @"-";
     NSString *userLanguage = [NSLocale preferredLanguages].firstObject; // use first preferred language.
-    if (userLanguage == nil){
+    if (userLanguage == nil) {
         userLanguage = @"en";
     }
     NSArray *userLangSplitted = [userLanguage componentsSeparatedByString:separator];
-    for(int j=0; j<userLangSplitted.count-1; j++){
+    for(int j = 0; j < userLangSplitted.count - 1; j++) {
         NSRange range = [userLanguage rangeOfString:separator options:NSBackwardsSearch];
         userLanguage = [userLanguage substringToIndex: range.location];
         
         // for compatibility
-        if([userLanguage isEqualToString:@"zh-Hans"]){
+        if([userLanguage isEqualToString:@"zh-Hans"]) {
             [userLanguageCandidates addObject:@"zh-CN"];
-        }else if([userLanguage isEqualToString:@"zh-Hant"]){
+        }else if([userLanguage isEqualToString:@"zh-Hant"]) {
             [userLanguageCandidates addObject:@"zh-TW"];
         }
         [userLanguageCandidates addObject:userLanguage];
@@ -424,18 +424,18 @@ static NavDataStore* instance_ = nil;
     return NO;
 }
 
-- (void) setUserID:(NSString *)userID
+- (void)setUserID:(NSString *)userID
 {
     //_userID = [NSString stringWithFormat:@"%@:%@", userID, userLanguage];
     _userID = userID;
 }
 
-- (NSString*) userID
+- (NSString*)userID
 {
     return _userID;
 }
 
-- (void) reset
+- (void)reset
 {
     isManualLocation = NO;
     destinationRequesting = NO;
@@ -446,25 +446,10 @@ static NavDataStore* instance_ = nil;
     [location updateOrientation:0 withAccuracy:999];
     currentLocation = [[HLPLocation alloc] init];
     [currentLocation updateOrientation:0 withAccuracy:999];
-
-    /*
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-
-    if ([ud dictionaryForKey:@"lastLocation"]) {
-        NSDictionary *dic = [ud dictionaryForKey:@"lastLocation"];
-        double lat = [dic[@"lat"] doubleValue];
-        double lng = [dic[@"lng"] doubleValue];
-        double x = cos(lng/180*M_PI);
-        double y = sin(lng/180*M_PI);
-        lng = atan2(y,x)/M_PI*180;
-
-        [currentLocation updateLat:lat Lng:lng Accuracy:0 Floor:0];
-    }
-     */
 }
 
 
-- (void) locationChanged: (NSNotification*) note
+- (void)locationChanged:(NSNotification*) note
 {
     if (_previewMode) {
         return;
@@ -493,7 +478,7 @@ static NavDataStore* instance_ = nil;
 }
 
 
--(void) postLocationNotification
+- (void)postLocationNotification
 {
     HLPLocation *loc = [self currentLocation];
     if (loc && [Logging isLogging]) {
@@ -514,7 +499,7 @@ static NavDataStore* instance_ = nil;
        }];
 }
 
-- (void) orientationChanged: (NSNotification*) note
+- (void)orientationChanged:(NSNotification*)note
 {
     if (_previewMode) {
         return;
@@ -528,7 +513,7 @@ static NavDataStore* instance_ = nil;
     [self postLocationNotification];
 }
 
-- (void) manualLocationChanged: (NSNotification*) note
+- (void)manualLocationChanged:(NSNotification*)note
 {
     NSDictionary *obj = [note userInfo];
     double floor = [obj[@"floor"] doubleValue];
@@ -537,12 +522,12 @@ static NavDataStore* instance_ = nil;
     }
     BOOL firstMapCenter = (_mapCenter == nil);
     _mapCenter = [[HLPLocation alloc] initWithLat:[obj[@"lat"] doubleValue]
-                                             Lng:[obj[@"lng"] doubleValue]
-                                        Accuracy:1
-                                           Floor:floor
-                                           Speed:1.0
-                                     Orientation:0
-                             OrientationAccuracy:999];
+                                              Lng:[obj[@"lng"] doubleValue]
+                                         Accuracy:1
+                                            Floor:floor
+                                            Speed:1.0
+                                      Orientation:0
+                              OrientationAccuracy:999];
     if ([[note userInfo][@"sync"] boolValue]) {
         if (firstMapCenter) {
             [self postLocationNotification];
@@ -559,9 +544,8 @@ static NavDataStore* instance_ = nil;
     }
 }
 
-- (HLPLocation*) currentLocation
+- (HLPLocation*)currentLocation
 {
-    
     // Removed nan check
     //if (isnan(currentLocation.lat) && isnan(manualCurrentLocation.lat)) {
     //    return nil;
@@ -709,7 +693,7 @@ static NavDataStore* instance_ = nil;
     }
     destinationDistCache = dist;
     _loadLocation = [[HLPLocation alloc] initWithLat:lat Lng:lng];
-    if (destinationCacheLocation && [destinationCacheLocation distanceTo:_loadLocation] < dist/2 &&
+    if (destinationCacheLocation && [destinationCacheLocation distanceTo:_loadLocation] < dist / 2 &&
         destinationCache && destinationCache.count > 0) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [[NSNotificationCenter defaultCenter] postNotificationName:DESTINATIONS_CHANGED_NOTIFICATION object:self userInfo:@{@"destinations":destinationCache?destinationCache:@[]}];
@@ -734,7 +718,8 @@ static NavDataStore* instance_ = nil;
     return YES;
 }
     
-- (void) didLoadLandmarks:(NSArray<HLPObject *>*) result andDirectory:(HLPDirectory*)directory withComplete:(void(^)(NSArray*, HLPDirectory*))complete{
+- (void)didLoadLandmarks:(NSArray<HLPObject *>*) result andDirectory:(HLPDirectory*)directory withComplete:(void(^)(NSArray*, HLPDirectory*))complete
+{
     if (result == nil) {
         destinationRequesting = NO;
         destinationCache = nil;
@@ -779,7 +764,7 @@ static NavDataStore* instance_ = nil;
     destinationRequesting = NO;
 }
 
-- (void) saveHistory
+- (void)saveHistory
 {
     NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString* path = [documentsPath stringByAppendingPathComponent:@"history.object"];
@@ -944,7 +929,7 @@ static NavDataStore* instance_ = nil;
     }
 }
 
-- (void) updateRoute
+- (void)updateRoute
 {
     [routeCache enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:HLPLink.class]) {
@@ -974,7 +959,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
     return MKMapPointMake(distance*sin(r), distance*cos(r));
 }
 
-- (void) analyzeFeatures:(NSArray*)features
+- (void)analyzeFeatures:(NSArray*)features
 {
     NSMutableDictionary *idMapTemp = [@{} mutableCopy];
     NSMutableDictionary *entranceMapTemp = [@{} mutableCopy];
@@ -1057,8 +1042,8 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
         HLPNode *node = _nodesMap[key];
         [obj sortUsingComparator:^NSComparisonResult(HLPLink *l1, HLPLink *l2) {
             double o1, o2;
-            o1 = (l1.sourceNode == node)?l1.initialBearingFromSource:l1.initialBearingFromTarget;
-            o2 = (l2.sourceNode == node)?l2.initialBearingFromSource:l2.initialBearingFromTarget;
+            o1 = (l1.sourceNode == node) ? l1.initialBearingFromSource : l1.initialBearingFromTarget;
+            o2 = (l2.sourceNode == node) ? l2.initialBearingFromSource : l2.initialBearingFromTarget;
             return [@(o1) compare:@(o2)];
         }];
     }];
@@ -1094,7 +1079,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
             }
             NSMutableString* temp = [@"" mutableCopy];
             [temp appendString:bearing<0?@"_left_ ":@"_right_ "];
-            [temp appendString:((source2==link2.sourceLocation) && dir2) ? @"_forward_ ":@"_backward_ "];
+            [temp appendString:((source2 == link2.sourceLocation) && dir2) ? @"_forward_ ":@"_backward_ "];
             [temp appendString:source2.floor > target2.floor ? @"_downward_ ":@"_upward_ "];
             
             return [[HLPPOIEscalatorFlags alloc] initWithString:temp];
@@ -1240,7 +1225,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
 
 }
 
-- (NSArray*) nearestLinksAt:(HLPLocation*)loc withOptions:(NSDictionary*)option
+- (NSArray*)nearestLinksAt:(HLPLocation*)loc withOptions:(NSDictionary*)option
 {
     NSMutableSet<HLPLink*> __block *nearestLinks = nil;
     double __block minDistance = DBL_MAX;
@@ -1341,7 +1326,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
     NSString *https = [[NSUserDefaults standardUserDefaults] boolForKey:@"https_connection"]?@"https":@"http";
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:CONFIG_JSON, https, server, context]];
 
-    [HLPDataUtil getJSON:url withCallback:^(NSObject* json){
+    [HLPDataUtil getJSON:url withCallback:^(NSObject* json) {
         if (json && [json isKindOfClass:NSDictionary.class]) {
             serverConfig = (NSDictionary*)json;
             complete();
@@ -1349,7 +1334,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
             NSLog(@"error in loading dialog_config, retrying...");
             double delayInSeconds = 3.0;
             dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-            dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
                 [self requestServerConfigWithComplete:complete];
             });
         }
@@ -1361,7 +1346,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
     return serverConfig;
 }
 
-- (BOOL) isManualLocation
+- (BOOL)isManualLocation
 {
     return isManualLocation;
 }
@@ -1383,12 +1368,12 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
     return directoryCache;
 }
 
-- (NSString*) userLanguage
+- (NSString*)userLanguage
 {
     return userLanguage;
 }
 
-- (NSArray*) searchHistory
+- (NSArray*)searchHistory
 {
     NSString* documentsPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];
     NSString* path = [documentsPath stringByAppendingPathComponent:@"history.object"];
@@ -1520,7 +1505,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
     }
 }
 
-+ (NavDestination*) destinationForCurrentLocation;
++ (NavDestination*)destinationForCurrentLocation;
 {
     return [[NavDestination alloc] initWithLocation:nil];
 }
@@ -1595,7 +1580,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
         }
         if ([o isKindOfClass:HLPLink.class]) {
             HLPLink *l = (HLPLink*)o;
-            if ([l.sourceNodeID isEqualToString:objID] || [l.targetNodeID isEqualToString:objID]){
+            if ([l.sourceNodeID isEqualToString:objID] || [l.targetNodeID isEqualToString:objID]) {
                 return YES;
             }
         }
@@ -1704,7 +1689,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
     [manager start];
 }
 
-- (NSDictionary*) getLocationManagerParams
+- (NSDictionary*)getLocationManagerParams
 {
     NSMutableDictionary *params = [@{} mutableCopy];
     
@@ -1781,7 +1766,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
         }
         else if ([from isEqualToString:@"activatesStatusMonitoring"]) {
             bool activatesDynamicStatusMonitoring = [ud boolForKey:@"activatesStatusMonitoring"];
-            if(activatesDynamicStatusMonitoring){
+            if(activatesDynamicStatusMonitoring) {
                 double minWeightStable = pow(10.0, [ud doubleForKey:@"exponentMinWeightStable"]);
                 params[@"locationStatusMonitorParameters.minimumWeightStable"] = @(minWeightStable);
                 params[@"locationStatusMonitorParameters.stdev2DEnterStable"] = ([ud valueForKey:@"enterStable"]);
@@ -1802,7 +1787,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
             return;
         }
         else if ([from isEqualToString:@"wheelchair_pdr"]) {
-            value = @([ud boolForKey:@"wheelchair_pdr"]?0.1:0.6);
+            value = @([ud boolForKey:@"wheelchair_pdr"] ? 0.1 : 0.6);
         }
         else if ([from isEqualToString:@"locLB"]) {
             value = [ud valueForKey:@"locLB"];
@@ -1812,12 +1797,12 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
         }
         else if ([from isEqualToString:@"rssi_bias"]) {
             double rssiBias = [ud doubleForKey:@"rssi_bias"];
-            if([ud boolForKey:@"rssi_bias_model_used"]){
+            if([ud boolForKey:@"rssi_bias_model_used"]) {
                 // check device and update rssi_bias
                 NSString *deviceName = [NavUtil deviceModel];
                 NSString *configKey = [@"rssi_bias_m_" stringByAppendingString:deviceName];
                 // check if configKey exists in the user defaults.
-                if ([ud objectForKey:configKey] != nil){
+                if ([ud objectForKey:configKey] != nil) {
                     rssiBias = [ud floatForKey:configKey];
                 }
             }
@@ -1828,11 +1813,11 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
         }
         else if ([from isEqualToString:@"rep_location"]) {
             NSString *rep_location = [ud stringForKey:@"rep_location"];
-            if([rep_location isEqualToString:@"mean"]){
+            if([rep_location isEqualToString:@"mean"]) {
                 value = @(HLPLocationManagerRepLocationMean);
-            }else if([rep_location isEqualToString:@"densest"]){
+            }else if([rep_location isEqualToString:@"densest"]) {
                 value = @(HLPLocationManagerRepLocationDensest);
-            }else if([rep_location isEqualToString:@"closest_mean"]){
+            }else if([rep_location isEqualToString:@"closest_mean"]) {
                 value = @(HLPLocationManagerRepLocationClosestMean);
             }
         }

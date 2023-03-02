@@ -27,13 +27,14 @@
 
 @interface NavSound : NSObject
 
-+ (instancetype) sharedInstance;
-- (BOOL) playSuccess;
-- (BOOL) playFail;
-- (BOOL) playAnnounceNotification;
-- (BOOL) playVoiceRecoStart;
-- (BOOL) playVoiceRecoEnd;
-- (BOOL) playVoiceRecoPause;
-- (BOOL) playHeadingAdjusted:(int)level;
-- (BOOL) vibrate:(NSDictionary*)param;
++ (instancetype)sharedInstance;
+- (BOOL)playSuccess;
+- (BOOL)playFail;
+- (BOOL)playAnnounceNotification;
+- (BOOL)playVoiceRecoStart;
+- (BOOL)playVoiceRecoEnd;
+- (BOOL)playVoiceRecoPause;
+- (BOOL)playHeadingAdjusted:(int)level;
+- (BOOL)vibrate:(NSDictionary*)param;
+
 @end

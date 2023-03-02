@@ -71,7 +71,7 @@ static NavSound *instance;
 }
 
 
-- (void) loadAudio
+- (void)loadAudio
 {
     BOOL for_bone_conduction_headset = [[NSUserDefaults standardUserDefaults] boolForKey:@"for_bone_conduction_headset"];
     
@@ -97,7 +97,7 @@ static NavSound *instance;
     }
 }
 
--(void)playSystemSoundFromNote:(NSNotification*)note
+- (void)playSystemSoundFromNote:(NSNotification*)note
 {
     NSDictionary *info = note.userInfo;
     NSString *name = info[@"sound"];
@@ -114,7 +114,7 @@ static NavSound *instance;
     }
 }
 
--(BOOL)_playSystemSound:(SystemSoundID)soundID
+- (BOOL)_playSystemSound:(SystemSoundID)soundID
 {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"sound_effect"]) {
         AudioServicesPlaySystemSound(soundID);
@@ -123,7 +123,7 @@ static NavSound *instance;
     return NO;
 }
 
--(BOOL)playSuccess
+- (BOOL)playSuccess
 {
     if ([self _playSystemSound:successSoundID]) {
         NSLog(@"%@,%f", NSStringFromSelector(_cmd), NSDate.date.timeIntervalSince1970);
@@ -145,7 +145,7 @@ static NavSound *instance;
     return NO;
 }
 
--(BOOL)playAnnounceNotification
+- (BOOL)playAnnounceNotification
 {
     if ([self _playSystemSound:AnnounceNotificationSoundID]) {
         NSLog(@"%@,%f", NSStringFromSelector(_cmd), NSDate.date.timeIntervalSince1970);
@@ -204,7 +204,7 @@ static NavSound *instance;
     return YES;
 }
 
--(BOOL)vibrate:(NSDictionary*)param
+- (BOOL)vibrate:(NSDictionary*)param
 {
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"vibrate"]) {
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
