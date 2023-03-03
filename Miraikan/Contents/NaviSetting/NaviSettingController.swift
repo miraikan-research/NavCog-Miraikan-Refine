@@ -134,6 +134,11 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      key: "vibrate",
                                                      isOn: UserDefaults.standard.bool(forKey: "vibrate"),
                                                      isEnabled: nil)))
+        cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("Ignore facility info.", comment: ""),
+                                                     key: "ignore_facility",
+                                                     isOn: UserDefaults.standard.bool(forKey: "ignore_facility"),
+                                                     isEnabled: nil)))
         sectionList.append(SectionModel(title: title, items: cellList))
 
         title = NSLocalizedString("Augmented Reality", comment: "")

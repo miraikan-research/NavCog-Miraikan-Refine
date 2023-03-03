@@ -4,7 +4,7 @@
 //  NavCogMiraikan
 //
 /*******************************************************************************
- * Copyright (c) 2022 © Miraikan - The National Museum of Emerging Science and Innovation  
+ Copyright (c) 2022 © Miraikan - The National Museum of Emerging Science and Innovation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -192,7 +192,8 @@ final public class AudioGuideManager: NSObject {
 
         if !floorStr.isEmpty,
            previousFloorStr != floorStr {
-            if UserDefaults.standard.bool(forKey: "isVoiceGuideOn") {
+            if UserDefaults.standard.bool(forKey: "isVoiceGuideOn") &&
+                !UserDefaults.standard.bool(forKey: "ignore_facility") {
                 self.speakTexts.append(floorStr)
                 self.dequeueSpeak()
             }
@@ -413,7 +414,8 @@ final public class AudioGuideManager: NSObject {
     }
 
     private func locationChanged(current: HLPLocation) {
-        if !UserDefaults.standard.bool(forKey: "isVoiceGuideOn") {
+        if !UserDefaults.standard.bool(forKey: "isVoiceGuideOn") ||
+            UserDefaults.standard.bool(forKey: "ignore_facility") {
             return
         }
 
@@ -511,7 +513,8 @@ final public class AudioGuideManager: NSObject {
     
     func nearLocationSpeak(current: HLPLocation) {
         if let model = nearLocation(current: current) {
-            if UserDefaults.standard.bool(forKey: "isVoiceGuideOn") {
+            if UserDefaults.standard.bool(forKey: "isVoiceGuideOn") &&
+                !UserDefaults.standard.bool(forKey: "ignore_facility") {
                 self.speakTexts.append(String(format: NSLocalizedString("Near", tableName: "BlindView", comment: ""), model.accessibility))
                 self.dequeueSpeak()
             }
