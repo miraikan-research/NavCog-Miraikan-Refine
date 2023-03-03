@@ -268,7 +268,7 @@
                 floor = (int)round(loc.floor);
                 floor = (floor >= 0) ? floor + 1 : floor;
                 return [NSString stringWithFormat:@"%@(%f,%f,%@%dF)",
-                        NSLocalizedStringFromTable(@"_nav_latlng", @"BlindView", @""), loc.lat, loc.lng, floor < 0 ?@"B" : @"", abs(floor)];
+                        NSLocalizedStringFromTable(@"_nav_latlng", @"BlindView", @""), loc.lat, loc.lng, floor < 0 ? @"B" : @"", abs(floor)];
             } else {
                 loc = _location;
                 floor = (int)round(loc.floor);
@@ -490,7 +490,7 @@ static NavDataStore* instance_ = nil;
      object: self
      userInfo:
      @{
-       @"current":loc?loc:[NSNull null],
+       @"current":loc ? loc : [NSNull null],
        @"isManual":@(isManualLocation),
        
        // Removed nan check to publish unknown lat and lng
@@ -669,7 +669,7 @@ static NavDataStore* instance_ = nil;
     
     NSRange range = [retStr rangeOfString:@"^[0-9]" options:NSRegularExpressionSearch];
     BOOL matches = range.location != NSNotFound;
-    return matches?[NSString stringWithFormat:@"ZZZZZZ%@",retStr]:retStr;
+    return matches ? [NSString stringWithFormat:@"ZZZZZZ%@",retStr] : retStr;
 }
 
 - (BOOL)reloadDestinationsAtLat:(double)lat Lng:(double)lng forUser:(NSString*)user withUserLang:(NSString*)user_lang {
@@ -696,7 +696,7 @@ static NavDataStore* instance_ = nil;
     if (destinationCacheLocation && [destinationCacheLocation distanceTo:_loadLocation] < dist / 2 &&
         destinationCache && destinationCache.count > 0) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:DESTINATIONS_CHANGED_NOTIFICATION object:self userInfo:@{@"destinations":destinationCache?destinationCache:@[]}];
+            [[NSNotificationCenter defaultCenter] postNotificationName:DESTINATIONS_CHANGED_NOTIFICATION object:self userInfo:@{@"destinations":destinationCache ? destinationCache : @[]}];
         });
         destinationRequesting = NO;
         return NO;
@@ -726,7 +726,7 @@ static NavDataStore* instance_ = nil;
         destinationCacheLocation = nil;
         destinationHash = nil;
         dispatch_async(dispatch_get_main_queue(), ^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:DESTINATIONS_CHANGED_NOTIFICATION object:self userInfo:@{@"destinations":destinationCache?destinationCache:@[]}];
+            [[NSNotificationCenter defaultCenter] postNotificationName:DESTINATIONS_CHANGED_NOTIFICATION object:self userInfo:@{@"destinations":destinationCache ? destinationCache : @[]}];
         });
         return;
     }
@@ -755,7 +755,7 @@ static NavDataStore* instance_ = nil;
     }
     
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[NSNotificationCenter defaultCenter] postNotificationName:DESTINATIONS_CHANGED_NOTIFICATION object:self userInfo:@{@"destinations":destinationCache?destinationCache:@[]}];
+        [[NSNotificationCenter defaultCenter] postNotificationName:DESTINATIONS_CHANGED_NOTIFICATION object:self userInfo:@{@"destinations":destinationCache ? destinationCache : @[]}];
     });
     if (complete) {
         complete(destinationCache, directoryCache);
@@ -874,13 +874,13 @@ static NavDataStore* instance_ = nil;
             if (complete) {
                 complete();
             }
-            [[NSNotificationCenter defaultCenter] postNotificationName:ROUTE_CHANGED_NOTIFICATION object:self userInfo:@{@"route":routeCache?routeCache:@[]}];
+            [[NSNotificationCenter defaultCenter] postNotificationName:ROUTE_CHANGED_NOTIFICATION object:self userInfo:@{@"route":routeCache ? routeCache : @[]}];
             return;
         }
         [HLPDataUtil loadNodeMapForUser:user withLang:lang WithCallback:^(NSArray<HLPObject *> *result) {
             featuresCache = result;
             [HLPDataUtil loadFeaturesForUser:user withLang:lang WithCallback:^(NSArray<HLPObject *> *result) {
-                featuresCache = [featuresCache arrayByAddingObjectsFromArray: result];
+                featuresCache = [featuresCache arrayByAddingObjectsFromArray:result];
                 
                 for(HLPObject* f in featuresCache) {
                     [f updateWithLang:lang];
@@ -893,23 +893,38 @@ static NavDataStore* instance_ = nil;
                     complete();
                 }
                 
-                [[NSNotificationCenter defaultCenter] postNotificationName:ROUTE_CHANGED_NOTIFICATION object:self userInfo:@{@"route":routeCache?routeCache:@[]}];
+                [[NSNotificationCenter defaultCenter] postNotificationName:ROUTE_CHANGED_NOTIFICATION object:self userInfo:@{@"route":routeCache ? routeCache : @[]}];
             }];
         }];
     } else {
         [HLPDataUtil loadRouteFromNode:fromID toNode:toID forUser:user withLang:lang withPrefs:prefs withCallback:^(NSArray<HLPObject *> *result) {
+//#if TARGET_OS_SIMULATOR
+//            [result enumerateObjectsUsingBlock:^(HLPObject *obj, NSUInteger idx, BOOL *stop) {
+//                NSLog(@"%lu: %@", idx, obj.description);
+//            }];
+//#endif
             routeCache = result;
             if (useCache && featuresCache) {
                 if (complete) {
                     complete();
                 }
-                [[NSNotificationCenter defaultCenter] postNotificationName:ROUTE_CHANGED_NOTIFICATION object:self userInfo:@{@"route":routeCache?routeCache:@[]}];
+                [[NSNotificationCenter defaultCenter] postNotificationName:ROUTE_CHANGED_NOTIFICATION object:self userInfo:@{@"route":routeCache ? routeCache : @[]}];
                 return;
             }
             [HLPDataUtil loadNodeMapForUser:user withLang:lang WithCallback:^(NSArray<HLPObject *> *result) {
                 featuresCache = result;
+//#if TARGET_OS_SIMULATOR
+//                [result enumerateObjectsUsingBlock:^(HLPObject *obj, NSUInteger idx, BOOL *stop) {
+//                    NSLog(@"%lu: %@", idx, obj.description);
+//                }];
+//#endif
                 [HLPDataUtil loadFeaturesForUser:user withLang:lang WithCallback:^(NSArray<HLPObject *> *result) {
-                    featuresCache = [featuresCache arrayByAddingObjectsFromArray: result];
+//#if TARGET_OS_SIMULATOR
+//                    [result enumerateObjectsUsingBlock:^(HLPObject *obj, NSUInteger idx, BOOL *stop) {
+//                        NSLog(@"%lu: %@", idx, obj.description);
+//                    }];
+//#endif
+                    featuresCache = [featuresCache arrayByAddingObjectsFromArray:result];
                     
                     for(HLPObject* f in featuresCache) {
                         [f updateWithLang:lang];
@@ -922,7 +937,7 @@ static NavDataStore* instance_ = nil;
                         complete();
                     }
                     
-                    [[NSNotificationCenter defaultCenter] postNotificationName:ROUTE_CHANGED_NOTIFICATION object:self userInfo:@{@"route":routeCache?routeCache:@[]}];
+                    [[NSNotificationCenter defaultCenter] postNotificationName:ROUTE_CHANGED_NOTIFICATION object:self userInfo:@{@"route":routeCache ? routeCache : @[]}];
                 }];
             }];
         }];
@@ -1055,14 +1070,14 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
             continue;
         }
         BOOL dir1 = (link1.direction == DIRECTION_TYPE_SOURCE_TO_TARGET);
-        HLPLocation *source1 = dir1?link1.sourceLocation:link1.targetLocation;
+        HLPLocation *source1 = dir1 ? link1.sourceLocation : link1.targetLocation;
         //HLPLocation *source1 = link1.sourceLocation;
         double bearing1 = link1.initialBearingFromSource;
         
         HLPPOIEscalatorFlags*(^isSideBySideEscalator)(HLPLink*) = ^(HLPLink* link2) {
             BOOL dir2 = (link2.direction == DIRECTION_TYPE_SOURCE_TO_TARGET);
-            HLPLocation *source2 = dir2?link2.sourceLocation:link2.targetLocation;
-            HLPLocation *target2 = dir2?link2.targetLocation:link2.sourceLocation;
+            HLPLocation *source2 = dir2 ? link2.sourceLocation : link2.targetLocation;
+            HLPLocation *target2 = dir2 ? link2.targetLocation : link2.sourceLocation;
             if (source1.floor != source2.floor && source1.floor != target2.floor) {
                 source2 = target2 = nil;
             }
@@ -1078,7 +1093,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
                 //return (HLPPOIEscalatorFlags*)nil;
             }
             NSMutableString* temp = [@"" mutableCopy];
-            [temp appendString:bearing<0?@"_left_ ":@"_right_ "];
+            [temp appendString:bearing < 0 ? @"_left_ " : @"_right_ "];
             [temp appendString:((source2 == link2.sourceLocation) && dir2) ? @"_forward_ ":@"_backward_ "];
             [temp appendString:source2.floor > target2.floor ? @"_downward_ ":@"_upward_ "];
             
@@ -1199,7 +1214,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
             //NSLog(@"Facility: %@ %@", ent._id, ent.facility.name);
             
             BOOL isLeaf = ent.node.isLeaf;
-            NSMutableDictionary *opt = [isLeaf?@{@"onlyEnd":@(YES)}:@{} mutableCopy];
+            NSMutableDictionary *opt = [isLeaf ? @{@"onlyEnd":@(YES)} : @{} mutableCopy];
             opt[@"POI_DISTANCE_MIN_THRESHOLD"] = @(10);
 
             NSArray *links = [self nearestLinksAt:ent.node.location withOptions:opt];
@@ -1305,7 +1320,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
     }];
 
 
-    if (minDistance < (option[@"POI_DISTANCE_MIN_THRESHOLD"]?[option[@"POI_DISTANCE_MIN_THRESHOLD"] doubleValue]:5)) {
+    if (minDistance < (option[@"POI_DISTANCE_MIN_THRESHOLD"] ? [option[@"POI_DISTANCE_MIN_THRESHOLD"] doubleValue] : 5)) {
         return nearestLinks.allObjects;
     } else {
         return @[];
@@ -1323,7 +1338,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
     }
     
     NSString *context = [[NSUserDefaults standardUserDefaults] stringForKey:@"hokoukukan_server_context"];
-    NSString *https = [[NSUserDefaults standardUserDefaults] boolForKey:@"https_connection"]?@"https":@"http";
+    NSString *https = [[NSUserDefaults standardUserDefaults] boolForKey:@"https_connection"] ? @"https" : @"http";
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:CONFIG_JSON, https, server, context]];
 
     [HLPDataUtil getJSON:url withCallback:^(NSObject* json) {
@@ -1474,7 +1489,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
         HLPLocation *loc = properties[@"location"];
         [loc updateLat:loc.lat Lng:loc.lng Accuracy:1.5 Floor:loc.floor];
         double heading = [properties[@"heading"] doubleValue];
-        heading = isnan(heading)?0:heading;
+        heading = isnan(heading) ? 0 : heading;
         manualOrientation = heading;
         [loc updateOrientation:heading withAccuracy:-1];
         [currentLocation update:loc];
