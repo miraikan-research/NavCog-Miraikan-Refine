@@ -412,12 +412,12 @@
     [HLPDataUtil method:@"GET" request:url contentType:@"" withData:[[NSData alloc] init] callback:^(NSData *response) {
         @try {
             if (response) {
-                NSError *error2;
-                NSObject *json = [NSJSONSerialization JSONObjectWithData:response options:0 error:&error2];
-                if (json && !error2) {
+                NSError *error;
+                NSObject *json = [NSJSONSerialization JSONObjectWithData:response options:0 error:&error];
+                if (json && !error) {
                     callback(json);
                 } else {
-                    NSLog(@"Error2: %@", [error2 localizedDescription]);
+                    NSLog(@"Error: %@", [error localizedDescription]);
                     //NSLog(@"%@", [[NSString alloc] initWithData:response encoding:NSUTF8StringEncoding]);
                     callback(nil);
                 }

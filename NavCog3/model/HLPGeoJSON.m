@@ -39,6 +39,10 @@
              };
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"coordinates:%@, type:%@", _coordinates, _type];
+}
+
 -(void)updateCoordinates:(NSArray *)coordinates
 {
     _coordinates = coordinates;
@@ -109,6 +113,13 @@
              };
 }
 
+- (NSString *)description {
+    NSString* propertiesString = @"";
+    for (id key in [_properties keyEnumerator]) {
+        propertiesString = [propertiesString stringByAppendingString:[NSString stringWithFormat:@"%@:%@, ", key, [_properties valueForKey:key]]];
+    }
+    return [NSString stringWithFormat:@"type:%@, geometry:{%@}, properties:{%@}", _type, _geometry, propertiesString];
+}
 
 - (HLPLocation*)nearestLocationTo:(HLPLocation*)location
 {
@@ -173,9 +184,17 @@
     return [MTLJSONAdapter arrayTransformerWithModelClass:HLPGeoJSONFeature.class];
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"type:%@, crs:%@, features:%@", _type, _crs, _features];
+}
+
 @end
 
 @implementation HLPObject
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"id:%@, rev:%@, category:%u, %@", __id, __rev, _category, [super description]];
+}
 
 - (NSUInteger)hash
 {
@@ -347,6 +366,11 @@
     }];
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"category:%@, exit:%@, name:%@, namePron:%@, nodeID:%@, nodeHeight:%f, nodeCoordinates:%@, nodeLocation:%@, disabled:%d, %@",
+            _category, _exit, _name, _namePron, _nodeID, _nodeHeight, _nodeCoordinates, _nodeLocation, _disabled, [super description]];
+}
+
 - (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError *__autoreleasing *)error
 {
     self = [super initWithDictionary:dictionaryValue error:error];
@@ -437,6 +461,10 @@
     HLPLocation *_location;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"lat:%f, lng:%f, height:%f, %@", _lat, _lng, _height, [super description]];
+}
+
 - (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError **)error {
     self = [super initWithDictionary:dictionaryValue error:error];
     if (self == nil) return nil;
@@ -478,6 +506,10 @@
 
 @implementation HLPNode
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"connectedLinkIDs:%@, %@", _connectedLinkIDs, [super description]];
+}
+
 - (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError **)error {
     self = [super initWithDictionary:dictionaryValue error:error];
     if (self == nil) return nil;
@@ -513,6 +545,11 @@ static NSRegularExpression *patternHLPPOIFlags;
 + (BOOL)supportsSecureCoding
 {
     return YES;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"flagCaution:%d, flagOnomastic:%d, flagSingular:%d, flagPlural:%d, flagAuto:%d, flagWelcome:%d",
+            _flagCaution, _flagOnomastic, _flagSingular, _flagPlural, _flagAuto, _flagWelcome];
 }
 
 - (instancetype)initWithString:(NSString *)str
@@ -675,6 +712,11 @@ static NSRegularExpression *patternHLPPOIFlags;
         case LINK_TYPE_RAMP: return NSLocalizedStringFromTable(@"ramp", @"HLPGeoJSON", @"スロープ");
         case LINK_TYPE_UNKNOWN: return NSLocalizedStringFromTable(@"unknown", @"HLPGeoJSON", @"不明");
     }
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"length:%f, direction:%d, sourceNodeID:%@, sourceHeight:%f, targetNodeID:%@, targetHeight:%f, linkType:%d, backward:%d, sourceLocation:%@, targetLocation:%@, minimumWidth:%f, elevatorEquipments:%@, brailleBlockType:%ld, escalatorFlags:%@, streetName:%@, %@",
+            _length, _direction, _sourceNodeID, _sourceHeight, _targetNodeID, _targetHeight, _linkType, _backward, sourceLocation, targetLocation,  _minimumWidth, elevatorEquipments, _brailleBlockType, _escalatorFlags, _streetName, [super description]];
 }
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError **)error {
@@ -1022,6 +1064,10 @@ static NSRegularExpression *patternHLPPOIFlags;
     link2.sourceHeight == link2.targetHeight;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"links:%@, %@", _links, [super description]];
+}
+
 -(instancetype)initWithLink1:(HLPLink *)link1 andLink2:(HLPLink *)link2
 {
     self = [super self];
@@ -1117,6 +1163,11 @@ static NSRegularExpression *patternHLPPOIFlags;
 
 @implementation  HLPPOI
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"majorCategory:%@, subCategory:%@, minorCategory:%@, heading:%f, angle:%f, poiCategory:%ld, flags:%@, elevatorButtons:%@, elevatorEquipments:%@, %@",
+            _majorCategory, _subCategory, _minorCategory, _heading, _angle, _poiCategory, _flags, _elevatorButtons, _elevatorEquipments, [super description]];
+}
+
 - (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError **)error {
     self = [super initWithDictionary:dictionaryValue error:error];
     if (self == nil) return nil;
@@ -1206,6 +1257,10 @@ static NSRegularExpression *patternHLPPOIFlags;
     NSMutableArray *entrances;
 }
 
+- (NSString *)description {
+    return [NSString stringWithFormat:@"name:%@, namePron:%@, longDescription:%@, longDescriptionPron:%@, lang:%@, addr:%@, entrances:%@, %@",
+            _name, _namePron, _longDescription, _longDescriptionPron, _lang, _addr, entrances, [super description]];
+}
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError *__autoreleasing *)error
 {
@@ -1290,6 +1345,11 @@ static NSRegularExpression *patternHLPPOIFlags;
 @end
 
 @implementation HLPEntrance
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"forNodeID:%@, forFacilityID:%@, name:%@, namePron:%@, node:%@, facility:%@, lang:%@, %@",
+            _forNodeID, _forFacilityID, _name, _namePron, _node, _facility, _lang, [super description]];
+}
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionaryValue error:(NSError *__autoreleasing *)error
 {

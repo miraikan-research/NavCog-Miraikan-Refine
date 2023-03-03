@@ -1502,6 +1502,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
 
 // blind
+// 視覚障害者モードでのルート検索
 - (void)setupNavigation
 {
     if (isNaviStarted) {
@@ -1522,6 +1523,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
     }
 
     __block NSMutableDictionary *prefs = SettingDataManager.sharedManager.getPrefs;
+    // バックグラウンドでも再生可能
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
                                      withOptions:AVAudioSessionCategoryOptionAllowBluetooth
                                            error:nil];

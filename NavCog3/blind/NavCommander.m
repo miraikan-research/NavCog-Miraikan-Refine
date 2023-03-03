@@ -513,7 +513,7 @@
 
 - (void)couldNotStartNavigation:(NSDictionary *)properties
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
     NSLog(@"Reason,%@", properties[@"reason"]);
     
     //TODO
@@ -521,7 +521,7 @@
 
 - (void)didNavigationStarted:(NSDictionary *)properties
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
     NSMutableString *string = [[NSMutableString alloc] init];
     NSString *destination = [NavDataStore sharedDataStore].to.namePron;
     
@@ -542,7 +542,7 @@
 
 - (void)didNavigationFinished:(NSDictionary *)properties
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
     
     NSString *destination = nil;
     if (properties[@"isEndOfLink"] && [properties[@"isEndOfLink"] boolValue] == YES) {
@@ -581,7 +581,7 @@
 
 - (void)userNeedsToChangeHeading:(NSDictionary*)properties
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
     
     NSString *string = [self headingActionString:properties];
     
@@ -593,7 +593,7 @@
 
 - (void)userAdjustedHeading:(NSDictionary*)properties
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
     dispatch_async(dispatch_get_main_queue(), ^{
         NSLog(@"speak,<play success sound>");
         [_delegate playSuccess];
@@ -606,7 +606,7 @@
     BOOL target = [properties[@"target"] boolValue];
     
     if (target) {
-        NSLog(@"%@", NSStringFromSelector(_cmd));
+        NSLog(@"%s: %d", __func__, __LINE__);
         NSString *dist = [self distanceString:distance];
         NSString *string = [NSString stringWithFormat:NSLocalizedStringFromTable(@"remaining distance",@"BlindView", @""),  dist];
         [_delegate speak:string withOptions:properties completionHandler:^{}];
@@ -615,7 +615,7 @@
 
 - (void)userIsApproachingToTarget:(NSDictionary*)properties
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
     NSString *string = nil;
     
     string = NSLocalizedStringFromTable(@"approaching",@"BlindView",@"approaching");
@@ -625,7 +625,7 @@
 
 - (void)userIsHeadingToPOI:(NSDictionary *)properties
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
     BOOL showPOIwithAction = [[NSUserDefaults standardUserDefaults] boolForKey:@"show_poi_with_action"];
     NavPOI *poi = properties[@"poi"];
     double heading = [properties[@"heading"] doubleValue];
@@ -644,7 +644,7 @@
 
 - (void)userNeedsToTakeAction:(NSDictionary*)properties
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
     NSString *action = [self actionString:properties];
     if (!action) {
         return;
@@ -657,7 +657,7 @@
 
 - (void)userNeedsToWalk:(NSDictionary*)properties
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
     
     double distance = [properties[@"distance"] doubleValue];
     HLPLinkType linkType = [properties[@"linkType"] intValue];
@@ -732,7 +732,7 @@
 // advanced functions
 - (void)userMaybeGoingBackward:(NSDictionary *)properties
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
     
     NSString *hAction = [self headingActionString:properties];
     
@@ -746,7 +746,7 @@
 
 - (void)userMaybeOffRoute:(NSDictionary*)properties
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
     
     NSString *hAction = [self headingActionString:properties];
     
@@ -759,11 +759,11 @@
 
 - (void)userMayGetBackOnRoute:(NSDictionary*)properties
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
 }
 - (void)userShouldAdjustBearing:(NSDictionary*)properties
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
 }
 
 // POI
@@ -771,7 +771,7 @@
 {
     NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
 
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
     NavPOI *poi = properties[@"poi"];
     double heading = [properties[@"heading"] doubleValue];
     
@@ -877,7 +877,7 @@
 
 - (void)userIsLeavingFromPOI:(NSDictionary*)properties
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
     NavPOI *poi = properties[@"poi"];
     if (poi && [approachingPOIs containsObject:poi]) {
         [approachingPOIs removeObject:poi];
@@ -886,7 +886,7 @@
 
 - (NSString *)summaryString:(NSDictionary *)properties
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
     
     double distance = [properties[@"distance"] doubleValue];
     HLPLinkType linkType = [properties[@"linkType"] intValue];
@@ -933,7 +933,7 @@
 
 - (void)currentStatus:(NSDictionary *)properties
 {
-    NSLog(@"%@", NSStringFromSelector(_cmd));
+    NSLog(@"%s: %d", __func__, __LINE__);
     
     BOOL resume = [properties[@"resume"] boolValue];
     
