@@ -234,7 +234,7 @@ final public class ArManager: NSObject {
         var interval: Double = 0
 
         if let soundGuide = arUcoModel.soundGuide {
-            if distance > 3.0 &&
+            if distance > 2.5 &&
                 !AudioManager.shared.isSoundEffect {
                 rate = 1
                 if soundGuide != 0 {
