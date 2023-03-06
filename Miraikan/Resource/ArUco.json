@@ -1262,4 +1262,31 @@
         "message_pron": "壁に触る事ができる展示パネルがあります。",
     }]
 },
+{
+    "id": 1,
+    "marker": 20,
+    "title": "",
+    "title_en": "",
+    "title_pron": "",
+    "marker_point": true,
+    "sound_guide": 1,
+},
+{
+    "id": 2,
+    "marker": 20,
+    "title": "",
+    "title_en": "",
+    "title_pron": "",
+    "marker_point": true,
+    "sound_guide": -1,
+},
+{
+    "id": 3,
+    "marker": 20,
+    "title": "",
+    "title_en": "",
+    "title_pron": "",
+    "marker_point": true,
+    "sound_guide": 0,
+},
 ]

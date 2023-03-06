@@ -233,6 +233,19 @@ final public class ArManager: NSObject {
         var pan: Double = 0
         var interval: Double = 0
 
+        if let soundGuide = arUcoModel.soundGuide {
+            if distance > 3.0 &&
+                !AudioManager.shared.isSoundEffect {
+                rate = 1
+                if soundGuide != 0 {
+                    pan = soundGuide < 1 ? -1 : 1
+                }
+                interval = 1
+                AudioManager.shared.SoundEffect(sound: "SoundEffect02", rate: rate, pan: pan, interval: interval)
+            }
+            return
+        }
+
         let now = Date().timeIntervalSince1970
         checkMarkerTime = now
 
