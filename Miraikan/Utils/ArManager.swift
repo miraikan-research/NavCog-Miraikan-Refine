@@ -101,7 +101,7 @@ final public class ArManager: NSObject {
             }
         }
 
-        if (arUcoModel.markerPoint ?? false) && isDebug {
+        if (arUcoModel.markerPoint ?? false) && isDebug && !arUcoModel.title.isEmpty {
             let phonation = arUcoModel.titlePron + NSLocalizedString("PERIOD", comment: "") + NSLocalizedString("to the entrance", comment: "") + meterString
             phonationModel.append(str: phonation)
         }
@@ -218,7 +218,7 @@ final public class ArManager: NSObject {
         let ratio = ArUcoManager.shared.getMarkerSizeRatio(arUcoModel: arUcoModel)
         let distance = Double(transform.distance) * ratio
 
-        if distance < 1.2 {
+        if distance < 1.2 && !arUcoModel.title.isEmpty {
             var phonation = arUcoModel.titlePron
             phonation += NSLocalizedString("It is the entrance.", comment: "")
 //            phonation += NSLocalizedString("Point your smartphone camera at the ground.", comment: "")
@@ -257,7 +257,8 @@ final public class ArManager: NSObject {
                 guideSoundTime = now
                 markerCenterFlag = true
             } else if guideSoundTime != 0 &&
-                        guideSoundTime + 1.0 < now {
+                        guideSoundTime + 1.0 < now &&
+                        !arUcoModel.title.isEmpty {
                 guideSoundTime = now + 10.0
                 markerCenterFlag = true
 

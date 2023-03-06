@@ -32,6 +32,8 @@ import ARKit
 class ARViewController: UIViewController {
 
     var sceneView: ARSCNView!
+    // for VoiceOver
+    var controlView: UIButton!
 
     var mutexlock = false
     var arFrameSize: CGSize?
@@ -63,6 +65,17 @@ class ARViewController: UIViewController {
         sceneView.delegate = self
         sceneView.session.delegate = self
 
+        controlView = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        self.view.addSubview(controlView)
+        controlView.accessibilityTraits = .none
+        UIAccessibility.post(notification: .screenChanged, argument: controlView)
+        controlView.isHidden = !UIAccessibility.isVoiceOverRunning
+        controlView.addAction(.init { _ in
+            if AudioManager.shared.isPlaying {
+                AudioManager.shared.stop()
+            }
+        }, for: .touchUpInside)
+
         let scene = SCNScene()
         sceneView.scene = scene
 
@@ -76,6 +89,8 @@ class ARViewController: UIViewController {
         view.addGestureRecognizer(doubleTapGesture)
 
         becomeFirstResponder()
+        setFooterView()
+        setNotification()
 
 #if targetEnvironment(simulator)
         let alert = UIAlertController(title: nil, message: "simulator does not support", preferredStyle: .alert)
@@ -110,10 +125,14 @@ class ARViewController: UIViewController {
         // Nodeに無指向性の光を追加するオプション
 //        sceneView.autoenablesDefaultLighting = true
         sceneView.session.run(configuration)
+        
+        UIAccessibility.post(notification: .screenChanged, argument: controlView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+
+        UIApplication.shared.isIdleTimerDisabled = false
 
         // Pause the view's session
         sceneView.session.pause()
@@ -163,12 +182,6 @@ extension ARViewController {
         AudioManager.shared.stop()
     }
 
-    @IBAction func tapAction(_ sender: Any) {
-        if AudioManager.shared.isPlaying {
-            AudioManager.shared.stop()
-        }
-    }
-    
     private func updateArContent(transforms: Array<MarkerWorldTransform>) {
 
         let sortedTransforms = transforms.sorted { $0.distance < $1.distance }
@@ -219,6 +232,13 @@ extension ARViewController {
     }
 
     @objc private func voiceOverNotification() {
+        controlView.isHidden = !UIAccessibility.isVoiceOverRunning
+        UIAccessibility.post(notification: .screenChanged, argument: controlView)
+        setFooterView()
+    }
+
+    func setFooterView() {
+        UserDefaults.standard.set(!UIAccessibility.isVoiceOverRunning, forKey: "isFooterButtonView")
     }
 }
 
