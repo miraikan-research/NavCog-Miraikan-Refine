@@ -173,9 +173,9 @@ typedef NS_ENUM(NSInteger, ViewState) {
     NSString *userMode = [ud stringForKey:@"user_mode"];
     isBlindMode = [userMode isEqualToString:@"user_blind"];
     _coverView.hidden = !isBlindMode;
+    _coverView.accessibilityTraits = UIAccessibilityTraitNone;
 
     _indicator.accessibilityLabel = NSLocalizedString(@"Loading, please wait", @"");
-    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, _indicator);
     [self updateIndicatorStop];
 
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(logReplay:) name:REQUEST_LOG_REPLAY object:nil];                  // blind
@@ -218,6 +218,9 @@ typedef NS_ENUM(NSInteger, ViewState) {
     [[NSUserDefaults standardUserDefaults] addObserver:self
                                             forKeyPath:@"user_mode"
                                                options:NSKeyValueObservingOptionNew context:nil];
+
+    [self setNotification];
+    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, self.navigationItem.titleView);
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context
@@ -260,6 +263,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
     [self setTalkButton];
     [[NSUserDefaults standardUserDefaults] setValue:@(YES) forKey:@"isFooterButtonView"];
+    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, self.navigationItem.titleView);
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -354,8 +358,8 @@ typedef NS_ENUM(NSInteger, ViewState) {
     attachment.bounds = CGRectMake(0, -pointSize / 5, pointSize * 6 / 5, pointSize * 6 / 5);
     [attributedString appendAttributedString:[NSAttributedString attributedStringWithAttachment:attachment]];
     titleLabel.attributedText = attributedString;
-    titleLabel.accessibilityLabel = @"( )";
-    titleLabel.isAccessibilityElement = NO;
+    titleLabel.accessibilityLabel = NSLocalizedString(@"Miraikan Floor Plan", @"");
+    titleLabel.isAccessibilityElement = YES;
     titleLabel.adjustsFontSizeToFitWidth = YES;
 
     titleLabel.font = [metrics scaledFontForFont:font];
@@ -794,6 +798,9 @@ typedef NS_ENUM(NSInteger, ViewState) {
                 break;
             default:
                 [NavUtil hideWaitingForView:self.view];
+        }
+        if (status != HLPLocationStatusUnknown) {
+            UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, self.navigationItem.titleView);
         }
     });
 }
@@ -1638,6 +1645,21 @@ typedef NS_ENUM(NSInteger, ViewState) {
 #else
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 #endif
+}
+
+- (void)setNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(voiceOverNotification)
+                                                 name:UIAccessibilityVoiceOverStatusDidChangeNotification
+                                               object:nil];
+
+}
+
+- (void)voiceOverNotification
+{
+    _coverView.hidden = !UIAccessibilityIsVoiceOverRunning();
+    UIAccessibilityPostNotification(UIAccessibilityScreenChangedNotification, self.navigationItem.titleView);
 }
 
 #pragma mark - debug log
