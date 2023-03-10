@@ -135,7 +135,11 @@ extension IDListViewController {
         }
         
         let phonationModel = ArManager.shared.setSpeakStr(arUcoModel: arUcoModel, transform: transform, isDebug: true)
-        cell.textLabel?.text = String(arUcoModel.id) + "  markerSize  " + String(arUcoModel.marker ?? 10) + "cm  " + markerType + "\n" + phonationModel.string
+        var addComment = ""
+        if let comment = arUcoModel.comment {
+            addComment = "[\(comment)]"
+        }
+        cell.textLabel?.text = String(arUcoModel.id) + "  markerSize  " + String(arUcoModel.marker ?? 10) + "cm  " + markerType + "\n" + phonationModel.string + addComment
         cell.textLabel?.accessibilityLabel = phonationModel.phonation
     }
 }
