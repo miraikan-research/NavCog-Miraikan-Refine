@@ -117,7 +117,8 @@ class DestinationViewController: BaseListController, BaseListDelegate {
     override func onSelect(_ tableView: UITableView, _ indexPath: IndexPath) {
         
         if let cell = self.tableView(tableView, cellForRowAt: indexPath) as? DestinationCell {
-            if let model = cell.model {
+            if cell.enabled,
+               let model = cell.model {
                 guard let nav = self.navigationController as? BaseNavController else { return }
                 if let nodeId = model.nodeID {
                     nav.openMap(nodeId: nodeId)

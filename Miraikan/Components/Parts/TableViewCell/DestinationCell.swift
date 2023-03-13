@@ -32,6 +32,7 @@ class DestinationCell: UITableViewCell {
     private let detailLabel = UILabel()
     
     var model: HLPDirectoryItem?
+    var enabled = true
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -97,7 +98,14 @@ class DestinationCell: UITableViewCell {
         self.model = model
         var title = model.title
         var subtitle = model.subtitle
-        
+
+        self.enabled = true
+        if let navDataStore = NavDataStore.shared(),
+           let destination = navDataStore.destination(byID: model.nodeID) {
+            self.enabled = !destination.landmark.disabled
+        }
+        titleLabel.isEnabled = self.enabled
+
         titleLabel.text = title
         detailLabel.text = subtitle
 
@@ -111,7 +119,12 @@ class DestinationCell: UITableViewCell {
         subtitle = StrUtil.getFloorVoiceString(str: subtitle)
 
         let destination = (title ?? "") + NSLocalizedString("PERIOD", comment: "") + (subtitle ?? "")
-        self.accessibilityLabel = String(format: NSLocalizedString("Guide to %@", comment: ""), destination)
-        self.accessibilityTraits = .button
+        if self.enabled {
+            self.accessibilityLabel = String(format: NSLocalizedString("Guide to %@", comment: ""), destination)
+            self.accessibilityTraits = .button
+        } else {
+            self.accessibilityLabel = String(format: NSLocalizedString("can't guide to %@", comment: ""), destination)
+            self.accessibilityTraits = .none
+        }
     }
 }

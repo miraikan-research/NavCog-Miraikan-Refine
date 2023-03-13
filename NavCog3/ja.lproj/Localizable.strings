@@ -264,6 +264,9 @@ NavCogの設定画面から
 /* Button for navigation */
 "Guide to %@" = "%@へナビゲーション";
 
+/* Button for navigation */
+"can't guide to %@" = "%@は案内できません";
+
 /* Exhibition explanation */
 "Description" = "概要";
 
