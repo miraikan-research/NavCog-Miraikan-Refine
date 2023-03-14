@@ -52,14 +52,14 @@
     CGContextMoveToPoint(context, self.frame.size.width / 2, self.frame.size.height / 2);
     CGContextAddArc(context, self.frame.size.width / 2, self.frame.size.height / 2, self.frame.size.width / 2, startAngle, endAngle, 0);
     CGContextClosePath(context);
-    UIColor *color = [UIColor talkColor];
+    UIColor *color = [UIColor colorWithRed: 50.0/255.0 green:92.0/255.0 blue:128.0/255.0 alpha:1];
     CGContextSetFillColorWithColor(context, color.CGColor);
     CGContextDrawPath(context, kCGPathFill);
 
     CGContextMoveToPoint(context, self.frame.size.width / 2, self.frame.size.height / 2);
     CGContextAddArc(context, self.frame.size.width / 2, self.frame.size.height / 2, self.frame.size.width / 2 - 8, startAngle, endAngle, 0);
     CGContextClosePath(context);
-    UIColor *color2 = [UIColor talkBackgroundColor];
+    UIColor *color2 = [UIColor  colorWithRed: 243.5/255.0 green:243.5/255.0 blue:243.5/255.0 alpha:1];
     CGContextSetFillColorWithColor(context, color2.CGColor);
     CGContextDrawPath(context, kCGPathFill);
 
@@ -72,7 +72,7 @@
     image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     UIImageView *imageView = [[UIImageView alloc] initWithImage:image];
 
-    imageView.tintColor = [UIColor talkColor];
+    imageView.tintColor = [UIColor colorWithRed: 50.0/255.0 green:92.0/255.0 blue:128.0/255.0 alpha:1];
     [self addSubview:imageView];
     
     [imageView setTranslatesAutoresizingMaskIntoConstraints:NO];
