@@ -41,5 +41,6 @@
 + (void)openURL:(NSURL*)url onViewController:(UIViewController*)controller;
 + (NSString*)deviceModel;
 + (void)switchAccessibilityMethods;
++ (BOOL)isDarkMode;
 @end
 

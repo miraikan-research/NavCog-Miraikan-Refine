@@ -21,6 +21,7 @@
  *******************************************************************************/
 
 #import "NavUtil.h"
+#import "UIColorExtension.h"
 #import <sys/utsname.h>
 #import <objc/runtime.h>
 
@@ -69,11 +70,10 @@ static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, (h+size)/2 + size, w, size * 5)];
         label.text = message;
         label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
+        label.textColor = [UIColor waitColor];
         label.numberOfLines = 0;
         
-        [overlay setBackgroundColor:
-         [UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]];
+        [overlay setBackgroundColor:[UIColor waitBackgroundColor]];
         [overlay addSubview:indicator];
         [overlay addSubview:label];
         [indicator startAnimating];
@@ -130,8 +130,7 @@ static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
     [btn setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
     //[btn setTranslatesAutoresizingMaskIntoConstraints:NO];
 
-    [overlay setBackgroundColor:
-     [UIColor colorWithRed:1 green:1 blue:1 alpha:0.75]];
+    [overlay setBackgroundColor:[UIColor overlayBackgroundkColor]];
     [overlay addSubview:label];
     [overlay addSubview:btn];
     
@@ -206,5 +205,6 @@ static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
     method_exchangeImplementations(uvMethod, toMethod2);
 }
 
++ (BOOL)isDarkMode              { return [UITraitCollection currentTraitCollection].userInterfaceStyle == UIUserInterfaceStyleDark; }
 
 @end
