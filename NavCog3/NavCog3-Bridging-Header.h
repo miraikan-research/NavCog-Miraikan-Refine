@@ -32,6 +32,7 @@
 
 #import "MarkerWorldTransform.h"
 #import "OpenCVWrapper.h"
+#import "UIColorExtension.h"
 
 // External Libraries
 #import <AVFAudio/AVAudioSession.h>

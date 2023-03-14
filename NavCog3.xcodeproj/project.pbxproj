@@ -67,7 +67,7 @@
 		7EF7F7AB1DD189B0000A625A /* NavPreviewer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF7F7AA1DD189B0000A625A /* NavPreviewer.m */; };
 		7EF7F7AE1DD1949C000A625A /* NavDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EF7F7AD1DD1949C000A625A /* NavDataSource.m */; };
 		A923DA0A1F26DBF60002E3CB /* DefaultTTS.m in Sources */ = {isa = PBXBuildFile; fileRef = A923DA091F26DBF60002E3CB /* DefaultTTS.m */; };
-		D3B684BD87877697DA26A4DE /* BuildFile in Frameworks */ = {isa = PBXBuildFile; };
+		D3B684BD87877697DA26A4DE /* (null) in Frameworks */ = {isa = PBXBuildFile; };
 		E506A01729923F630046134F /* DestinationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A01629923F630046134F /* DestinationCell.swift */; };
 		E506A01829923F630046134F /* DestinationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A01629923F630046134F /* DestinationCell.swift */; };
 		E506A01B29923FB60046134F /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A01A29923FB60046134F /* DestinationViewController.swift */; };
@@ -198,6 +198,7 @@
 		E54F24492980E93300F3A83C /* AskAIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54F24472980E93300F3A83C /* AskAIView.swift */; };
 		E55D4C95297F6D7100DE379B /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D4C94297F6D7100DE379B /* LocationManager.m */; };
 		E55D4C97297F719E00DE379B /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D4C94297F6D7100DE379B /* LocationManager.m */; };
+		E5913CC829C0513600C1B51B /* UIColorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E5913CC629C0513500C1B51B /* UIColorExtension.m */; };
 		E59424FA298CF4C400EF2F65 /* WebFloorMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59424F9298CF4C400EF2F65 /* WebFloorMapView.swift */; };
 		E59424FB298CF57900EF2F65 /* WebFloorMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59424F9298CF4C400EF2F65 /* WebFloorMapView.swift */; };
 		E5B12A9C29AC93850075C23C /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAE818E1E41E89C007B50D3 /* CoreBluetooth.framework */; };
@@ -581,6 +582,8 @@
 		E54F24472980E93300F3A83C /* AskAIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskAIView.swift; sourceTree = "<group>"; };
 		E55D4C94297F6D7100DE379B /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		E55D4C96297F6D7C00DE379B /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		E5913CC629C0513500C1B51B /* UIColorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorExtension.m; sourceTree = "<group>"; };
+		E5913CC729C0513500C1B51B /* UIColorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorExtension.h; sourceTree = "<group>"; };
 		E59424F9298CF4C400EF2F65 /* WebFloorMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebFloorMapView.swift; sourceTree = "<group>"; };
 		E5B61E2F29823ACD00533B6F /* MarkerWorldTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerWorldTransform.h; sourceTree = "<group>"; };
 		E5B61E3029823ACD00533B6F /* OpenCVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
@@ -727,7 +730,7 @@
 				3008B8B326DDFC42008C27B1 /* HLPDialog in Frameworks */,
 				7E1F9F2C1DEEB671003E1B23 /* MultipeerConnectivity.framework in Frameworks */,
 				30F54F4C270CCDC000ABD9FC /* HLPWebView in Frameworks */,
-				D3B684BD87877697DA26A4DE /* BuildFile in Frameworks */,
+				D3B684BD87877697DA26A4DE /* (null) in Frameworks */,
 				30D2DAC02710BA2F001CA62E /* Mantle in Frameworks */,
 				686A6A6F6A5460934A7B1FA9 /* libPods-NavCog3.a in Frameworks */,
 			);
@@ -871,6 +874,8 @@
 				E5B61E3129823ACD00533B6F /* MarkerWorldTransform.mm */,
 				E5B61E3A29823ACD00533B6F /* OpenCVWrapper.h */,
 				E5B61E3029823ACD00533B6F /* OpenCVWrapper.mm */,
+				E5913CC729C0513500C1B51B /* UIColorExtension.h */,
+				E5913CC629C0513500C1B51B /* UIColorExtension.m */,
 			);
 			name = helper;
 			sourceTree = "<group>";
@@ -1786,6 +1791,7 @@
 				E5F6FFB22977CC9300D5C22B /* ScheduleListHeader.swift in Sources */,
 				E5F6FFB62977CC9300D5C22B /* LinkingHeader.swift in Sources */,
 				7E1F9F2A1DEEB1D3003E1B23 /* NavDebugHelper.m in Sources */,
+				E5913CC829C0513600C1B51B /* UIColorExtension.m in Sources */,
 				E5F6FFAD2977CC9300D5C22B /* BaseScrollView.swift in Sources */,
 				E5F6FFBF2977CC9300D5C22B /* BaseSwitch.swift in Sources */,
 				E5F6FF8E2977CC3700D5C22B /* FloorMapViewController.swift in Sources */,
