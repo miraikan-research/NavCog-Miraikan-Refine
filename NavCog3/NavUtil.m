@@ -70,10 +70,10 @@ static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
         UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, (h+size)/2 + size, w, size * 5)];
         label.text = message;
         label.textAlignment = NSTextAlignmentCenter;
-        label.textColor = [UIColor waitColor];
+        label.textColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:1];
         label.numberOfLines = 0;
         
-        [overlay setBackgroundColor:[UIColor waitBackgroundColor]];
+        [overlay setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.5]];
         [overlay addSubview:indicator];
         [overlay addSubview:label];
         [indicator startAnimating];
@@ -130,7 +130,7 @@ static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
     [btn setImage:[UIImage imageNamed:@"close"] forState:UIControlStateNormal];
     //[btn setTranslatesAutoresizingMaskIntoConstraints:NO];
 
-    [overlay setBackgroundColor:[UIColor overlayBackgroundkColor]];
+    [overlay setBackgroundColor:[UIColor colorWithRed:1 green:1 blue:1 alpha:0.75]];
     [overlay addSubview:label];
     [overlay addSubview:btn];
     
