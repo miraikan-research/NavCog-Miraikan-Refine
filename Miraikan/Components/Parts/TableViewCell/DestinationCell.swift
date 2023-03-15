@@ -101,8 +101,9 @@ class DestinationCell: UITableViewCell {
 
         self.enabled = true
         if let navDataStore = NavDataStore.shared(),
-           let destination = navDataStore.destination(byID: model.nodeID) {
-            self.enabled = !destination.landmark.disabled
+           let destination = navDataStore.destination(byID: model.nodeID),
+           let landmark = destination.landmark {
+            self.enabled = !landmark.disabled
         }
         titleLabel.isEnabled = self.enabled
 
