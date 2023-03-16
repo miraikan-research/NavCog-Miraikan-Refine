@@ -635,20 +635,15 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
 - (void)talkTap:(id)sender
 {
-    [talkButton setHidden:true];
     if (isBlindMode) {
-        if ([navigator isActive] ||
-            self.navigationController.topViewController != self ||
-            !searchButton.enabled) {
-            
+        if ([navigator isActive]) {
             [[NavSound sharedInstance] playFail];
             return;
         }
         [[NavSound sharedInstance] playVoiceRecoEnd];
-        [self performSegueWithIdentifier:@"show_search" sender:@[@"toDestinations", @"show_dialog"]];
-    } else {
-        [self performSegueWithIdentifier:@"show_dialog_wc" sender:self];
     }
+    [talkButton setHidden:true];
+    [self performSegueWithIdentifier:@"show_dialog_wc" sender:self];
 }
 
 - (void)dialogStateChanged:(NSNotification*)note
