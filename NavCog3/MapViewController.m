@@ -730,44 +730,20 @@ typedef NS_ENUM(NSInteger, ViewState) {
     });
 }
 
-// Voice dialogue information
+// Voice dialogue information form HLPDialog module
 - (void)requestStartNavigation:(NSNotification*)note
 {
-    if (isBlindMode) {
-        return;
-    }
-
-    // new
     if (isNaviStarted) {
         return;
     }
-    
-    // general mode
-    // Sentence information before the start of navigation
+
     NSDictionary *options = [note userInfo];
     if (options[@"toID"] == nil) {
         return;
     }
-    NSString *elv = @"";
-    if (options[@"use_elevator"]) {
-        elv = [options[@"use_elevator"] boolValue]?@"&elv=9":@"&elv=1";
-    }
-    NSString *stairs = @"";
-    if (options[@"use_stair"]) {
-        stairs = [options[@"use_stair"] boolValue]?@"&stairs=9":@"&stairs=1";
-    }
-    NSString *esc = @"";
-    if (options[@"use_escalator"]) {
-        esc = [options[@"use_escalator"] boolValue]?@"&esc=9":@"&esc=1";
-    }
-    NSString *dist = [NSString stringWithFormat: @"&dist=%@", @(500)];
-    NSString *hash = [NSString stringWithFormat:@"navigate=%@&dummy=%f%@%@%@%@",
-                      options[@"toID"], [[NSDate date] timeIntervalSince1970], elv, stairs, esc, dist];
-    [talkButton setHidden:true];
-    [self writeData:hash];
-    NSLog(@"requestStartNavigation webView setLocationHash:%@", hash);
-    [_webView setLocationHash:hash];
-    isNaviStarted = YES;      // new
+    destId = options[@"toID"];
+
+    [self startNavi];
 }
 
 #pragma mark - Navigation
@@ -871,9 +847,6 @@ typedef NS_ENUM(NSInteger, ViewState) {
         lastLocationSent = now;
         [self dialogHelperUpdate];  // blind
 
-        if (!destId || isNaviStarted) {
-            return;
-        }
         [self startNavi];
     });
 }
@@ -1228,31 +1201,11 @@ typedef NS_ENUM(NSInteger, ViewState) {
 }
 - (void)reroute:(NSDictionary *)properties
 {
-    [self updateIndicatorStart];
     rerouteFlag = YES;
     [commander reroute:properties];
     NavDataStore *nds = [NavDataStore sharedDataStore];
     [nds clearRoute];
-    
-    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
-    NSDictionary *prefs = @{
-        @"dist":@"500",
-        @"preset":@"9",
-        @"min_width":@"8",
-        @"slope":@"9",
-        @"road_condition":@"9",
-        @"deff_LV":@"9",
-        @"stairs":[ud boolForKey:@"route_use_stairs"]?@"9":@"1",
-        @"esc":[ud boolForKey:@"route_use_escalator"]?@"9":@"1",
-        @"elv":[ud boolForKey:@"route_use_elevator"]?@"9":@"1",
-        @"mvw":[ud boolForKey:@"route_use_moving_walkway"]?@"9":@"1",
-        @"tactile_paving":[ud boolForKey:@"route_tactile_paving"]?@"1":@"",
-    };
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [NavUtil showModalWaitingWithMessage:NSLocalizedString(@"Loading, please wait",@"")];
-    });
-    
+
     NSString *destinationId;
     if (destId != nil) {
         destinationId = destId;
@@ -1276,16 +1229,13 @@ typedef NS_ENUM(NSInteger, ViewState) {
         });
         return;
     }
+    
+    [self updateIndicatorStart];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [NavUtil showModalWaitingWithMessage:NSLocalizedString(@"Loading, please wait",@"")];
+    });
 
-    [nds requestRerouteFrom:[NavDataStore destinationForCurrentLocation]._id
-                         To:destinationId
-            withPreferences:prefs
-                   complete:^{
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [NavUtil hideModalWaiting];
-            [self updateIndicatorStop];
-        });
-    }];
+    [self naviBlindModeRerouteRequest:destinationId];
 }
 
 #pragma mark - HLPTTSProtocol
@@ -1474,69 +1424,47 @@ typedef NS_ENUM(NSInteger, ViewState) {
 }
 
 - (void)startNavi {
-    if (!isBlindMode) {
-        if (destId != nil) {
-            if (!isNaviStarted) {
-                __block NSMutableDictionary *prefs = SettingDataManager.sharedManager.getPrefs;
-                NSString *elv = [NSString stringWithFormat: @"&elv=%@", prefs[@"elv"]];
-                NSString *stairs = [NSString stringWithFormat: @"&stairs=%@", prefs[@"stairs"]];
-                NSString *esc = [NSString stringWithFormat: @"&esc=%@", prefs[@"esc"]];
-                NSString *dist = [NSString stringWithFormat: @"&dist=%@", prefs[@"dist"]];
-                NSString *hash = [NSString stringWithFormat: @"navigate=%@&dummy=%f%@%@%@%@",
-                                  destId, [[NSDate date] timeIntervalSince1970], elv, stairs, esc, dist];
-                [self writeData:hash];
-                state = ViewStateNavigation;
-                [talkButton setHidden:true];
-                NSLog(@"startNavi webView setLocationHash:%@", hash);
-                [_webView setLocationHash:hash];
-                isNaviStarted = YES;
-                return;
-            }
-        }
-    } else {
-        [self setupNavigation];
-    }
-}
-
-- (void)initMap {
-    destId = nil;
-    if (isNaviStarted) {
-        [self stopNavigation:nil];
-    }
-    isNaviStarted = false;
-//    state = ViewStateMap;
-}
-
-
-// blind
-// 視覚障害者モードでのルート検索
-- (void)setupNavigation
-{
-    if (isNaviStarted) {
+    if (isNaviStarted || !destId || ![NavDataStore sharedDataStore].directory) {
         return;
     }
 
-    NavDataStore *nds = [NavDataStore sharedDataStore];
-    if (nds.directory == nil) {
-        return;
-    }
-
-    NavDestination *from = [NavDataStore destinationForCurrentLocation];
-    NavDestination *to = [nds destinationByID:destId];
-
-    HLPLocation *location = nds.currentLocation;
-    if (isnan(location.lat) || isnan(location.lng)) {
-        location = from.location;
-    }
-
-    __block NSMutableDictionary *prefs = SettingDataManager.sharedManager.getPrefs;
     // バックグラウンドでも再生可能
     [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback
                                      withOptions:AVAudioSessionCategoryOptionAllowBluetooth
                                            error:nil];
     [[AVAudioSession sharedInstance] setActive:YES error:nil];
 
+    if (!isBlindMode) {
+        [self naviNormalModeRequest];
+    } else {
+        [self naviBlindModeRequest];
+    }
+}
+
+- (void)naviNormalModeRequest {
+    __block NSMutableDictionary *prefs = SettingDataManager.sharedManager.getPrefs;
+    NSString *elv =     [NSString stringWithFormat: @"&elv=%@", prefs[@"elv"]];
+    NSString *stairs =  [NSString stringWithFormat: @"&stairs=%@", prefs[@"stairs"]];
+    NSString *esc =     [NSString stringWithFormat: @"&esc=%@", prefs[@"esc"]];
+    NSString *dist =    [NSString stringWithFormat: @"&dist=%@", prefs[@"dist"]];
+    NSString *hash =    [NSString stringWithFormat: @"navigate=%@&dummy=%f%@%@%@%@",
+                         destId, [[NSDate date] timeIntervalSince1970], elv, stairs, esc, dist];
+    [self writeData:hash];
+    state = ViewStateNavigation;
+    [talkButton setHidden:true];
+    NSLog(@"start navigation setLocationHash: %@", hash);
+    isNaviStarted = YES;
+    [_webView setLocationHash:hash];
+}
+
+- (void)naviBlindModeRequest {
+    NavDataStore *nds = [NavDataStore sharedDataStore];
+    NavDestination *from = [NavDataStore destinationForCurrentLocation];
+    NavDestination *to = [nds destinationByID:destId];
+
+    __block NSMutableDictionary *prefs = SettingDataManager.sharedManager.getPrefs;
     [self updateIndicatorStart];
+    NSLog(@"start navigation blind request %@ -> %@", from.singleId, to._id);
     dispatch_async(dispatch_get_main_queue(), ^{
         isNaviStarted = YES;
         [nds requestRouteFrom:from.singleId
@@ -1548,6 +1476,36 @@ typedef NS_ENUM(NSInteger, ViewState) {
             [self updateIndicatorStop];
         }];
     });
+}
+
+- (void)naviBlindModeRerouteRequest:(NSString*)destinationId {
+    NavDataStore *nds = [NavDataStore sharedDataStore];
+    NavDestination *from = [NavDataStore destinationForCurrentLocation];
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    NSDictionary *prefs = @{
+        @"dist":@"500",
+        @"preset":@"9",
+        @"min_width":@"8",
+        @"slope":@"9",
+        @"road_condition":@"9",
+        @"deff_LV":@"9",
+        @"stairs":[ud boolForKey:@"route_use_stairs"] ? @"9" : @"1",
+        @"esc":[ud boolForKey:@"route_use_escalator"] ? @"9" : @"1",
+        @"elv":[ud boolForKey:@"route_use_elevator"] ? @"9" : @"1",
+        @"mvw":[ud boolForKey:@"route_use_moving_walkway"] ? @"9" : @"1",
+        @"tactile_paving":[ud boolForKey:@"route_tactile_paving"] ? @"1" : @"",
+    };
+    NSLog(@"reroute navigation blind request %@ -> %@", from._id, destinationId);
+
+    [nds requestRerouteFrom:from._id
+                         To:destinationId
+            withPreferences:prefs
+                   complete:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [NavUtil hideModalWaiting];
+            [self updateIndicatorStop];
+        });
+    }];
 }
 
 - (void)setTalkButton
@@ -1592,6 +1550,14 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
 #endif
     return false;
+}
+
+- (void)initMap {
+    destId = nil;
+    if (isNaviStarted) {
+        [self stopNavigation:nil];
+    }
+    isNaviStarted = false;
 }
 
 #if NavCogMiraikan

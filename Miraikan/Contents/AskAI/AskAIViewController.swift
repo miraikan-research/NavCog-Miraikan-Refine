@@ -94,7 +94,7 @@ class AskAIViewController: BaseController {
         NotificationCenter.default.removeObserver(self)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(self.aiNavi(note:)),
-                                               name: Notification.Name(rawValue:"request_start_navigation"),
+                                               name: Notification.Name(rawValue:REQUEST_START_NAVIGATION),
                                                object: nil)
         self.isObserved = true
     }
