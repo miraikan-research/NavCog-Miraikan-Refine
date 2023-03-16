@@ -635,7 +635,6 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
 - (void)talkTap:(id)sender
 {
-    [talkButton setHidden:true];
     if (isBlindMode) {
         if ([navigator isActive]) {
             [[NavSound sharedInstance] playFail];
@@ -643,6 +642,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
         }
         [[NavSound sharedInstance] playVoiceRecoEnd];
     }
+    [talkButton setHidden:true];
     [self performSegueWithIdentifier:@"show_dialog_wc" sender:self];
 }
 
