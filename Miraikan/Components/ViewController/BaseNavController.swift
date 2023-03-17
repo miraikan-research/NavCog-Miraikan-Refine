@@ -70,4 +70,19 @@ class BaseNavController: UINavigationController {
             })
         }
     }
+
+    public func askAI() {
+        let mode = MiraikanUtil.routeMode
+        UserDefaults.standard.setValue("user_\(mode.rawValue)", forKey: "user_mode")
+        ConfigManager.loadConfig("presets/\(mode.rawValue).plist")
+
+        if let mapVC = MapManager.shared.getMap() {
+            mapVC.initMap()
+            self.pushViewController(mapVC,
+                                    animated: false,
+                                    completion: {
+                mapVC.askAI()
+            })
+        }
+    }
 }

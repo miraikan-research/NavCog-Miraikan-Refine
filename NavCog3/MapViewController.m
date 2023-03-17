@@ -646,6 +646,12 @@ typedef NS_ENUM(NSInteger, ViewState) {
     [self performSegueWithIdentifier:@"show_dialog_wc" sender:self];
 }
 
+- (void)askAI
+{
+    [talkButton setHidden:true];
+    [self performSegueWithIdentifier:@"show_dialog_wc" sender:self];
+}
+
 - (void)dialogStateChanged:(NSNotification*)note
 {
     [self updateView];
