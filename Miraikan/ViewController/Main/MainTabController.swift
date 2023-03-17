@@ -34,6 +34,7 @@ class MainTabController: UITabBarController, UITabBarControllerDelegate {
     private var voiceGuideButton = VoiceGuideButton()
     var voiceGuideObserver: NSKeyValueObservation?
     var footerButtonViewObserver: NSKeyValueObservation?
+    private var oldModeObserver: NSKeyValueObservation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,20 +43,7 @@ class MainTabController: UITabBarController, UITabBarControllerDelegate {
         self.tabBar.backgroundColor = .systemBackground
         self.tabBar.layer.borderWidth = 1.0
         self.tabBar.layer.borderColor = UIColor.systemGray5.cgColor
-
-        let tabs = TabItem.allCases.filter({ item in
-            return true
-        })
-        
-        self.viewControllers = tabs.map({ $0.vc })
-        self.selectedIndex = tabs.firstIndex(where: { $0 == .home })!
-        if let items = self.tabBar.items {
-            for (i, t) in tabs.enumerated() {
-                items[i].title = t.title
-                items[i].accessibilityLabel = t.accessibilityTitle
-                items[i].image = UIImage(named: t.imgName)
-            }
-        }
+        self.setTabs()
 
         UserDefaults.standard.set(true, forKey: "isFooterButtonView")
         AudioGuideManager.shared.active()
@@ -114,6 +102,32 @@ class MainTabController: UITabBarController, UITabBarControllerDelegate {
                 self.buttonBaseView.isHidden = !change
             }
         })
+
+        oldModeObserver = UserDefaults.standard.observe(\.OldMode, options: [.initial, .new], changeHandler: { [weak self] (defaults, change) in
+            guard let self = self else { return }
+            self.setTabs()
+        })
+    }
+
+    private func setTabs() {
+        var tabs: [TabItem]
+        if !UserDefaults.standard.bool(forKey: "OldMode") {
+            tabs = [TabItem.home, TabItem.askAI]
+        } else {
+            tabs = TabItem.allCases.filter({ item in
+                return true
+            })
+        }
+        
+        self.viewControllers = tabs.map({ $0.vc })
+        self.selectedIndex = tabs.firstIndex(where: { $0 == .home })!
+        if let items = self.tabBar.items {
+            for (i, t) in tabs.enumerated() {
+                items[i].title = t.title
+                items[i].accessibilityLabel = t.accessibilityTitle
+                items[i].image = UIImage(named: t.imgName)
+            }
+        }
     }
 
     private func setLayerButton() {

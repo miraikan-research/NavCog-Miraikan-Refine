@@ -49,5 +49,6 @@
 - (void)initMap;
 - (void)setDestinationId:(NSString*)destinationId;
 - (void)updateView;
+- (void)askAI;
 
 @end
