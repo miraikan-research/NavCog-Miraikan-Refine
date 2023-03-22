@@ -364,7 +364,7 @@ enum MenuItem {
         case .miraikanToday:
             return EventListController(title: self.name)
         case .nearestWashroom:
-            return RestRoomListViewController(title: "")
+            return RestRoomListViewController(title: NSLocalizedString("Neareast Washroom", comment: ""))
         case .arNavigation:
             return ARViewController()
         case .setting:
