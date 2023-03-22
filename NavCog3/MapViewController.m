@@ -1559,6 +1559,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
         [self stopNavigation:nil];
     }
     isNaviStarted = false;
+    state = ViewStateMap;
 }
 
 #if NavCogMiraikan
