@@ -76,6 +76,7 @@ typedef enum {
 @property HLPLocation *mapCenter;
 @property (readonly) NSDictionary *buildingInfo;
 @property HLPLocation *loadLocation;
+@property NSString* linkToID;
 
 
 @property (readonly) NSDictionary *idMap;

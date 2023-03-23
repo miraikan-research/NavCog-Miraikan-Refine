@@ -91,6 +91,13 @@ class MiraikanController: BaseController {
 
         MiraikanUtil.initNavData()
         MiraikanUtil.startLocating()
+
+        // From initialization to collaborative startup
+        if let navDataStore = NavDataStore.shared(),
+           let toID = navDataStore.linkToID {
+            guard let nav = self.navigationController as? BaseNavController else { return }
+            nav.openMap(nodeId: toID)
+        }
     }
 
     func reload() {

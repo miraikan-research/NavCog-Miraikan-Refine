@@ -50,6 +50,7 @@ class MainTabController: UITabBarController, UITabBarControllerDelegate {
         AudioGuideManager.shared.isActive(UserDefaults.standard.bool(forKey: "isVoiceGuideOn"))
         setLayerButton()
         setKVO()
+        setNotification()
 
     }
 
@@ -163,5 +164,25 @@ class MainTabController: UITabBarController, UITabBarControllerDelegate {
         let widthConstraint = voiceGuideButton.widthAnchor.constraint(equalToConstant: 80)
         let heightConstraint = voiceGuideButton.heightAnchor.constraint(equalToConstant: 80)
         NSLayoutConstraint.activate([trailing, centerYConstraint, widthConstraint, heightConstraint])
+    }
+    
+    
+    func setNotification() {
+        let center = NotificationCenter.default
+        center.addObserver(self,
+                           selector: #selector(self.openMap(note:)),
+                           name: Notification.Name(rawValue:REQUEST_START_NAVIGATION),
+                           object: nil)
+    }
+
+    @objc func openMap(note: Notification) {
+        guard let toID = note.userInfo?["toID"] as? String else { return }
+
+        if let viewControllers = self.viewControllers,
+           let vc = viewControllers.first as? HomeTabController {
+            vc.nav.popToRootViewController(animated: false)
+            vc.nav.openMap(nodeId: toID)
+        }
+        self.tabBarController?.selectedIndex = 0
     }
 }

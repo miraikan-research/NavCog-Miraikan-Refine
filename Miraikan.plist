@@ -29,7 +29,7 @@
 			<string>lab.miraikan.NavCog-Miraikan.open</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>lab.miraikan</string>
+				<string>miraikan.navi</string>
 			</array>
 		</dict>
 	</array>
