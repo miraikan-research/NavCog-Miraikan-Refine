@@ -354,6 +354,8 @@
     NSDictionary *serverConfig;
     
     GKQuadtree *quadtree;
+
+    NSString* _linkToID;
 }
 
 static NavDataStore* instance_ = nil;
@@ -433,6 +435,16 @@ static NavDataStore* instance_ = nil;
 - (NSString*)userID
 {
     return _userID;
+}
+
+- (void)setLinkToID:(NSString *)linkToID
+{
+    _linkToID = linkToID;
+}
+
+- (NSString*)linkToID
+{
+    return _linkToID;
 }
 
 - (void)reset

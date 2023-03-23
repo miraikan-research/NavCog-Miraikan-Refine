@@ -45,6 +45,10 @@ class BaseNavController: UINavigationController {
     public func openMap(nodeId: String?) {
         NSLog("openMap(\(nodeId ?? "nil"))")
 
+        if let navDataStore = NavDataStore.shared() {
+            navDataStore.linkToID = nil
+        }
+
         // Select mode
         let mode = MiraikanUtil.routeMode
         UserDefaults.standard.setValue("user_\(mode.rawValue)", forKey: "user_mode")

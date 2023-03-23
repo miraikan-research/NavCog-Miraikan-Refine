@@ -183,18 +183,20 @@ void uncaughtExceptionHandler(NSException *exception)
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
-    if ([[url scheme] isEqualToString:@"navcog3"]) {
-        if ([[url host] isEqualToString:@"start_navigation"]) {
-            NSURLComponents *comp = [[NSURLComponents alloc] initWithString:[url absoluteString]];
+    if (([[url scheme] isEqualToString:@"miraikan.navi"]) &&
+        ([[url host] isEqualToString:@"start"])) {
+        NavDataStore *nds = [NavDataStore sharedDataStore];
 
-            NSMutableDictionary *opt = [@{} mutableCopy];
-            for(NSURLQueryItem *item in comp.queryItems) {
-                opt[item.name] = item.value;
+        NSMutableDictionary *opt = [@{} mutableCopy];
+        NSURLComponents *comp = [[NSURLComponents alloc] initWithString:[url absoluteString]];
+        for(NSURLQueryItem *item in comp.queryItems) {
+            opt[item.name] = item.value;
+            if ([item.name isEqualToString:@"toID"]) {
+                nds.linkToID = item.value;
             }
-            
-            [[NSNotificationCenter defaultCenter] postNotificationName:REQUEST_START_NAVIGATION object:self userInfo:opt];
-            return YES;
         }
+        [[NSNotificationCenter defaultCenter] postNotificationName:REQUEST_START_NAVIGATION object:self userInfo:opt];
+        return YES;
     }
     return NO;
 }
