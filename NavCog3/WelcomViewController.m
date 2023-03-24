@@ -196,6 +196,7 @@
                 NSString *mode = [ud stringForKey:@"RouteMode"];
                 if (mode.length == 0) {
                     mode = @"user_general";
+                    [ud setObject: @"general" forKey:@"RouteMode"];
                 }
 
                 [ud setObject:mode forKey:@"user_mode"];
