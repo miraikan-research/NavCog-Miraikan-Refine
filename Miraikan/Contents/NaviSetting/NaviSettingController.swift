@@ -135,9 +135,24 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      isOn: UserDefaults.standard.bool(forKey: "vibrate"),
                                                      isEnabled: nil)))
         cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("soundEffectSetting", comment: ""),
+                                                     key: "sound_effect",
+                                                     isOn: UserDefaults.standard.bool(forKey: "sound_effect"),
+                                                     isEnabled: nil)))
+        cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("for_bone_conduction_headset", comment: ""),
+                                                     key: "for_bone_conduction_headset",
+                                                     isOn: UserDefaults.standard.bool(forKey: "for_bone_conduction_headset"),
+                                                     isEnabled: nil)))
+        cellList.append(CellModel(cellId: switchId,
                                   model: SwitchModel(desc: NSLocalizedString("Ignore facility info.", comment: ""),
                                                      key: "ignore_facility",
                                                      isOn: UserDefaults.standard.bool(forKey: "ignore_facility"),
+                                                     isEnabled: nil)))
+        cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("Show POI with Action", comment: ""),
+                                                     key: "show_poi_with_action",
+                                                     isOn: UserDefaults.standard.bool(forKey: "show_poi_with_action"),
                                                      isEnabled: nil)))
         sectionList.append(SectionModel(title: title, items: cellList))
 
