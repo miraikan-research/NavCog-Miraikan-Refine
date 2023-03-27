@@ -33,13 +33,13 @@ class StrUtil: NSObject {
         if distance < 0.95 {
             let distance = Int(round((distance + 0.05) * 10) * 10)
             if distance == 100 {
-                return String(format: "%dメートル", distance / 100)
+                return String(format: NSLocalizedString("unit_meter", tableName: "BlindView", comment: ""), 1)
             } else {
-                return String(format: "%dセンチメートル", distance)
+                return String(format: NSLocalizedString("unit_centimeter", tableName: "BlindView", comment: ""), distance)
             }
         } else {
             let distance = Int(round(distance))
-            return String(format: "%dメートル", distance)
+            return String(format: NSLocalizedString("unit_meter", tableName: "BlindView", comment: ""), distance)
         }
     }
 
