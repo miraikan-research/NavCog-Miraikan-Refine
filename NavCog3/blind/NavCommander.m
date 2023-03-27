@@ -62,22 +62,23 @@
     if (round(distance) == 0) {
         return nil;
     }
+
     NSString *distance_unit = [[NSUserDefaults standardUserDefaults] stringForKey:@"distance_unit"];
-    
     BOOL isFeet = [distance_unit isEqualToString:@"unit_feet"];
-    const double FEET_UNIT = 0.3024;
     
+    NSMeasurement *measurement = [[NSMeasurement alloc] initWithDoubleValue:distance unit:NSUnitLength.meters];
     if (isFeet) {
-        distance /= FEET_UNIT;
+        measurement = [measurement measurementByConvertingToUnit:NSUnitLength.feet];
     }
 
+    distance = measurement.doubleValue;
     if (distance > 50) {
         distance = floor(distance / 10.0) * 10.0;
-    }
-    if (distance > 10) {
+    } else if (distance > 10) {
         distance = floor(distance / 5.0) * 5.0;
     }
-    NSString *unit = isFeet?@"unit_feet":@"unit_meter";
+
+    NSString *unit = isFeet ? @"unit_feet" : @"unit_meter";
     return [NSString stringWithFormat:NSLocalizedStringFromTable(unit, @"BlindView", @""), (int)round(distance)];
 }
 
