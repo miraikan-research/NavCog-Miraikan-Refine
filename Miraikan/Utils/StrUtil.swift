@@ -43,6 +43,32 @@ class StrUtil: NSObject {
         }
     }
 
+    static public func distanceString(distance: Double) -> String {
+        
+        let isFeet = UserDefaults.standard.string(forKey: "distance_unit") ?? "unknown" == "unit_feet"
+
+        var measurement = Measurement(value: distance, unit: UnitLength.meters)
+        if (isFeet) {
+            measurement = measurement.converted(to: .feet)
+        }
+        
+        let distance = measurement.value
+        if (isFeet) {
+            return String(format: NSLocalizedString("unit_feet", tableName: "BlindView", comment: ""), Int(round(distance)))
+        }
+
+        if distance < 0.95 {
+            let distance = Int(round((distance + 0.05) * 10) * 10)
+            if distance == 100 {
+                return String(format: NSLocalizedString("unit_meter", tableName: "BlindView", comment: ""), 1)
+            } else {
+                return String(format: NSLocalizedString("unit_centimeter", tableName: "BlindView", comment: ""), distance)
+            }
+        } else {
+            return String(format: NSLocalizedString("unit_meter", tableName: "BlindView", comment: ""), Int(round(distance)))
+        }
+    }
+
     static public func getClockPosition(angle: Double) -> PhonationModel {
         let phonationModel = PhonationModel()
 
