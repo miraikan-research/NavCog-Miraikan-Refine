@@ -79,7 +79,7 @@ class RadioCell: UITableViewCell {
     }
 
     private func setImage() {
-        let check = UserDefaults.standard.string(forKey: "RouteMode") ?? "unknown" == value
+        let check = UserDefaults.standard.string(forKey: group) ?? "unknown" == value
         let imgName = check ? "icons8-checked-radio-button" : "icons8-unchecked-radio-button"
         radioImage.image = UIImage(named: imgName)
         baseButton.isSelected = check
