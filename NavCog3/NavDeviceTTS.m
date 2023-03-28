@@ -114,7 +114,8 @@ static NavDeviceTTS *instance = nil;
 {
     if (isSpeaking) {
         isSpeaking = NO;
-        [voice stopSpeakingAtBoundary:immediate?AVSpeechBoundaryImmediate:AVSpeechBoundaryWord];
+        [speaking removeAllObjects];
+        [voice stopSpeakingAtBoundary:immediate ? AVSpeechBoundaryImmediate : AVSpeechBoundaryWord];
     }
 }
 
