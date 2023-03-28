@@ -70,7 +70,7 @@ final public class ArManager: NSObject {
         let distance = Double(transform.distance) * ratio
         let horizontalDistance = Double(transform.horizontalDistance) * ratio
         let direction = Double(transform.yaw)
-        let meterString = StrUtil.getMeterString(distance: distance)
+        let meterString = StrUtil.distanceString(distance: distance)
 
 //        NSLog("id: \(transform.arucoId), ratio: \(ratio), distance: \(distance), horizontalDistance: \(horizontalDistance),  x: \(direction)")
 
@@ -275,7 +275,7 @@ final public class ArManager: NSObject {
                 guideSoundTime = now + 10.0
                 markerCenterFlag = true
 
-                let meterString = StrUtil.getMeterString(distance: distance)
+                let meterString = StrUtil.distanceString(distance: distance)
                 let phonation = arUcoModel.titlePron + NSLocalizedString("PERIOD", comment: "") + NSLocalizedString("to the entrance", comment: "") + meterString
                 AudioManager.shared.addGuide(text: phonation, id: arUcoModel.id)
             }

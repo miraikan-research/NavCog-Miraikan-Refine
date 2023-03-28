@@ -63,7 +63,7 @@ class NaviSettingController : BaseListController, BaseListDelegate {
         var sectionList: [SectionModel] = []
         var cellList: [CellModel] = []
 
-        let sectionNum = sectionList.count
+        let sectionMode = sectionList.count
         var title = NSLocalizedString("Mode", comment: "")
         cellList.removeAll()
         cellList.append(CellModel(cellId: radioId,
@@ -73,7 +73,7 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                     isEnabled: nil,
                                                     tapAction: { [weak self] in
             guard let self = self else { return }
-            self.reloadSection(sectionNum)
+            self.reloadSection(sectionMode)
         })))
 
         cellList.append(CellModel(cellId: radioId,
@@ -83,7 +83,7 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                     isEnabled: nil,
                                                     tapAction: { [weak self] in
             guard let self = self else { return }
-            self.reloadSection(sectionNum)
+            self.reloadSection(sectionMode)
         })))
 
 //        cellList.append(CellModel(cellId: radioId,
@@ -93,7 +93,7 @@ class NaviSettingController : BaseListController, BaseListDelegate {
 //                                                    isEnabled: nil,
 //                                                    tapAction: { [weak self] in
 //            guard let self = self else { return }
-//            self.reloadSection(sectionNum)
+//            self.reloadSection(sectionMode)
 //        })))
 
         cellList.append(CellModel(cellId: radioId,
@@ -103,7 +103,7 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                     isEnabled: nil,
                                                     tapAction: { [weak self] in
             guard let self = self else { return }
-            self.reloadSection(sectionNum)
+            self.reloadSection(sectionMode)
         })))
 
         sectionList.append(SectionModel(title: title, items: cellList))
@@ -156,6 +156,29 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      isEnabled: nil)))
         sectionList.append(SectionModel(title: title, items: cellList))
 
+        let sectionDistance = sectionList.count
+        title = NSLocalizedString("Distance unit", comment: "") + "(" + NSLocalizedString("user_blind", comment: "") + ")"
+        cellList.removeAll()
+        cellList.append(CellModel(cellId: radioId,
+                                  model: RadioModel(title: NSLocalizedString("Meter", comment: ""),
+                                                    key: "unit_meter",
+                                                    group: "distance_unit",
+                                                    isEnabled: nil,
+                                                    tapAction: { [weak self] in
+            guard let self = self else { return }
+            self.reloadSection(sectionDistance)
+        })))
+        cellList.append(CellModel(cellId: radioId,
+                                  model: RadioModel(title: NSLocalizedString("Feet", comment: ""),
+                                                    key: "unit_feet",
+                                                    group: "distance_unit",
+                                                    isEnabled: nil,
+                                                    tapAction: { [weak self] in
+            guard let self = self else { return }
+            self.reloadSection(sectionDistance)
+        })))
+        sectionList.append(SectionModel(title: title, items: cellList))
+        
         title = NSLocalizedString("Augmented Reality", comment: "")
         cellList.removeAll()
         cellList.append(CellModel(cellId: switchId,
