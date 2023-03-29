@@ -565,6 +565,7 @@
         if (hasDestinationPOI == NO) {
             [[NavDataStore sharedDataStore] clearRoute];
         }
+        [_delegate navigationFinished];
     }];
 }
 
