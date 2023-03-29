@@ -84,9 +84,10 @@ typedef NS_ENUM(NSInteger, ViewState) {
     BOOL needVOFocus;
     WebViewController *showingPage;
     
-    BOOL isBlindMode;   // new
-    NSString *destId;   // new
-    BOOL isNaviStarted; // new
+    BOOL isBlindMode;
+    NSString *destId;
+    NSString *arrivalId;
+    BOOL isNaviStarted;
     
     NavTalkButton *talkButton;
     UIBarButtonItem *backButton;
@@ -609,7 +610,9 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
 - (void)webView:(HLPWebView *)webView didFinishNavigationStart:(NSTimeInterval)start end:(NSTimeInterval)end from:(NSString *)from to:(NSString *)to
 {
-    [self checkDestId];
+    if ([self checkDestId]) {
+        [self nearArAlert];
+    }
     destId = nil;
     isNaviStarted = false;
 }
@@ -698,6 +701,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
     NSString *page = uiState[@"page"];
     BOOL inNavigation = [uiState[@"navigation"] boolValue];
+    NSLog(@"%s: %d, %@, %@", __func__, __LINE__, page, uiState);
 
     if (page) {
         if ([page isEqualToString:@"control"]) {
@@ -743,6 +747,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
         return;
     }
     destId = options[@"toID"];
+    arrivalId = nil;
 
     [self startNavi];
 }
@@ -1379,6 +1384,12 @@ typedef NS_ENUM(NSInteger, ViewState) {
     });
 }
 
+- (void)navigationFinished
+{
+    [self nearArAlert];
+    destId = nil;
+}
+
 #pragma mark - WebViewControllerDelegate
 - (void)webViewControllerClosed:(WebViewController *)controller
 {
@@ -1410,6 +1421,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
 - (void)setDestinationId:(NSString*)destinationId {
     destId = destinationId;
+    arrivalId = nil;
     
     NavDataStore *nds = [NavDataStore sharedDataStore];
     if (nds.directory != nil) {
@@ -1536,6 +1548,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
 {
 #if NavCogMiraikan
     NavDataStore *nds = [NavDataStore sharedDataStore];
+    arrivalId = nil;
 
     if ((nds.previewMode) && (destId == nil)) {
         destId = nds.to.item.nodeID;
@@ -1544,7 +1557,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
     NSArray *arList = nds.getArExhibitionList;
     for (NSDictionary *data in arList) {
         if ([destId isEqualToString:data[@"nodeId"]]) {
-            [self nearArAlert];
+            arrivalId = destId;
             return true;
         }
     }
@@ -1565,6 +1578,9 @@ typedef NS_ENUM(NSInteger, ViewState) {
 #if NavCogMiraikan
 - (void)nearArAlert
 {
+    if (!arrivalId) {
+        return;
+    }
     dispatch_async(dispatch_get_main_queue(), ^{
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Switch to AR navigation", @"")
                                                                        message:NSLocalizedString(@"Do you want to start the Miraikan AR?", @"")
@@ -1580,6 +1596,7 @@ typedef NS_ENUM(NSInteger, ViewState) {
         }]];
         [self presentViewController:alert animated:YES completion:nil];
     });
+    arrivalId = nil;
 }
 
 - (void)openArView
