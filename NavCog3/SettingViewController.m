@@ -59,7 +59,7 @@ static HLPSetting *previewSpeedSetting, *previewWithActionSetting;
 static HLPSetting *boneConductionSetting, *exerciseLabel, *exerciseAction, *resetLocation;
 static HLPSetting *mapLabel, *initialZoomSetting, *unitLabel, *unitMeter, *unitFeet, *idLabel;
 static HLPSetting *advancedLabel, *advancedMenu;
-static HLPSetting *ignoreFacility, *showPOI;
+static HLPSetting *ignoreFacility, *showPOI, *voiceGuide;
 static HLPSetting *userModeLabel, *userBlindLabel, *userWheelchairLabel, *userStrollerLabel, *userGeneralLabel;
 
 
@@ -370,8 +370,9 @@ static HLPSetting *userModeLabel, *userBlindLabel, *userWheelchairLabel, *userSt
     speechSpeedSetting = [userSettingHelper addSettingWithType:NavCogSettingTypeDouble Label:NSLocalizedString(@"Speech speed", @"label for speech speed option")
                                      Name:@"speech_speed" DefaultValue:@(0.55) Min:0.1 Max:1 Interval:0.05];
     previewSpeedSetting = [userSettingHelper addSettingWithType:NavCogSettingTypeDouble Label:NSLocalizedString(@"Preview speed", @"") Name:@"preview_speed" DefaultValue:@(1) Min:1 Max:10 Interval:1];
+    voiceGuide = [userSettingHelper addSettingWithType:NavCogSettingTypeBoolean Label:NSLocalizedString(@"Voice Guide", @"") Name:@"isVoiceGuideOn" DefaultValue:@(YES) Accept:nil];
     ignoreFacility = [userSettingHelper addSettingWithType:NavCogSettingTypeBoolean Label:NSLocalizedString(@"Ignore facility info.", @"") Name:@"ignore_facility" DefaultValue:@(NO) Accept:nil];
-    showPOI = [userSettingHelper addSettingWithType:NavCogSettingTypeBoolean Label:NSLocalizedString(@"Show POI with Action", @"") Name:@"show_poi_with_action" DefaultValue:@(NO) Accept:nil];
+    showPOI = [userSettingHelper addSettingWithType:NavCogSettingTypeBoolean Label:NSLocalizedString(@"Show POI with Action", @"") Name:@"show_poi_with_action" DefaultValue:@(YES) Accept:nil];
     vibrateSetting = [userSettingHelper addSettingWithType:NavCogSettingTypeBoolean Label:NSLocalizedString(@"vibrateSetting", @"") Name:@"vibrate" DefaultValue:@(YES) Accept:nil];
     soundEffectSetting = [userSettingHelper addSettingWithType:NavCogSettingTypeBoolean Label:NSLocalizedString(@"soundEffectSetting", @"") Name:@"sound_effect" DefaultValue:@(YES) Accept:nil];
     boneConductionSetting = [userSettingHelper addSettingWithType:NavCogSettingTypeBoolean Label:NSLocalizedString(@"for_bone_conduction_headset",@"") Name:@"for_bone_conduction_headset" DefaultValue:@(NO) Accept:nil];

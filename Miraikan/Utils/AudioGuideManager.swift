@@ -416,7 +416,7 @@ final public class AudioGuideManager: NSObject {
     private func locationChanged(current: HLPLocation) {
         if !UserDefaults.standard.bool(forKey: "isVoiceGuideOn") ||
             UserDefaults.standard.bool(forKey: "ignore_facility") ||
-            UserDefaults.standard.bool(forKey: "show_poi_with_action") {
+            !UserDefaults.standard.bool(forKey: "show_poi_with_action") {
             return
         }
 
