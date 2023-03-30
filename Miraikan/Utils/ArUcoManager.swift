@@ -49,6 +49,15 @@ final public class ArUcoManager: NSObject {
         if let arUcoList = MiraikanUtil.readJSONFile(filename: "ArUco",
                                                      type: [ArUcoModel].self) as? [ArUcoModel] {
             self.arUcoList = arUcoList
+            
+#if targetEnvironment(simulator)
+            for arUcoModel in self.arUcoList {
+                if let description = arUcoModel.description {
+                    print("\(arUcoModel.id), \(description.message.trimmingCharacters(in: .newlines))")
+                }
+            }
+#endif
+
         }
     }
 
