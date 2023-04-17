@@ -72,11 +72,39 @@ class ARMarkerViewController: UIViewController {
                 do{
                     let name = String(format: "%03d", i)
                     try image.pngData()?.write(to: URL(fileURLWithPath: DocumentPath + "/7x7_1000-\(name).png" ))
+                    
+                    if let imageFrame = image.ARUCOMakerFrameOutput() {
+                        try imageFrame.pngData()?.write(to: URL(fileURLWithPath: DocumentPath + "/7x7_1000-frame-\(name).png" ))
+                    }
                 } catch {
                     print("Failed to save the image:", error)
                 }
             }
         }
 #endif
+    }
+}
+
+extension UIImage {
+    func ARUCOMakerFrameOutput() -> UIImage? {
+        let imageFrame = 200
+        let sideFrame = 250
+
+        let color = UIColor.white
+        let size = CGSize(width: sideFrame, height: sideFrame)
+        UIGraphicsBeginImageContext(size)
+        
+        let rect = CGRect(origin: CGPoint.zero, size: size)
+        let context = UIGraphicsGetCurrentContext()
+        context?.setFillColor(color.cgColor)
+        context?.fill(rect)
+
+        self.draw(in: CGRect(x: (sideFrame - imageFrame) / 2,
+                             y: (sideFrame - imageFrame) / 2,
+                             width: imageFrame,
+                             height: imageFrame))
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
 }
