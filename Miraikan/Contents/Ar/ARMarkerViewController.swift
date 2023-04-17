@@ -59,5 +59,24 @@ class ARMarkerViewController: UIViewController {
         if let image = OpenCVWrapper.createARMarker(Int32(selectedId)) {
             arImage.image = image
         }
+        
+        ARUCOMakerOutput()
+    }
+
+    func ARUCOMakerOutput() {
+#if targetEnvironment(simulator)
+        let DocumentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        print("\(DocumentPath)")
+        for i in 0..<1000 {
+            if let image = OpenCVWrapper.createARMarker(Int32(i)) {
+                do{
+                    let name = String(format: "%03d", i)
+                    try image.pngData()?.write(to: URL(fileURLWithPath: DocumentPath + "/7x7_1000-\(name).png" ))
+                } catch {
+                    print("Failed to save the image:", error)
+                }
+            }
+        }
+#endif
     }
 }
