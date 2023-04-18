@@ -246,7 +246,7 @@ static NavDeviceTTS *instance = nil;
         } else {
             if (keep >= 3) {
                 [self _speak:[text substringWithRange:NSMakeRange(start, i-keep)] force:flag && isFirst selfvoicing:selfvoicing nohistory:nohistory quickAnswer:quickAnswer voice:nil completionHandler:nil];
-                [self pause:0.1*keep];
+                [self pause: 0.25 * keep];
                 text = [text substringFromIndex:i];
                 flag = NO;
                 i = 0;

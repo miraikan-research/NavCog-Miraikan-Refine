@@ -334,7 +334,7 @@ NavCogの設定画面から
 
 "PERIOD" = "。";
 
-"It is the entrance." = "入り口です。";
+"Entrance to %@." = "%@ 入り口です。";
 
 "Point your smartphone camera at the ground." = "スマートフォンのカメラを地面に向けてください。";
 
