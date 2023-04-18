@@ -185,7 +185,7 @@ Feedback is sending...";
 
 "Audio stops when you double tap the screen." = "Audio stops when you double tap the screen.";
 
-"to the entrance" = " to the entrance";
+"%1$@ to the entrance of %2$@" = "%1$@ to the entrance of %2$@";
 
 "please proceed slowly." = "please proceed slowly.";
 

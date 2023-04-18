@@ -102,8 +102,10 @@ final public class ArManager: NSObject {
         }
 
         if (arUcoModel.markerPoint ?? false) && isDebug && !arUcoModel.title.isEmpty {
-            let phonation = arUcoModel.titlePron + NSLocalizedString("PERIOD", comment: "") + NSLocalizedString("to the entrance", comment: "") + meterString
-            phonationModel.append(str: phonation)
+            let str = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
+                             meterString,
+                             NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.titlePron : arUcoModel.titleEn)
+            phonationModel.append(str: str)
         }
 
         if !isGuideMarker() {
@@ -276,11 +278,10 @@ final public class ArManager: NSObject {
                 markerCenterFlag = true
 
                 let meterString = StrUtil.distanceString(distance: distance)
-                let phonation = (NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.titlePron : arUcoModel.titleEn)
-                + NSLocalizedString("PERIOD", comment: "")
-                + NSLocalizedString("to the entrance", comment: "")
-                + meterString
-                AudioManager.shared.addGuide(text: phonation, id: arUcoModel.id)
+                let str = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
+                                 meterString,
+                                 NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.titlePron : arUcoModel.titleEn)
+                AudioManager.shared.addGuide(text: str, id: arUcoModel.id)
             }
             return
         } else if arFrameSize.height * minMarginRange / widthBaseRatio < transform.intersection.y &&
