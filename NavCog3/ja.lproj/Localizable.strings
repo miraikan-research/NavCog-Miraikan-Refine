@@ -347,7 +347,7 @@ NavCogの設定画面から
 "Point your phone's camera at the front and slowly move left and right to look for sound guidance." = "スマートフォンのカメラを正面に向けて、ゆっくり左右を回り、音の誘導を探してください。";
 "Audio stops when you double tap the screen." = "音声は画面をダブルタップすると停止します。";
 
-"to the entrance" = "入り口まで";
+"%1$@ to the entrance of %2$@" = "%2$@ 入り口まで %1$@";
 
 "please proceed slowly." = "ゆっくり進んで下さい";
 
