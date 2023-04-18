@@ -32,7 +32,6 @@ class PhonationModel {
     var phonation = ""
 
     private let Delimiter = "\n"
-    private let DelimiterPron = " 。 "
 
     func setUp(string: String, phonation: String) {
         self.string = string
@@ -48,7 +47,7 @@ class PhonationModel {
             string += Delimiter
         }
         if !phonation.isEmpty && isDelimiter {
-            phonation += DelimiterPron
+            phonation += NSLocalizedString("PERIOD", comment: "")
         }
 
         string += str

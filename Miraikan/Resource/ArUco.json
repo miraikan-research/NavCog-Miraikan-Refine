@@ -8,7 +8,7 @@
         "short_distance": 0,
         "long_distance": 30,
         "message": "%@先",
-        "message_en": "",
+        "message_en": "%@ ahead.",
         "message_pron": "%@先",
     },
 },
@@ -65,7 +65,7 @@
         "short_distance": 0,
         "long_distance": 5,
         "message": "左を向いて12mくらい進んで下さい。壁に展示パネルがあります。",
-        "message_en": "Turn left and walk about 12 meters",
+        "message_en": "Turn left and go about 12 meters. There is an exhibition panel on the wall.",
         "message_pron": "左を向いて12メートルくらい進んで下さい。壁に展示パネルがあります。",
     },
 },
@@ -78,7 +78,7 @@
         "short_distance": 0,
         "long_distance": 3,
         "message": "左を向いて6mくらい進んで下さい。壁に展示パネルがあります。",
-        "message_en": "Turn left and walk about 6 meters. There is an exhibition panel on the wall.",
+        "message_en": "Turn left and go about 6 meters. There is an exhibition panel on the wall.",
         "message_pron": "左を向いて6メートルくらい進んで下さい。壁に展示パネルがあります。",
     },
 },
@@ -92,14 +92,14 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1.0,
         "message": "体を新しくする幹細胞たち\n幹細胞とは「分裂して増える能力と、体のさまざまな部位の細胞になる能力（分化）」をもった細胞です。幹細胞を研究することで、治療法のない病気の解明や、新しい薬の開発に役立てることができます。また、病気になった細胞を、幹細胞からつくった元気な細胞と入れ替える「再生治療」が可能になります。",
-        "message_en": "",
+        "message_en": "Body - Restoring Stem Cells. Stem cells are cells that \"can divide and propagate, and have the ability to turn (differentiate) into various other cells in the body.\" Research into stem cells helps us understand the mechanisms of untreatable diseases and develop medications for them. It also facilitates \"regenerative medicine,\" in which diseased cells are replaced with healthy or functional ones made from stem cells.",
         "message_pron": "体を新しくするカンサイボウたち。カンサイボウとは「分裂して増える能力と、体のさまざまな部位の細胞になる能力（分化）」をもった細胞です。カンサイボウを研究することで、治療法のない病気の解明や、新しい薬の開発に役立てることができます。また、病気になった細胞を、カンサイボウからつくった元気な細胞と入れ替える「再生治療」が可能になります。",
     },
 },
@@ -111,14 +111,14 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1.0,
         "message": "体性幹細胞\n体の中に元々ある幹細胞で、「新しい細胞をつくる能力」をもっています。傷ついたり、古くなった細胞を入れ替えたり、病気やケガで失われた細胞を補います。1965年から始まった骨髄移植では、ドナーの体性幹細胞を患者に移植する方法がとられています。自分自身の細胞を使うことで、拒絶反応が少ない治療も可能です。体性幹細胞では、分化できる細胞の種類が限定されます。また、細胞の種類によって、取り出しやすさや、取り出せる細胞の数、新しい細胞をつくる能力に違いがあります。",
-        "message_en": "",
+        "message_en": "Somatic Stem Cells. These are stem cells in your body which have \"the ability to produce new cells (differentiation).\" They can supplement damaged or aging cells and replace cells lost to disease and injury. As with bone marrow transplants, which began in 1965, somatic stem cells are taken from the donor's body before being used in treatment. When they are taken from the patient's body, treatment can also be achieved with a much lower rate of transplant rejection. However, somatic stem cells are only capable of differentiating into certain cell types.",
         "message_pron": "タイセイカンサイボウ。体の中に元々あるカンサイボウで、「新しい細胞をつくる能力」をもっています。傷ついたり、古くなった細胞を入れ替えたり、病気やケガで失われた細胞を補います。1965年から始まった骨髄移植では、ドナーのタイセイカンサイボウを患者に移植する方法がとられています。自分自身の細胞を使うことで、拒絶反応が少ない治療も可能です。タイセイカンサイボウでは、分化できる細胞の種類が限定されます。また、細胞の種類によって、取り出しやすさや、取り出せる細胞の数、新しい細胞をつくる能力に違いがあります。",
     },
 },
@@ -130,14 +130,14 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1.0,
         "message": "ES細胞(胚性幹細胞)\n受精後、しばらく成長した受精卵からとった幹細胞で、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは1998年に初めて培養に成功しました。体性幹細胞と比べて、体中の細胞をつくることができます。ES細胞では、主に不妊治療で不要となった受精卵からつくります。そのため、材料となる細胞が限られるので、細胞の周りのゲノム(全遺伝情報)の多様性も限られます。また、治療の際には、患者と同じゲノムを持った細胞を使う事ができません。",
-        "message_en": "",
+        "message_en": "ES Cells (Embryonic Stem Cells). Obtained from embryos in the stages immediately following fertilization, ES cells have the ability to \"propagate infinitely, and differentiate into many types of cells in the body (pluripotency).\" Human ES cells were first successfully grown in 1998. Unlike somatic stem cells, they are capable of producing a wide variety of the body's cells. ES cells are generally made out of surplus embryos taken from fertility treatments. Because there is a limited source of these cells, the pluripotency of their DNA (their complete genome) is finite.",
         "message_pron": "イーエス細胞(ハイセイカンサイボウ)。受精後、しばらく成長した受精卵からとったカンサイボウで、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは1998年に初めて培養に成功しました。タイセイカンサイボウと比べて、体中の細胞をつくることができます。イーエス細胞では、主に不妊治療で不要となった受精卵からつくります。そのため、材料となる細胞が限られるので、細胞の周りのゲノム(全遺伝情報)の多様性も限られます。また、治療の際には、患者と同じゲノムを持った細胞を使う事ができません。",
     },
 },
@@ -149,14 +149,14 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1.0,
         "message": "iPS細胞(人工多能性幹細胞)\n体をつくる幹細胞に遺伝子を入れてつくった幹細胞で、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは2007年に初めて作製に成功しました。iPS細胞は、皮膚や血液などの体細胞に操作を行ってつくるため、もとの体細胞がもつゲノムに異常がないかや、つくられたiPS細胞がその異常を引き継いでいないか、人為的な操作による影響を受けていないかを調べています。",
-        "message_en": "",
+        "message_en": "iPS Cells (Induced Pluripotent Stem Cells). iPS cells are created by replacing the genes of somatic cells, and have \"the ability to propagate infinitely and differentiate into many types of cells in the body (pluripotency).\" They were first successfully created with human cells in 2007. Because iPS cells are reprogrammed from blood and skin cells, they are tested to ensure that there are no irregularities in the DNA of the original somatic cells, that the resulting iPS cells haven't inherited these irregularities, and that their artificial reprogramming hasn't had any undue influence.",
         "message_pron": "iPS細胞(ジンコウタノウセイカンサイボウ)。体をつくるカンサイボウに遺伝子を入れてつくったカンサイボウで、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは2007年に初めて作製に成功しました。iPS細胞は、皮膚や血液などのタイサイボウに操作を行ってつくるため、もとのタイサイボウがもつゲノムに異常がないかや、つくられたiPS細胞がその異常を引き継いでいないか、人為的な操作による影響を受けていないかを調べています。",
     },
 },
@@ -169,32 +169,32 @@
         "short_distance": 0,
         "long_distance": 1.5,
         "message": "%@先。正面の壁。展示パネルがあります。",
-        "message_en": "",
+        "message_en": "%@ ahead. Front wall. There are display panels.",
         "message_pron": "%@先。正面の壁。展示パネルがあります。",
     },
     "guide_from_here_reserve": {
         "short_distance": 0,
         "long_distance": 1.5,
         "message": "4時の方向を向いて3mくらい進んでください。正面の壁に展示パネルがあります。",
-        "message_en": "",
+        "message_en": "Turn to face 4 o'clock and go about 3 meters. There is an exhibition panel on the front wall.",
         "message_pron": "4時の方向を向いて3メートルくらい進んでください。正面の壁に展示パネルがあります。",
     },
     "next_guide_reserve": {
         "message": "次の展示を案内します。",
-        "message_en": "",
+        "message_en": "We will guide you through the next exhibit.",
         "message_pron": "次の展示を案内します。",
     },
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1.5,
-        "message": "細胞は、生命活動の基本単位。「生きている」という状態の、もっとも小さな姿が細胞です。あなたはたったひとつの細胞から始まりました。そして今、40長ほどの細胞があなたの体をかたちづくり、生かしています。はじまりはひとつの細胞から。あなたは受精卵という、たった一つの細胞からはじまりました。両親の遺伝子を引きついだ受精卵は、「体の全ての細胞になれる」特別な細胞です。受精卵が分裂し数を増やしていくうちに、細胞ごとに異なる遺伝子がはたらき、体がつくられはじめます。",
-        "message_en": "",
-        "message_pron": "細胞は、生命活動の基本単位。「生きている」という状態の、もっとも小さな姿が細胞です。あなたはたったひとつの細胞から始まりました。そして今、40長ほどの細胞があなたの体をかたちづくり、生かしています。 。 。はじまりはひとつの細胞から。 。 。あなたは受精卵という、たった一つの細胞からはじまりました。両親の遺伝子を引きついだ受精卵は、「体の全ての細胞になれる」特別な細胞です。受精卵が分裂し数を増やしていくうちに、細胞ごとに異なる遺伝子がはたらき、体がつくられはじめます。",
+        "message": "はじまりはひとつの細胞から。細胞は、生命活動の基本単位。「生きている」という状態の、もっとも小さな姿が細胞です。あなたはたったひとつの細胞から始まりました。そして今、40長ほどの細胞があなたの体をかたちづくり、生かしています。あなたは受精卵という、たった一つの細胞からはじまりました。両親の遺伝子を引きついだ受精卵は、「体の全ての細胞になれる」特別な細胞です。受精卵が分裂し数を増やしていくうちに、細胞ごとに異なる遺伝子がはたらき、体がつくられはじめます。",
+        "message_en": "It All Began with a Single Cell. Cells are the basic unit of biological activity. The smallest form that \"life\" can take is that of a cell. You began with a single cell. Now some 40 trillion cells make up your body and give you life. You began as a single, fertilized egg. This special cell carried your biological parents' DNA, and had the ability to turn into all of the body's cells. As your embryo went about building your body, it divided itself, using different parts of the genome for each new cell it made.",
+        "message_pron": "はじまりはひとつの細胞から。 。細胞は、生命活動の基本単位。「生きている」という状態の、もっとも小さな姿が細胞です。あなたはたったひとつの細胞から始まりました。そして今、40長ほどの細胞があなたの体をかたちづくり、生かしています。 。 。 。あなたは受精卵という、たった一つの細胞からはじまりました。両親の遺伝子を引きついだ受精卵は、「体の全ての細胞になれる」特別な細胞です。受精卵が分裂し数を増やしていくうちに、細胞ごとに異なる遺伝子がはたらき、体がつくられはじめます。",
     },
 },
 {
@@ -206,7 +206,7 @@
         "short_distance": 2,
         "long_distance": 6,
         "message": "%@先。正面の壁にさわることができる展示パネルがあります。",
-        "message_en": "",
+        "message_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
         "message_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
     },
 },
@@ -217,14 +217,14 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1.5,
         "message": "あなたの体がつくられるなかで、細胞は特定のはたらきをもつ細胞へと「分化」します。血液や眼など、それぞれの役割を担う細胞へと変化します。受精卵から約56日かけておおまかな体のかたちができあがります。その後、臓器や組織の細かい構造がつくられ、きちんとはたらけるようになり、受精から約38週ほどであなたは生まれてきたのです。",
-        "message_en": "",
+        "message_en": "As your body formed, your cells continued \"differentiating\" into more specialized cells. These cells developed into your blood, eyes, and other parts meant to handle specific tasks. It took some 56 days for your body to develop its general form. Then it moved on to organs, tissues, and other complex structures. After 38 weeks, you were born.",
         "message_pron": "あなたの体がつくられるなかで、細胞は特定のはたらきをもつ細胞へと「分化」します。血液や眼など、それぞれの役割を担う細胞へと変化します。受精卵から約56日かけておおまかな体のかたちができあがります。その後、臓器や組織の細かい構造がつくられ、きちんとはたらけるようになり、受精から約38週ほどであなたは生まれてきたのです。",
     },
 },
@@ -237,7 +237,7 @@
         "short_distance": 0,
         "long_distance": 1,
         "message": "%@先。正面の壁にさわることができる展示パネルがあります。",
-        "message_en": "",
+        "message_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
         "message_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
     },
     "guide_from_here": {
@@ -249,19 +249,19 @@
     },
     "next_guide": {
         "message": "正面の壁の下側に奥行き10センチメートルの棚板があります。その上部に展示があります。",
-        "message_en": "",
+        "message_en": "On the lower side of the front wall there is a 25 centimeter deep shelf. The exhibit is located above it.",
         "message_pron": "正面の壁の下側に奥行き25センチメートルの棚板があります。その上部に展示があります。",
     },
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
         "message": "受精から約32週の胎児。さわってみてください。生まれた後も、新しい細胞を作り続ける「幹細胞」により、体は大きく成長します。古くなった細胞の入れ替えや、病気やケガで失われた細胞の補充も、幹細胞によって行われています。",
-        "message_en": "",
+        "message_en": "A fetus at 32 weeks. Go ahead and touch. Even after you were born, \"stem cells\" continued producing new cells, causing your body to grow. Stem cells also work to replace cells that have grown old or been damaged through injury or sickness.",
         "message_pron": "受精から約32週の胎児。さわってみてください。生まれたアトも、新しい細胞を作り続ける「カンサイボウ」により、体は大きく成長します。古くなった細胞の入れ替えや、病気やケガで失われた細胞の補充も、カンサイボウによって行われています。",
     },
 },
@@ -275,31 +275,31 @@
         "short_distance": 0,
         "long_distance": 1,
         "message": "正面に棚板があります。地面から高さ75センチメートル奥行き25センチメートル横幅95センチメートルの棚板の上に展示パネルがあります。",
-        "message_en": "",
+        "message_en": "There is a shelf on the front.",
         "message_pron": "%正面に棚板があります。地面から高さ75センチメートル奥行き25センチメートル横幅95センチメートルの棚板の上に展示パネルがあります。",
     },
     "guide_from_here_reserve": {
         "short_distance": 0,
         "long_distance": 1,
         "message": "右を向いて7mくらい進んで下さい。左の壁に展示パネルがあります。",
-        "message_en": "",
+        "message_en": "Turn right and go about 7 meters. There is an exhibition panel on the left wall.",
         "message_pron": "右を向いて7mくらい進んで下さい。左の壁に展示パネルがあります。",
     },
     "next_guide_reserve": {
         "message": "次の展示を案内します 。",
-        "message_en": "",
+        "message_en": "We will guide you through the next exhibit.",
         "message_pron": "次の展示を案内します 。",
     },
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
         "message": "胎児の成長過程（実寸大）さわって、かたちの変化を感じてみてください。受精卵（0.1mm）、受精から19日（2.0mm）、28日（4.5mm）、40日（9mm）、44日（13mm）、50日（18mm）、56日（30mm）",
-        "message_en": "",
+        "message_en": "Stages of Fetal Growth (actual size). Touch to feel the shape change. Fertilized egg (0.1 millimeter). days after fertilization (2 millimeter). 28 days (4.5 millimeter). 40 days (9 millimeter). 44 days (13 millimeter). 50 days (18 millimeter). 56 days (30 millimeter).",
         "message_pron": "胎児の成長過程（実寸大）。棚板の左側からさわって、かたちの変化を感じてみてください。 。受精卵（0.1ミリメートル）。 。受精から19日（2ミリメートル）。 。28日（4.5ミリメートル）。 。40日（9ミリメートル）。 。44日（13ミリメートル）。 。50日（18ミリメートル）。 。56日（30ミリメートル）。",
     },
 },
@@ -310,14 +310,14 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1.5,
         "message": "あなたの中ではたらく細胞\nあなたの体がきちんと動くには、細胞がつくるタンパク質が必要です。そのため、細胞は状況に合わせて必要なタンパク質をつくります。タンパク質は用途に応じて運ばれ、それぞれの役割を果たします。今もあなたの体の働きを支えている細胞のしくみを、体を触ることで体験してください。",
-        "message_en": "",
+        "message_en": "Cells at Work in Your Body. Your body relies on the proteins produced by cells in order to function. Your cells produce the proteins demanded by your body at any given time. Depending on their use, these proteins are carried to various parts of the body for different applications. Touch your body to see how each different type of cell works to maintain bodily functions.",
         "message_pron": "あなたの中ではたらく細胞。あなたの体がきちんと動くには、細胞がつくるタンパク質が必要です。そのため、細胞は状況に合わせて必要なタンパク質をつくります。タンパク質は用途に応じて運ばれ、それぞれの役割を果たします。今もあなたの体の働きを支えている細胞の'しくみ'を、体を触ることで体験してください。",
     },
 },
@@ -328,15 +328,15 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "description_title_reserve": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1.0,
-        "message": "あなたの細胞は、体が動くのに必要なタンパク質をつくり、分裂して増え、かたちを保ち、時には移動することもあります。それを可能にしているのは、どの細胞にも共通にそなわっている10の装置とゲノム（全遺伝情報）です。くわしく知りたい装置を選び、あなたの体を保ちつづけている細胞の仕組みを見てください。",
-        "message_en": "",
-        "message_pron": "あなたの細胞は、体が動くのに必要なタンパク質をつくり、分裂して増え、かたちを保ち、時には移動することもあります。それを可能にしているのは、どの細胞にも共通にそなわっている10の装置とゲノム（全遺伝情報）です。くわしく知りたい装置を選び、あなたの体を保ちつづけている細胞の仕組みを見てください。",
+        "message": "細胞がもつ10の装置\nあなたの細胞は、体が動くのに必要なタンパク質をつくり、分裂して増え、かたちを保ち、時には移動することもあります。それを可能にしているのは、どの細胞にも共通にそなわっている10の装置とゲノム（全遺伝情報）です。くわしく知りたい装置を選び、あなたの体を保ちつづけている細胞の仕組みを見てください。",
+        "message_en": "The Ten Apparatuses in Your Cells. Your cells not only make the proteins demanded by your bodily functions, but reproduce through cell division, maintain your bodily functions, and sometimes even move around, as well. They do all of these things thanks to the ten apparatuses shared by all cells, and your genome (all of your genetic data). Select an apparatus to learn more about the makeup of the cells that maintain your body.",
+        "message_pron": "細胞がもつ10の装置。あなたの細胞は、体が動くのに必要なタンパク質をつくり、分裂して増え、かたちを保ち、時には移動することもあります。それを可能にしているのは、どの細胞にも共通にそなわっている10の装置とゲノム（全遺伝情報）です。くわしく知りたい装置を選び、あなたの体を保ちつづけている細胞の仕組みを見てください。",
     },
 },
 {
@@ -348,35 +348,34 @@
         "short_distance": 0,
         "long_distance": 1.2,
         "message": "%@先。正面の壁にさわることができる展示パネルがあります。",
-        "message_en": "",
+        "message_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
         "message_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
     },
     "guide_from_here_reserve": {
         "short_distance": 0,
         "long_distance": 1.2,
         "message": "4時の方向を向いて3mくらい進んで下さい。左側が展示の出口です。",
-        "message_en": "",
+        "message_en": "Turn to 4 o'clock and go about 3 meters. The exit for the exhibit is on the left.",
         "message_pron": "4時の方向を向いて3mくらい進んで下さい。左側が展示の出口です。",
     },
     "next_guide_reserve": {
         "message": "出口を案内します。",
-        "message_en": "",
+        "message_en": "Guided Exit.",
         "message_pron": "出口を案内します。",
     },
     "description_title_reserve": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1.2,
         "message": "細胞の基本的な構造。さわってみてください。細胞たちが共通に持つ構造と装置（細胞内小器官）を現した模型です。これらの装置の見事な連携によって、細胞は機能しています。",
-        "message_en": "",
+        "message_en": "The Basic Structure of Cells. Go ahead and touch. This is a model of the structure and mechanisms (organelles) shared by all cells. The deft interplay of these mechanisms allow cells to function.",
         "message_pron": "細胞の基本的な構造。さわってみてください。細胞たちが共通に持つ構造と装置（細胞内小器官）を現したモケイです。これらの装置の見事な連携によって、細胞は機能しています。",
     },
 },
-
 {
     "id": 515,
     "title": "細胞たち研究開発中",
@@ -384,15 +383,33 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1.5,
-        "message": "あなたの細胞は何をするときにも、必ずゲノム(全遺伝情報)の一部を読みとっています。ゲノムは「DNA」という物質に記録され、必要なときに読み出され、タンパク質などをつくります。ゲノムのどこが読みとられるのかは、細胞の種類や状況によって変わります。生きている間、あなたの体の細胞はたえず外から影響を受け、ゲノムのどこが読みとられるのかも変化していきます。",
-        "message_en": "",
-        "message_pron": "あなたの細胞は何をするときにも、必ずゲノム(全遺伝情報)の一部を読みとっています。ゲノムは「DNA」という物質に記録され、必要なときに読み出され、タンパク質などをつくります。ゲノムのどこが読みとられるのかは、細胞の種類や状況によって変わります。生きている間、あなたの体の細胞はたえず外から影響を受け、ゲノムのどこが読みとられるのかも変化していきます。",
+        "message": "細胞の進路を決めるゲノム\nあなたの細胞は何をするときにも、必ずゲノム(全遺伝情報)の一部を読みとっています。ゲノムは「DNA」という物質に記録され、必要なときに読み出され、タンパク質などをつくります。ゲノムのどこが読みとられるのかは、細胞の種類や状況によって変わります。生きている間、あなたの体の細胞はたえず外から影響を受け、ゲノムのどこが読みとられるのかも変化していきます。",
+        "message_en": "The Genome that Guides a Cell's Growth.Whenever one of your cells does something, it first reads part of your genome (all of your genetic data). Your genome is written on material called DNA, where it can be transcribed as needed or used to make proteins. Different parts of the genome are read depending on the type of cell and its circumstances. As you go about living, your cells are constantly being influenced by circumstances, which alter the part of the genome that is read.",
+        "message_pron": "細胞の進路を決めるゲノム。あなたの細胞は何をするときにも、必ずゲノム(全遺伝情報)の一部を読みとっています。ゲノムは「DNA」という物質に記録され、必要なときに読み出され、タンパク質などをつくります。ゲノムのどこが読みとられるのかは、細胞の種類や状況によって変わります。生きている間、あなたの体の細胞はたえず外から影響を受け、ゲノムのどこが読みとられるのかも変化していきます。",
+    },
+},
+{
+    "id": 516,
+    "title": "細胞たち研究開発中",
+    "title_en": "CELLS in Progress",
+    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "description_title": {
+        "message": "展示パネルの解説",
+        "message_en": "Explanation of the exhibition panel.",
+        "message_pron": "展示パネルの解説",
+    },
+    "description": {
+        "short_distance": 0,
+        "long_distance": 2.5,
+        "message": "あなたは細胞をつかって長生きしたいですか?\nこの展示は、こうしたさまざまな能力を持った細胞に人の手を加える未来について考えるものです。\nこれまでの研究が実を結び、わたしたちは細胞を操作する技術を手に入れました。\n将来は、細胞をつかった医療を選ぶことができるかもしれません。\nしかし、わたしたちヒトは、地球上では新しい生きもので、まだ解明されていない細胞のしくみもたくさんあります。\n多様な他の生きものと共存しながら、細胞の本来の姿やあり方をもっと学んでいく必要もあるでしょう。\nあなたをつくる細胞と、細胞を使った医療について、一緒に考えてみませんか。",
+        "message_en": "This exhibit considers the ways that cells, with their various abilities, might be manipulated to help people in the future. Research has yielded technologies which allow us to manipulate cells. In the future, you may be able to elect to have cell-based medical treatment. We humans, however, are relatively new organisms here on Earth, and many things are yet unclear about how our cells work. As we look at future uses for cells, it's important that we also consider what cells are for us and the diverse forms of life with which we share them. With that in mind, why don't we take a look at the cells that make up your body, and the medical procedures that employ them.",
+        "message_pron": "あなたは細胞をつかって長生きしたいですか?。この展示は、こうしたさまざまな能力を持った細胞に人の手を加える未来について考えるものです。これまでの研究が実を結び、わたしたちは細胞を操作する技術を手に入れました。将来は、細胞をつかった医療を選ぶことができるかもしれません。しかし、わたしたちヒトは、地球上では新しい生きもので、まだ解明されていない細胞のしくみもたくさんあります。多様な他の生きものと共存しながら、細胞の本来の姿やあり方をもっと学んでいく必要もあるでしょう。あなたをつくる細胞と、細胞を使った医療について、一緒に考えてみませんか。",
     },
 },
 {
@@ -404,13 +421,13 @@
     "flat_guide": [{
         "direction": 0,
         "message": "10m先。壁に展示パネルがあります。",
-        "message_en": "",
+        "message_en": "10 meters ahead. There is an exhibition panel on the wall.",
         "message_pron": "10メートル先。壁に展示パネルがあります。",
     },
     {
         "direction": 180,
         "message": "2m先。展示の出口です。",
-        "message_en": "",
+        "message_en": "2 meters ahead. The exit of the exhibition.",
         "message_pron": "2メートル先。展示の出口です。",
     }]
 },
@@ -422,14 +439,14 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 0,
-        "message": "8m先。壁に展示パネルがあります。",
-        "message_en": "",
-        "message_pron": "8メートル先。壁に展示パネルがあります。",
+        "message": "8m先。正面の壁。展示パネルがあります。",
+        "message_en": "8 meters ahead. Front wall. There are display panels.",
+        "message_pron": "8m先。正面の壁。展示パネルがあります。",
     },
     {
         "direction": 180,
         "message": "4m先。展示の出口です。",
-        "message_en": "",
+        "message_en": "4 meters ahead. The exit of the exhibition.",
         "message_pron": "4メートル先。展示の出口です。",
     }]
 },
@@ -441,9 +458,9 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 0,
-        "message": "6m先。壁に展示パネルがあります。",
-        "message_en": "",
-        "message_pron": "6メートル先。壁に展示パネルがあります。",
+        "message": "6m先。正面の壁。展示パネルがあります。",
+        "message_en": "6 meters ahead. Front wall. There are display panels.",
+        "message_pron": "6メートル先。正面の壁。展示パネルがあります。",
     }]
 },
 {
@@ -454,9 +471,10 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 0,
-        "message": "3m先。壁に展示パネルがあります。",
-        "message_en": "",
-        "message_pron": "3メートル先。壁に展示パネルがあります。",
+        "message": "3m先。正面の壁。展示パネルがあります。",
+        "message_en": "3 meters ahead. Front wall. There are display panels.",
+        "message_pron": "3メートル先。正面の壁。展示パネルがあります。",
+
     }]
 },
 {
@@ -467,9 +485,9 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 0,
-        "message": "1m先。壁に展示パネルがあります。",
-        "message_en": "",
-        "message_pron": "1メートル先。壁に展示パネルがあります。",
+        "message": "1m先。正面の壁。展示パネルがあります。",
+        "message_en": "1 meters ahead. Front wall. There are display panels.",
+        "message_pron": "1メートル先。正面の壁。展示パネルがあります。",
     }]
 },
 {
@@ -481,13 +499,13 @@
     "flat_guide": [{
             "direction": 120,
             "message": "50cm先。壁に展示パネルがあります。",
-            "message_en": "",
+            "message_en": "50 centimeter ahead. Front wall. There are display panels.",
             "message_pron": "50センチメートル先。壁に展示パネルがあります。",
         },
         {
         "direction": 0,
         "message": "4m先。進行経路です。",
-        "message_en": "",
+        "message_en": "4 meters ahead. Direction of travel.",
         "message_pron": "4メートル先。進行方向です。",
     }]
 },
@@ -500,13 +518,13 @@
     "flat_guide": [{
         "direction": 120,
         "message": "50cm先。壁に展示パネルがあります。",
-        "message_en": "",
+        "message_en": "50 centimeter ahead. Front wall. There are display panels.",
         "message_pron": "50センチメートル先。壁に展示パネルがあります。",
     },
     {
         "direction": 0,
         "message": "7m先。進行経路です。",
-        "message_en": "",
+        "message_en": "7 meters ahead. Direction of travel.",
         "message_pron": "7メートル先。進行方向です。",
     }]
 },
@@ -519,13 +537,13 @@
     "flat_guide": [{
         "direction": 150,
         "message": "50cm先。壁に展示パネルがあります。",
-        "message_en": "",
+        "message_en": "50 centimeter ahead. Front wall. There are display panels.",
         "message_pron": "50センチメートル先。壁に展示パネルがあります。",
     },
     {
         "direction": 0,
         "message": "4m先。展示の出口経路です。",
-        "message_en": "",
+        "message_en": "4 meters ahead. The exit of the exhibition.",
         "message_pron": "4メートル先。展示の出口経路です。",
     }]
 },
@@ -559,7 +577,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -577,7 +595,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -631,7 +649,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -656,7 +674,7 @@
     },
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -674,7 +692,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -692,7 +710,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -718,7 +736,7 @@
     },
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -737,7 +755,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -757,7 +775,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -775,7 +793,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -793,7 +811,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -811,7 +829,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -829,7 +847,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -847,7 +865,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -866,7 +884,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -884,7 +902,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -902,7 +920,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -920,7 +938,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -938,7 +956,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -956,7 +974,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1304,7 +1322,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1323,7 +1341,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1380,7 +1398,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1406,7 +1424,7 @@
     },
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1425,7 +1443,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1444,7 +1462,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1470,7 +1488,7 @@
     },
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1489,7 +1507,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1508,7 +1526,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1527,7 +1545,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1546,7 +1564,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1565,7 +1583,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1584,7 +1602,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1603,7 +1621,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1622,7 +1640,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1641,7 +1659,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1660,7 +1678,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1679,7 +1697,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1698,7 +1716,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {
@@ -1717,7 +1735,7 @@
     "title_pron": "ビジョナリーラボ",
     "description_title": {
         "message": "展示パネルの解説",
-        "message_en": "",
+        "message_en": "Explanation of the exhibition panel.",
         "message_pron": "展示パネルの解説",
     },
     "description": {

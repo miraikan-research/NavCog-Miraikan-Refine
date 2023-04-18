@@ -119,6 +119,8 @@ class StrUtil: NSObject {
             // やや右方向 +315 ~ +345 //
             str = NSLocalizedString("slightly to the right", tableName: "BlindView", comment: "")
         }
+        
+        str = NSLocalizedString("PERIOD", comment: "") + str
         phonationModel.setUp(string: str, phonation: str)
         return phonationModel
     }

@@ -219,13 +219,13 @@ final public class ArManager: NSObject {
         let distance = Double(transform.distance) * ratio
 
         if distance < 1.2 && !arUcoModel.title.isEmpty {
-            var phonation = arUcoModel.titlePron
-            phonation += NSLocalizedString("It is the entrance.", comment: "")
+            let str = String(format: NSLocalizedString("Entrance to %@.", comment: ""),
+                             NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.titlePron : arUcoModel.titleEn)
 //            phonation += NSLocalizedString("Point your smartphone camera at the ground.", comment: "")
 //            phonation += NSLocalizedString("While facing the ground, turn left and right slowly and check the following directions.", comment: "")
 //            phonation += NSLocalizedString("When facing the ground, please proceed after reaching a position that guides you to the front.", comment: "")
             
-            AudioManager.shared.addGuide(text: phonation, id: arUcoModel.id)
+            AudioManager.shared.addGuide(text: str, id: arUcoModel.id)
             return
         }
 
@@ -276,7 +276,10 @@ final public class ArManager: NSObject {
                 markerCenterFlag = true
 
                 let meterString = StrUtil.distanceString(distance: distance)
-                let phonation = arUcoModel.titlePron + NSLocalizedString("PERIOD", comment: "") + NSLocalizedString("to the entrance", comment: "") + meterString
+                let phonation = (NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.titlePron : arUcoModel.titleEn)
+                + NSLocalizedString("PERIOD", comment: "")
+                + NSLocalizedString("to the entrance", comment: "")
+                + meterString
                 AudioManager.shared.addGuide(text: phonation, id: arUcoModel.id)
             }
             return
@@ -342,7 +345,7 @@ final public class ArManager: NSObject {
             }
         } else {
             if let strParam = strParam {
-                phonation.append(str: String(format: guidance.messageEn, strParam), phon: String(format: guidance.messagePron, strParam))
+                phonation.append(str: String(format: guidance.messageEn, strParam))
             } else {
                 phonation.append(str: guidance.messageEn)
             }
