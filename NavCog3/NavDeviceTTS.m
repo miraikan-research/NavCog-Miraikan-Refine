@@ -162,9 +162,12 @@ static NavDeviceTTS *instance = nil;
     HLPSpeechEntry *se = [[HLPSpeechEntry alloc] init];
     se.pauseDuration = duration;
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:SPEAK_TEXT_QUEUEING object:self userInfo:
-     @{@"pause":@(YES),@"duration":@(duration)}];
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:SPEAK_TEXT_QUEUEING
+                                                        object:self
+                                                      userInfo:
+     @{@"pause" :@(YES),
+       @"duration" :@(duration)}];
+
     @synchronized(speaking) {
         [speaking addObject:se];
     }
@@ -180,7 +183,9 @@ static NavDeviceTTS *instance = nil;
     } else {
         NSString *text = param[@"text"];
         BOOL force = [param[@"force"] boolValue];
-        [self speak:text withOptions:@{@"force":@(force), @"nohistory":@(YES)} completionHandler:nil];
+        [self speak:text
+        withOptions:@{@"force":@(force), @"nohistory":@(YES)}
+  completionHandler:nil];
     }
 }
 
@@ -245,7 +250,13 @@ static NavDeviceTTS *instance = nil;
         } else if ([[text substringWithRange:NSMakeRange(i, 1)] isEqualToString:@" "]) {
         } else {
             if (keep >= 3) {
-                [self _speak:[text substringWithRange:NSMakeRange(start, i-keep)] force:flag && isFirst selfvoicing:selfvoicing nohistory:nohistory quickAnswer:quickAnswer voice:nil completionHandler:nil];
+                [self _speak:[text substringWithRange:NSMakeRange(start, i - keep)]
+                       force:flag && isFirst
+                 selfvoicing:selfvoicing
+                   nohistory:nohistory
+                 quickAnswer:quickAnswer
+                       voice:nil
+           completionHandler:nil];
                 [self pause: 0.25 * keep];
                 text = [text substringFromIndex:i];
                 flag = NO;
@@ -328,14 +339,14 @@ static NavDeviceTTS *instance = nil;
     isSpeaking = YES;
     double(^estimatedDuration)(HLPSpeechEntry *) = ^(HLPSpeechEntry* se) {
         double r = se.ut.rate;
-        double r2 = r*r+0.23*r+0.1; // based on an experiment, estimated speech speed
+        double r2 = r * r + 0.23 * r + 0.1; // based on an experiment, estimated speech speed
         double safe_rate = 1.5;
         
         double languageRate = 20; // en
-        NSString *lang = AVSpeechSynthesisVoice.currentLanguageCode;
-        if ([lang isEqualToString:@"ja-JP"]) {
-            languageRate = 10;
-        }
+//        NSString *lang = AVSpeechSynthesisVoice.currentLanguageCode;
+//        if ([lang isEqualToString:@"ja-JP"]) {
+//            languageRate = 20;
+//        }
         return se.ut.speechString.length / languageRate / r2 * safe_rate;
     };
     double duration = estimatedDuration(se);
