@@ -121,7 +121,7 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      defaultValue: MiraikanUtil.speechSpeed,
                                                      step: 0.05,
                                                      format: "%.2f",
-                                                     title: NSLocalizedString("Speech Speed", comment: ""),
+                                                     title: NSLocalizedString("Speech speed", comment: ""),
                                                      name: "speech_speed",
                                                      desc: NSLocalizedString("Speech Speed Description",
                                                                              comment: "Description for VoiceOver"))))
@@ -227,7 +227,7 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      defaultValue: MiraikanUtil.previewSpeed,
                                                      step: 1,
                                                      format: "%d",
-                                                     title: NSLocalizedString("Preview Speed", comment: ""),
+                                                     title: NSLocalizedString("Preview speed", comment: ""),
                                                      name: "preview_speed",
                                                      desc: NSLocalizedString("Preview Speed Description",
                                                                              comment: "Description for VoiceOver"))))

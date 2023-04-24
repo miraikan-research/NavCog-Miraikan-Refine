@@ -19,173 +19,179 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  *******************************************************************************/
-/* */
 "Follow" = "-NavCog-";
 
-/* */
-"Miraikan" = "Miraikan";
-
-/* No comment provided by engineer. */
-"DialogSearch" = "Voice search";
-
-/* */
 "%@, you might be going backward." = "%@, you might be going backward.";
 
-/* No comment provided by engineer. */
+"%@, you might be going wrong direction." = "%@, you might be going wrong direction.";
+
 "After getting off the elevator, %@" = "After getting off the elevator, %@";
 
-/* No comment provided by engineer. */
+"AutoDoorPOIString1" = "There is an auto door";
+
+"AutoDoorPOIString1Short" = "an auto door";
+
+"AutoDoorPOIString2" = "There are %d auto doors";
+
+"AutoDoorPOIString2Short" = "%d auto doors";
+
+"Back" = "Back";
+
+"BACK_DIRECTION" = "Back";
+
+"BothSide" = "both side";
+
+"BrailleBlock" = "on Tactile paving";
+
+"BrailleBlockPOIString" = "Tactile paving will be available";
+
+"BrailleBlockPOIStringShort" = "Tactile paving available";
+
+"Cancel" = "Cancel";
+
 "Caution, %@" = "Caution, %@";
+
+"DialogSearch" = "Voice search";
+
+"Disabled" = "%@. disabled.";
+
+"Done" = "Done";
+
+"DoorPOIString1" = "There is a door";
+
+"DoorPOIString1Short" = "a door";
+
+"DoorPOIString2" = "There are %d doors";
+
+"DoorPOIString2Short" = "%d doors";
+
+"EscalatorSideLeftBackward" = "Left side is backward";
+
+"EscalatorSideLeftForward" = "Do not take left side";
+
+"EscalatorSideRightBackward" = "Right side is backward";
+
+"EscalatorSideRightForward" = "Do not take right side";
+
+"Exercise" = "Exercise";
+
+"FRONT_DIRECTION" = "Front";
 
 /* basement floor */
 "FloorBasementD" = "%@ basement";
 
+"FloorChangeActionString1Down" = "Go down %1$@.";
+
+"FloorChangeActionString1Up" = "Go up %1$@.";
+
+"FloorChangeActionString2Down" = "Go down to the %2$@ by %1$@.";
+
+"FloorChangeActionString2Up" = "Go up to the %2$@ by %1$@.";
+
+"FloorChangeActionString3Down" = "go down %2$@ %3$@ %1$@";
+
+"FloorChangeActionString3Up" = "go up %2$@ %3$@ %1$@";
+
+"FloorChangeActionString4Down" = "go down to the %4$@ by %2$@ %3$@ %1$@";
+
+"FloorChangeActionString4Up" = "go up to the %4$@ by %2$@ %3$@ %1$@";
+
+"FloorChangeDoneActionString2Down" = "%2$@, after %1$@";
+
+"FloorChangeDoneActionString2Up" = "%2$@, after %1$@";
+
 /* floor */
 "FloorD" = "%@ floor";
 
-/* (No Commment) */
 "floor -2" = "second basement floor";
-
-/* (No Commment) */
 "floor -1" = "first basement floor";
-
-/* (No Commment) */
 "floor 1" = "first floor";
-
-/* (No Commment) */
 "floor 2" = "second floor";
-
-/* (No Commment) */
 "floor 3" = "third floor";
-
-/* (No Commment) */
 "floor 4" = "fourth floor";
-
-/* (No Commment) */
 "floor 5" = "fifth floor";
-
-/* (No Commment) */
 "floor 6" = "sixth floor";
-
-/* (No Commment) */
 "floor 7" = "seventh floor";
 
 /* floor num type */
 "FloorNumType" = "ordinal";
 
-/* No comment provided by engineer. */
 "From_button" = "From %@";
 
-/* No comment provided by engineer. */
 "Go to %1$@" = "Go to the %1$@.";
 
-/* No comment provided by engineer. */
-"FloorChangeActionString1Down" = "Go down %1$@.";
+"ground floor" = "ground floor";
 
-/* No comment provided by engineer. */
-"FloorChangeActionString1Up" = "Go up %1$@.";
-
-/* No comment provided by engineer. */
-"FloorChangeActionString2Down" = "Go down to the %2$@ by %1$@.";
-
-/* No comment provided by engineer. */
-"FloorChangeActionString2Up" = "Go up to the %2$@ by %1$@.";
-
-/* No comment provided by engineer. */
-"FloorChangeActionString3Down" = "go down %2$@ %3$@ %1$@";
-
-/* No comment provided by engineer. */
-"FloorChangeActionString3Up" = "go up %2$@ %3$@ %1$@";
-
-/* No comment provided by engineer. */
-"FloorChangeActionString4Down" = "go down to the %4$@ by %2$@ %3$@ %1$@";
-
-/* No comment provided by engineer. */
-"FloorChangeActionString4Up" = "go up to the %4$@ by %2$@ %3$@ %1$@";
-
-
-/* No comment provided by engineer. */
 "Init Orientation" = "Init Orientation
 Head to the correct orientation
 (double long-tap \"NavCog\" to finish)";
 
-/* No comment provided by engineer. */
-"Others" = "Others";
+"InMiddle" = "Middle";
 
-/* No comment provided by engineer. */
-"PERIOD" = ". ";
+"LEFT_BACK_DIRECTION" = "Left Back";
 
-/* (No Commment) */
-"Preview" = "Preview";
+"LEFT_DIRECTION" = "Left";
 
-/* (No Commment) */
-"Search" = "Search";
+"LEFT_FRONT_DIRECTION" = "Left Front";
 
-/* (No Commment) */
-"Search Route" = "Search Route";
-
-/* (No Commment) */
-"Stop" = "Stop";
-
-/* (No Commment) */
-"Stop Navigation" = "Stop Navigation";
-
-/* No comment provided by engineer. */
-"TTS_PAUSE_CHAR" = ".";
-
-
-/* No comment provided by engineer. */
-"AutoDoorPOIString2" = "There are %d auto doors";
-
-/* No comment provided by engineer. */
-"DoorPOIString2" = "There are %d doors";
-
-/* No comment provided by engineer. */
-"AutoDoorPOIString1" = "There is an auto door";
-
-/* No comment provided by engineer. */
-"DoorPOIString1" = "There is a door";
-
-/* No comment provided by engineer. */
-"AutoDoorPOIString2Short" = "%d auto doors";
-
-/* No comment provided by engineer. */
-"DoorPOIString2Short" = "%d doors";
-
-/* No comment provided by engineer. */
-"AutoDoorPOIString1Short" = "an auto door";
-
-/* No comment provided by engineer. */
-"DoorPOIString1Short" = "a door";
-
-/* No comment provided by engineer. */
-"There is a sign says %@" = "There is a sign says %@";
-
-/* */
-"ObstaclePOIString1" = "There is a obstacle in your %@";
-
-/* */
-"ObstaclePOIString2" = "There are obstacles in your %@";
-
-/* */
-"ObstaclePOIString1Short" = "a obstacle in your %@";
-
-/* */
-"ObstaclePOIString2Short" = "obstacles in your %@";
-
-/* */
-"BothSide" = "both side";
-
-/* */
 "LeftSide" = "left side";
 
-/* */
+"Locating..." = "Locating...";
+
+"NoBrailleBlockPOIString" = "Tactile paving will not be available";
+
+"NoBrailleBlockPOIStringShort" = "Tactile paving not available";
+
+"OK" = "OK";
+
+"ObstaclePOIString1" = "There is a obstacle in your %@";
+
+"ObstaclePOIString1Short" = "a obstacle in your %@";
+
+"ObstaclePOIString2" = "There are obstacles in your %@";
+
+"ObstaclePOIString2Short" = "obstacles in your %@";
+
+"Others" = "Others";
+
+"PERIOD" = ". ";
+
+"Preview" = "Preview";
+
+"RampPOIString" = "There is a ramp";
+
+"RampPOIStringShort" = "a ramp";
+
+"REROUTING" = "You might be off route, new route is loading.";
+
+"Retry" = "Retry";
+
+"RIGHT_BACK_DIRECTION" = "Right Back";
+
+"RIGHT_DIRECTION" = "Right";
+
+"RIGHT_FRONT_DIRECTION" = "Right Front";
+
 "RightSide" = "right side";
 
-/* No comment provided by engineer. */
+"Search" = "Search";
+
+"Search Route" = "Search Route";
+
+"Settings" = "Settings";
+
+"Stop" = "Stop";
+
+"Stop Navigation" = "Stop Navigation";
+
+"SummaryHeader" = "Upcoming Navigations";
+
+"TTS_PAUSE_CHAR" = ".";
+
+"There is a sign says %@" = "There is a sign says %@";
+
 "To_button" = "To %@";
 
-/* No comment provided by engineer. */
 "Watch your step, %@" = "Watch your step, it's %@";
 
 /* arrived message */
@@ -194,50 +200,35 @@ Head to the correct orientation
 /* arrived message with destination name */
 "You arrived at %1$@" = "You have arrived at %1$@";
 
-/* No comment provided by engineer. */
 "_nav_building" = "Building";
 
-/* No comment provided by engineer. */
 "_nav_facility" = "Facility";
 
-/* No comment provided by engineer. */
 "_nav_latlng" = "Current Location";
 
-/* No comment provided by engineer. */
 "_nav_latlng_fix" = "Location";
 
-/* No comment provided by engineer. */
 "_nav_near_shops" = "Nearby";
 
-/* No comment provided by engineer. */
 "_nav_select_destination" = "Select Destination";
 
-/* No comment provided by engineer. */
 "_nav_select_start" = "Select Start Point";
 
-/* (No Commment) */
 "_nav_toilet_female" = "Toilet for female";
 
-/* (No Commment) */
 "_nav_toilet_male" = "Toilet for male";
 
-/* (No Commment) */
 "_nav_toilet_multi" = "Multi Purpose Toilet";
 
-/* (No Commment) */
-"and action" = "and %1$@";
-
-/* (No Commment) */
 "action" = "%1$@";
 
-/* (No Commment) */
 "action at end object" = "%1$@ at the end of corridor";
 
-/* (No Commment) */
 "action at near object" = "%1$@ at the %2$@";
 
-/* (No Commment) */
 "action at warning block" = "%1$@ at a warning tactile";
+
+"and action" = "and %1$@";
 
 /* approaching */
 "approaching" = "approaching";
@@ -251,7 +242,6 @@ Head to the correct orientation
 /* head to the diagonally forward right direction */
 "bear right" = "bear right";
 
-/* No comment provided by engineer. */
 "destination is" = "%1$@ is %2$@";
 
 /* remaining distance to the destination */
@@ -263,7 +253,8 @@ Head to the correct orientation
 /* distance to the destination */
 "distance to the destination" = "%1$@ to the destination";
 
-/* No comment provided by engineer. */
+"from: %@" = "from: %@";
+
 "go straight" = "go straight";
 
 /* something at your degree -22.5 ~ +22.5 */
@@ -287,10 +278,8 @@ Head to the correct orientation
 /* make turn to +150 ~ +180 */
 "make a u-turn to the right" = "make a u-turn to the right";
 
-/* No comment provided by engineer. */
 "name is" = "%1$@ is %2$@";
 
-/* (No Commment) */
 "on %@" = "on %@";
 
 /* something at your degree -60 ~ -120 */
@@ -317,38 +306,26 @@ Head to the correct orientation
 /* something at your degree +22.5 ~ +60 */
 "on your right side(front)" = "on your right";
 
-/* No comment provided by engineer. */
 "poi are" = "%1$@ are %2$@";
 
-/* No comment provided by engineer. */
 "poi is" = "a %1$@ is %2$@";
 
-/* (No Commment) */
 "proceed distance" = "proceed %1$@";
 
-/* (No Commment) */
 "proceed distance ..." = "proceed %1$@, ";
 
-/* (No Commment) */
 "proceed distance on floor" = "proceed %1$@ %2$@";
 
-/* (No Commment) */
 "proceed distance on floor ..." = "proceed %1$@... %2$@, ";
 
-/* (No Commment) */
 "proceed distance across the corridor" = "proceed %1$@ across the corridor";
 
-/* (No Commment) */
 "proceed distance across the corridor ..." = "proceed %1$@ across the corridor, ";
 
-/* (No Commment) */
 "proceed distance across the corridor on floor" = "proceed %1$@ across the corridor %2$@";
 
-/* (No Commment) */
 "proceed distance across the corridor on floor ..." = "proceed %1$@ across the corridor... %2$@, ";
 
-
-/* No comment provided by engineer. */
 "remaining distance" = "%@";
 
 /* head to the back */
@@ -378,88 +355,21 @@ Head to the correct orientation
 /* head to the diagonally forward right direction */
 "turn slightly to the right" = "turn slightly to the right";
 
-/* No comment provided by engineer. */
 "InTheFront" = "%@ in the front";
 
-/* No comment provided by engineer. */
 "InTheRear" = "%@ in the rear";
 
-/* No comment provided by engineer. */
 "OnTheLeftSide" = "%@ on the left side";
 
-/* No comment provided by engineer. */
 "OnTheRightSide" = "%@ on the right side";
 
-/* No comment provided by engineer. */
 "OnTheLeftRear" = "%@ on the right rear";
 
-/* No comment provided by engineer. */
 "OnTheRightRear" = "%@ on the right rear";
 
-/* No comment provided by engineer. */
 "Near" = "Near %@";
 
-/* */
-"Disabled" = "%@. disabled.";
-
-/* */
-"RampPOIString" = "There is a ramp";
-
-/* */
-"BrailleBlockPOIString" = "Tactile paving will be available";
-
-/* */
-"NoBrailleBlockPOIString" = "Tactile paving will not be available";
-
-/* */
-"BrailleBlock" = "on Tactile paving";
-
-/* */
-"RampPOIStringShort" = "a ramp";
-
-/* */
-"BrailleBlockPOIStringShort" = "Tactile paving available";
-
-/* */
-"NoBrailleBlockPOIStringShort" = "Tactile paving not available";
-
-/* */
-"SummaryHeader" = "Upcoming Navigations";
-
-"Exercise" = "Exercise";
-
-"REROUTING" = "You might be off route, new route is loading.";
-
-
-"BACK_DIRECTION" = "Back";
-
-"LEFT_BACK_DIRECTION" = "Left Back";
-
-"RIGHT_BACK_DIRECTION" = "Right Back";
-
-"LEFT_DIRECTION" = "Left";
-
-"RIGHT_DIRECTION" = "Right";
-
-"LEFT_FRONT_DIRECTION" = "Left Front";
-
-"RIGHT_FRONT_DIRECTION" = "Right Front";
-
-"FRONT_DIRECTION" = "Front";
-
-"InMiddle" = "Middle";
-
-"EscalatorSideLeftForward" = "Do not take left side";
-"EscalatorSideLeftBackward" = "Left side is backward";
-"EscalatorSideRightForward" = "Do not take right side";
-"EscalatorSideRightBackward" = "Right side is backward";
-
-"FloorChangeDoneActionString2Down" = "%2$@, after %1$@";
-"FloorChangeDoneActionString2Up" = "%2$@, after %1$@";
-
 "Always_Background" = "Always run in background";
-
-"ground floor" = "ground floor";
 
 "HEADING_CALIBRATION" = "Please take several steps to confirm your orientation.";
 "HEADING_CALIBRATION2" = "Please take a couple of steps to confirm your orientation.";

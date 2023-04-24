@@ -267,7 +267,7 @@ fileprivate class EventContent: BaseView {
         
         addSubview(map)
         
-        btnNav.setTitle(String(format: NSLocalizedString("Guide to", comment: ""), (model.title)), for: .normal)
+        btnNav.setTitle(String(format: NSLocalizedString("Guide to %@", comment: ""), (model.title)), for: .normal)
         btnNav.titleLabel?.numberOfLines = 0
         btnNav.titleLabel?.lineBreakMode = .byWordWrapping
         btnNav.sizeToFit()
