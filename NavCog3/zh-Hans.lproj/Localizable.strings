@@ -21,195 +21,84 @@
  * THE SOFTWARE.
  *******************************************************************************/
  
-/* No comment provided by engineer. */
-"Back to mode selection" = "返回模式选择";
+// Language Code
+"lang" = "zh";
 
-/* No comment provided by engineer. */
-"BluetoothOffAlertMessage" = "想在室内使用定位功能需要打开蓝牙。";
+"PERIOD" = "。";
 
-/* No comment provided by engineer. */
-"BluetoothOffAlertTitle" = "蓝牙处于关闭状态";
-
-/* No comment provided by engineer. */
 "CANCEL" = "取消";
+"SETTING" = "打开设置";
+"YES"     = "是";
+"NO"      = "否";
+"OK"      = "确定";
+"Done"    = "完成";
+"Decide"  = "決定";
+"Confirm" = "确认";
+"Search"  = "搜索";
+"Edit"    = "编辑";
+"Error"   = "错误";
 
-/* No comment provided by engineer. */
-"CheckAgreement" = "正在确认设置...";
+"Miraikan" = "日本科学未来馆";
 
-/* No comment provided by engineer. */
-"checkNetworkConnection" = "请确认网络连接";
-
-/* No comment provided by engineer. */
-"CheckServerConfig" = "正在确认设置...";
-
-/* No comment provided by engineer. */
-"CheckServerList" = "正在确认列表...";
+"Miraikan Floor Plan" = "参观指南";
 
 /* label for distance unit option */
 "Distance unit" = "距离的单位";
 
-/* No comment provided by engineer. */
-"DOWNLOADING_DATA" = "正在下载数据...";
-
-/* label for exercise options */
-"Exercise" = "练习";
-
-/* No comment provided by engineer. */
-"feedbackBody" = "请输入反馈内容";
-
-/* No comment provided by engineer. */
-"feedbackSubject" = "NavCog-反馈(%@)";
-
 /* feet distance unit label */
 "Feet" = "英尺";
-
-/* No comment provided by engineer. */
-"for_bone_conduction_headset" = "骨传导耳机用的音效";
-
-/* (No Comment) */
-"FOR_DISABLEDRESTROOM" = "多目的厕所";
-
-/* (No Comment) */
-"FOR_FEMALEFOR_DISABLEDRESTROOM" = "多目的女厕所";
-
-/* (No Comment) */
-"FOR_FEMALERESTROOM" = "女厕所";
-
-/* (No Comment) */
-"FOR_MALEFOR_DISABLEDRESTROOM" = "多目的男厕所";
-
-/* (No Comment) */
-"FOR_MALERESTROOM" = "男厕所";
-
-/* No comment provided by engineer. */
-"Help" = "帮助";
-
-/* No comment provided by engineer. */
-"I_Understand" = "知道了";
-
-/* No comment provided by engineer. */
-"Initial zoom level for navigation" = "导航开始时的缩放";
-
-/* No comment provided by engineer. */
-"Instructions" = "指南";
-
-/* No comment provided by engineer. */
-"Launch Exercise" = "开始练习";
-
-/* No comment provided by engineer. */
-"Loading, please wait" = "正在读取，请稍候";
-
-/* No comment provided by engineer. */
-"LocationNotAllowedMessage" = "想在室内使用定位功能需要允许使用位置信息服务。在隐私设置页面 位置信息服务 → NavCog → 选择只有在使用此应用时允许。";
-
-/* No comment provided by engineer. */
-"LocationNotAllowedTitle" = "位置信息未得到允许";
-
-/* label for map */
-"Map" = "地图";
 
 /* meter distance unit label */
 "Meter" = "米";
 
-/* No comment provided by engineer. */
-"Mode" = "模式";
+"%d centimetre" = "%d 公分";
 
-/* No comment provided by engineer. */
-"Navigation History" = "向导历史";
+"%d metre" = "%d 米";
 
-/* No comment provided by engineer. */
-"NeedToUpdateAppMessage" = "需要更新应用";
+"Initial zoom level for navigation" = "导航开始时的缩放";
 
-/* No comment provided by engineer. */
-"NeedToUpdateAppTitle" = "更新应用";
+"Launch Exercise" = "开始练习";
 
-/* No comment provided by engineer. */
-"NoAltimeterAlertMessage" = "NavCog不支持此设备。因为此设备未安装气压计，定位结果可能不稳定。";
+/* label for exercise options */
+"Exercise" = "练习";
 
-/* No comment provided by engineer. */
-"NoAltimeterAlertTitle" = "没有气压计";
+"TOILET" = "厕所";
 
-/* No comment provided by engineer. */
-"NotSpecified" = "无指定";
-
-/* No comment provided by engineer. */
-"Open_with_Safari" = "通过Safari浏览器打开";
-
-/* No comment provided by engineer. */
-"Open_with_Safari_Message" = "可以通过Safari浏览器打开网页吗？";
-
-/* No comment provided by engineer. */
-"OpenAppStore" = "打开应用商店";
-
-/* No comment provided by engineer. */
-"OpenHelp" = "打开帮助页面";
-
-/* No comment provided by engineer. */
-"OpenInstructions" = "打开指南";
-
-/* No comment provided by engineer. */
-"Prefer Tactile Paving" = "导盲砖优先";
-
-/* No comment provided by engineer. */
-"Preview speed" = "预览速度";
-
-/* No comment provided by engineer. */
-"Preview with action" = "摇晃预览";
-
-/* No comment provided by engineer. */
-"Reset_Location" = "重试定位";
-
-/* (No Comment) */
 "RESTROOM" = "厕所";
 
-/* No comment provided by engineer. */
-"Send Feedback" = "发送反馈";
+/* Toilet for people with disability */
+"FOR_DISABLEDRESTROOM" = "多目的厕所";
 
-/* No comment provided by engineer. */
-"SETTING" = "打开设置";
+/* Toilet for female */
+"FOR_FEMALEFOR_DISABLEDRESTROOM" = "多目的女厕所";
 
-/* No comment provided by engineer. */
-"soundEffectSetting" = "音效通知";
+/* Toilet for male */
+"FOR_MALEFOR_DISABLEDRESTROOM" = "多目的男厕所";
+
+/* Toilet for female */
+"FOR_FEMALERESTROOM" = "女厕所";
+
+/* Toilet for male */
+"FOR_MALERESTROOM" = "男厕所";
+
+/* label for map */
+"Map" = "地图";
+
+"Navigation History" = "向导历史";
+
+"Prefer Tactile Paving" = "导盲砖优先";
+
+"Preview speed" = "预览速度";
+
+"Preview with action" = "摇晃预览";
+
+"SPEECH_SPEED_CHECK" = "朗读速度:%.2f";
 
 /* label for speech speed option */
 "Speech speed" = "朗读速度";
 
 /* label for tts options */
 "Speech_Sound" = "朗读 / 声音";
-
-/* No comment provided by engineer. */
-"SPEECH_SPEED_CHECK" = "朗读速度:%.2f";
-
-/* No comment provided by engineer. */
-"THANKYOU_SENDING" = "非常感谢您配合问卷调查。
-正在发送数据...";
-
-/* (No Comment) */
-"TOILET" = "厕所";
-
-/* No comment provided by engineer. */
-"UI_BLIND" = "视觉障碍患者用户";
-
-/* No comment provided by engineer. */
-"UI_Mode" = "用户界面模式";
-
-/* No comment provided by engineer. */
-"UI_WHEELCHAIR" = "轮椅用户 / 非视觉障碍患者用户";
-
-/* No comment provided by engineer. */
-"Use Elevator" = "使用电梯";
-
-/* No comment provided by engineer. */
-"Use Escalator" = "使用自动扶梯";
-
-/* No comment provided by engineer. */
-"Use Moving Walkway" = "使用自动人行步道";
-
-/* No comment provided by engineer. */
-"Use Stairs" = "使用台阶";
-
-/* No comment provided by engineer. */
-"vibrateSetting" = "振动通知";
 
 /* Mode title for "Visually Impaired User" */
 "user_blind" = "视觉障碍患者";
@@ -223,4 +112,241 @@
 /* Mode title for "General Pedestrian" */
 "user_general" = "一般歩行者";
 
+/* Mode heading title of setting menu */
+"Mode" = "模式";
+
+"UI_BLIND" = "视觉障碍患者用户";
+
+"UI_Mode" = "用户界面模式";
+
+"UI_WHEELCHAIR" = "轮椅用户 / 非视觉障碍患者用户";
+
+"Use Elevator" = "使用电梯";
+
+"Use Escalator" = "使用自动扶梯";
+
+"Use Moving Walkway" = "使用自动人行步道";
+
+"Use Stairs" = "使用台阶";
+
+"Loading, please wait" = "正在读取，请稍候";
+
+"Loading preview" = "超出定位范围。 预览被激活。";
+
+"checkNetworkConnection" = "请确认网络连接";
+
+"soundEffectSetting" = "音效通知";
+
+"vibrateSetting" = "振动通知";
+
+"for_bone_conduction_headset" = "骨传导耳机用的音效";
+
+"Reset_Location" = "重试定位";
+"Stop_Location" = "暂停位置估计";
+"Start_Location" = "位置估计的开始";
+
+// Alert
+"Open_with_Safari" = "通过Safari浏览器打开";
+"Open_with_Safari_Message" = "可以通过Safari浏览器打开网页吗？";
+
+"CheckServerList" = "正在确认列表...";
+"CheckAgreement" = "正在确认设置...";
+"CheckServerConfig" = "正在确认设置...";
+"DOWNLOADING_DATA" = "正在下载数据...";
+
+
+"NoAltimeterAlertTitle" = "没有气压计";
+"NoAltimeterAlertMessage" = "NavCog不支持此设备。因为此设备未安装气压计，定位结果可能不稳定。";
+"I_Understand" = "知道了";
+
+"BluetoothOffAlertTitle" = "蓝牙处于关闭状态";
+"BluetoothOffAlertMessage" = "想在室内使用定位功能需要打开蓝牙。";
+
+"LocationNotAllowedTitle" = "位置信息未得到允许";
+"LocationNotAllowedMessage" = "想在室内使用定位功能需要允许使用位置信息服务。在隐私设置页面 位置信息服务 → NavCog → 选择只有在使用此应用时允许。";
+
+"THANKYOU_SENDING" = "非常感谢您配合问卷调查。
+正在发送数据...";
+
+// 
+"Help" = "帮助";
+"Instructions" = "指南";
+"OpenHelp" = "打开帮助页面";
+"OpenInstructions" = "打开指南";
+"Back to mode selection" = "返回模式选择";
+"Send Feedback" = "发送反馈";
+"feedbackSubject" = "NavCog-反馈(%@)";
+"feedbackBody" = "请输入反馈内容";
+
+"NeedToUpdateAppTitle" = "更新应用";
+"NeedToUpdateAppMessage" = "需要更新应用";
+"OpenAppStore" = "打开应用商店";
+
+
+///* Skip to read facility infomation when users pass by */
+"Ignore facility info." = "不要宣读附近设施的信息";
+
+/* Show POI detail when users change their heading toward the POI */
+"Show POI with Action" = "面对面的语音指导";
+
+// MARK: Miraikan UI Texts
+// Tabs
+"Call Staff" = "呼叫工作人员";
+"Call SC" = "呼叫SC";
+"Home" = "首页";
+"Login" = "登录";  // Also used as menu title
+"Ask AI" = "问题AI";
+
+// pronunciation
+"Call Staff pron" = "呼叫工作人员";
+"Call SC pron" = "呼吁科学传播者";
+"Home pron" = "首页";
+"Login pron" = "登录";  // Also used as menu title
+"Ask AI pron" = "问题AI";
+
+// Menu Section Titles
+"spex" = "特展";
+"Events" = "活动";
+"museum_info" = "游客信息";
+"today_info" = "今天的新闻";
+"app_info" = "申请信息";
+
+// Menu Titles
+"Miraikan Today" = "今天的日本科学未来馆";
+"Permanent Exhibitions" = "常设展";
+"Current Position" = "当前位置";
+"Reservation" = "预订";
+"Suggested Routes" = "推荐路线";
+"Floor Plan" = "参观指南";
+"Neareast Washroom" = "最近的厕所";
+"News" = "公告";
+"Settings" = "设置";
+"Miraikan ID My Page" = "Miraikan ID 我的页面";
+"About Miraikan" = "关于日本科学未来馆";
+"About This App" = "关于应用";
+"Logout" = "登出";
+
+// Navigation Settings Texts
+"Navi Settings" = "导航设置";
+"Current Location" = "当前位置";
+"Preview" = "预览";
+"not_located" = "在定位范围之外";
+"Speech Speed Description" = "阅读速度";
+"Preview Speed Description" = "预览速度";
+"Pathfinding failed" = "路线搜索失败";
+
+"Run Time" = "运行时间：约%@分钟";
+"Reservation required" = "需要预约";
+"Reservation required pron" = "需要预约";
+"accessibility hour minute" = "%1$@点%2$@分";
+"accessibility hour" = "%@点";
+
+/* Button for navigation */
+"Guide to this exhibition" = "本展览的导航";
+
+/* Button for navigation */
+"Guide to %@" = "%@导航";
+
+/* Button for navigation */
+"can't guide to %@" = "%@不能被引导";
+
+/* Exhibition explanation */
+"Description" = "描述";
+
+/* Exhibition appearance */
+"Overview" = "概述";
+
+// Events
+"place_online" = "地点：在线";
+
+// AI Dialog Availability
+"ai_available" = "开始与人工智能对话";
+"ai_not_available" = "不提供人工智能对话";
+
+// Blank Page
+"blank_description" = "这个功能没有实现";
+
+// Web Page Loading
+"web_loading" = "网络屏幕正在加载。\n请稍等片刻。";
+"web_failed" = "网络屏幕的加载失败";
+
+// Home: No Event / Exhibition Today
+"no_spex" = "今天没有特别的展览";
+"no_event" = "今天没有活动";
+
+
+// Voice Guide
+"Voice Guide" = "音频指南";
+"Voice Guide On" = "音频指南\n开";
+"Voice Guide Off" = "音频指南\n关";
+"btn_prev" = "以前的描述";
+"btn_next" = "下一个描述";
+"btn_play" = "读出描述";
+"btn_stop" = "不要再读出描述了";
+
+//"Debug Mode" = "デバッグ記録機能";
+//"Move Log" = "移動記録機能";
+//"Move Log Start" = "移動\n記録\n開始";
+//"Move Log End" = "移動\n記録\n終了";
+//"Location information input" = "位置情報入力";
+//"Location Input" = "位置\n入力";
+//
+//"Old Mode" = "旧表示";
+
+"Voice" = "声音";
+"Navigation" = "导航";
+"Augmented Reality" = "扩增现实";
+"Debug" = "调试";
+
+//"AR marker immediate loading standby" = "ARマーカー即時読み込み待機";
+
+// local push
+//"Today's event is over" = "本日のイベントは終了しています";
+//"It will start soon. Please head to the venue" = "まもなく開始されます。会場に向かってください";
+//"Do you want to be notified before the event starts?" = "イベント開始前の通知を行いますか？";
+//"Join the Co-Studio Talk" = "コ・スタジオトークに参加します";
+//
+//"location unknown" = "現在地が不明です";
+
+"AR navigation" = "扩增实境导航";
+//"Switch to AR navigation" = "ARナビゲーションに切り替え";
+//"Do you want to start the Miraikan AR?" = "未来館ARを開始しますか？";
+//
+//"Entrance to %@." = "%@ 入り口です。";
+//
+//"Point your smartphone camera at the ground." = "スマートフォンのカメラを地面に向けてください。";
+//
+//"While facing the ground, turn left and right slowly and check the following directions." = "地面に向けたまま、ゆっくり左右を回り、次の誘導を確認してください。";
+//
+//"When facing the ground, please proceed after reaching a position that guides you to the front." = "地面に向けた際には目的に対して、正面に誘導する位置になってから進んでください。";
+//
+//"With your smartphone's camera facing forward and upwards, slowly turn left and right, looking for sound guidance." = "スマートフォンのカメラを正面、上向きに向けて、ゆっくり左右を回り、音の誘導を探してください。";
+//
+//"Point your phone's camera at the front and slowly move left and right to look for sound guidance." = "スマートフォンのカメラを正面に向けて、ゆっくり左右を回り、音の誘導を探してください。";
+//
+//"Audio stops when you double tap the screen." = "音声は画面をダブルタップすると停止します。";
+
+// %1$@ 距離, %2$@ 展示名
+//"%1$@ to the entrance of %2$@" = "%2$@ 入り口まで %1$@";
+//
+//"please proceed slowly." = "ゆっくり進んで下さい";
+//
+//"Turn to the right a little" = "やや右を向いて";
+//
+//"Turn to the left a little" = "やや左を向いて";
+//
 "Exhibitions_List_key" = "Exhibitions";
+//
+//"target marker" = "目標マーカー";
+//
+//"exposition marker" = "説明マーカー";
+//
+//"floor marker" = "床マーカー";
+//
+//"guide marker" = "案内マーカー";
+
+
+//"SETTING" = "打开设置";
+
+//"NotSpecified" = "无指定";
+

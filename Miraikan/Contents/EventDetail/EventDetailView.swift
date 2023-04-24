@@ -179,7 +179,7 @@ class EventDetailView: UIView {
             floorMapView.isHidden = floorMapViewHidden
             lblPlace.text = floorText
 
-            btnFloor.setTitle(String(format: NSLocalizedString("Guide to", comment: ""), (mapModel.title)), for: .normal)
+            btnFloor.setTitle(String(format: NSLocalizedString("Guide to %@", comment: ""), (mapModel.title)), for: .normal)
             btnFloor.sizeToFit()
             btnFloor.tapAction { [weak self] _ in
                 guard let self = self else { return }
