@@ -829,7 +829,7 @@ static NavDataStore* instance_ = nil;
                 NSLog(@"%s: %d, %@", __func__, __LINE__, error);
                 return;
             }
-            data = obj;
+//            data = obj;
             unarchiver = [[NSKeyedUnarchiver alloc] initForReadingFromData:obj error:&error];
             NavDestination *dest2 = [unarchiver decodeObjectOfClasses:allowedClasses forKey:NSKeyedArchiveRootObjectKey];
 

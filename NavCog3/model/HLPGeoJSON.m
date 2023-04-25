@@ -137,7 +137,7 @@
                     Lng:[self.geometry.coordinates[0] doubleValue]];
         minloc = [[HLPLocation alloc] init];
         [minloc update:loc2];
-        dist = [loc1 distanceTo:loc2];
+//        dist = [loc1 distanceTo:loc2];
     } else if ([self.geometry.type isEqualToString:@"LineString"]) {
         for(int i = 0; i < [self.geometry.coordinates count]-1; i++) {
             [loc2 updateLat:[self.geometry.coordinates[i][1] doubleValue]
@@ -357,11 +357,11 @@
 + (NSValueTransformer *)nodeHeightJSONTransformer {
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *height, BOOL *success, NSError *__autoreleasing *error) {
         double h = [height doubleValue];
-        return @((h==0)?h=-999:(h >= 1)?h-1:h);
+        return @((h == 0) ? h = -999 : (h >= 1) ? h - 1 : h);
     } reverseBlock:^id(NSNumber *height, BOOL *success, NSError *__autoreleasing *error) {
         double h = [height doubleValue];
         if (h == -999) { return @""; }
-        h = (h >= 0)?h+1:h;
+        h = (h >= 0) ? h + 1 : h;
         return [NSString stringWithFormat:@"%.0f",h];
     }];
 }
@@ -1123,8 +1123,8 @@ static NSRegularExpression *patternHLPPOIFlags;
     
     _geometry = [[HLPGeometry alloc] initWithDictionary:
                  @{
-                   @"type":([coords count]==1)?@"Point":@"LineString",
-                   @"coordinates":([coords count]==1)?coords[0]:coords
+                   @"type":([coords count] == 1) ? @"Point" : @"LineString",
+                   @"coordinates":([coords count] == 1) ? coords[0] : coords
                    } error:nil];
     
     _length = link1.length + link2.length;

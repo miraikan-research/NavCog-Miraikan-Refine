@@ -52,6 +52,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     modeHelper = [[HLPSettingHelper alloc] init];
     settings = [@{} mutableCopy];
     
@@ -112,6 +113,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     NSDictionary *config = [ServerConfig sharedConfig].selectedServerConfig;
     if (config[@"default_mode"] && first) {
         first = NO;

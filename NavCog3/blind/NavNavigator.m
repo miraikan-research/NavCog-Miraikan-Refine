@@ -1209,7 +1209,7 @@ static NavNavigatorConstants *_instance;
                               @{@"isFirst": @(YES)}];
         [linkInfos insertObject:dummy atIndex:firstLinkIndex];
         info.isFirst = NO;
-        info = dummy;
+//        info = dummy;
     }
     
     [self setTimeout:1 withBlock:^{
