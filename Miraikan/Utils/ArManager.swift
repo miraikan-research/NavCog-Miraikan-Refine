@@ -82,7 +82,7 @@ final public class ArManager: NSObject {
         }
         
         if let description = arUcoModel.description {
-            if description.isDistance(distance) {
+            if description.isDistance(distance) || isDebug {
                 if let descriptionTitle = arUcoModel.descriptionTitle,
                    descriptionTitle.isDistance(distance) {
                     setPhonation(phonationModel, strParam: meterString, guidance: descriptionTitle)

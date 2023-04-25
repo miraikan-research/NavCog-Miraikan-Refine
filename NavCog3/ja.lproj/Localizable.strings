@@ -294,6 +294,9 @@ NavCogの設定画面から
 
 "Old Mode" = "旧表示";
 
+"AR Audio interrupt disabled" = "AR音声割り込み無効";
+"AR Distance Limit Invalid" = "AR距離制限無効";
+
 "Voice" = "音声";
 "Navigation" = "ナビゲーション";
 "Augmented Reality" = "AR";

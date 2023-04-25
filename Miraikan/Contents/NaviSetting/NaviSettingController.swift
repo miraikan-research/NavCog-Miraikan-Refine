@@ -245,6 +245,19 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      isOn: UserDefaults.standard.bool(forKey: "OldMode"),
                                                      isEnabled: nil)))
 
+
+        cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("AR Audio interrupt disabled", comment: ""),
+                                                     key: "ARAudioInterruptDisabled",
+                                                     isOn: UserDefaults.standard.bool(forKey: "ARAudioInterruptDisabled"),
+                                                     isEnabled: nil)))
+
+        cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("AR Distance Limit Invalid", comment: ""),
+                                                     key: "ARDistanceLimit",
+                                                     isOn: UserDefaults.standard.bool(forKey: "ARDistanceLimit"),
+                                                     isEnabled: nil)))
+
         cellList.append(CellModel(cellId: buttonId,
                                   model: ButtonModel(title: NSLocalizedString("Reset_Location", comment: ""),
                                                      key: "",
