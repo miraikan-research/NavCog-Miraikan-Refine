@@ -59,6 +59,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     if (first) {
         first = NO;
 //        [self checkConfig];

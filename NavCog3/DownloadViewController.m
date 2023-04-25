@@ -44,13 +44,14 @@
     
     self.statusLabel.text = NSLocalizedString(@"DOWNLOADING_DATA", @"");
     self.progressBar.progress = 0;
-    self.progressLabel.text = @"0%";
+    self.progressLabel.text = NSLocalizedString(@"0%", @"");
     
     downloadingFiles = [[ServerConfig sharedConfig] checkDownloadFiles];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
     [self downloadFiles:downloadingFiles];
 }
 

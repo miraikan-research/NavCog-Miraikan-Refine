@@ -127,6 +127,7 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
+    [super viewDidDisappear:animated];
     NSLog(@"WEB_PAGE,%@,%@,close,%ld", self.title, self.url, (long)([[NSDate date] timeIntervalSince1970]*1000));
     pageClosed = YES;
     [self.webview evaluateJavaScript:@"stopAll();" completionHandler:nil];

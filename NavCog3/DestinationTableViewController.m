@@ -91,7 +91,7 @@
             searchController.searchResultsUpdater = self;
             searchController.obscuresBackgroundDuringPresentation = NO;
             searchController.hidesNavigationBarDuringPresentation = NO;
-            searchController.searchBar.placeholder = @"Search";
+            searchController.searchBar.placeholder = NSLocalizedStringFromTable(@"Search", @"BlindView", @"");
             self.tableView.tableHeaderView = searchController.searchBar;
         }
         [source update:nil];
