@@ -46,6 +46,7 @@ final public class AudioManager: NSObject {
     private var voiceList: [VoiceModel] = []
 
     private var speakingData: VoiceModel?
+    private var speakedId: Int? // 音声再生中のブレによるマーカー交互の読み取り防止
     private var player: AVAudioPlayer?
 
     private var lastSpeakTime: Double = 0
@@ -112,7 +113,23 @@ final public class AudioManager: NSObject {
                 return
             }
             
+            if self.speakedId != nil &&
+                self.speakedId == id {
+                // 一つ前の中断した音声は即時に再生しない
+                return
+            }
+            
+            if UserDefaults.standard.bool(forKey: "ARAudioInterruptDisabled") {
+                return
+            }
+            
+            if self.speakingData?.id != id {
+                speakedId = self.speakingData?.id
+            }
+
+            let temp = speakedId
             self.stop()
+            self.speakedId = temp
             self.voiceList.removeAll()
             waitTime = 1.0
         } else if let model = voiceList.last,
@@ -149,6 +166,7 @@ final public class AudioManager: NSObject {
     func stop() {
         tts.stop(true)
         self.isPlaying = false
+        self.speakedId = nil
     }
 
     func repeatSpeak() {
@@ -165,6 +183,10 @@ final public class AudioManager: NSObject {
 
     private func play(model: VoiceModel) {
         if self.isPlaying { return }
+
+        if self.speakedId == nil {
+            self.speakedId = model.id
+        }
 
         self.isPlaying = true
         self.speakingData = model

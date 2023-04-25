@@ -188,7 +188,7 @@ extension ARViewController {
 
         for transform in sortedTransforms {
             for arUcoModel in ArUcoManager.shared.arUcoList {
-//                NSLog("yaw: \(transform.yaw), pitch: \(transform.pitch), roll: \(transform.roll),       x: \(transform.x), y: \(transform.y), z: \(transform.z), horizontalDistance: \(transform.horizontalDistance)")
+//                NSLog("\(transform.arucoId), yaw: \(transform.yaw), pitch: \(transform.pitch), roll: \(transform.roll),  x: \(transform.x), y: \(transform.y), z: \(transform.z), horizontalDistance: \(transform.horizontalDistance)")
                 if arUcoModel.id == transform.arucoId {
                     activeArUcoData(arUcoModel: arUcoModel, transform: transform)
                     break
@@ -216,7 +216,7 @@ extension ARViewController {
             return
         }
 
-        let phonationModel = ArManager.shared.setSpeakStr(arUcoModel: arUcoModel, transform: transform)
+        let phonationModel = ArManager.shared.setSpeakStr(arUcoModel: arUcoModel, transform: transform, isDebug: UserDefaults.standard.bool(forKey: "ARDistanceLimit"))
         if !phonationModel.phonation.isEmpty {
             AudioManager.shared.addGuide(text: phonationModel.phonation, id: arUcoModel.id)
             locationChangedTime = now
