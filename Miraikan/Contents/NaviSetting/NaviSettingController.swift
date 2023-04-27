@@ -258,6 +258,24 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      isOn: UserDefaults.standard.bool(forKey: "ARDistanceLimit"),
                                                      isEnabled: nil)))
 
+        cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("AR stop reading single tap", comment: ""),
+                                                     key: "ARStopReadingSingleTap",
+                                                     isOn: UserDefaults.standard.bool(forKey: "ARStopReadingSingleTap"),
+                                                     isEnabled: nil)))
+
+        cellList.append(CellModel(cellId: sliderId,
+                                  model: SliderModel(min: 0,
+                                                     max: 10,
+                                                     defaultValue: MiraikanUtil.readingInterval,
+                                                     step: 1,
+                                                     format: "%d",
+                                                     title: NSLocalizedString("AR Same reading interval", comment: ""),
+                                                     name: "ARSameReadingInterval",
+                                                     desc: NSLocalizedString("AR Same reading interval",
+                                                                             comment: "AR Same reading interval"))))
+
+
         cellList.append(CellModel(cellId: buttonId,
                                   model: ButtonModel(title: NSLocalizedString("Reset_Location", comment: ""),
                                                      key: "",

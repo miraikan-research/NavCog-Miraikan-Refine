@@ -50,6 +50,10 @@ class IDListViewController: UIViewController {
         view.addSubview(tableView)
         setHeaderFooter()
 
+        let singleTapGesture = UITapGestureRecognizer(target: self, action: #selector(singleTap(_:)))
+        singleTapGesture.numberOfTapsRequired = 1
+        view.addGestureRecognizer(singleTapGesture)
+
         let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleTap(_:)))
         doubleTapGesture.numberOfTapsRequired = 2
         view.addGestureRecognizer(doubleTapGesture)
@@ -109,8 +113,16 @@ extension IDListViewController {
         self.tableView.tableFooterView = footerView
     }
 
+    @objc func singleTap(_ gesture: UITapGestureRecognizer) {
+        if UserDefaults.standard.bool(forKey: "ARStopReadingSingleTap") {
+            AudioManager.shared.stop()
+        }
+    }
+
     @objc func doubleTap(_ gesture: UITapGestureRecognizer) {
-        AudioManager.shared.stop()
+        if !UserDefaults.standard.bool(forKey: "ARStopReadingSingleTap") {
+            AudioManager.shared.stop()
+        }
     }
 
     func setCell(cell: UITableViewCell, arUcoModel: ArUcoModel) {
