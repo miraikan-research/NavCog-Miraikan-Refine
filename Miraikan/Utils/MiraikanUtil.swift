@@ -30,18 +30,18 @@ import UIKit
 class MiraikanUtil : NSObject {
     
     // Login status
-    static public var isLoggedIn : Bool {
+    static public var isLoggedIn: Bool {
         return UserDefaults.standard.bool(forKey: "LoggedIn")
     }
     
     // Selected RouteMode
-    static public var routeMode : RouteMode {
+    static public var routeMode: RouteMode {
         let val = UserDefaults.standard.string(forKey: "RouteMode") ?? "unknown"
         let mode = RouteMode(rawValue: val) ?? .general
         return mode
     }
 
-    static public var presetId : Int {
+    static public var presetId: Int {
         let val = UserDefaults.standard.string(forKey: "RouteMode") ?? "unknown"
         let mode = RouteMode(rawValue: val) ?? .general
         return mode.rawInt
@@ -52,7 +52,7 @@ class MiraikanUtil : NSObject {
         return NavDataStore.shared().currentLocation()
     }
     
-    static public var isLocated : Bool {
+    static public var isLocated: Bool {
         if let loc = location {
             return !loc.lat.isNaN && !loc.lng.isNaN
         }
@@ -60,12 +60,12 @@ class MiraikanUtil : NSObject {
         return false
     }
     
-    static public var wrappingMode : NSLineBreakMode {
+    static public var wrappingMode: NSLineBreakMode {
         let lang = NSLocalizedString("lang", comment: "")
         return lang == "en" ? .byWordWrapping : .byCharWrapping
     }
     
-    static public var speechSpeed : Float {
+    static public var speechSpeed: Float {
         var val = UserDefaults.standard.float(forKey: "speech_speed")
         if val == 0 {
             val = 0.55
@@ -74,7 +74,7 @@ class MiraikanUtil : NSObject {
         return val
     }
     
-    static public var previewSpeed : Float {
+    static public var previewSpeed: Float {
         var val = UserDefaults.standard.float(forKey: "preview_speed")
         if val == 0 {
             val = 5
@@ -84,12 +84,18 @@ class MiraikanUtil : NSObject {
     }
     
     // Navigation preview on/off
-    @objc static public var isPreview : Bool {
+    @objc static public var isPreview: Bool {
         return !isLocated || UserDefaults.standard.bool(forKey: "OnPreview")
     }
     
+    static public var readingInterval: Float {
+        let val = UserDefaults.standard.object(forKey: "ARSameReadingInterval") as? Float ?? 3.0
+        UserDefaults.standard.set(val, forKey: "ARSameReadingInterval")
+        return val
+    }
+
     // For WebView in different languages
-    static public var miraikanHost : String {
+    static public var miraikanHost: String {
         let lang = NSLocalizedString("lang", comment: "")
         if lang != "ja" {
             return "\(Host.miraikan.address)/\(lang)"

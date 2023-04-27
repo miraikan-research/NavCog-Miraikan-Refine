@@ -136,21 +136,23 @@ final public class AudioManager: NSObject {
                   model.id != nil {
 
             if id == model.id {
-                if lastSpeakTime + 2.0 > Date().timeIntervalSince1970 {
+                // 前回と同じ時の間隔
+                if lastSpeakTime + Double(MiraikanUtil.readingInterval) > Date().timeIntervalSince1970 {
                     return
                 }
             } else {
-                if lastSpeakTime + 1.0 > Date().timeIntervalSince1970 {
+                if lastSpeakTime + 1.5 > Date().timeIntervalSince1970 {
                     return
                 }
             }
         } else if self.speakingData?.id == id {
             if id != nil {
-                if lastSpeakTime + 2.0 > Date().timeIntervalSince1970 {
+                // 前回と同じ時の間隔
+                if lastSpeakTime + Double(MiraikanUtil.readingInterval) > Date().timeIntervalSince1970 {
                     return
                 }
             } else {
-                if lastSpeakTime + 1.0 > Date().timeIntervalSince1970 {
+                if lastSpeakTime + 1.5 > Date().timeIntervalSince1970 {
                     return
                 }
             }
