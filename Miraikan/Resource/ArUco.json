@@ -54,9 +54,9 @@
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 100,
-        "message": "message",
+        "message": "",
         "message_en": "",
-        "message_pron": "message",
+        "message_pron": "",
     },
 },
 {
@@ -95,11 +95,6 @@
     "title": "細胞たち研究開発中",
     "title_en": "CELLS in Progress",
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1.8,
@@ -114,11 +109,6 @@
     "title": "細胞たち研究開発中",
     "title_en": "CELLS in Progress",
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1.8,
@@ -133,11 +123,6 @@
     "title": "細胞たち研究開発中",
     "title_en": "CELLS in Progress",
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1.8,
@@ -152,11 +137,6 @@
     "title": "細胞たち研究開発中",
     "title_en": "CELLS in Progress",
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1.8,
@@ -190,11 +170,6 @@
         "message_en": "We will guide you through the next exhibit.",
         "message_pron": "次の展示を案内します。",
     },
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 2,
@@ -223,11 +198,6 @@
     "title": "細胞たち研究開発中",
     "title_en": "CELLS in Progress",
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 2,
@@ -263,11 +233,6 @@
         "message_en": "On the lower side of the front wall there is a 25 centimeter deep shelf. The exhibit is located above it.",
         "message_pron": "正面の壁の下側に奥行き25センチメートルの棚板があります。その上部に展示があります。",
     },
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -301,11 +266,6 @@
         "message_en": "We will guide you through the next exhibit.",
         "message_pron": "次の展示を案内します 。",
     },
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -320,11 +280,6 @@
     "title": "細胞たち研究開発中",
     "title_en": "CELLS in Progress",
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 2,
@@ -339,11 +294,6 @@
     "title": "細胞たち研究開発中",
     "title_en": "CELLS in Progress",
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
-    "description_title_reserve": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 2,
@@ -377,11 +327,6 @@
         "message_en": "Guided Exit.",
         "message_pron": "出口を案内します。",
     },
-    "description_title_reserve": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1.5,
@@ -396,11 +341,6 @@
     "title": "細胞たち研究開発中",
     "title_en": "CELLS in Progress",
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1.5,
@@ -415,11 +355,6 @@
     "title": "細胞たち研究開発中",
     "title_en": "CELLS in Progress",
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 2.5,

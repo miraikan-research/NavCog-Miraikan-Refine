@@ -88,6 +88,7 @@ final public class ArManager: NSObject {
                     setPhonation(phonationModel, strParam: meterString, guidance: descriptionTitle)
                 }
                 setPhonation(phonationModel, strParam: meterString, guidance: description)
+                phonationModel.explanation = true
             }
 
             if let nextGuide = arUcoModel.nextGuide,
@@ -222,12 +223,11 @@ final public class ArManager: NSObject {
 
         if distance < 1.2 && !arUcoModel.title.isEmpty {
             let str = String(format: NSLocalizedString("Entrance to %@.", comment: ""),
-                             NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.titlePron : arUcoModel.titleEn)
-//            phonation += NSLocalizedString("Point your smartphone camera at the ground.", comment: "")
-//            phonation += NSLocalizedString("While facing the ground, turn left and right slowly and check the following directions.", comment: "")
-//            phonation += NSLocalizedString("When facing the ground, please proceed after reaching a position that guides you to the front.", comment: "")
+                             NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.title : arUcoModel.titleEn)
+            let voice = String(format: NSLocalizedString("Entrance to %@.", comment: ""),
+                               NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.titlePron : arUcoModel.titleEn)
             
-            AudioManager.shared.addGuide(text: str, id: arUcoModel.id)
+            AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, priority: 10))
             return
         }
 
@@ -280,8 +280,11 @@ final public class ArManager: NSObject {
                 let meterString = StrUtil.distanceString(distance: distance)
                 let str = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
                                  meterString,
+                                 NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.title : arUcoModel.titleEn)
+                let voice = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
+                                 meterString,
                                  NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.titlePron : arUcoModel.titleEn)
-                AudioManager.shared.addGuide(text: str, id: arUcoModel.id)
+                AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, priority: 10))
             }
             return
         } else if arFrameSize.height * minMarginRange / widthBaseRatio < transform.intersection.y &&

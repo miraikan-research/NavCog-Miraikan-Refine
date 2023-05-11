@@ -323,7 +323,9 @@ Feedback is sending...";
 
 "Point your phone's camera at the front and slowly move left and right to look for sound guidance." = "Point your phone's camera at the front and slowly move left and right to look for sound guidance.";
 
-"Audio stops when you double tap the screen." = "Audio stops when you double tap the screen.";
+"Audio stops when you tap the screen." = "Audio stops when you tap the screen.";
+
+"Look for markers on the camera" = "Look for markers on the camera";
 
 // %1$@ 距離, %2$@ 展示名
 "%1$@ to the entrance of %2$@" = "%1$@ to the entrance of %2$@";

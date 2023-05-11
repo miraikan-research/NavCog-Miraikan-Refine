@@ -28,6 +28,7 @@ import Foundation
 
 struct VoiceModel: Codable {
     var id: Int?
+    var voice: String
     var message: String
     var priority: Int
 }

@@ -30,6 +30,7 @@ import Foundation
 class PhonationModel {
     var string = ""
     var phonation = ""
+    var explanation = false
 
     private let Delimiter = "\n"
 

@@ -31,7 +31,7 @@ import AudioToolbox
 import AVKit
 
 protocol AudioManagerDelegate {
-    func speakingMessage(message: String)
+    func speakingMessage(speakingData: VoiceModel)
 }
 
 // Singleton
@@ -46,6 +46,8 @@ final public class AudioManager: NSObject {
     private var voiceList: [VoiceModel] = []
 
     private var speakingData: VoiceModel?
+    private var reserveData: VoiceModel?
+    private var reserveStatus = false
     private var speakedId: Int? // 音声再生中のブレによるマーカー交互の読み取り防止
     private var player: AVAudioPlayer?
 
@@ -72,8 +74,8 @@ final public class AudioManager: NSObject {
     func setupInitialize() {
         
         var msg = NSLocalizedString("Point your phone's camera at the front and slowly move left and right to look for sound guidance.", comment: "")
-        msg += NSLocalizedString("Audio stops when you double tap the screen.", comment: "")
-        self.voiceList.append(VoiceModel(id: nil, message: msg, priority: 10))
+        msg += NSLocalizedString("Audio stops when you tap the screen.", comment: "")
+        self.voiceList.append(VoiceModel(id: nil, voice: msg, message: msg, priority: 10))
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             _ = self.dequeueSpeak()
         }
@@ -82,15 +84,15 @@ final public class AudioManager: NSObject {
     func setupStartingPoint() {
         self.stop()
         let msg = NSLocalizedString("With your smartphone's camera facing forward and upwards, slowly turn left and right, looking for sound guidance.", comment: "")
-        self.voiceList.append(VoiceModel(id: nil, message: msg, priority: 10))
+        self.voiceList.append(VoiceModel(id: nil, voice: msg, message: msg, priority: 10))
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             _ = self.dequeueSpeak()
         }
     }
 
-    func addGuide(text: String, id: Int? = nil, priority: Int = 10) {
-        if text.isEmpty { return }
+    func addGuide(voiceModel: VoiceModel, soundEffect: Bool = false) {
+        if voiceModel.voice.isEmpty || reserveStatus { return }
 
         if UserDefaults.standard.bool(forKey: "ARMarkerWait") {
             if self.isPlaying {
@@ -101,20 +103,20 @@ final public class AudioManager: NSObject {
         var waitTime = 0.0
         
         if self.isPlaying {
-            if self.speakingData?.id == id ||
-                id == nil {
+            if self.speakingData?.id == voiceModel.id ||
+                voiceModel.id == nil {
                 // 再生中の同一音声は追加しない
                 return
             }
             if let model = voiceList.last,
                model.id != nil,
-               id == model.id {
+               voiceModel.id == model.id {
                 // 再生中で最後に追加された音声と同一の内容は追加しない
                 return
             }
             
             if self.speakedId != nil &&
-                self.speakedId == id {
+                self.speakedId == voiceModel.id {
                 // 一つ前の中断した音声は即時に再生しない
                 return
             }
@@ -123,7 +125,7 @@ final public class AudioManager: NSObject {
                 return
             }
             
-            if self.speakingData?.id != id {
+            if self.speakingData?.id != voiceModel.id {
                 speakedId = self.speakingData?.id
             }
 
@@ -135,7 +137,7 @@ final public class AudioManager: NSObject {
         } else if let model = voiceList.last,
                   model.id != nil {
 
-            if id == model.id {
+            if voiceModel.id == model.id {
                 // 前回と同じ時の間隔
                 if lastSpeakTime + Double(MiraikanUtil.readingInterval) > Date().timeIntervalSince1970 {
                     return
@@ -145,8 +147,8 @@ final public class AudioManager: NSObject {
                     return
                 }
             }
-        } else if self.speakingData?.id == id {
-            if id != nil {
+        } else if self.speakingData?.id == voiceModel.id {
+            if voiceModel.id != nil {
                 // 前回と同じ時の間隔
                 if lastSpeakTime + Double(MiraikanUtil.readingInterval) > Date().timeIntervalSince1970 {
                     return
@@ -158,16 +160,30 @@ final public class AudioManager: NSObject {
             }
         }
         
-        self.voiceList.removeAll()
-        self.voiceList.append(VoiceModel(id: id, message: text, priority: priority))
+        if soundEffect {
+            AudioManager.shared.SoundEffect(sound: "SoundEffect51", rate: 1, pan: 0, interval: 0)
+            UIImpactFeedbackGenerator(style: .light).impactOccurred()
+            if waitTime < 0.5 {
+                waitTime += 0.3
+            }
+        }
+
+        reserveStatus = true
         DispatchQueue.main.asyncAfter(deadline: .now() + waitTime) {
-            _ = self.dequeueSpeak()
+            self.voiceList.removeAll()
+            if self.isPlaying &&
+                self.reserveData == nil {
+                self.reserveData = voiceModel
+            } else {
+                self.voiceList.append(voiceModel)
+                _ = self.dequeueSpeak()
+            }
+            self.reserveStatus = false
         }
     }
 
     func stop() {
         tts.stop(true)
-        self.isPlaying = false
         self.speakedId = nil
     }
 
@@ -179,8 +195,13 @@ final public class AudioManager: NSObject {
     }
 
     func forcedSpeak(text: String) {
-        self.stop()
-        self.play(model: VoiceModel(id: nil, message: text, priority: 100))
+        let voiceModel = VoiceModel(id: nil, voice: text, message: text, priority: 100)
+        if self.isPlaying {
+            self.stop()
+            reserveData = voiceModel
+        } else {
+            self.play(model: voiceModel)
+        }
     }
 
     private func play(model: VoiceModel) {
@@ -191,17 +212,29 @@ final public class AudioManager: NSObject {
         }
 
         self.isPlaying = true
+        self.reserveData = nil
         self.speakingData = model
-        tts.speak(model.message, callback: { [weak self] in
-            guard let self = self else { return }
+        
+        if UIAccessibility.isVoiceOverRunning &&
+            model.id != nil {
             self.isPlaying = false
             self.lastSpeakTime = Date().timeIntervalSince1970
-            _ = self.dequeueSpeak()
-
-        })
+        } else {
+            tts.speak(model.voice, callback: { [weak self] in
+                guard let self = self else { return }
+                self.isPlaying = false
+                self.lastSpeakTime = Date().timeIntervalSince1970
+                
+                if let reserveData = self.reserveData {
+                    self.play(model: reserveData)
+                } else {
+                    _ = self.dequeueSpeak()
+                }
+            })
+        }
 
         if let delegate = delegate {
-            delegate.speakingMessage(message: model.message)
+            delegate.speakingMessage(speakingData: model)
         }
     }
 
@@ -216,7 +249,6 @@ final public class AudioManager: NSObject {
     }
 
     func SoundEffect(sound: String, rate: Double, pan: Double, interval: Double) {
-//        NSLog("rate: \(rate),  pan: \(pan),  interval: \(interval)" )
         if self.isSoundEffect { return }
         let now = Date().timeIntervalSince1970
         if (soundEffectTime != 0 &&
@@ -246,7 +278,7 @@ final public class AudioManager: NSObject {
 
     @objc private func voiceOverNotification() {
 //        NSLog("\(UIAccessibility.isVoiceOverRunning)")
-//        if UIAccessibility.isVoiceOverRunning { return }
+        if UIAccessibility.isVoiceOverRunning { return }
         _ = dequeueSpeak()
     }
 }

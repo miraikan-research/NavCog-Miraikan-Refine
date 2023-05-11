@@ -35,6 +35,8 @@ class ARViewController: UIViewController {
     // for VoiceOver
     var controlView: UIButton!
 
+    let arMessageListView = ARMessageListView()
+
     var mutexlock = false
     var arFrameSize: CGSize?
 
@@ -60,16 +62,29 @@ class ARViewController: UIViewController {
         }
 
         sceneView = ARSCNView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-        self.view.addSubview(sceneView)
-        
         sceneView.delegate = self
         sceneView.session.delegate = self
+        self.view.addSubview(sceneView)
+
+        arMessageListView.tapAction({ model in
+            let arDetailVC = ARDetailViewController()
+            arDetailVC.model = model
+            self.navigationController?.pushViewController(arDetailVC, animated: true)
+        })
+        self.view.addSubview(arMessageListView)
+
+        arMessageListView.translatesAutoresizingMaskIntoConstraints = false
+        let leading = arMessageListView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0)
+        let trailing = arMessageListView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
+        let top = arMessageListView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0)
+        let bottom = arMessageListView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
+        NSLayoutConstraint.activate([leading, trailing, top, bottom])
 
         controlView = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         self.view.addSubview(controlView)
         controlView.accessibilityTraits = .none
         UIAccessibility.post(notification: .screenChanged, argument: controlView)
-        controlView.isHidden = !UIAccessibility.isVoiceOverRunning
+        controlView.isHidden = true
         controlView.addAction(.init { _ in
             if AudioManager.shared.isPlaying {
                 AudioManager.shared.stop()
@@ -81,16 +96,9 @@ class ARViewController: UIViewController {
 
         _ = ArUcoManager.shared
         
-        AudioManager.shared.setupInitialize()
-        AudioManager.shared.delegate = self
-
-        let singleTapGesture = UITapGestureRecognizer(target: self, action: #selector(singleTap(_:)))
-        singleTapGesture.numberOfTapsRequired = 1
-        view.addGestureRecognizer(singleTapGesture)
-        
-        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(doubleTap(_:)))
-        doubleTapGesture.numberOfTapsRequired = 2
-        view.addGestureRecognizer(doubleTapGesture)
+        if !UIAccessibility.isVoiceOverRunning {
+            AudioManager.shared.setupInitialize()
+        }
 
         becomeFirstResponder()
         setFooterView()
@@ -130,7 +138,7 @@ class ARViewController: UIViewController {
 //        sceneView.autoenablesDefaultLighting = true
         sceneView.session.run(configuration)
         
-        UIAccessibility.post(notification: .screenChanged, argument: controlView)
+        UIAccessibility.post(notification: .screenChanged, argument: arMessageListView.headerView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -183,13 +191,7 @@ extension ARViewController {
     }
 
     @objc func singleTap(_ gesture: UITapGestureRecognizer) {
-        if UserDefaults.standard.bool(forKey: "ARStopReadingSingleTap") {
-            AudioManager.shared.stop()
-        }
-    }
-
-    @objc func doubleTap(_ gesture: UITapGestureRecognizer) {
-        if !UserDefaults.standard.bool(forKey: "ARStopReadingSingleTap") {
+        if AudioManager.shared.isPlaying {
             AudioManager.shared.stop()
         }
     }
@@ -230,7 +232,11 @@ extension ARViewController {
 
         let phonationModel = ArManager.shared.setSpeakStr(arUcoModel: arUcoModel, transform: transform, isDebug: UserDefaults.standard.bool(forKey: "ARDistanceLimit"))
         if !phonationModel.phonation.isEmpty {
-            AudioManager.shared.addGuide(text: phonationModel.phonation, id: arUcoModel.id)
+            AudioManager.shared.addGuide(voiceModel: VoiceModel(id: phonationModel.explanation ? arUcoModel.id : nil,
+                                                                voice: phonationModel.phonation,
+                                                                message: phonationModel.string,
+                                                                priority: 10),
+                                         soundEffect: true)
             locationChangedTime = now
         }
     }
@@ -244,9 +250,16 @@ extension ARViewController {
     }
 
     @objc private func voiceOverNotification() {
-        controlView.isHidden = !UIAccessibility.isVoiceOverRunning
+        controlView.isHidden = true
         UIAccessibility.post(notification: .screenChanged, argument: controlView)
         setFooterView()
+        if AudioManager.shared.isPlaying {
+            AudioManager.shared.stop()
+        }
+        
+        if UIAccessibility.isVoiceOverRunning {
+            UIAccessibility.post(notification: UIAccessibility.Notification.layoutChanged, argument: arMessageListView.headerView)
+        }
     }
 
     func setFooterView() {
@@ -312,12 +325,5 @@ extension ARViewController: ARSCNViewDelegate {
 
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
-    }
-}
-
-// MARK: - AudioManagerDelegate
-extension ARViewController: AudioManagerDelegate {
-    func speakingMessage(message: String) {
-        NSLog("\(message)")
     }
 }

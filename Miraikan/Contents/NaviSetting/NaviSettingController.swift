@@ -119,7 +119,7 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                   model: SliderModel(min: 0.1,
                                                      max: 1,
                                                      defaultValue: MiraikanUtil.speechSpeed,
-                                                     step: 0.05,
+                                                     step: 0.01,
                                                      format: "%.2f",
                                                      title: NSLocalizedString("Speech speed", comment: ""),
                                                      name: "speech_speed",
@@ -258,11 +258,11 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      isOn: UserDefaults.standard.bool(forKey: "ARDistanceLimit"),
                                                      isEnabled: nil)))
 
-        cellList.append(CellModel(cellId: switchId,
-                                  model: SwitchModel(desc: NSLocalizedString("AR stop reading single tap", comment: ""),
-                                                     key: "ARStopReadingSingleTap",
-                                                     isOn: UserDefaults.standard.bool(forKey: "ARStopReadingSingleTap"),
-                                                     isEnabled: nil)))
+//        cellList.append(CellModel(cellId: switchId,
+//                                  model: SwitchModel(desc: NSLocalizedString("AR stop reading single tap", comment: ""),
+//                                                     key: "ARStopReadingSingleTap",
+//                                                     isOn: UserDefaults.standard.bool(forKey: "ARStopReadingSingleTap"),
+//                                                     isEnabled: nil)))
 
         cellList.append(CellModel(cellId: sliderId,
                                   model: SliderModel(min: 0,
