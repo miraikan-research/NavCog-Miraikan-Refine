@@ -199,10 +199,6 @@ extension ARMessageListView: UITableViewDelegate , UITableViewDataSource {
                let model = cell.model {
                 action(model)
             }
-
-//            let ARDetailVC = ARDetailViewController()
-//            ARDetailVC.model = cell.model
-//            self.navigationController?.pushViewController(ARDetailVC, animated: true)
         }
     }
 
