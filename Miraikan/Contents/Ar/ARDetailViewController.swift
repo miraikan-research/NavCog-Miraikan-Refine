@@ -1,5 +1,5 @@
 //
-//  IDListViewController.swift
+//  ARDetailViewController.swift
 //  NavCogMiraikan
 //
 /*******************************************************************************
@@ -26,123 +26,102 @@
 
 import Foundation
 
-class IDListViewController: UIViewController {
+class ARDetailViewController: UIViewController {
     
     private let tableView = UITableView()
     
-    var arUcoList: [ArUcoModel] = []
-
-    private let prepareIdentifierARMarker = "toARMarkerViewController"
-
-    var selectedId = 0
+    var model: VoiceModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.view.backgroundColor = .systemBackground
         
-        arUcoList = ArUcoManager.shared.arUcoList
+        let chevronLeftImage: UIImage? = UIImage(systemName: "chevron.left")
+        let backButtonItem = UIBarButtonItem(image: chevronLeftImage, style: .plain, target: self, action: #selector(backButtonPressed(_:)))
+        self.navigationItem.leftBarButtonItem = backButtonItem
 
-        tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = UIColor(red: 224/255, green: 255/255, blue: 255/255, alpha: 1)     // LightCyan    #E0FFFF    224,255,255
+        tableView.backgroundView = UIView()
         view.addSubview(tableView)
         setHeaderFooter()
-
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         let leading = tableView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0)
         let trailing = tableView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
         let top = tableView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0)
         let bottom = tableView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
         NSLayoutConstraint.activate([leading, trailing, top, bottom])
+
+        let singleTapGesture = UITapGestureRecognizer(target: self, action: #selector(singleTap(_:)))
+        singleTapGesture.numberOfTapsRequired = 1
+        tableView.backgroundView?.addGestureRecognizer(singleTapGesture)
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if !UIAccessibility.isVoiceOverRunning,
+           let model = model {
+            AudioManager.shared.forcedSpeak(text: model.voice)
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 }
 
-extension IDListViewController: UITableViewDataSource {
+extension ARDetailViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arUcoList.count
+        return 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: "IdARUcoCell")
+        let cell = UITableViewCell(style: .default, reuseIdentifier: "VoiceCell")
+        cell.textLabel?.font = .preferredFont(forTextStyle: .title2)
         cell.textLabel?.numberOfLines = 0
-        cell.accessoryType = .detailButton
-
-        if indexPath.row < arUcoList.count {
-            let arUcoModel = arUcoList[indexPath.row]
-            setCell(cell: cell, arUcoModel: arUcoModel)
-            cell.tag = arUcoModel.id
+        cell.textLabel?.textColor = .label
+        cell.backgroundColor = .clear
+        cell.selectionStyle = .none
+        if let model = model {
+            cell.textLabel?.text = model.message
+            cell.accessibilityLabel = model.voice
         }
         return cell
     }
 }
 
-extension IDListViewController: UITableViewDelegate {
+extension ARDetailViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if AudioManager.shared.isPlaying {
             AudioManager.shared.stop()
-        } else {
-            let cell = self.tableView(tableView, cellForRowAt: indexPath)
-            if let text = cell.textLabel?.accessibilityLabel {
-                AudioManager.shared.forcedSpeak(text: text)
-            }
+        } else if !UIAccessibility.isVoiceOverRunning,
+                  let model = model {
+            AudioManager.shared.forcedSpeak(text: model.voice)
         }
-    }
-
-    func tableView(_ tableView: UITableView, accessoryButtonTappedForRowWith indexPath: IndexPath) {
-        let cell = self.tableView(tableView, cellForRowAt: indexPath)
-        
-        self.selectedId = cell.tag
-        
-        let arMarkerVC = ARMarkerViewController()
-        arMarkerVC.selectedId = selectedId
-        self.navigationController?.pushViewController(arMarkerVC, animated: true)
     }
 }
 
-extension IDListViewController {
+extension ARDetailViewController {
     
+    @objc func backButtonPressed(_ sender: UIBarButtonItem) {
+        AudioManager.shared.stop()
+        self.navigationController?.popViewController(animated: true)
+    }
+
     private func setHeaderFooter() {
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 300.0))
         self.tableView.tableFooterView = footerView
     }
 
-    func setCell(cell: UITableViewCell, arUcoModel: ArUcoModel) {
-        let transform = MarkerWorldTransform()
-        transform.distance = 0.9
-        transform.horizontalDistance = 0.4
-        transform.yaw = 90
-
-        let arType = ArManager.shared.getArType(arUcoModel)
-        var markerType = ""
-        switch arType {
-        case .target:
-            markerType =  NSLocalizedString("target marker", comment: "")
-        case .exposition:
-            markerType =  NSLocalizedString("exposition marker", comment: "")
-        case .floor:
-            markerType =  NSLocalizedString("floor marker", comment: "")
-        case .guide:
-            markerType =  NSLocalizedString("guide marker", comment: "")
-        default:
-            break
-        }
-        
-        let phonationModel = ArManager.shared.setSpeakStr(arUcoModel: arUcoModel, transform: transform, isDebug: true)
-        var addComment = ""
-        if let comment = arUcoModel.comment {
-            addComment = "[\(comment)]"
-        }
-        cell.textLabel?.text = String(arUcoModel.id) + "  markerSize  " + String(arUcoModel.marker ?? 10) + "cm  " + markerType + "\n" + phonationModel.string + addComment
-        cell.textLabel?.accessibilityLabel = phonationModel.phonation
+    @objc func singleTap(_ gesture: UITapGestureRecognizer) {
+        AudioManager.shared.stop()
     }
 }

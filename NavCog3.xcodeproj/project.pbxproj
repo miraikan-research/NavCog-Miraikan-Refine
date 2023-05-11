@@ -198,6 +198,8 @@
 		E54F24492980E93300F3A83C /* AskAIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E54F24472980E93300F3A83C /* AskAIView.swift */; };
 		E55D4C95297F6D7100DE379B /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D4C94297F6D7100DE379B /* LocationManager.m */; };
 		E55D4C97297F719E00DE379B /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D4C94297F6D7100DE379B /* LocationManager.m */; };
+		E58B00BB2A0CACFC00437E2D /* ARMessageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58B00BA2A0CACFC00437E2D /* ARMessageListView.swift */; };
+		E58B00BC2A0CACFC00437E2D /* ARMessageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E58B00BA2A0CACFC00437E2D /* ARMessageListView.swift */; };
 		E5913CC829C0513600C1B51B /* UIColorExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = E5913CC629C0513500C1B51B /* UIColorExtension.m */; };
 		E59424FA298CF4C400EF2F65 /* WebFloorMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59424F9298CF4C400EF2F65 /* WebFloorMapView.swift */; };
 		E59424FB298CF57900EF2F65 /* WebFloorMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59424F9298CF4C400EF2F65 /* WebFloorMapView.swift */; };
@@ -245,6 +247,12 @@
 		E5B61E842983C11000533B6F /* BaseBarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B61E822983C11000533B6F /* BaseBarButton.swift */; };
 		E5B61E862983C2C800533B6F /* UnderlinedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B61E852983C2C800533B6F /* UnderlinedLabel.swift */; };
 		E5B61E872983C2C800533B6F /* UnderlinedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B61E852983C2C800533B6F /* UnderlinedLabel.swift */; };
+		E5C59BFF2A08CE2000577740 /* ARGuideRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C59BFE2A08CE2000577740 /* ARGuideRow.swift */; };
+		E5C59C002A08CE2000577740 /* ARGuideRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C59BFE2A08CE2000577740 /* ARGuideRow.swift */; };
+		E5C59C022A08EA8100577740 /* ARDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C59C012A08EA8100577740 /* ARDetailViewController.swift */; };
+		E5C59C032A08EA8100577740 /* ARDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C59C012A08EA8100577740 /* ARDetailViewController.swift */; };
+		E5C59C052A0A34C400577740 /* SoundEffect51.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5C59C042A0A34C400577740 /* SoundEffect51.mp3 */; };
+		E5C59C062A0A34C400577740 /* SoundEffect51.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5C59C042A0A34C400577740 /* SoundEffect51.mp3 */; };
 		E5F600002977CCC100D5C22B /* DistanceCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F6FFF82977CCC100D5C22B /* DistanceCheckViewController.swift */; };
 		E5F6000C2977CCD500D5C22B /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F600012977CCD500D5C22B /* MapManager.swift */; };
 		E5F6000D2977CCD500D5C22B /* Host.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F600022977CCD500D5C22B /* Host.swift */; };
@@ -582,6 +590,7 @@
 		E54F24472980E93300F3A83C /* AskAIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AskAIView.swift; sourceTree = "<group>"; };
 		E55D4C94297F6D7100DE379B /* LocationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		E55D4C96297F6D7C00DE379B /* LocationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		E58B00BA2A0CACFC00437E2D /* ARMessageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARMessageListView.swift; sourceTree = "<group>"; };
 		E5913CC629C0513500C1B51B /* UIColorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorExtension.m; sourceTree = "<group>"; };
 		E5913CC729C0513500C1B51B /* UIColorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorExtension.h; sourceTree = "<group>"; };
 		E59424F9298CF4C400EF2F65 /* WebFloorMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebFloorMapView.swift; sourceTree = "<group>"; };
@@ -608,6 +617,9 @@
 		E5B61E7F2983C0CC00533B6F /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
 		E5B61E822983C11000533B6F /* BaseBarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBarButton.swift; sourceTree = "<group>"; };
 		E5B61E852983C2C800533B6F /* UnderlinedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinedLabel.swift; sourceTree = "<group>"; };
+		E5C59BFE2A08CE2000577740 /* ARGuideRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARGuideRow.swift; sourceTree = "<group>"; };
+		E5C59C012A08EA8100577740 /* ARDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailViewController.swift; sourceTree = "<group>"; };
+		E5C59C042A0A34C400577740 /* SoundEffect51.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SoundEffect51.mp3; sourceTree = "<group>"; };
 		E5F600012977CCD500D5C22B /* MapManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		E5F600022977CCD500D5C22B /* Host.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Host.swift; sourceTree = "<group>"; };
 		E5F600032977CCD500D5C22B /* ImageAdaptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAdaptor.swift; sourceTree = "<group>"; };
@@ -1168,8 +1180,10 @@
 			isa = PBXGroup;
 			children = (
 				E5B61E682982417500533B6F /* ARViewController.swift */,
+				E5C59C012A08EA8100577740 /* ARDetailViewController.swift */,
 				E5B61E7129838DEE00533B6F /* ARMarkerViewController.swift */,
 				E5B61E7229838DEE00533B6F /* IDListViewController.swift */,
+				E58B00BA2A0CACFC00437E2D /* ARMessageListView.swift */,
 			);
 			path = Ar;
 			sourceTree = "<group>";
@@ -1183,6 +1197,7 @@
 				E5F6FF992977CC9200D5C22B /* BaseRow.swift */,
 				E5F6FF9F2977CC9200D5C22B /* ScheduleRow.swift */,
 				E5F6FFA22977CC9300D5C22B /* VoiceGuideRow.swift */,
+				E5C59BFE2A08CE2000577740 /* ARGuideRow.swift */,
 				E54F242A2980E2CA00F3A83C /* RouteModeRow.swift */,
 				E5F6FFA32977CC9300D5C22B /* NavButtonRow.swift */,
 				E53814112989F5690098E082 /* SliderCell.swift */,
@@ -1342,6 +1357,7 @@
 				E5B61E4129823AF500533B6F /* ArUco.json */,
 				E5B61E4329823AF500533B6F /* SoundEffect01.mp3 */,
 				E5B61E4229823AF500533B6F /* SoundEffect02.mp3 */,
+				E5C59C042A0A34C400577740 /* SoundEffect51.mp3 */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1523,6 +1539,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5C59C052A0A34C400577740 /* SoundEffect51.mp3 in Resources */,
 				7EA018FE1E2F54A3005E65ED /* nosound.aiff in Resources */,
 				7E9238EA1D5189F100875766 /* HLPSettingViewPickerCell.xib in Resources */,
 				7E17F19E1D9A225A00DB1F34 /* InfoPlist.strings in Resources */,
@@ -1575,6 +1592,7 @@
 				E537504F2977D6D700BC3ACA /* exhibition_category.json in Resources */,
 				E53750502977D6D700BC3ACA /* exhibition.json in Resources */,
 				E53750512977D6D700BC3ACA /* floor_map.json in Resources */,
+				E5C59C062A0A34C400577740 /* SoundEffect51.mp3 in Resources */,
 				E53750522977D6D700BC3ACA /* FloorPlan.json in Resources */,
 				E53750532977D6D700BC3ACA /* GuidePosition.json in Resources */,
 				E53750542977D6D800BC3ACA /* miraikan_serverlist.json in Resources */,
@@ -1736,6 +1754,7 @@
 				7EDEDC241D1E0C6800AC111A /* AppDelegate.mm in Sources */,
 				E53814122989F5690098E082 /* SliderCell.swift in Sources */,
 				7E5150A41D8BF32800ED25FB /* NavNavigator.m in Sources */,
+				E5C59BFF2A08CE2000577740 /* ARGuideRow.swift in Sources */,
 				E53814062989F3D30098E082 /* SliderModel.swift in Sources */,
 				7E08DB581DB9F08E00E82161 /* ConfigManager.m in Sources */,
 				7EF7F7AB1DD189B0000A625A /* NavPreviewer.m in Sources */,
@@ -1768,6 +1787,7 @@
 				E5F6FFB02977CC9300D5C22B /* LinkRow.swift in Sources */,
 				E5B61E3B29823ACD00533B6F /* OpenCVWrapper.mm in Sources */,
 				E506A01B29923FB60046134F /* DestinationViewController.swift in Sources */,
+				E58B00BB2A0CACFC00437E2D /* ARMessageListView.swift in Sources */,
 				E5F6FF862977CC3700D5C22B /* EventDetailView.swift in Sources */,
 				E5F6001C2977CCE000D5C22B /* UINavigationControllerExtension.swift in Sources */,
 				E5F6FFBA2977CC9300D5C22B /* DescriptionRow.swift in Sources */,
@@ -1829,6 +1849,7 @@
 				E5F6FFD62977CCA500D5C22B /* CardModel.swift in Sources */,
 				E5F6000F2977CCD500D5C22B /* MiraikanUtil.swift in Sources */,
 				7EF45E3B1E3F1E5600208042 /* AuthManager.m in Sources */,
+				E5C59C022A08EA8100577740 /* ARDetailViewController.swift in Sources */,
 				E5F600282977CD0500D5C22B /* MainTabController.swift in Sources */,
 				E5F6FFB32977CC9300D5C22B /* ContentRow.swift in Sources */,
 				E5F6FF852977CC3700D5C22B /* EventView.swift in Sources */,
@@ -1849,6 +1870,7 @@
 				E5B61E6029823E1300533B6F /* VoiceModel.swift in Sources */,
 				E5B61E6129823E1300533B6F /* ArManager.swift in Sources */,
 				E5B61E6229823E1300533B6F /* ArUcoManager.swift in Sources */,
+				E5C59C032A08EA8100577740 /* ARDetailViewController.swift in Sources */,
 				E5B61E6329823E1300533B6F /* AudioManager.swift in Sources */,
 				E5B61E6529823E1300533B6F /* StrUtil.swift in Sources */,
 				E55D4C97297F719E00DE379B /* LocationManager.m in Sources */,
@@ -1903,6 +1925,7 @@
 				E53750A52977D73900BC3ACA /* ThroughView.swift in Sources */,
 				E53750A62977D73900BC3ACA /* VoiceGuideButton.swift in Sources */,
 				E53750A72977D73900BC3ACA /* VoiceGuideRow.swift in Sources */,
+				E58B00BC2A0CACFC00437E2D /* ARMessageListView.swift in Sources */,
 				E53750A82977D73900BC3ACA /* BaseController.swift in Sources */,
 				E53750A92977D73900BC3ACA /* BaseListController.swift in Sources */,
 				E53750AA2977D73900BC3ACA /* BaseNavController.swift in Sources */,
@@ -1947,6 +1970,7 @@
 				E53750762977D71B00BC3ACA /* AboutMiraikanView.swift in Sources */,
 				E53750772977D71B00BC3ACA /* MiraikanIDMyPageView.swift in Sources */,
 				E53750782977D71B00BC3ACA /* NaviSettingController.swift in Sources */,
+				E5C59C002A08CE2000577740 /* ARGuideRow.swift in Sources */,
 				E53750792977D71B00BC3ACA /* SettingView.swift in Sources */,
 				E537507A2977D71B00BC3ACA /* TabItem.swift in Sources */,
 				E5F6FF082977B2F700D5C22B /* NavDataStore.m in Sources */,

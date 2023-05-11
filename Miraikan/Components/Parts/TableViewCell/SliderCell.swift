@@ -90,7 +90,7 @@ class SliderCell: UITableViewCell {
         slider.addTarget(self, action: #selector(valueChanged(_:)), for: .valueChanged)
 
         slider.translatesAutoresizingMaskIntoConstraints = false
-        let leading = slider.leadingAnchor.constraint(equalTo: valueLabel.trailingAnchor, constant: 8)
+        let leading = slider.leadingAnchor.constraint(equalTo: valueLabel.trailingAnchor, constant: 2)
         let trailing = slider.trailingAnchor.constraint(equalTo: baseView.trailingAnchor, constant: 0)
         let centerYConstraint = slider.centerYAnchor.constraint(equalTo: valueLabel.centerYAnchor)
         NSLayoutConstraint.activate([leading, trailing, centerYConstraint])
