@@ -44,4 +44,8 @@ class DefaultTTS: TTSProtocol {
     func playVoiceRecoStart() {
         NavSound.sharedInstance().playVoiceRecoStart()
     }
+
+    func checkSilentMode() {
+        NavDeviceTTS.shared().checkSilentMode()
+    }
 }

@@ -130,6 +130,11 @@ class NaviSettingController : BaseListController, BaseListDelegate {
         title = NSLocalizedString("Navigation", comment: "")
         cellList.removeAll()
         cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("Playback even in silent mode", comment: ""),
+                                                     key: "SilentModeInvalid",
+                                                     isOn: UserDefaults.standard.bool(forKey: "SilentModeInvalid"),
+                                                     isEnabled: nil)))
+        cellList.append(CellModel(cellId: switchId,
                                   model: SwitchModel(desc: NSLocalizedString("vibrateSetting", comment: ""),
                                                      key: "vibrate",
                                                      isOn: UserDefaults.standard.bool(forKey: "vibrate"),

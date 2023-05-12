@@ -51,4 +51,8 @@ extension UserDefaults {
     @objc dynamic var OldMode: Bool {
         return Bool("OldMode") ?? false
     }
+    
+    @objc dynamic var SilentModeInvalid: Bool {
+        return Bool("SilentModeInvalid") ?? false
+    }
 }

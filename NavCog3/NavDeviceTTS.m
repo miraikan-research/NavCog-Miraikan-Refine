@@ -72,6 +72,7 @@ static NavDeviceTTS *instance = nil;
                                                object:[NavDebugHelper sharedHelper]];
     
     [self reset];
+    [self checkSilentMode];
     return self;
 }
 
@@ -80,6 +81,13 @@ static NavDeviceTTS *instance = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     voice.delegate = nil;
     voice = nil;
+}
+
+- (void)checkSilentMode
+{
+    BOOL isSilentMode = [[NSUserDefaults standardUserDefaults] boolForKey:@"SilentModeInvalid"];
+    [[AVAudioSession sharedInstance] setCategory:isSilentMode ? AVAudioSessionCategoryPlayback : AVAudioSessionCategorySoloAmbient
+                                           error:nil];
 }
 
 - (void)voiceOverStatusChanged
