@@ -35,6 +35,7 @@ class MainTabController: UITabBarController, UITabBarControllerDelegate {
     var voiceGuideObserver: NSKeyValueObservation?
     var footerButtonViewObserver: NSKeyValueObservation?
     private var oldModeObserver: NSKeyValueObservation?
+    private var silentModeInvalidObserver: NSKeyValueObservation?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,6 +109,13 @@ class MainTabController: UITabBarController, UITabBarControllerDelegate {
             guard let self = self else { return }
             self.setTabs()
         })
+        
+        silentModeInvalidObserver = UserDefaults.standard.observe(\.SilentModeInvalid, options: [.initial, .new], changeHandler: { [weak self] (defaults, change) in
+            guard let self = self else { return }
+            let tts = DefaultTTS()
+            tts.checkSilentMode()
+        })
+        
     }
 
     private func setTabs() {
