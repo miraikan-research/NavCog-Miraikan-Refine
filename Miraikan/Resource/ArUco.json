@@ -173,9 +173,9 @@
     "description": {
         "short_distance": 0,
         "long_distance": 2,
-        "message": "はじまりはひとつの細胞から。細胞は、生命活動の基本単位。「生きている」という状態の、もっとも小さな姿が細胞です。あなたはたったひとつの細胞から始まりました。そして今、40長ほどの細胞があなたの体をかたちづくり、生かしています。あなたは受精卵という、たった一つの細胞からはじまりました。両親の遺伝子を引きついだ受精卵は、「体の全ての細胞になれる」特別な細胞です。受精卵が分裂し数を増やしていくうちに、細胞ごとに異なる遺伝子がはたらき、体がつくられはじめます。",
+        "message": "はじまりはひとつの細胞から。細胞は、生命活動の基本単位。「生きている」という状態の、もっとも小さな姿が細胞です。あなたはたったひとつの細胞から始まりました。そして今、40兆ほどの細胞があなたの体をかたちづくり、生かしています。あなたは受精卵という、たった一つの細胞からはじまりました。両親の遺伝子を引きついだ受精卵は、「体の全ての細胞になれる」特別な細胞です。受精卵が分裂し数を増やしていくうちに、細胞ごとに異なる遺伝子がはたらき、体がつくられはじめます。",
         "message_en": "It All Began with a Single Cell. Cells are the basic unit of biological activity. The smallest form that \"life\" can take is that of a cell. You began with a single cell. Now some 40 trillion cells make up your body and give you life. You began as a single, fertilized egg. This special cell carried your biological parents' DNA, and had the ability to turn into all of the body's cells. As your embryo went about building your body, it divided itself, using different parts of the genome for each new cell it made.",
-        "message_pron": "はじまりはひとつの細胞から。 。細胞は、生命活動の基本単位。「生きている」という状態の、もっとも小さな姿が細胞です。あなたはたったひとつの細胞から始まりました。そして今、40長ほどの細胞があなたの体をかたちづくり、生かしています。 。あなたは受精卵という、たった一つの細胞からはじまりました。両親の遺伝子を引きついだ受精卵は、「体の全ての細胞になれる」特別な細胞です。受精卵が分裂し数を増やしていくうちに、細胞ごとに異なる遺伝子がはたらき、体がつくられはじめます。",
+        "message_pron": "はじまりはひとつの細胞から。 。細胞は、生命活動の基本単位。「生きている」という状態の、もっとも小さな姿が細胞です。あなたはたったひとつの細胞から始まりました。そして今、40兆ほどの細胞があなたの体をかたちづくり、生かしています。 。あなたは受精卵という、たった一つの細胞からはじまりました。両親の遺伝子を引きついだ受精卵は、「体の全ての細胞になれる」特別な細胞です。受精卵が分裂し数を増やしていくうちに、細胞ごとに異なる遺伝子がはたらき、体がつくられはじめます。",
     },
 },
 {
@@ -529,11 +529,6 @@
     "title_zh": "创想者工坊",
     "title_ko": "비저너리 라보",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1.5,
@@ -548,11 +543,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1.5,
@@ -605,11 +595,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -631,11 +616,6 @@
         "message_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
         "message_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
     },
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -650,11 +630,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -669,11 +644,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -696,11 +666,6 @@
         "message_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
         "message_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
     },
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -716,11 +681,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -735,11 +695,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -754,11 +709,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -773,11 +723,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -792,11 +737,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -811,11 +751,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -830,11 +765,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -850,11 +780,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -869,11 +794,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -888,11 +808,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -907,11 +822,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -926,11 +836,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -945,11 +850,6 @@
     "title": "ビジョナリーラボ",
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
-    "description_title": {
-        "message": "展示パネルの解説",
-        "message_en": "Explanation of the exhibition panel.",
-        "message_pron": "展示パネルの解説",
-    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -1424,7 +1324,7 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "地上に太陽をつくる\n\n核融合という新しいエネルギー技術によって、人類は地上に太陽をつくろうとしています。\n\n1千万年分のエネルギー\n\n石油や石炭によって発展してきた私たちは、わずか数百年でその資源を使い果たそうとしています。\n核融合エネルギーの資源は非常に豊富なので、実現すれば人類の未来を支え続けることができるでしょう。\n\n人工太陽づくりに挑む\n\n太陽は熱いガス状の星。核融合によって燃えています。\nその太陽を地上に再現する実験が行われています。\n特殊な容器のなかで、燃料の水素を1億度という超高温の状態に加熱し、核融合反応を起こさせます。\n\n発電へのロードマップ\n\n人類はこれからも大量のエネルギーを必要としています。核融合発電を今世紀半ばごろまでに実現するという目標のもと、世界規模の共同研究が始まりました。\nその第一歩、ITER 実験には、日本をはじめ7つの国と地域が参加しています。",
+        "message": "地上に太陽をつくる\n核融合という新しいエネルギー技術によって、人類は地上に太陽をつくろうとしています。\n1千万年分のエネルギー\n石油や石炭によって発展してきた私たちは、わずか数百年でその資源を使い果たそうとしています。\n核融合エネルギーの資源は非常に豊富なので、実現すれば人類の未来を支え続けることができるでしょう。\n人工太陽づくりに挑む\n\n太陽は熱いガス状の星。核融合によって燃えています。\nその太陽を地上に再現する実験が行われています。\n特殊な容器のなかで、燃料の水素を1億度という超高温の状態に加熱し、核融合反応を起こさせます。\n発電へのロードマップ\n人類はこれからも大量のエネルギーを必要としています。核融合発電を今世紀半ばごろまでに実現するという目標のもと、世界規模の共同研究が始まりました。\nその第一歩、ITER 実験には、日本をはじめ7つの国と地域が参加しています。",
         "message_en": "",
         "message_pron": "地上に太陽をつくる\n\n核融合という新しいエネルギー技術によって、人類は地上に太陽をつくろうとしています。\n\n1千万年分のエネルギー\n\n石油や石炭によって発展してきた私たちは、わずか数百年でその資源を使い果たそうとしています。\n核融合エネルギーの資源は非常に豊富なので、実現すれば人類の未来を支え続けることができるでしょう。\n\n人工太陽づくりに挑む\n\n太陽は熱いガス状の星。核融合によって燃えています。\nその太陽を地上に再現する実験が行われています。\n特殊な容器のなかで、燃料の水素を1億度という超高温の状態に加熱し、核融合反応を起こさせます。\n\n発電へのロードマップ\n\n人類はこれからも大量のエネルギーを必要としています。核融合発電を今世紀半ばごろまでに実現するという目標のもと、世界規模の共同研究が始まりました。\nそのダイイッポ、イーター 実験には、日本をはじめ7つの国と地域が参加しています。",
     },
@@ -1438,9 +1338,9 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "社会の中で語り合う\n\n環境問題に対する意見は、さまざまです。科学技術だけでは問題を解決できないでしょう。立場の違いを超えて目標を共有するため、あなたの参加も期待されています。\n",
+        "message": "社会の中で語り合う\n環境問題に対する意見は、さまざまです。科学技術だけでは問題を解決できないでしょう。立場の違いを超えて目標を共有するため、あなたの参加も期待されています。",
         "message_en": "",
-        "message_pron": "社会の中で語り合う\n\n環境問題に対する意見は、さまざまです。科学技術だけでは問題を解決できないでしょう。立場の違いを超えて目標を共有するため、あなたの参加も期待されています。\n",
+        "message_pron": "社会の中で語り合う\n\n環境問題に対する意見は、さまざまです。科学技術だけでは問題を解決できないでしょう。立場の違いを超えて目標を共有するため、あなたの参加も期待されています。",
     },
 },
 ]

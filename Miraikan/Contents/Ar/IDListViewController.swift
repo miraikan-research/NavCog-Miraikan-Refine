@@ -36,17 +36,26 @@ class IDListViewController: UIViewController {
 
     var selectedId = 0
 
+    private var isSelectMode = true
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.view.backgroundColor = .systemBackground
         
-        arUcoList = ArUcoManager.shared.arUcoList
+        let chevronLeftImage: UIImage? = UIImage(systemName: "chevron.left")
+        let backButtonItem = UIBarButtonItem(image: chevronLeftImage,
+                                             style: .plain,
+                                             target: self,
+                                             action: #selector(backButtonPressed(_:)))
+        self.navigationItem.leftBarButtonItem = backButtonItem
 
-        tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        setListButton()
+
+        arUcoList = ArUcoManager.shared.arUcoList
         tableView.delegate = self
         tableView.dataSource = self
+        setTableView()
         view.addSubview(tableView)
         setHeaderFooter()
 
@@ -61,6 +70,14 @@ class IDListViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    private func setListButton() {
+        let listButtonItem = UIBarButtonItem(title: NSLocalizedString(isSelectMode ? "marker" : "disabled selection", comment: ""),
+                                             style: .done,
+                                             target: self,
+                                             action: #selector(listButtonPressed(_:)))
+        self.navigationItem.rightBarButtonItem = listButtonItem
     }
 }
 
@@ -79,6 +96,14 @@ extension IDListViewController: UITableViewDataSource {
             let arUcoModel = arUcoList[indexPath.row]
             setCell(cell: cell, arUcoModel: arUcoModel)
             cell.tag = arUcoModel.id
+            if isSelectMode {
+                let check = ArUcoManager.shared.checkActiveSettings(key: arUcoModel.id)
+                cell.accessoryType = check ? .checkmark : .none
+                cell.textLabel?.textColor = check ? .label : .secondaryLabel
+            } else {
+                cell.accessoryType = .detailButton
+                cell.textLabel?.textColor = .label
+            }
         }
         return cell
     }
@@ -92,8 +117,18 @@ extension IDListViewController: UITableViewDelegate {
             AudioManager.shared.stop()
         } else {
             let cell = self.tableView(tableView, cellForRowAt: indexPath)
-            if let text = cell.textLabel?.accessibilityLabel {
-                AudioManager.shared.forcedSpeak(text: text)
+            if isSelectMode {
+                if indexPath.row < arUcoList.count {
+                    let arUcoModel = arUcoList[indexPath.row]
+                    let check = ArUcoManager.shared.checkActiveSettings(key: arUcoModel.id)
+                    ArUcoManager.shared.setActiveSettings(key: arUcoModel.id, value: !check)
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                }
+            } else {
+                if let text = cell.textLabel?.accessibilityLabel {
+                    AudioManager.shared.forcedSpeak(text: text)
+                }
+                cell.accessoryType = .none
             }
         }
     }
@@ -111,6 +146,22 @@ extension IDListViewController: UITableViewDelegate {
 
 extension IDListViewController {
     
+    @objc func backButtonPressed(_ sender: UIBarButtonItem) {
+        AudioManager.shared.stop()
+        self.navigationController?.popViewController(animated: true)
+    }
+
+    @objc func listButtonPressed(_ sender: UIBarButtonItem) {
+        isSelectMode = !isSelectMode
+        setListButton()
+        setTableView()
+    }
+
+    private func setTableView() {
+        tableView.allowsMultipleSelection = isSelectMode
+        tableView.reloadData()
+    }
+
     private func setHeaderFooter() {
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: 300.0))
         self.tableView.tableFooterView = footerView

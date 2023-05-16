@@ -354,3 +354,7 @@ NavCogの設定画面から
 "floor marker" = "床マーカー";
 
 "guide marker" = "案内マーカー";
+
+"marker" = "マーカー";
+
+"disabled selection" = "無効選択";
