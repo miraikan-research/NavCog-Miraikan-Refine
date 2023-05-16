@@ -120,6 +120,11 @@ extension ARMessageListView {
         if AudioManager.shared.isPlaying {
             AudioManager.shared.stop()
         }
+        if UIAccessibility.isVoiceOverRunning {
+            let announcementString = NSAttributedString(string: " ",
+                                                        attributes: [.accessibilitySpeechQueueAnnouncement: false])
+            UIAccessibility.post(notification: .announcement, argument: announcementString)
+        }
     }
 }
 
@@ -142,12 +147,14 @@ extension ARMessageListView: AudioManagerDelegate {
                                       with: .automatic)
             self.tableView.endUpdates()
 
-            if UIAccessibility.isVoiceOverRunning,
-               let cell = self.tableView.cellForRow(at: IndexPath(row:0 , section: 0)) {
+            if UIAccessibility.isVoiceOverRunning {
                 if AudioManager.shared.isPlaying {
                     AudioManager.shared.stop()
                 }
-                UIAccessibility.post(notification: UIAccessibility.Notification.layoutChanged, argument: cell)
+
+                let announcementString = NSAttributedString(string: speakingData.voice,
+                                                            attributes: [.accessibilitySpeechQueueAnnouncement: false])
+                UIAccessibility.post(notification: .announcement, argument: announcementString)
             }
         }
     }
