@@ -207,7 +207,7 @@ extension ARViewController {
             for arUcoModel in ArUcoManager.shared.arUcoList {
 //                NSLog("\(transform.arucoId), yaw: \(transform.yaw), pitch: \(transform.pitch), roll: \(transform.roll),  x: \(transform.x), y: \(transform.y), z: \(transform.z), horizontalDistance: \(transform.horizontalDistance)")
                 if arUcoModel.id == transform.arucoId &&
-                    ArUcoManager.shared.checkActiveSettings(key: arUcoModel.id) {
+                    ArUcoManager.shared.checkActiveSettings(key: arUcoModel.id, timeCheck: true) {
                     activeArUcoData(arUcoModel: arUcoModel, transform: transform)
                     break
                 }
@@ -242,6 +242,9 @@ extension ARViewController {
                                                                 priority: 10),
                                          soundEffect: true)
             locationChangedTime = now
+            if phonationModel.explanation {
+                ArUcoManager.shared.setActiveDate(key: arUcoModel.id)
+            }
         }
     }
 

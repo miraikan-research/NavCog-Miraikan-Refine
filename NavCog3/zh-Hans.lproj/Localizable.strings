@@ -284,7 +284,7 @@
 "btn_play" = "读出描述";
 "btn_stop" = "不要再读出描述了";
 
-//"Debug Mode" = "デバッグ記録機能";
+//"Debug Mode" = "デバッグ機能";
 //"Move Log" = "移動記録機能";
 //"Move Log Start" = "移動\n記録\n開始";
 //"Move Log End" = "移動\n記録\n終了";

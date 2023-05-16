@@ -37,6 +37,7 @@ final public class ArUcoManager: NSObject {
 
     var arUcoList: [ArUcoModel] = []
     private var activeSettings: Dictionary<String, Bool> = [:]
+    private var activeDateList: Dictionary<String, Date> = [:]
 
     private var lang = ""
     private var userKey = "arUcoSettingKey"
@@ -86,11 +87,26 @@ final public class ArUcoManager: NSObject {
         UserDefaults.standard.set(self.activeSettings, forKey: userKey)
     }
 
-    func checkActiveSettings(key: Int) -> Bool {
+    func checkActiveSettings(key: Int, timeCheck: Bool = false) -> Bool {
         let strKey = String(key)
+        if timeCheck {
+            if self.activeDateList.keys.contains(strKey),
+               let date = activeDateList[strKey] {
+                let dayChecker = Date(timeIntervalSinceNow: -60 * 3)
+                if dayChecker < date {
+                    return false
+                }
+            }
+        }
+        
         if self.activeSettings.keys.contains(strKey) {
             return self.activeSettings[strKey] ?? true
         }
         return true
+    }
+
+    func setActiveDate(key: Int) {
+        let strKey = String(key)
+        self.activeDateList[strKey] = Date()
     }
 }

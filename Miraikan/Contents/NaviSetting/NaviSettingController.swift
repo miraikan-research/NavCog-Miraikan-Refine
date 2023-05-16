@@ -269,16 +269,16 @@ class NaviSettingController : BaseListController, BaseListDelegate {
 //                                                     isOn: UserDefaults.standard.bool(forKey: "ARStopReadingSingleTap"),
 //                                                     isEnabled: nil)))
 
-        cellList.append(CellModel(cellId: sliderId,
-                                  model: SliderModel(min: 0,
-                                                     max: 10,
-                                                     defaultValue: MiraikanUtil.readingInterval,
-                                                     step: 1,
-                                                     format: "%d",
-                                                     title: NSLocalizedString("AR Same reading interval", comment: ""),
-                                                     name: "ARSameReadingInterval",
-                                                     desc: NSLocalizedString("AR Same reading interval",
-                                                                             comment: "AR Same reading interval"))))
+//        cellList.append(CellModel(cellId: sliderId,
+//                                  model: SliderModel(min: 0,
+//                                                     max: 10,
+//                                                     defaultValue: MiraikanUtil.readingInterval,
+//                                                     step: 1,
+//                                                     format: "%d",
+//                                                     title: NSLocalizedString("AR Same reading interval", comment: ""),
+//                                                     name: "ARSameReadingInterval",
+//                                                     desc: NSLocalizedString("AR Same reading interval",
+//                                                                             comment: "AR Same reading interval"))))
 
 
         cellList.append(CellModel(cellId: buttonId,
