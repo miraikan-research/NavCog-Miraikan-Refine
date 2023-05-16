@@ -242,6 +242,9 @@ extension ARViewController {
                                                                 priority: 10),
                                          soundEffect: true)
             locationChangedTime = now
+            if phonationModel.explanation {
+                ArUcoManager.shared.setActiveDate(key: arUcoModel.id)
+            }
         }
     }
 
