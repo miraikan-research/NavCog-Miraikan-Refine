@@ -44,7 +44,7 @@ class ARDetailViewController: UIViewController {
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor(red: 224/255, green: 255/255, blue: 255/255, alpha: 1)     // LightCyan    #E0FFFF    224,255,255
+        tableView.backgroundColor = UITraitCollection.current.userInterfaceStyle == UIUserInterfaceStyle.dark ? UIColor(red: 48/255, green: 48/255, blue: 54/255, alpha: 1) :  UIColor(red: 232/255, green: 255/255, blue: 255/255, alpha: 1)
         tableView.backgroundView = UIView()
         view.addSubview(tableView)
         setHeaderFooter()
@@ -83,7 +83,7 @@ extension ARDetailViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: "VoiceCell")
-        cell.textLabel?.font = .preferredFont(forTextStyle: .title2)
+        cell.textLabel?.font = .preferredFont(forTextStyle: .title1)
         cell.textLabel?.numberOfLines = 0
         cell.textLabel?.textColor = .label
         cell.backgroundColor = .clear
