@@ -36,7 +36,7 @@ class ARDetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.backgroundColor = .systemBackground
-        
+        self.title = NSLocalizedString("AR content", comment: "")
         let chevronLeftImage: UIImage? = UIImage(systemName: "chevron.left")
         let backButtonItem = UIBarButtonItem(image: chevronLeftImage, style: .plain, target: self, action: #selector(backButtonPressed(_:)))
         self.navigationItem.leftBarButtonItem = backButtonItem
