@@ -87,13 +87,15 @@ final public class ArUcoManager: NSObject {
         UserDefaults.standard.set(self.activeSettings, forKey: userKey)
     }
 
-    func checkActiveSettings(key: Int) -> Bool {
+    func checkActiveSettings(key: Int, timeCheck: Bool = false) -> Bool {
         let strKey = String(key)
-        if self.activeDateList.keys.contains(strKey),
-           let date = activeDateList[strKey] {
-            let dayChecker = Date(timeIntervalSinceNow: -180)
-            if dayChecker < date {
-                return false
+        if timeCheck {
+            if self.activeDateList.keys.contains(strKey),
+               let date = activeDateList[strKey] {
+                let dayChecker = Date(timeIntervalSinceNow: -60 * 3)
+                if dayChecker < date {
+                    return false
+                }
             }
         }
         
