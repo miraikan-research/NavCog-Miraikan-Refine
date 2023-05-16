@@ -50,7 +50,7 @@ class ARGuideRow: UITableViewCell {
     private func setupBaseView() {
         contentView.addSubview(baseView)
         
-        baseView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 80/255, alpha: 1)
+        baseView.backgroundColor = UITraitCollection.current.userInterfaceStyle == UIUserInterfaceStyle.dark ? UIColor(red: 78/255, green: 78/255, blue: 80/255, alpha: 1) :  UIColor(red: 255/255, green: 255/255, blue: 160/255, alpha: 1)
         baseView.layer.cornerRadius = 16
 
         baseView.translatesAutoresizingMaskIntoConstraints = false
@@ -85,6 +85,8 @@ class ARGuideRow: UITableViewCell {
         titleLabel.numberOfLines = lines
         titleLabel.accessibilityLabel = model.voice
 
-        baseView.backgroundColor = lines == 0 ? UIColor(red: 255/255, green: 255/255, blue: 160/255, alpha: 1) : UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
+        let mainColor = UITraitCollection.current.userInterfaceStyle == UIUserInterfaceStyle.dark ? UIColor(red: 80/255, green: 80/255, blue: 88/255, alpha: 1) :  UIColor(red: 255/255, green: 255/255, blue: 160/255, alpha: 1)
+        let subColor = UITraitCollection.current.userInterfaceStyle == UIUserInterfaceStyle.dark ? UIColor(red: 48/255, green: 48/255, blue: 54/255, alpha: 1) :  UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
+        baseView.backgroundColor = lines == 0 ? mainColor : subColor
     }
 }
