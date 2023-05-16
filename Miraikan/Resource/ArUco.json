@@ -214,7 +214,7 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "guide_to_here": {
         "short_distance": 1.2,
-        "long_distance": 4,
+        "long_distance": 5,
         "message": "%@先。正面の壁にさわることができる展示パネルがあります。",
         "message_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
         "message_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
