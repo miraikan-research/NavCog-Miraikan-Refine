@@ -67,6 +67,9 @@ class ARViewController: UIViewController {
         self.view.addSubview(sceneView)
 
         arMessageListView.tapAction({ model in
+            if UIAccessibility.isVoiceOverRunning {
+                return
+            }
             let arDetailVC = ARDetailViewController()
             arDetailVC.model = model
             self.navigationController?.pushViewController(arDetailVC, animated: true)
@@ -203,7 +206,8 @@ extension ARViewController {
         for transform in sortedTransforms {
             for arUcoModel in ArUcoManager.shared.arUcoList {
 //                NSLog("\(transform.arucoId), yaw: \(transform.yaw), pitch: \(transform.pitch), roll: \(transform.roll),  x: \(transform.x), y: \(transform.y), z: \(transform.z), horizontalDistance: \(transform.horizontalDistance)")
-                if arUcoModel.id == transform.arucoId {
+                if arUcoModel.id == transform.arucoId &&
+                    ArUcoManager.shared.checkActiveSettings(key: arUcoModel.id) {
                     activeArUcoData(arUcoModel: arUcoModel, transform: transform)
                     break
                 }

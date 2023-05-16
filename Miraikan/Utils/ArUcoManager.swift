@@ -36,13 +36,16 @@ final public class ArUcoManager: NSObject {
     let ArucoMarkerSize: Float = 0.1;
 
     var arUcoList: [ArUcoModel] = []
+    private var activeSettings: Dictionary<String, Bool> = [:]
 
     private var lang = ""
+    private var userKey = "arUcoSettingKey"
 
     private override init() {
         super.init()
         lang = NSLocale.preferredLanguages.first?.components(separatedBy: "-").first ?? "ja"
         initArUcoModel()
+        loadActiveSettings()
     }
 
     func initArUcoModel() {
@@ -67,5 +70,27 @@ final public class ArUcoManager: NSObject {
             ratio = Double((markerSize / 100) / ArucoMarkerSize)
         }
         return ratio
+    }
+    
+    func loadActiveSettings() {
+        if let activeSettings = UserDefaults.standard.dictionary(forKey: userKey) as? Dictionary<String, Bool> {
+            self.activeSettings = activeSettings
+        } else {
+            self.activeSettings = [:]
+        }
+    }
+    
+    func setActiveSettings(key: Int, value: Bool) {
+        let strKey = String(key)
+        self.activeSettings[strKey] = value
+        UserDefaults.standard.set(self.activeSettings, forKey: userKey)
+    }
+
+    func checkActiveSettings(key: Int) -> Bool {
+        let strKey = String(key)
+        if self.activeSettings.keys.contains(strKey) {
+            return self.activeSettings[strKey] ?? true
+        }
+        return true
     }
 }

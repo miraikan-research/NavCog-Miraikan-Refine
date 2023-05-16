@@ -85,6 +85,6 @@ class ARGuideRow: UITableViewCell {
         titleLabel.numberOfLines = lines
         titleLabel.accessibilityLabel = model.voice
 
-        baseView.backgroundColor = lines == 0 ? UIColor(red: 255/255, green: 255/255, blue: 80/255, alpha: 1) : UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
+        baseView.backgroundColor = lines == 0 ? UIColor(red: 255/255, green: 255/255, blue: 160/255, alpha: 1) : UIColor(red: 211/255, green: 211/255, blue: 211/255, alpha: 1)
     }
 }
