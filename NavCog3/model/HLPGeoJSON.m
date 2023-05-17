@@ -1305,7 +1305,7 @@ static NSRegularExpression *patternHLPPOIFlags;
             }
             [temp appendString:@"RESTROOM"];
         }
-        _namePron = _name = NSLocalizedString(temp, @"");;
+        _namePron = _name = NSLocalizedString(temp, @"");
     }
     
     

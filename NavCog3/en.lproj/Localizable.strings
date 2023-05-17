@@ -245,7 +245,7 @@ Feedback is sending...";
 "Guide to this exhibition" = "Guide to this exhibition";
 
 /* Button for navigation */
-"Guide to %@" = "Guide to %@";;
+"Guide to %@" = "Guide to %@";
 
 /* Button for navigation */
 "can't guide to %@" = "can't guide to %@";
