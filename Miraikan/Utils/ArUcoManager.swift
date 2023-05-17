@@ -92,7 +92,7 @@ final public class ArUcoManager: NSObject {
         if timeCheck {
             if self.activeDateList.keys.contains(strKey),
                let date = activeDateList[strKey] {
-                let dayChecker = Date(timeIntervalSinceNow: -60 * 3)
+                let dayChecker = Date(timeIntervalSinceNow: Double(-MiraikanUtil.arReadingInterval))
                 if dayChecker < date {
                     return false
                 }

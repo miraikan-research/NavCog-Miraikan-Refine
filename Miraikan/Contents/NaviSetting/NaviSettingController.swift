@@ -280,6 +280,17 @@ class NaviSettingController : BaseListController, BaseListDelegate {
 //                                                     desc: NSLocalizedString("AR Same reading interval",
 //                                                                             comment: "AR Same reading interval"))))
 
+        cellList.append(CellModel(cellId: sliderId,
+                                  model: SliderModel(min: 0,
+                                                     max: 300,
+                                                     defaultValue: MiraikanUtil.arReadingInterval,
+                                                     step: 10,
+                                                     format: "%d",
+                                                     title: NSLocalizedString("AR reading interval", comment: ""),
+                                                     name: "ARReadingInterval",
+                                                     desc: NSLocalizedString("AR reading interval",
+                                                                             comment: "AR reading interval"))))
+
 
         cellList.append(CellModel(cellId: buttonId,
                                   model: ButtonModel(title: NSLocalizedString("Reset_Location", comment: ""),
