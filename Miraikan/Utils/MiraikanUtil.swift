@@ -94,6 +94,12 @@ class MiraikanUtil : NSObject {
         return val
     }
 
+    static public var arReadingInterval: Float {
+        let val = UserDefaults.standard.object(forKey: "ARReadingInterval") as? Float ?? 180.0
+        UserDefaults.standard.set(val, forKey: "ARReadingInterval")
+        return val
+    }
+
     // For WebView in different languages
     static public var miraikanHost: String {
         let lang = NSLocalizedString("lang", comment: "")
