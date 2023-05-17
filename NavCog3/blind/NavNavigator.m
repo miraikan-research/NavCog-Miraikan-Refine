@@ -1373,7 +1373,7 @@ static NavNavigatorConstants *_instance;
         }
         NavLinkInfo *linkInfo = nil;
         if (0 < navIndex && navIndex < [linkInfos count]) {
-            linkInfo = linkInfos[navIndex];;
+            linkInfo = linkInfos[navIndex];
         }
         
         if (isFirst) {

@@ -1208,7 +1208,7 @@ MKMapPoint convertFromGlobal(HLPLocation* global, HLPLocation* rp) {
     }
     
     //HLPEntrance *destinationNode = _entranceMap[[[self.route lastObject] _id]];
-    //HLPEntrance *startNode = _entranceMap[[[self.route firstObject] _id]];;
+    //HLPEntrance *startNode = _entranceMap[[[self.route firstObject] _id]];
     
     for(HLPEntrance *ent in features) {
         if ([ent isKindOfClass:HLPEntrance.class]) {
