@@ -284,7 +284,7 @@ static NavDeviceTTS *instance = nil;
     
     double speechRate = [[NSUserDefaults standardUserDefaults] doubleForKey:SPEECH_SPEED];
     
-    NSLog(@"speak_queue,%@,%@,%f", text, flag?@"Force":@"", NSDate.date.timeIntervalSince1970);
+    NSLog(@"speak_queue,%@,%@,%f", text, flag ? @"Force" : @"", NSDate.date.timeIntervalSince1970);
     HLPSpeechEntry *se = [[HLPSpeechEntry alloc] init];
     se.ut = [AVSpeechUtterance speechUtteranceWithString:[NavDeviceTTS removeDots:text]];
     se.ut.volume = 1.0;

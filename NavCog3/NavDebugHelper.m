@@ -86,7 +86,7 @@ static NavDebugHelper* instance;
                     @{
                       @"name": name,
                       @"timestamp": @([[NSDate date] timeIntervalSince1970]),
-                      @"userInfo": userInfo?userInfo:[NSNull null]
+                      @"userInfo": userInfo ? userInfo : [NSNull null]
                       }
                                          requiringSecureCoding:true
                                                          error:&error];

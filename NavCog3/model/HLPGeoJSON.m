@@ -396,7 +396,7 @@
 
 - (NSString *)getLandmarkNamePron
 {
-    return [self _getLandmarkName:_namePron?_namePron:_name];
+    return [self _getLandmarkName:_namePron ? _namePron : _name];
 }
 
 - (NSString *)_getLandmarkName:(NSString*)name
@@ -475,14 +475,14 @@
     _height = NAN;
     if (self.properties[PROPKEY_HEIGHT]) {
         _height = [self.properties[PROPKEY_HEIGHT] doubleValue];
-        _height = (_height >= 1)?_height-1:_height;
+        _height = (_height >= 1) ? _height-1 : _height;
     }
     else if (self.properties[PROPKEY_EXT_HEIGHT]) {
         _height = [self.properties[PROPKEY_EXT_HEIGHT] doubleValue];
         if (_height == 0) {
             _height = NAN;
         } else {
-            _height = (_height >= 1)?_height-1:_height;
+            _height = (_height >= 1) ? _height-1 : _height;
         }
     }
     
@@ -732,8 +732,8 @@ static NSRegularExpression *patternHLPPOIFlags;
     _sourceHeight = [self.properties[@"sourceHeight"] doubleValue];
     _targetNodeID = self.properties[@"targetNode"];
     _targetHeight = [self.properties[@"targetHeight"] doubleValue];
-    _sourceHeight = (_sourceHeight >= 1)?_sourceHeight-1:_sourceHeight;
-    _targetHeight = (_targetHeight >= 1)?_targetHeight-1:_targetHeight;
+    _sourceHeight = (_sourceHeight >= 1) ? _sourceHeight-1 : _sourceHeight;
+    _targetHeight = (_targetHeight >= 1) ? _targetHeight-1 : _targetHeight;
 
     _linkType = [self.properties[PROPKEY_LINK_TYPE] intValue];
     if(_linkType == LINK_TYPE_ELEVATOR) {
@@ -772,11 +772,11 @@ static NSRegularExpression *patternHLPPOIFlags;
 
     if (self.geometry) {
         if ([self.geometry.type isEqualToString:@"LineString"] && [self.geometry.coordinates count] >= 2) {
-            NSArray *first = self.geometry.coordinates[_backward?[self.geometry.coordinates count]-1:0];
-            NSArray *second = self.geometry.coordinates[_backward?[self.geometry.coordinates count]-2:1];
+            NSArray *first = self.geometry.coordinates[_backward ? [self.geometry.coordinates count]-1 : 0];
+            NSArray *second = self.geometry.coordinates[_backward ? [self.geometry.coordinates count]-2 : 1];
             
-            NSArray *last = self.geometry.coordinates[!_backward?[self.geometry.coordinates count]-1:0];
-            NSArray *secondLast = self.geometry.coordinates[!_backward?[self.geometry.coordinates count]-2:1];
+            NSArray *last = self.geometry.coordinates[!_backward ? [self.geometry.coordinates count]-1 : 0];
+            NSArray *secondLast = self.geometry.coordinates[!_backward ? [self.geometry.coordinates count]-2 : 1];
             
             sourceLocation = [[HLPLocation alloc] initWithLat:[first[1] doubleValue] Lng:[first[0] doubleValue] Floor:_sourceHeight];
             targetLocation = [[HLPLocation alloc] initWithLat:[last[1] doubleValue] Lng:[last[0] doubleValue] Floor:_targetHeight];
@@ -810,7 +810,7 @@ static NSRegularExpression *patternHLPPOIFlags;
 
 - (void)updateWithNodesMap:(NSDictionary *)nodesMap
 {
-    _sourceNodeID = self.properties[_backward?PROPKEY_TARGET_NODE_ID:PROPKEY_SOURCE_NODE_ID];
+    _sourceNodeID = self.properties[_backward ? PROPKEY_TARGET_NODE_ID : PROPKEY_SOURCE_NODE_ID];
     HLPNode *snode = nodesMap[_sourceNodeID];
     if (snode) {
         _sourceNode = snode;
@@ -818,7 +818,7 @@ static NSRegularExpression *patternHLPPOIFlags;
         [sourceLocation updateFloor:_sourceHeight];
     }
     
-    _targetNodeID = self.properties[!_backward?PROPKEY_TARGET_NODE_ID:PROPKEY_SOURCE_NODE_ID];
+    _targetNodeID = self.properties[!_backward ? PROPKEY_TARGET_NODE_ID : PROPKEY_SOURCE_NODE_ID];
     HLPNode *tnode = nodesMap[_targetNodeID];
     if (tnode) {
         _targetNode = tnode;
@@ -1136,7 +1136,7 @@ static NSRegularExpression *patternHLPPOIFlags;
     _linkType = link1.linkType;
     if (link1.linkType == LINK_TYPE_ELEVATOR || link2.linkType == LINK_TYPE_ELEVATOR) {
         _linkType = LINK_TYPE_ELEVATOR;
-        elevatorEquipments = link1.elevatorEquipments?link1.elevatorEquipments:link2.elevatorEquipments;
+        elevatorEquipments = link1.elevatorEquipments ? link1.elevatorEquipments : link2.elevatorEquipments;
     }
     if (link2.linkType == LINK_TYPE_ESCALATOR) {
         _linkType = LINK_TYPE_ESCALATOR;

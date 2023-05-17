@@ -274,7 +274,7 @@
             return;
         }
         else if ([from isEqualToString:@"wheelchair_pdr"]) {
-            value = @([ud boolForKey:@"wheelchair_pdr"]?0.1:0.6);
+            value = @([ud boolForKey:@"wheelchair_pdr"] ? 0.1 : 0.6);
         }
         else if ([from isEqualToString:@"locLB"]) {
             value = [ud valueForKey:@"locLB"];

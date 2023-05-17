@@ -112,13 +112,13 @@
                 
                 NSMutableDictionary *override = [@{} mutableCopy];
                 if (param[@"use_stair"]) {
-                  override[@"stairs"] = [param[@"use_stair"] boolValue]?@"9":@"1";
+                  override[@"stairs"] = [param[@"use_stair"] boolValue] ? @"9" : @"1";
                 }
                 if (param[@"use_elevator"]) {
-                    override[@"elv"] = [param[@"use_elevator"] boolValue]?@"9":@"1";
+                    override[@"elv"] = [param[@"use_elevator"] boolValue] ? @"9" : @"1";
                 }
                 if (param[@"use_escalator"]) {
-                    override[@"esc"] = [param[@"use_escalator"] boolValue]?@"9":@"1";
+                    override[@"esc"] = [param[@"use_escalator"] boolValue] ? @"9" : @"1";
                 }
                 
                 [self _startNavigation:override];
@@ -270,17 +270,17 @@
     NavDataStore *nds = [NavDataStore sharedDataStore];
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     __block NSMutableDictionary *prefs = [@{
-                            @"dist":@"500",
-                            @"preset":@"9",
-                            @"min_width":@"8",
-                            @"slope":@"9",
-                            @"road_condition":@"9",
-                            @"deff_LV":@"9",
-                            @"stairs":[ud boolForKey:@"route_use_stairs"]?@"9":@"1",
-                            @"esc":[ud boolForKey:@"route_use_escalator"]?@"9":@"1",
-                            @"elv":[ud boolForKey:@"route_use_elevator"]?@"9":@"1",
-                            @"mvw":[ud boolForKey:@"route_use_moving_walkway"]?@"9":@"1",                            
-                            @"tactile_paving":[ud boolForKey:@"route_tactile_paving"]?@"1":@"",
+                            @"dist": @"500",
+                            @"preset": @"9",
+                            @"min_width": @"8",
+                            @"slope": @"9",
+                            @"road_condition": @"9",
+                            @"deff_LV": @"9",
+                            @"stairs": [ud boolForKey:@"route_use_stairs"] ? @"9" : @"1",
+                            @"esc": [ud boolForKey:@"route_use_escalator"] ? @"9" : @"1",
+                            @"elv": [ud boolForKey:@"route_use_elevator"] ? @"9" : @"1",
+                            @"mvw": [ud boolForKey:@"route_use_moving_walkway"] ? @"9" : @"1",
+                            @"tactile_paving": [ud boolForKey:@"route_tactile_paving"] ? @"1" : @"",
                             } mutableCopy];
     // override
     [override enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {

@@ -333,7 +333,7 @@ static NavNavigatorConstants *_instance;
                                     @"origin": poi,
                                     @"forBeforeStart": @(!_isFirst),
                                     @"forWelcome": @(_isFirst && poi.flags.flagWelcome),
-                                    @"longDescription": poi.longDescription?poi.longDescription:@"",
+                                    @"longDescription": poi.longDescription ? poi.longDescription : @"",
                                     @"flagCaution": @(poi.flags.flagCaution)
                                     }];
                     }
@@ -344,7 +344,7 @@ static NavNavigatorConstants *_instance;
                                   @{
                                     @"origin": poi,
                                     @"forAfterEnd": @(YES),
-                                    @"longDescription": poi.longDescription?poi.longDescription:@""
+                                    @"longDescription": poi.longDescription ? poi.longDescription : @""
                                     }];
                     }
                     else if (inAngleInitial) {
@@ -353,7 +353,7 @@ static NavNavigatorConstants *_instance;
                                   @{
                                     @"origin": poi,
                                     @"forBeforeStart": @(poi.flags.flagCaution),
-                                    @"longDescription": poi.longDescription?poi.longDescription:@"",
+                                    @"longDescription": poi.longDescription ? poi.longDescription : @"",
                                     @"flagCaution": @(poi.flags.flagCaution)
                                     }];
                     }
@@ -364,7 +364,7 @@ static NavNavigatorConstants *_instance;
                                     @"origin": poi,
                                     @"angleFromLocation": @([nearest bearingTo:poi.location]),
                                     @"flagPlural": @(poi.flags.flagPlural),
-                                    @"longDescription": poi.longDescription?poi.longDescription:@""
+                                    @"longDescription": poi.longDescription ? poi.longDescription : @""
                                     }];
                     }
                     break;
@@ -391,7 +391,7 @@ static NavNavigatorConstants *_instance;
                                     @"origin": poi,
                                     @"forBeforeStart": @(poi.flags.flagCaution),
                                     @"forFloor": @(YES),
-                                    @"longDescription": poi.longDescription?poi.longDescription:@"",
+                                    @"longDescription": poi.longDescription ? poi.longDescription : @"",
                                     @"flagCaution": @(poi.flags.flagCaution)
                                     }];
                         break;
@@ -407,7 +407,7 @@ static NavNavigatorConstants *_instance;
                                     @"forCornerEnd": @(poi.poiCategory == HLPPOICategoryCornerEnd),
                                     @"forCornerWarningBlock": @(poi.poiCategory == HLPPOICategoryCornerWarningBlock),
                                     @"flagPlural": @(poi.flags.flagPlural),
-                                    @"longDescription": poi.longDescription?poi.longDescription:@""
+                                    @"longDescription": poi.longDescription ? poi.longDescription : @""
                                     }];
                     }
                     break;
@@ -665,7 +665,7 @@ static NavNavigatorConstants *_instance;
     
     // convert NAVCOG1/2 acc info into NavPOI
     [links enumerateObjectsUsingBlock:^(HLPLink *link, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSString *surroundInfo = link.properties[link.backward?@"_NAVCOG_infoFromNode2":@"_NAVCOG_infoFromNode1"];
+        NSString *surroundInfo = link.properties[link.backward ? @"_NAVCOG_infoFromNode2" : @"_NAVCOG_infoFromNode1"];
         if (surroundInfo && [surroundInfo length] > 0) {
             NSLog(@"surroundInfo=%@", surroundInfo);
             
@@ -677,7 +677,7 @@ static NavNavigatorConstants *_instance;
             [poisTemp addObject:poi];
         }
         
-        NSString *nodeInfoJSON = link.properties[link.backward?@"_NAVCOG_infoAtNode1":@"_NAVCOG_infoAtNode2"];
+        NSString *nodeInfoJSON = link.properties[link.backward ? @"_NAVCOG_infoAtNode1" : @"_NAVCOG_infoAtNode2"];
         if (nodeInfoJSON && [nodeInfoJSON length] > 0) {
             NSError *error;
             NSDictionary* nodeInfo = [NSJSONSerialization JSONObjectWithData:[nodeInfoJSON dataUsingEncoding:NSUTF8StringEncoding] options:NSUTF8StringEncoding error:&error];
@@ -1959,7 +1959,7 @@ static NavNavigatorConstants *_instance;
                        @"nextSourceHeight": @(linkInfo.nextLink.sourceHeight),
                        @"nextTargetHeight": @(linkInfo.nextLink.targetHeight),
                        @"nextIncline": @(linkInfo.nextIncline),
-                       @"escalatorFlags": linkInfo.nextLink.escalatorFlags?linkInfo.nextLink.escalatorFlags:@[],
+                       @"escalatorFlags": linkInfo.nextLink.escalatorFlags ? linkInfo.nextLink.escalatorFlags : @[],
                        @"isCrossingCorridor": @(linkInfo.link.isCrossingCorridor),
                        @"targetOrientation": @(linkInfo.link.lastBearingForTarget),
                        @"targetLocation": linkInfo.link.targetLocation
@@ -1978,8 +1978,8 @@ static NavNavigatorConstants *_instance;
                      @{
                        @"target": @(YES),
                        @"distance": @(linkInfo.nextTargetRemainingDistance),
-                       @"diffHeading": @((linkInfo.distanceToTargetFromSnappedLocationOnLink>5)?
-                           linkInfo.diffBearingAtUserLocation:linkInfo.diffBearingAtSnappedLocationOnLink)
+                       @"diffHeading": @((linkInfo.distanceToTargetFromSnappedLocationOnLink>5) ?
+                           linkInfo.diffBearingAtUserLocation : linkInfo.diffBearingAtSnappedLocationOnLink)
                        }];
                 }
                 
@@ -1991,8 +1991,8 @@ static NavNavigatorConstants *_instance;
                      @{
                        @"target": @(NO),
                        @"distance": @(linkInfo.distanceToTargetFromSnappedLocationOnLink),
-                       @"diffHeading": @((linkInfo.distanceToTargetFromSnappedLocationOnLink>5)?
-                           linkInfo.diffBearingAtUserLocation:linkInfo.diffBearingAtSnappedLocationOnLink)
+                       @"diffHeading": @((linkInfo.distanceToTargetFromSnappedLocationOnLink>5) ?
+                           linkInfo.diffBearingAtUserLocation : linkInfo.diffBearingAtSnappedLocationOnLink)
                        }];
                 }
             }
@@ -2024,7 +2024,7 @@ static NavNavigatorConstants *_instance;
                         if ([self.delegate respondsToSelector:@selector(userNeedsToTakeAction:)]) {
                             [self.delegate userNeedsToTakeAction:
                              @{
-                               @"pois": (linkInfo.link.length>C.NO_APPROACHING_DISTANCE_THRESHOLD)?linkInfo.pois:@[],
+                               @"pois": (linkInfo.link.length>C.NO_APPROACHING_DISTANCE_THRESHOLD) ? linkInfo.pois : @[],
                                @"turnAngle": @(linkInfo.nextTurnAngle),
                                @"diffHeading": @(linkInfo.diffNextBearingAtSnappedLocationOnLink),
                                @"linkType": @(linkInfo.link.linkType),
@@ -2519,7 +2519,7 @@ static NavNavigatorConstants *_instance;
                            @"nextSourceHeight": @(linkInfo.nextLink.sourceHeight),
                            @"nextTargetHeight": @(linkInfo.nextLink.targetHeight),
                            @"nextIncline": @(linkInfo.nextIncline),
-                           @"escalatorFlags": linkInfo.nextLink.escalatorFlags?linkInfo.nextLink.escalatorFlags:@[],
+                           @"escalatorFlags": linkInfo.nextLink.escalatorFlags ? linkInfo.nextLink.escalatorFlags : @[],
                            @"nohistory": @(YES),
                            @"force": @(YES),
                            @"resume": options[@"resume"]

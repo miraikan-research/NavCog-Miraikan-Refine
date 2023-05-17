@@ -405,18 +405,18 @@ typedef NS_ENUM(NSInteger, ViewState) {
     }
     NSString *elv = @"";
     if (options[@"use_elevator"]) {
-        elv = [options[@"use_elevator"] boolValue]?@"&elv=9":@"&elv=1";
+        elv = [options[@"use_elevator"] boolValue] ? @"&elv=9" : @"&elv=1";
     }
     NSString *stairs = @"";
     if (options[@"use_stair"]) {
-        stairs = [options[@"use_stair"] boolValue]?@"&stairs=9":@"&stairs=1";
+        stairs = [options[@"use_stair"] boolValue] ? @"&stairs=9" : @"&stairs=1";
     }
     NSString *esc = @"";
     if (options[@"use_escalator"]) {
-        esc = [options[@"use_escalator"] boolValue]?@"&esc=9":@"&esc=1";
+        esc = [options[@"use_escalator"] boolValue] ? @"&esc=9" : @"&esc=1";
     }
     NSString *dist = [NSString stringWithFormat: @"&dist=%@", @(500)];
-    NSString *hash = [NSString stringWithFormat:@"navigate=%@&dummy=%f%@%@%@%@",
+    NSString *hash = [NSString stringWithFormat: @"navigate=%@&dummy=%f%@%@%@%@",
                       options[@"toID"], [[NSDate date] timeIntervalSince1970], elv, stairs, esc, dist];
     [_webView setLocationHash:hash];
 }
@@ -497,14 +497,14 @@ typedef NS_ENUM(NSInteger, ViewState) {
         double floor = location.floor;
         
         [_webView sendData:@{
-                             @"lat":@(location.lat),
-                             @"lng":@(location.lng),
-                             @"floor":@(floor),
-                             @"accuracy":@(location.accuracy),
-                             @"rotate":@(0), // dummy
-                             @"orientation":@(999), //dummy
-                             @"debug_info":location.params?location.params[@"debug_info"]:[NSNull null],
-                             @"debug_latlng":location.params?location.params[@"debug_latlng"]:[NSNull null]
+                             @"lat": @(location.lat),
+                             @"lng": @(location.lng),
+                             @"floor": @(floor),
+                             @"accuracy": @(location.accuracy),
+                             @"rotate": @(0), // dummy
+                             @"orientation": @(999), //dummy
+                             @"debug_info": location.params ? location.params[@"debug_info"] : [NSNull null],
+                             @"debug_latlng": location.params ? location.params[@"debug_latlng"] : [NSNull null]
                              }
                   withName:@"XYZ"];
         

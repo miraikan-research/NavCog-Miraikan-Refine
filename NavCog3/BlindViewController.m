@@ -277,7 +277,7 @@
         self.navigationItem.leftBarButtonItem = nil;
         
         UILabel *titleView = [[UILabel alloc] init];
-        titleView.text = NSLocalizedStringFromTable(exerciseMode?@"Exercise":(previewMode ? @"Preview" : @"NavCog"), @"BlindView", @"");
+        titleView.text = NSLocalizedStringFromTable(exerciseMode ? @"Exercise" : (previewMode ? @"Preview" : @"NavCog"), @"BlindView", @"");
         titleView.accessibilityLabel = @"( )";
         titleView.accessibilityTraits = UIAccessibilityTraitStaticText;
         self.navigationItem.titleView = titleView;
@@ -595,14 +595,14 @@
         double floor = location.floor;
         
         [_webView sendData:@{
-                           @"lat":@(location.lat),
-                           @"lng":@(location.lng),
-                           @"floor":@(floor),
-                           @"accuracy":@(location.accuracy),
-                           @"rotate":@(0), // dummy
-                           @"orientation":@(999), //dummy
-                           @"debug_info":location.params?location.params[@"debug_info"]:[NSNull null],
-                           @"debug_latlng":location.params?location.params[@"debug_latlng"]:[NSNull null]
+                           @"lat": @(location.lat),
+                           @"lng": @(location.lng),
+                           @"floor": @(floor),
+                           @"accuracy": @(location.accuracy),
+                           @"rotate": @(0), // dummy
+                           @"orientation": @(999), //dummy
+                           @"debug_info": location.params ? location.params[@"debug_info"] : [NSNull null],
+                           @"debug_latlng": location.params ? location.params[@"debug_latlng"] : [NSNull null]
                            }
                 withName:@"XYZ"];
         
@@ -923,17 +923,17 @@
     
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDictionary *prefs = @{
-                            @"dist":@"500",
-                            @"preset":@"9",
-                            @"min_width":@"8",
-                            @"slope":@"9",
-                            @"road_condition":@"9",
-                            @"deff_LV":@"9",
-                            @"stairs":[ud boolForKey:@"route_use_stairs"]?@"9":@"1",
-                            @"esc":[ud boolForKey:@"route_use_escalator"]?@"9":@"1",
-                            @"elv":[ud boolForKey:@"route_use_elevator"]?@"9":@"1",
-                            @"mvw":[ud boolForKey:@"route_use_moving_walkway"]?@"9":@"1",    
-                            @"tactile_paving":[ud boolForKey:@"route_tactile_paving"]?@"1":@"",
+                            @"dist": @"500",
+                            @"preset": @"9",
+                            @"min_width": @"8",
+                            @"slope": @"9",
+                            @"road_condition": @"9",
+                            @"deff_LV": @"9",
+                            @"stairs": [ud boolForKey:@"route_use_stairs"] ? @"9" : @"1",
+                            @"esc": [ud boolForKey:@"route_use_escalator"] ? @"9" : @"1",
+                            @"elv": [ud boolForKey:@"route_use_elevator"] ? @"9" : @"1",
+                            @"mvw": [ud boolForKey:@"route_use_moving_walkway"] ? @"9" : @"1",
+                            @"tactile_paving": [ud boolForKey:@"route_tactile_paving"] ? @"1" : @"",
                             };
     
     dispatch_async(dispatch_get_main_queue(), ^{

@@ -126,7 +126,7 @@
 
 - (NSString*) description
 {
-    return [NSString stringWithFormat:@"HLPSetting[%@] (%ld) %@", _label, _type, _visible?@"visible":@""];
+    return [NSString stringWithFormat:@"HLPSetting[%@] (%ld) %@", _label, _type, _visible ? @"visible" : @""];
 }
 
 - (void) save {

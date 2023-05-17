@@ -107,10 +107,10 @@
 {
     NSMutableString* script = [[NSMutableString alloc] init];
     if (loc && !isnan(loc.floor) ) {
-        int ifloor = round(loc.floor<0?loc.floor:loc.floor+1);
+        int ifloor = round(loc.floor < 0 ? loc.floor : loc.floor+1);
         [script appendFormat:@"$hulop.indoor.showFloor(%d);", ifloor];
     }
-    [script appendFormat:@"$hulop.map.setSync(%@);", sync?@"true":@"false"];
+    [script appendFormat:@"$hulop.map.setSync(%@);", sync ? @"true" : @"false"];
     if (loc) {
         [script appendFormat:@"var map = $hulop.map;"];
         [script appendFormat:@"map.setCenter([%.16f,%.16f]);",loc.lng,loc.lat];

@@ -35,7 +35,7 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSString *server = [ud stringForKey:@"selected_hokoukukan_server"];
     NSString *context = [ud stringForKey:@"hokoukukan_server_context"];
-    NSString *https = [ud boolForKey:@"https_connection"]?@"https":@"http";
+    NSString *https = [ud boolForKey:@"https_connection"] ? @"https" : @"http";
     return [NSURL URLWithString:[NSString stringWithFormat:ROUTE_SEARCH, https, server, context]];
 }
 
@@ -43,7 +43,7 @@
     NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
     NSDictionary *config = [[ServerConfig sharedConfig] selectedServerConfig];
     NSString *server = config[@"query_server"];
-    NSString *https = [ud boolForKey:@"https_connection"]?@"https":@"http";
+    NSString *https = [ud boolForKey:@"https_connection"] ? @"https" : @"http";
     return [NSURL URLWithString:[NSString stringWithFormat:QUERY_SERVICE, https, server, action]];
 }
 
