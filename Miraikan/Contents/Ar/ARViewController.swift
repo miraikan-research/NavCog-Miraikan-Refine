@@ -147,8 +147,6 @@ class ARViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
 
-        UIApplication.shared.isIdleTimerDisabled = false
-
         // Pause the view's session
         sceneView.session.pause()
     }
