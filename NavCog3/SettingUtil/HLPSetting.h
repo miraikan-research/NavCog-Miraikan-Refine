@@ -31,10 +31,10 @@
 @property NSString *name;
 @property NSMutableArray *options;
 @property NSObject *currentValue;
-- (void) addOption:(HLPSetting*)setting;
-- (void) checkOption:(HLPSetting*)setting;
-- (void) exportSetting:(NSMutableDictionary*)dic;
-- (void) update;
+- (void)addOption:(HLPSetting*)setting;
+- (void)checkOption:(HLPSetting*)setting;
+- (void)exportSetting:(NSMutableDictionary*)dic;
+- (void)update;
 @end
 
 #define HLPSettingDefaultCellHeight (-1)
@@ -57,19 +57,19 @@ typedef NS_ENUM (NSUInteger, NavCogSettingType) {
     NSObject*(^handler)(NSObject *value);
 }
 
-- (void) setHandler:(NSObject*(^)(NSObject* value)) _handler;
-- (NSInteger) numberOfRows;
-- (NSInteger) selectedRow;
-- (NSString*) titleForRow: (NSInteger) row;
-- (NSObject*) checkValue: (NSObject*) value;
-- (void) addObject: (NSObject*) object;
-- (void) removeSelected;
-- (void) select:(NSInteger) row;
-- (void) save;
-- (float) floatValue;
-- (BOOL) boolValue;
-- (NSString*) stringValue;
-- (void) exportSetting:(NSMutableDictionary*)dic;
+- (void)setHandler:(NSObject*(^)(NSObject* value)) _handler;
+- (NSInteger)numberOfRows;
+- (NSInteger)selectedRow;
+- (NSString*)titleForRow: (NSInteger) row;
+- (NSObject*)checkValue: (NSObject*) value;
+- (void)addObject: (NSObject*) object;
+- (void)removeSelected;
+- (void)select:(NSInteger) row;
+- (void)save;
+- (float)floatValue;
+- (BOOL)boolValue;
+- (NSString*)stringValue;
+- (void)exportSetting:(NSMutableDictionary*)dic;
 
 @property NavCogSettingType type;
 @property NSString *label;

@@ -93,7 +93,7 @@
     if (self.subtitle) {
         self.subtitle.textColor = self.setting.disabled ? [UIColor systemGrayColor] : [UIColor labelColor];
         if (self.setting.type == NavCogSettingTypeOption) {
-            self.accessoryType = [self.setting boolValue]?UITableViewCellAccessoryCheckmark:UITableViewCellAccessoryNone;
+            self.accessoryType = [self.setting boolValue] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
             self.subtitle.text = nil;
         } else if(self.setting.type == NavCogSettingTypeAction) {
             self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

@@ -171,7 +171,7 @@ static HLPSetting *userModeLabel, *userBlindLabel, *userWheelchairLabel, *userSt
     
     BOOL dialog = [[DialogManager sharedManager] isAvailable];
     if (self.dialogSearchCell) {
-        self.dialogSearchCell.selectionStyle = dialog?UITableViewCellSelectionStyleGray:UITableViewCellSelectionStyleNone;
+        self.dialogSearchCell.selectionStyle = dialog ? UITableViewCellSelectionStyleGray : UITableViewCellSelectionStyleNone;
         self.dialogSearchCell.textLabel.enabled = dialog;
     }
 }

@@ -839,14 +839,14 @@ typedef NS_ENUM(NSInteger, ViewState) {
         double floor = location.floor;
         
         [_webView sendData:@{
-                             @"lat":@(location.lat),
-                             @"lng":@(location.lng),
-                             @"floor":@(floor),
-                             @"accuracy":@(location.accuracy),
-                             @"rotate":@(0), // dummy
-                             @"orientation":@(999), //dummy
-                             @"debug_info":location.params?location.params[@"debug_info"]:[NSNull null],
-                             @"debug_latlng":location.params?location.params[@"debug_latlng"]:[NSNull null]
+                             @"lat": @(location.lat),
+                             @"lng": @(location.lng),
+                             @"floor": @(floor),
+                             @"accuracy": @(location.accuracy),
+                             @"rotate": @(0), // dummy
+                             @"orientation": @(999), //dummy
+                             @"debug_info": location.params ? location.params[@"debug_info"] : [NSNull null],
+                             @"debug_latlng": location.params ? location.params[@"debug_latlng"] : [NSNull null]
                              }
                   withName:@"XYZ"];
         

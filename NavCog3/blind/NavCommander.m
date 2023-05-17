@@ -187,8 +187,8 @@
             side = NSLocalizedStringFromTable(side, @"BlindView", @"");
 
             NSString *tfloor = [self floorString:targetHeight];
-            NSString *format = fabs(sourceHeight - targetHeight) < 0.1 ? @"FloorChangeActionString3": @"FloorChangeActionString4";
-            format = [format stringByAppendingString:up?@"Up":@"Down"];
+            NSString *format = fabs(sourceHeight - targetHeight) < 0.1 ? @"FloorChangeActionString3" : @"FloorChangeActionString4";
+            format = [format stringByAppendingString:up ? @"Up" : @"Down"];
             
             string = [NSString stringWithFormat:NSLocalizedStringFromTable(format,@"BlindView",@"") , angle, side, mean, tfloor];//@""
             string = [string stringByAppendingString:NSLocalizedStringFromTable(@"PERIOD", @"BlindView", @"")];
@@ -228,11 +228,11 @@
         BOOL full = [properties[@"fullAction"] boolValue];
         if (full) {
             NSString *format = @"FloorChangeDoneActionString2";
-            format = [format stringByAppendingString:up?@"Up":@"Down"];
+            format = [format stringByAppendingString:up ? @"Up" : @"Down"];
             string = [NSString stringWithFormat:NSLocalizedStringFromTable(format,@"BlindView",@"") , mean, string];
         } else {
             NSString *format = fabs(sourceHeight - targetHeight) < 0.1 ? @"FloorChangeActionString1" : @"FloorChangeActionString2";
-            format = [format stringByAppendingString:up?@"Up":@"Down"];
+            format = [format stringByAppendingString:up ? @"Up" : @"Down"];
             string = [NSString stringWithFormat:NSLocalizedStringFromTable(format,@"BlindView",@"") , mean, tfloor];
         }
     }
@@ -248,9 +248,9 @@
 {
     BOOL shortSentence = option && option[@"short"] && [option[@"short"] boolValue];
     NSString *format = @"DoorPOIString";
-    format = [(poi.flagAuto)?@"Auto":@"" stringByAppendingString:format];
-    format = [format stringByAppendingString:(poi.count == 1)?@"1":@"2"];
-    format = [format stringByAppendingString:(shortSentence)?@"Short":@""];
+    format = [(poi.flagAuto) ? @"Auto" : @"" stringByAppendingString:format];
+    format = [format stringByAppendingString:(poi.count == 1) ? @"1" : @"2"];
+    format = [format stringByAppendingString:(shortSentence) ? @"Short" : @""];
     
     return [NSString stringWithFormat:NSLocalizedStringFromTable(format, @"BlindView", @""), poi.count];
 }
@@ -270,8 +270,8 @@
 
     if (side) {
         NSString *format = @"ObstaclePOIString";
-        format = [format stringByAppendingString:(poi.count == 1)?@"1":@"2"];
-        format = [format stringByAppendingString:(shortSentence)?@"Short":@""];
+        format = [format stringByAppendingString:(poi.count == 1) ? @"1" : @"2"];
+        format = [format stringByAppendingString:(shortSentence) ? @"Short" : @""];
         return [NSString stringWithFormat:NSLocalizedStringFromTable(format, @"BlindView", @""), side];
     }
     
@@ -282,7 +282,7 @@
 {
     BOOL shortSentence = option && option[@"short"] && [option[@"short"] boolValue];
     NSString *format = @"RampPOIString";
-    format = [format stringByAppendingString:(shortSentence)?@"Short":@""];
+    format = [format stringByAppendingString:(shortSentence) ? @"Short" : @""];
     
     return NSLocalizedStringFromTable(format, @"BlindView", @"");
 }
@@ -291,8 +291,8 @@
 {
     BOOL shortSentence = option && option[@"short"] && [option[@"short"] boolValue];
     NSString *format = @"BrailleBlockPOIString";
-    format = [poi.flagEnd?@"No":@"" stringByAppendingString:format];
-    format = [format stringByAppendingString:(shortSentence)?@"Short":@""];
+    format = [poi.flagEnd ? @"No" : @"" stringByAppendingString:format];
+    format = [format stringByAppendingString:(shortSentence) ? @"Short" : @""];
     
     return NSLocalizedStringFromTable(format, @"BlindView", @"");
 }
