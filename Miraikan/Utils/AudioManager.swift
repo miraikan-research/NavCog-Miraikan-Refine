@@ -138,7 +138,7 @@ final public class AudioManager: NSObject {
                   model.id != nil {
 
             if voiceModel.id == model.id {
-                // 前回と同じ時の間隔
+                // 前回と同じIDの間隔
                 if lastSpeakTime + Double(MiraikanUtil.readingInterval) > Date().timeIntervalSince1970 {
                     return
                 }
@@ -149,7 +149,7 @@ final public class AudioManager: NSObject {
             }
         } else if self.speakingData?.id == voiceModel.id {
             if voiceModel.id != nil {
-                // 前回と同じ時の間隔
+                // 前回と同じIDの間隔
                 if lastSpeakTime + Double(MiraikanUtil.readingInterval) > Date().timeIntervalSince1970 {
                     return
                 }

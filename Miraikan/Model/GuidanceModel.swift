@@ -33,6 +33,7 @@ struct GuidanceModel: Codable {
     var message: String
     var messageEn: String
     var messagePron: String
+    var internalDistance: Double?
 
     func isDistance(_ distance: Double) -> Bool {
         if let shortDistance = shortDistance,

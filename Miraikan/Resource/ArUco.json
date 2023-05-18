@@ -68,9 +68,10 @@
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 5,
-        "message": "左を向いて12mくらい進んで下さい。壁に展示パネルがあります。",
-        "message_en": "Turn left and go about 12 meters. There is an exhibition panel on the wall.",
-        "message_pron": "左を向いて12メートルくらい進んで下さい。壁に展示パネルがあります。",
+        "message": "左を向いて%@ 進んで下さい。壁に展示パネルがあります。",
+        "message_en": "Turn left and go about %@. There is an exhibition panel on the wall.",
+        "message_pron": "左を向いて%@ 進んで下さい。壁に展示パネルがあります。",
+        "internal_distance" : 12,
     },
 },
 {
@@ -82,9 +83,10 @@
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "左を向いて6mくらい進んで下さい。壁に展示パネルがあります。",
-        "message_en": "Turn left and go about 6 meters. There is an exhibition panel on the wall.",
-        "message_pron": "左を向いて6メートルくらい進んで下さい。壁に展示パネルがあります。",
+        "message": "左を向いて%@ 進んで下さい。壁に展示パネルがあります。",
+        "message_en": "Turn left and go about %@. There is an exhibition panel on the wall.",
+        "message_pron": "左を向いて%@ 進んで下さい。壁に展示パネルがあります。",
+        "internal_distance" : 6,
     },
 },
 
@@ -161,9 +163,10 @@
     "guide_from_here_reserve": {
         "short_distance": 0,
         "long_distance": 1.5,
-        "message": "4時の方向を向いて3mくらい進んでください。正面の壁に展示パネルがあります。",
-        "message_en": "Turn to face 4 o'clock and go about 3 meters. There is an exhibition panel on the front wall.",
-        "message_pron": "4時の方向を向いて3メートルくらい進んでください。正面の壁に展示パネルがあります。",
+        "message": "4時の方向を向いて%@ 進んでください。正面の壁に展示パネルがあります。",
+        "message_en": "Turn to face 4 o'clock and go about %@. There is an exhibition panel on the front wall.",
+        "message_pron": "4時の方向を向いて%@ 進んでください。正面の壁に展示パネルがあります。",
+        "internal_distance" : 3,
     },
     "next_guide_reserve": {
         "message": "次の展示を案内します。",
@@ -229,9 +232,10 @@
     "next_guide": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "正面の壁の下側に奥行き25センチメートルの棚板があります。その上部に展示があります。",
-        "message_en": "On the lower side of the front wall there is a 25 centimeter deep shelf. The exhibit is located above it.",
-        "message_pron": "正面の壁の下側に奥行き25センチメートルの棚板があります。その上部に展示があります。",
+        "message": "正面の壁の下側に奥行き%@の棚板があります。その上部に展示があります。",
+        "message_en": "On the lower side of the front wall there is a %@ deep shelf. The exhibit is located above it.",
+        "message_pron": "正面の壁の下側に奥行き%@の棚板があります。その上部に展示があります。",
+        "internal_distance" : 0.25,
     },
     "description": {
         "short_distance": 0,
@@ -250,16 +254,17 @@
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "正面に棚板があります。地面から高さ75センチメートル奥行き25センチメートル横幅95センチメートルの棚板の上に展示パネルがあります。",
+        "message": "%@先。正面に棚板があります。棚板の上に展示パネルがあります。",
         "message_en": "There is a shelf on the front.",
-        "message_pron": "%正面に棚板があります。地面から高さ75センチメートル奥行き25センチメートル横幅95センチメートルの棚板の上に展示パネルがあります。",
+        "message_pron": "%@先。正面に棚板があります。棚板の上に展示パネルがあります。",
     },
     "guide_from_here_reserve": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "右を向いて7mくらい進んで下さい。左の壁に展示パネルがあります。",
-        "message_en": "Turn right and go about 7 meters. There is an exhibition panel on the left wall.",
-        "message_pron": "右を向いて7mくらい進んで下さい。左の壁に展示パネルがあります。",
+        "message": "右を向いて%@ 進んで下さい。左の壁に展示パネルがあります。",
+        "message_en": "Turn right and go about %@. There is an exhibition panel on the left wall.",
+        "message_pron": "右を向いて%@ 進んで下さい。左の壁に展示パネルがあります。",
+        "internal_distance" : 7,
     },
     "next_guide_reserve": {
         "message": "次の展示を案内します 。",
@@ -318,9 +323,10 @@
     "guide_from_here_reserve": {
         "short_distance": 0,
         "long_distance": 1.2,
-        "message": "4時の方向を向いて3mくらい進んで下さい。左側が展示の出口です。",
-        "message_en": "Turn to 4 o'clock and go about 3 meters. The exit for the exhibit is on the left.",
-        "message_pron": "4時の方向を向いて3mくらい進んで下さい。左側が展示の出口です。",
+        "message": "4時の方向を向いて%@ 進んで下さい。左側が展示の出口です。",
+        "message_en": "Turn to 4 o'clock and go about %@. The exit for the exhibit is on the left.",
+        "message_pron": "4時の方向を向いて%@ 進んで下さい。左側が展示の出口です。",
+        "internal_distance" : 3,
     },
     "next_guide_reserve": {
         "message": "出口を案内します。",
@@ -371,15 +377,17 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 0,
-        "message": "10m先。壁に展示パネルがあります。",
-        "message_en": "10 meters ahead. There is an exhibition panel on the wall.",
-        "message_pron": "10メートル先。壁に展示パネルがあります。",
+        "message": "%@先。壁に展示パネルがあります。",
+        "message_en": "%@ ahead. There is an exhibition panel on the wall.",
+        "message_pron": "%@先。壁に展示パネルがあります。",
+        "internal_distance" : 10,
     },
     {
         "direction": 180,
-        "message": "2m先。展示の出口です。",
-        "message_en": "2 meters ahead. The exit of the exhibition.",
-        "message_pron": "2メートル先。展示の出口です。",
+        "message": "%@先。展示の出口です。",
+        "message_en": "%@ ahead. The exit of the exhibition.",
+        "message_pron": "%@先。展示の出口です。",
+        "internal_distance" : 2,
     }]
 },
 {
@@ -390,15 +398,17 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 0,
-        "message": "8m先。正面の壁。展示パネルがあります。",
-        "message_en": "8 meters ahead. Front wall. There are display panels.",
-        "message_pron": "8m先。正面の壁。展示パネルがあります。",
+        "message": "%@先。正面の壁。展示パネルがあります。",
+        "message_en": "%@ ahead. Front wall. There are display panels.",
+        "message_pron": "%@先。正面の壁。展示パネルがあります。",
+        "internal_distance" : 8,
     },
     {
         "direction": 180,
-        "message": "4m先。展示の出口です。",
-        "message_en": "4 meters ahead. The exit of the exhibition.",
-        "message_pron": "4メートル先。展示の出口です。",
+        "message": "%@先。展示の出口です。",
+        "message_en": "%@ ahead. The exit of the exhibition.",
+        "message_pron": "%@先。展示の出口です。",
+        "internal_distance" : 4,
     }]
 },
 {
@@ -409,9 +419,10 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 0,
-        "message": "6m先。正面の壁。展示パネルがあります。",
-        "message_en": "6 meters ahead. Front wall. There are display panels.",
-        "message_pron": "6メートル先。正面の壁。展示パネルがあります。",
+        "message": "%@先。正面の壁。展示パネルがあります。",
+        "message_en": "%@ ahead. Front wall. There are display panels.",
+        "message_pron": "%@先。正面の壁。展示パネルがあります。",
+        "internal_distance" : 6,
     }]
 },
 {
@@ -422,10 +433,10 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 0,
-        "message": "3m先。正面の壁。展示パネルがあります。",
-        "message_en": "3 meters ahead. Front wall. There are display panels.",
-        "message_pron": "3メートル先。正面の壁。展示パネルがあります。",
-
+        "message": "%@先。正面の壁。展示パネルがあります。",
+        "message_en": "%@ ahead. Front wall. There are display panels.",
+        "message_pron": "%@先。正面の壁。展示パネルがあります。",
+        "internal_distance" : 3,
     }]
 },
 {
@@ -436,9 +447,10 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 0,
-        "message": "1m先。正面の壁。展示パネルがあります。",
-        "message_en": "1 meters ahead. Front wall. There are display panels.",
-        "message_pron": "1メートル先。正面の壁。展示パネルがあります。",
+        "message": "%@先。正面の壁。展示パネルがあります。",
+        "message_en": "%@ ahead. Front wall. There are display panels.",
+        "message_pron": "%@先。正面の壁。展示パネルがあります。",
+        "internal_distance" : 1,
     }]
 },
 {
@@ -449,15 +461,17 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
             "direction": 120,
-            "message": "50cm先。壁に展示パネルがあります。",
-            "message_en": "50 centimeter ahead. Front wall. There are display panels.",
-            "message_pron": "50センチメートル先。壁に展示パネルがあります。",
+            "message": "%@先。壁に展示パネルがあります。",
+            "message_en": "%@ ahead. Front wall. There are display panels.",
+            "message_pron": "%@先。壁に展示パネルがあります。",
+            "internal_distance" : 0.5,
         },
         {
         "direction": 0,
-        "message": "4m先。進行経路です。",
-        "message_en": "4 meters ahead. Direction of travel.",
-        "message_pron": "4メートル先。進行方向です。",
+        "message": "%@先。進行経路です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 4,
     }]
 },
 {
@@ -468,15 +482,17 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 120,
-        "message": "50cm先。壁に展示パネルがあります。",
-        "message_en": "50 centimeter ahead. Front wall. There are display panels.",
-        "message_pron": "50センチメートル先。壁に展示パネルがあります。",
+        "message": "%@先。壁に展示パネルがあります。",
+        "message_en": "%@ ahead. Front wall. There are display panels.",
+        "message_pron": "%@先。壁に展示パネルがあります。",
+        "internal_distance" : 0.5,
     },
     {
         "direction": 0,
-        "message": "7m先。進行経路です。",
-        "message_en": "7 meters ahead. Direction of travel.",
-        "message_pron": "7メートル先。進行方向です。",
+        "message": "%@先。進行経路です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 7,
     }]
 },
 {
@@ -487,15 +503,17 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 150,
-        "message": "50cm先。壁に展示パネルがあります。",
-        "message_en": "50 centimeter ahead. Front wall. There are display panels.",
-        "message_pron": "50センチメートル先。壁に展示パネルがあります。",
+        "message": "%@先。壁に展示パネルがあります。",
+        "message_en": "%@ ahead. Front wall. There are display panels.",
+        "message_pron": "%@先。壁に展示パネルがあります。",
+        "internal_distance" : 0.5,
     },
     {
         "direction": 0,
-        "message": "4m先。展示の出口経路です。",
-        "message_en": "4 meters ahead. The exit of the exhibition.",
-        "message_pron": "4メートル先。展示の出口経路です。",
+        "message": "%@先。展示の出口経路です。",
+        "message_en": "%@ ahead. The exit of the exhibition.",
+        "message_pron": "%@先。展示の出口経路です。",
+        "internal_distance" : 4,
     }]
 },
 {
@@ -866,9 +884,10 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "2m先。進行方向です。",
-        "message_en": "2 meters ahead. Direction of travel.",
-        "message_pron": "2メートル先。進行方向です。",
+        "message": "%@先。進行方向です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 2,
     }]
 },
 {
@@ -879,9 +898,10 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "2m先に机があります。",
-        "message_en": "There is a desk 2 meters away.",
-        "message_pron": "2メートル先に机があります。",
+        "message": "%@先に机があります。",
+        "message_en": "There is a desk %@ away.",
+        "message_pron": "%@先に机があります。",
+        "internal_distance" : 2,
     }]
 },
 {
@@ -898,9 +918,10 @@
     },
     {
         "direction": 0,
-        "message": "1m先。進行方向です。",
-        "message_en": "1 meters ahead. Direction of travel.",
-        "message_pron": "1メートル先。進行方向です。",
+        "message": "%@先。進行方向です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 1,
     }]
 },
 {
@@ -917,9 +938,10 @@
     },
     {
         "direction": 0,
-        "message": "1.5m先。進行方向です。",
-        "message_en": "1.5 meters ahead. Direction of travel.",
-        "message_pron": "1.5メートル先。進行方向です。",
+        "message": "%@先。進行方向です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 1.5,
     }]
 },
 {
@@ -930,9 +952,10 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "1.5m先。進行方向です。",
-        "message_en": "1.5 meters ahead. Direction of travel.",
-        "message_pron": "1.5メートル先。進行方向です。",
+        "message": "%@先。進行方向です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 1.5,
     }]
 },
 {
@@ -949,9 +972,10 @@
     },
     {
         "direction": 0,
-        "message": "3m先。進行方向です。",
-        "message_en": "3 meters ahead. Direction of travel.",
-        "message_pron": "3メートル先。進行方向です。",
+        "message": "%@先。進行方向です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 3,
     }]
 },
 {
@@ -968,9 +992,10 @@
     },
     {
         "direction": 0,
-        "message": "1m先。進行方向です。",
-        "message_en": "1 meters ahead. Direction of travel.",
-        "message_pron": "1メートル先。進行方向です。",
+        "message": "%@先。進行方向です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 1,
     }]
 },
 {
@@ -981,9 +1006,10 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "3m先。進行方向です。",
-        "message_en": "3 meters ahead. Direction of travel.",
-        "message_pron": "3メートル先。進行方向です。",
+        "message": "%@先。進行方向です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 3,
     }]
 },
 {
@@ -994,9 +1020,10 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "3m先。進行方向です。",
-        "message_en": "3 meters ahead. Direction of travel.",
-        "message_pron": "3メートル先。進行方向です。",
+        "message": "%@先。進行方向です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 3,
     }]
 },
 {
@@ -1007,9 +1034,10 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "4m先。進行方向です。正面に植木があります。",
-        "message_en": "4 meters ahead. Direction of travel.",
-        "message_pron": "4メートル先。進行方向です。正面に植木があります。",
+        "message": "%@先。進行方向です。正面に植木があります。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。正面に植木があります。",
+        "internal_distance" : 4,
     }]
 },
 {
@@ -1020,9 +1048,10 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "2.5m先。進行方向です。",
-        "message_en": "2.5 meters ahead. Direction of travel.",
-        "message_pron": "2.5メートル先。進行方向です。",
+        "message": "%@先。進行方向です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 2.5,
     }]
 },
 {
@@ -1033,9 +1062,10 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "2m進んで下さい。地面が土になっています。室内に庭園があります。2m進んだ後に左に5m進んで下さい。庭園が終わり、正面の壁に展示パネルがあります。",
+        "message": "%@進んで下さい。地面が土になっています。室内に庭園があります。2m進んだ後に左に5m進んで下さい。庭園が終わり、正面の壁に展示パネルがあります。",
         "message_en": "",
-        "message_pron": "2メートル進んで下さい。地面が土になっています。室内に庭園があります。2メートル進んだ後に左に5メートル進んで下さい。庭園が終わり、正面の壁に展示パネルがあります。",
+        "message_pron": "%@進んで下さい。地面が土になっています。室内に庭園があります。2メートル進んだ後に左に5メートル進んで下さい。庭園が終わり、正面の壁に展示パネルがあります。",
+        "internal_distance" : 2,
     }]
 },
 {
@@ -1052,9 +1082,10 @@
     },
     {
         "direction": 0,
-        "message": "3m先。進行方向です。",
-        "message_en": "3 meters ahead. Direction of travel.",
-        "message_pron": "3メートル先。進行方向です。",
+        "message": "%@先。進行方向です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 3,
     }]
 },
 {
@@ -1065,9 +1096,10 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "3m先。進行方向です。",
-        "message_en": "3 meters ahead. Direction of travel.",
-        "message_pron": "3メートル先。進行方向です。",
+        "message": "%@先。進行方向です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 3,
     }]
 },
 {
@@ -1084,9 +1116,10 @@
     },
     {
         "direction": 0,
-        "message": "5m先。進行方向です。",
-        "message_en": "5 meters ahead. Direction of travel.",
-        "message_pron": "5メートル先。進行方向です。",
+        "message": "%@先。進行方向です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 5,
     }]
 },
 {
@@ -1097,9 +1130,10 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "1m先。出口です。",
-        "message_en": "1 meter ahead. Exit.",
-        "message_pron": "1メートル先。出口です。",
+        "message": "%@先。出口です。",
+        "message_en": "%@ ahead. Exit.",
+        "message_pron": "%@先。出口です。",
+        "internal_distance" : 1,
     }]
 },
 {
@@ -1110,9 +1144,10 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "3m先。進行方向です。",
-        "message_en": "3 meters ahead. Direction of travel.",
-        "message_pron": "3メートル先。進行方向です。",
+        "message": "%@先。進行方向です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 3,
     }]
 },
 {
@@ -1123,9 +1158,10 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "2m先。進行方向です。",
-        "message_en": "2 meters ahead. Direction of travel.",
-        "message_pron": "2メートル先。進行方向です。",
+        "message": "%@先。進行方向です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 2,
     }]
 },
 
@@ -1137,9 +1173,10 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "2m先に机があります。",
-        "message_en": "There is a desk 2 meters away.",
-        "message_pron": "2メートル先。進行方向。机があります。",
+        "message": "%@先に机があります。",
+        "message_en": "There is a desk %@ away.",
+        "message_pron": "%@先。進行方向。机があります。",
+        "internal_distance" : 2,
     }]
 },
 {
@@ -1156,9 +1193,10 @@
     },
     {
         "direction": 0,
-        "message": "1.5m先。進行方向です。",
-        "message_en": "1.5 meters ahead. Direction of travel.",
-        "message_pron": "1.5メートル先。進行方向です。",
+        "message": "%@先。進行方向です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 1.5,
     }]
 },
 {
@@ -1169,9 +1207,10 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "1.5m先。進行方向です。",
-        "message_en": "1.5 meters ahead. Direction of travel.",
-        "message_pron": "1.5メートル先。進行方向です。",
+        "message": "%@先。進行方向です。",
+        "message_en": "%@ ahead. Direction of travel.",
+        "message_pron": "%@先。進行方向です。",
+        "internal_distance" : 1.5,
     }]
 },
 {
@@ -1196,7 +1235,7 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "地球の今をみる\n\n今、地球環境の悪化が心配されています。地球の歴史は46億年。あなたにとって、現在の地球はどのような状態なのでしょうか？\n\n奇跡の1万年\n\n地球は誕生以来、激しい変化をくり返してきました。\nそのなかで過去1万年のあいだは、とても安定した気候が続いています。\nその気候のおかげで、私たち人類は文明を発展させることができました。",
+        "message": "地球の今をみる\n今、地球環境の悪化が心配されています。地球の歴史は46億年。あなたにとって、現在の地球はどのような状態なのでしょうか？\n奇跡の1万年\n地球は誕生以来、激しい変化をくり返してきました。\nそのなかで過去1万年のあいだは、とても安定した気候が続いています。\nその気候のおかげで、私たち人類は文明を発展させることができました。",
         "message_en": "Watching the Present Earth.",
         "message_pron": "地球の今をみる\n\n今、地球環境の悪化が心配されています。地球の歴史は46億年。あなたにとって、現在の地球はどのような状態なのでしょうか？\n\n奇跡の1万年\n\n地球は誕生以来、激しい変化をくり返してきました。\nそのなかで過去1万年のあいだは、とても安定した気候が続いています。\nその気候のおかげで、私たち人類は文明を発展させることができました。",
     },
@@ -1210,7 +1249,7 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "本質をとらえる\n\nこの1万年のあいだ奇跡的に気候が安定している地球。\nしかし今、私たちは急激な環境変化に直面しています。\nこの変化は何によるのでしょうか?\n\n循環という地球のしくみ\n\n安定した気候のもとで、「私たち人間や他の生物の活動を支えてきたのは、地球がもっている循環というしくみです。\n地球上では、すべての生物がさまざまな物質とエネルギーのやりとりによってつながっています。\n\n循環を乱す人間の活動\n\n今、私たち人間の活動によって、循環が滞ったり、とぎれたりしています。その結果、さまざまな問題が生じています。",
+        "message": "本質をとらえる\nこの1万年のあいだ奇跡的に気候が安定している地球。\nしかし今、私たちは急激な環境変化に直面しています。\nこの変化は何によるのでしょうか?\n\n循環という地球のしくみ\n安定した気候のもとで、「私たち人間や他の生物の活動を支えてきたのは、地球がもっている循環というしくみです。\n地球上では、すべての生物がさまざまな物質とエネルギーのやりとりによってつながっています。\n\n循環を乱す人間の活動\n\n今、私たち人間の活動によって、循環が滞ったり、とぎれたりしています。その結果、さまざまな問題が生じています。",
         "message_en": "",
         "message_pron":        "本質をとらえる\n\nこの1万年のあいだ奇跡的に気候が安定している地球。\nしかし今、私たちは急激な環境変化に直面しています。\nこの変化は何によるのでしょうか?\n\n循環という地球の'しくみ'\n\n安定した気候のもとで、「私たち人間や他の生物の活動を支えてきたのは、地球がもっている循環という'しくみ'です。\n地球上では、すべての生物がさまざまな物質とエネルギーのやりとりによってつながっています。\n\n循環を乱す人間の活動\n\n今、私たち人間の活動によって、循環が滞ったり、とぎれたりしています。その結果、さまざまな問題が生じています。",
     },
@@ -1224,9 +1263,9 @@
     "description": {
         "short_distance": 0,
         "long_distance": 2,
-        "message": "未来を描く\n\nこれからも地球で暮らしつづけるために、私たちは社会にどのようなしくみをつくればよいのでしょうか？そのために、どのような科学技術が必要なのでしょうか？\n",
+        "message": "未来を描く\nこれからも地球で暮らしつづけるために、私たちは社会にどのようなしくみをつくればよいのでしょうか？そのために、どのような科学技術が必要なのでしょうか？",
         "message_en": "",
-        "message_pron": "未来を描く\n\nこれからも地球で暮らしつづけるために、私たちは社会にどのような'しくみ'をつくればよいのでしょうか？そのために、どのような科学技術が必要なのでしょうか？\n",
+        "message_pron": "未来を描く\n\nこれからも地球で暮らしつづけるために、私たちは社会にどのような'しくみ'をつくればよいのでしょうか？そのために、どのような科学技術が必要なのでしょうか？",
     },
 },
 {
@@ -1238,9 +1277,9 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "循環するものづくり\n\n私たちは石油や金属などの地下資源を原料にして、ものをつくっては捨てています。しかし、このような一方向のものの流れは、いずれ止まってしまいます。\n\nものづくりを続けるためには、すでに自然界で循環している生物資源を、さまざまな原料にすることが考えられます。また、地下資源は社会のなかで循環させていくしくみが必要です。\n",
+        "message": "循環するものづくり\n私たちは石油や金属などの地下資源を原料にして、ものをつくっては捨てています。しかし、このような一方向のものの流れは、いずれ止まってしまいます。\nものづくりを続けるためには、すでに自然界で循環している生物資源を、さまざまな原料にすることが考えられます。また、地下資源は社会のなかで循環させていくしくみが必要です。",
         "message_en": "",
-        "message_pron": "循環するものづくり\n\n私たちは石油や金属などの地下資源を原料にして、ものをつくっては捨てています。しかし、このような一方向のものの流れは、いずれ止まってしまいます。\n\nものづくりを続けるためには、すでに自然界で循環している生物資源を、さまざまな原料にすることが考えられます。また、地下資源は社会のなかで循環させていく'しくみ'が必要です。\n",
+        "message_pron": "循環するものづくり\n\n私たちは石油や金属などの地下資源を原料にして、ものをつくっては捨てています。しかし、このような一方向のものの流れは、いずれ止まってしまいます。\n\nものづくりを続けるためには、すでに自然界で循環している生物資源を、さまざまな原料にすることが考えられます。また、地下資源は社会のなかで循環させていく'しくみ'が必要です。",
     },
 },
 {
@@ -1252,7 +1291,7 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "畑で育てるプラスチック\n\nプラスチックは石油からつくられるものと、決まっているわけではありません。プラスチックを植物につくらせる研究が行われています。\n\n植物のものづくり\n\n植物は二酸化炭素と水を原料に、太陽光エネルギーを使って自らの体をつくり出すしくみをもっています。\n植物にプラスチックをつくらせることができれば、使い終わったあとは二酸化炭素と水に戻せるので、資源は循環します。\n\n植物にプラスチックをつくらせる\n\n生物は、体内でさまざまな物質をつくっています。\nある種の微生物はプラスチックをつくります。この機能を改良するとともに、微生物から植物に移す研究が行われています。\n\n未来の農作物\n\n農業にプラスチック生産という新しい役割が加わろうとしています。限られた農地を有効に使うために、ひとつの植物から食料、燃料、材料を同時に収穫することも考えられるでしょう。",
+        "message": "畑で育てるプラスチック\nプラスチックは石油からつくられるものと、決まっているわけではありません。プラスチックを植物につくらせる研究が行われています。\n\n植物のものづくり\n\n植物は二酸化炭素と水を原料に、太陽光エネルギーを使って自らの体をつくり出すしくみをもっています。\n植物にプラスチックをつくらせることができれば、使い終わったあとは二酸化炭素と水に戻せるので、資源は循環します。\n\n植物にプラスチックをつくらせる\n\n生物は、体内でさまざまな物質をつくっています。\nある種の微生物はプラスチックをつくります。この機能を改良するとともに、微生物から植物に移す研究が行われています。\n\n未来の農作物\n\n農業にプラスチック生産という新しい役割が加わろうとしています。限られた農地を有効に使うために、ひとつの植物から食料、燃料、材料を同時に収穫することも考えられるでしょう。",
         "message_en": "",
         "message_pron": "畑で育てるプラスチック\n\nプラスチックは石油からつくられるものと、決まっているわけではありません。プラスチックを植物につくらせる研究が行われています。\n\n植物のものづくり\n\n植物は二酸化炭素と水を原料に、太陽光エネルギーを使って自らの体をつくり出す'しくみ'をもっています。\n植物にプラスチックをつくらせることができれば、使い終わったあとは二酸化炭素と水に戻せるので、資源は循環します。\n\n植物にプラスチックをつくらせる\n\n生物は、体内でさまざまな物質をつくっています。\nあるシュの微生物はプラスチックをつくります。この機能を改良するとともに、微生物から植物に移す研究が行われています。\n\n未来の農作物\n\n農業にプラスチック生産という新しい役割が加わろうとしています。限られた農地を有効に使うために、ひとつの植物から食料、燃料、材料を同時に収穫することも考えられるでしょう。",
 
@@ -1267,9 +1306,9 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "木から始まる新しい工業\n\n木は、私たちが使いこなせていなかった隠れた能力をもっています。将来、石油に代わって多くの製品を、木からつくれるようになるかもしれません。\n\n分子レベルで木を見る\n\n私たちはこれまで木を、家具などの木材として主に利用してきました。しかし、ミクロのスケールで見えてくる分子の機能を使いこなせていませんでした。木の複雑な分子を解きほぐすことで、さまざまな原料を生み出すことができます。\n\n自然にならって木を使う\n\n自然界では、木の分子はさまざまな生物によって何度もくり返して利用されています。\n\n自然界にならい、木からつくった原料を形を変えながらくり返し利用する、新しい工業が提案されています。\n",
+        "message": "木から始まる新しい工業\n木は、私たちが使いこなせていなかった隠れた能力をもっています。将来、石油に代わって多くの製品を、木からつくれるようになるかもしれません。\n分子レベルで木を見る\n\n私たちはこれまで木を、家具などの木材として主に利用してきました。しかし、ミクロのスケールで見えてくる分子の機能を使いこなせていませんでした。木の複雑な分子を解きほぐすことで、さまざまな原料を生み出すことができます。\n自然にならって木を使う\n自然界では、木の分子はさまざまな生物によって何度もくり返して利用されています。\n自然界にならい、木からつくった原料を形を変えながらくり返し利用する、新しい工業が提案されています。",
         "message_en": "",
-        "message_pron": "木から始まる新しい工業\n\n木は、私たちが使いこなせていなかった隠れた能力をもっています。将来、石油に代わって多くの製品を、木からつくれるようになるかもしれません。\n\n分子レベルで木を見る\n\n私たちはこれまで木を、家具などの木材として主に利用してきました。しかし、ミクロのスケールで見えてくる分子の機能を使いこなせていませんでした。木の複雑な分子を解きほぐすことで、さまざまな原料を生み出すことができます。\n\n自然にならって木を使う\n\n自然界では、木の分子はさまざまな生物によって何度もくり返して利用されています。\n\n自然界にならい、木からつくった原料を形を変えながらくり返し利用する、新しい工業が提案されています。\n",
+        "message_pron": "木から始まる新しい工業\n\n木は、私たちが使いこなせていなかった隠れた能力をもっています。将来、石油に代わって多くの製品を、木からつくれるようになるかもしれません。\n\n分子レベルで木を見る\n\n私たちはこれまで木を、家具などの木材として主に利用してきました。しかし、ミクロのスケールで見えてくる分子の機能を使いこなせていませんでした。木の複雑な分子を解きほぐすことで、さまざまな原料を生み出すことができます。\n\n自然にならって木を使う\n\n自然界では、木の分子はさまざまな生物によって何度もくり返して利用されています。\n\n自然界にならい、木からつくった原料を形を変えながらくり返し利用する、新しい工業が提案されています。",
     },
 },
 {
@@ -1281,7 +1320,7 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "資源がめぐる社会\n\n金属は、石油と同じ限りある地下資源。掘って捨ててをくり返すのではなく、社会のなかで循環させることが求められています。\n\n金の指輪の重さ\n\n電化製品や自動車など、今の私たちの生活は、金属なしには考えられません。しかし、この便利さの背後で、環境破壊が生じることがあります。わずかな金属を得るために、大量の土石が自然環境から削りとられているのです。\n\n都市に眠る金属資源\n\n現在の日本には、すでに製品やごみとして膨大な量の金属が蓄えられています。その総量は、それぞれの金属を最も多く輸出している国の埋蔵量に匹敵するほどです。これら都市のなかの金属を原料にすれば、自然環境を破壊せずに製品をつくりつづけることができるでしょう。\n\n情報がものの流れを変える\n\n製品やごみとして社会に散らばってしまった金属資源を、再び集めて利用するためには、製品を見守りつづけるしくみが必要でしょう。リペア、リュース、リサイクルを助ける情報技術が注目されています。",
+        "message": "資源がめぐる社会\n金属は、石油と同じ限りある地下資源。掘って捨ててをくり返すのではなく、社会のなかで循環させることが求められています。\n金の指輪の重さ\n電化製品や自動車など、今の私たちの生活は、金属なしには考えられません。しかし、この便利さの背後で、環境破壊が生じることがあります。わずかな金属を得るために、大量の土石が自然環境から削りとられているのです。\n都市に眠る金属資源\n現在の日本には、すでに製品やごみとして膨大な量の金属が蓄えられています。その総量は、それぞれの金属を最も多く輸出している国の埋蔵量に匹敵するほどです。これら都市のなかの金属を原料にすれば、自然環境を破壊せずに製品をつくりつづけることができるでしょう。\n情報がものの流れを変える\n製品やごみとして社会に散らばってしまった金属資源を、再び集めて利用するためには、製品を見守りつづけるしくみが必要でしょう。リペア、リュース、リサイクルを助ける情報技術が注目されています。",
         "message_en": "",
         "message_pron": "資源がめぐる社会\n\n金属は、石油と同じ限りある地下資源。掘って捨ててをくり返すのではなく、社会のなかで循環させることが求められています。\n\nキンの指輪の重さ\n\n電化製品や自動車など、今の私たちの生活は、金属なしには考えられません。しかし、この便利さの背後で、環境破壊が生じることがあります。わずかな金属を得るために、大量の土石が自然環境から削りとられているのです。\n\n都市に眠る金属資源\n\n現在の日本には、すでに製品やごみとして膨大な量の金属が蓄えられています。その総量は、それぞれの金属を最も多く輸出している国の埋蔵量に匹敵するほどです。これら都市のなかの金属を原料にすれば、自然環境を破壊せずに製品をつくりつづけることができるでしょう。\n\n情報がものの流れを変える\n\n製品やごみとして社会に散らばってしまった金属資源を、再び集めて利用するためには、製品を見守りつづける'しくみ'が必要でしょう。リペア、リュース、リサイクルを助ける情報技術が注目されています。",
     },
@@ -1295,7 +1334,7 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "循環を乱さないエネルギー\n\n私たちの生活を支えているエネルギー。そのほとんどは石油や石炭、天然ガスから得られています。\nしかし、これらの化石エネルギー資源には限りがあり、また燃やすことで、循環しきれないほど大量の二酸化炭素が生じます。\n枯渇しない、そして二酸化炭素を出さないエネルギーへの転換が必要です。",
+        "message": "循環を乱さないエネルギー\n私たちの生活を支えているエネルギー。そのほとんどは石油や石炭、天然ガスから得られています。\nしかし、これらの化石エネルギー資源には限りがあり、また燃やすことで、循環しきれないほど大量の二酸化炭素が生じます。\n枯渇しない、そして二酸化炭素を出さないエネルギーへの転換が必要です。",
         "message_en": "",
         "message_pron": "循環を乱さないエネルギー\n\n私たちの生活を支えているエネルギー。そのほとんどは石油や石炭、天然ガスから得られています。\nしかし、これらの化石エネルギー資源には限りがあり、また燃やすことで、循環しきれないほど大量の二酸化炭素が生じます。\n枯渇しない、そして二酸化炭素を出さないエネルギーへの転換が必要です。",
     },
@@ -1309,7 +1348,7 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": " どこにでもあるエネルギー\n\n地上には太陽光が降りそそぎ、地下には高温のマグマが存在しています。太陽と地球がある限り枯渇せず、どこにでもある自然エネルギーの活用が望まれています。\n\n集めれば膨大\n\n自然エネルギーは、地球上に薄く広く存在しています。\nそれらを集めれば、世界で今使われているエネルギー量の1万倍にもおよびます。\n\n自然エネルギーをつかむ\n\n光や熱、流れといった自然のエネルギーは扱いにくいので、電気や燃料など使いやすい形に変える技術が必要です。\nまた、いつでもどこでも使えるように、エネルギーをためる工夫も大事です。\n\n未来へのスイッチ\n\n自然エネルギーの普及のためには、技術の開発と、新しい社会のしくみが必要です。",
+        "message": " どこにでもあるエネルギー\n地上には太陽光が降りそそぎ、地下には高温のマグマが存在しています。太陽と地球がある限り枯渇せず、どこにでもある自然エネルギーの活用が望まれています。\n集めれば膨大\n自然エネルギーは、地球上に薄く広く存在しています。\nそれらを集めれば、世界で今使われているエネルギー量の1万倍にもおよびます。\n自然エネルギーをつかむ\n光や熱、流れといった自然のエネルギーは扱いにくいので、電気や燃料など使いやすい形に変える技術が必要です。\nまた、いつでもどこでも使えるように、エネルギーをためる工夫も大事です。\n未来へのスイッチ\n自然エネルギーの普及のためには、技術の開発と、新しい社会のしくみが必要です。",
         "message_en": "",
         "message_pron": "どこにでもあるエネルギー\n\n地上には太陽光が降りそそぎ、地下には高温のマグマが存在しています。太陽と地球がある限り枯渇せず、どこにでもある自然エネルギーの活用が望まれています。\n\n集めれば膨大\n\n自然エネルギーは、地球上に薄く広く存在しています。\nそれらを集めれば、世界で今使われているエネルギー量の1万倍にもおよびます。\n\n自然エネルギーをつかむ\n\n光や熱、流れといった自然のエネルギーは扱いにくいので、電気や燃料など使いやすい形に変える技術が必要です。\nまた、いつでもどこでも使えるように、エネルギーをためる工夫も大事です。\n\n未来へのスイッチ\n\n自然エネルギーの普及のためには、技術の開発と、新しい社会の'しくみ'が必要です。",
         "message_exception": "自然エネルギー利用の未来をひらく、最先端のとり組みを紹介します。",

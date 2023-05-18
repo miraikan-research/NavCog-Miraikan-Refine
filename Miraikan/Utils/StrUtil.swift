@@ -28,21 +28,6 @@ import Foundation
 
 class StrUtil: NSObject {
 
-    // 距離を簡略化数値にする。1m以下はcmで四捨五入の数値
-    static public func getMeterString(distance: Double) -> String {
-        if distance < 0.95 {
-            let distance = Int(round((distance + 0.05) * 10) * 10)
-            if distance == 100 {
-                return String(format: NSLocalizedString("unit_meter", tableName: "BlindView", comment: ""), 1)
-            } else {
-                return String(format: NSLocalizedString("unit_centimeter", tableName: "BlindView", comment: ""), distance)
-            }
-        } else {
-            let distance = Int(round(distance))
-            return String(format: NSLocalizedString("unit_meter", tableName: "BlindView", comment: ""), distance)
-        }
-    }
-
     static public func distanceString(distance: Double) -> String {
         
         let isFeet = UserDefaults.standard.string(forKey: "distance_unit") ?? "unknown" == "unit_feet"
