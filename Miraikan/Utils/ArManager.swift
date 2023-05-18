@@ -78,27 +78,53 @@ final public class ArManager: NSObject {
 
         if let guideToHere = arUcoModel.guideToHere,
            guideToHere.isDistance(distance) || isDebug {
-            setPhonation(phonationModel, strParam: meterString, guidance: guideToHere)
+            
+            if let internalDistance = guideToHere.internalDistance {
+                let internalString = StrUtil.distanceString(distance: internalDistance)
+                setPhonation(phonationModel, strParam: internalString, guidance: guideToHere)
+            } else {
+                setPhonation(phonationModel, strParam: meterString, guidance: guideToHere)
+            }
         }
         
         if let description = arUcoModel.description {
             if description.isDistance(distance) || isDebug {
                 if let descriptionTitle = arUcoModel.descriptionTitle,
                    descriptionTitle.isDistance(distance) {
-                    setPhonation(phonationModel, strParam: meterString, guidance: descriptionTitle)
+                    if let internalDistance = descriptionTitle.internalDistance {
+                        let internalString = StrUtil.distanceString(distance: internalDistance)
+                        setPhonation(phonationModel, strParam: internalString, guidance: descriptionTitle)
+                    } else {
+                        setPhonation(phonationModel, strParam: meterString, guidance: descriptionTitle)
+                    }
                 }
-                setPhonation(phonationModel, strParam: meterString, guidance: description)
+                if let internalDistance = description.internalDistance {
+                    let internalString = StrUtil.distanceString(distance: internalDistance)
+                    setPhonation(phonationModel, strParam: internalString, guidance: description)
+                } else {
+                    setPhonation(phonationModel, strParam: meterString, guidance: description)
+                }
                 phonationModel.explanation = true
             }
 
             if let nextGuide = arUcoModel.nextGuide,
                nextGuide.isDistance(distance) || isDebug {
-                setPhonation(phonationModel, strParam: meterString, guidance: nextGuide)
+                if let internalDistance = nextGuide.internalDistance {
+                    let internalString = StrUtil.distanceString(distance: internalDistance)
+                    setPhonation(phonationModel, strParam: internalString, guidance: nextGuide)
+                } else {
+                    setPhonation(phonationModel, strParam: meterString, guidance: nextGuide)
+                }
             }
 
             if let guideFromHere = arUcoModel.guideFromHere,
                guideFromHere.isDistance(distance) || isDebug {
-                setPhonation(phonationModel, strParam: meterString, guidance: guideFromHere)
+                if let internalDistance = guideFromHere.internalDistance {
+                    let internalString = StrUtil.distanceString(distance: internalDistance)
+                    setPhonation(phonationModel, strParam: internalString, guidance: guideFromHere)
+                } else {
+                    setPhonation(phonationModel, strParam: meterString, guidance: guideFromHere)
+                }
             }
         }
 
@@ -138,7 +164,13 @@ final public class ArManager: NSObject {
                         if let targetDirection = flatGuide.direction {
                             let directionStr = getDirectionString(direction: targetDirection, currentDirection: direction)
                             phonationModel.append(str: directionStr.string, phon: directionStr.phonation, isDelimiter: false)
-                            setPhonation(phonationModel, guidance: flatGuide)
+
+                            if let internalDistance = flatGuide.internalDistance {
+                                let internalString = StrUtil.distanceString(distance: internalDistance)
+                                setPhonation(phonationModel, strParam: internalString, guidance: flatGuide)
+                            } else {
+                                setPhonation(phonationModel, guidance: flatGuide)
+                            }
                         }
                     }
                 }
