@@ -684,7 +684,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Wj-Dx-y5Q">
-                                <rect key="frame" x="0.0" y="247" width="375" height="40"/>
+                                <rect key="frame" x="20" y="255.5" width="335" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="vPM-CG-LZ8"/>
                                 </constraints>
@@ -693,7 +693,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sVy-i3-VPD">
-                                <rect key="frame" x="164" y="307" width="47" height="53"/>
+                                <rect key="frame" x="164" y="315.5" width="47" height="36"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
                                 <state key="normal" title="Retry"/>
                                 <connections>
@@ -701,7 +701,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Miraikan_logo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qwe-Ed-7Ie">
-                                <rect key="frame" x="27.5" y="100" width="320" height="80"/>
+                                <rect key="frame" x="27.5" y="120" width="320" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="293-DW-mrm"/>
                                     <constraint firstAttribute="width" constant="320" id="t8X-KO-I0y"/>
@@ -712,13 +712,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="sVy-i3-VPD" firstAttribute="top" secondItem="4Wj-Dx-y5Q" secondAttribute="bottom" constant="20" id="7rc-KN-oaG"/>
-                            <constraint firstItem="4Wj-Dx-y5Q" firstAttribute="centerY" secondItem="pa2-LL-8Qj" secondAttribute="centerY" multiplier="0.8" id="B48-N9-5S2"/>
                             <constraint firstItem="qwe-Ed-7Ie" firstAttribute="centerX" secondItem="pa2-LL-8Qj" secondAttribute="centerX" id="EN7-sA-aic"/>
                             <constraint firstItem="sVy-i3-VPD" firstAttribute="centerX" secondItem="7Dg-8l-xiD" secondAttribute="centerX" id="Nv1-hn-fWb"/>
                             <constraint firstItem="sVy-i3-VPD" firstAttribute="centerY" secondItem="pa2-LL-8Qj" secondAttribute="centerY" id="STr-mM-H5U"/>
-                            <constraint firstItem="4Wj-Dx-y5Q" firstAttribute="leading" secondItem="7Dg-8l-xiD" secondAttribute="leading" id="SjI-WP-gew"/>
-                            <constraint firstItem="7Dg-8l-xiD" firstAttribute="trailing" secondItem="4Wj-Dx-y5Q" secondAttribute="trailing" id="fCa-Nz-D01"/>
-                            <constraint firstItem="qwe-Ed-7Ie" firstAttribute="top" secondItem="7Dg-8l-xiD" secondAttribute="top" constant="100" id="goG-JR-N0k"/>
+                            <constraint firstItem="4Wj-Dx-y5Q" firstAttribute="leading" secondItem="7Dg-8l-xiD" secondAttribute="leading" constant="20" id="SjI-WP-gew"/>
+                            <constraint firstItem="7Dg-8l-xiD" firstAttribute="trailing" secondItem="4Wj-Dx-y5Q" secondAttribute="trailing" constant="20" id="fCa-Nz-D01"/>
+                            <constraint firstItem="qwe-Ed-7Ie" firstAttribute="top" secondItem="pa2-LL-8Qj" secondAttribute="top" constant="120" id="goG-JR-N0k"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="cFU-yk-gKu"/>
@@ -753,14 +752,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnb-EZ-XdC">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mnb-EZ-XdC">
                                 <rect key="frame" x="16" y="277" width="343" height="26.5"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Miraikan_logo" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m0W-UY-Bjh">
-                                <rect key="frame" x="27.5" y="100" width="320" height="80"/>
+                                <rect key="frame" x="27.5" y="120" width="320" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="3J3-p0-eUl"/>
                                     <constraint firstAttribute="height" constant="80" id="oc0-vu-Q8R"/>
@@ -770,7 +769,7 @@
                         <viewLayoutGuide key="safeArea" id="6xl-3G-k0L"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="m0W-UY-Bjh" firstAttribute="top" secondItem="6xl-3G-k0L" secondAttribute="top" constant="100" id="3lO-gQ-FKE"/>
+                            <constraint firstItem="m0W-UY-Bjh" firstAttribute="top" secondItem="Xfi-Qd-XLF" secondAttribute="top" constant="120" id="3lO-gQ-FKE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="dD4-16-dlh" secondAttribute="trailing" constant="18" id="6Se-88-BPS"/>
                             <constraint firstItem="dD4-16-dlh" firstAttribute="leading" secondItem="Xfi-Qd-XLF" secondAttribute="leadingMargin" constant="18" id="DtF-55-YL1"/>
                             <constraint firstItem="m0W-UY-Bjh" firstAttribute="centerX" secondItem="Xfi-Qd-XLF" secondAttribute="centerX" id="QMp-eh-mMU"/>
