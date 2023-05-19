@@ -49,10 +49,10 @@ class VoiceGuideButton: UIButton {
     }
 
     private func setupDesign() {
-        self.backgroundColor = .white
+        self.backgroundColor = .systemBackground
         self.layer.cornerRadius = 30
 
-        self.layer.borderColor = UIColor(red: 105/255, green: 0, blue: 50/255, alpha: 1).cgColor
+        self.layer.borderColor = UITraitCollection.current.userInterfaceStyle == UIUserInterfaceStyle.dark ? UIColor(red: 178/255, green: 34/255, blue: 24/255, alpha: 1).cgColor : UIColor(red: 105/255, green: 0, blue: 50/255, alpha: 1).cgColor
         self.layer.borderWidth = 6.0
 
         self.layer.shadowColor = UIColor.black.cgColor
@@ -62,7 +62,7 @@ class VoiceGuideButton: UIButton {
 
         self.titleLabel?.numberOfLines = 0
 
-        self.setTitleColor(.black, for: .normal)
+        self.setTitleColor(.label, for: .normal)
         self.setTitle(NSLocalizedString("Voice Guide Off", comment: ""), for: .normal)
         self.setTitle(NSLocalizedString("Voice Guide On", comment: ""), for: .selected)
         self.titleLabel?.font = UIFont.boldSystemFont(ofSize: 11)
@@ -70,6 +70,7 @@ class VoiceGuideButton: UIButton {
 
         self.setImage(UIImage(named: "icons8-mute"), for: .normal)
         self.setImage(UIImage(named: "icons8-sound"), for: .selected)
+        self.tintColor = .label
         
         self.imageEdgeInsets = UIEdgeInsets(top: 0, left: 30, bottom: 30, right: 0)
         self.titleEdgeInsets = UIEdgeInsets(top: 30, left: -20, bottom: 0, right: 0)
