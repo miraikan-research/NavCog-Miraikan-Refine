@@ -101,9 +101,10 @@ class SliderCell: UITableViewCell {
         titleLabel.text = model.title
         titleLabel.sizeToFit()
         let val = model.defaultValue
-        valueLabel.text = String(format: model.format,
-                               round(val) == val ? Int(val) : val)
-        let txtVal = "\(model.desc) \(valueLabel.text!)"
+        let valueStr = String(format: model.format,
+                              round(val) == val ? Int(val) : val)
+        valueLabel.text = valueStr
+        let txtVal = "\(model.desc) \(valueStr)"
 //        valueLabel.accessibilityLabel = "label: \(txtVal)"
         self.model = model
         slider.minimumValue = model.min

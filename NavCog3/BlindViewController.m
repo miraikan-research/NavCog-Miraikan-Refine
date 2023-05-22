@@ -1066,6 +1066,10 @@
     });
 }
 
+- (void)navigationFinished {
+    
+}
+
 - (void)webViewControllerClosed:(WebViewController *)controller
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:REQUEST_NAVIGATION_RESUME object:nil];
