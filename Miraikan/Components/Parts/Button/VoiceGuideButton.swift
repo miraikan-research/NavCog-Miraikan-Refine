@@ -52,7 +52,7 @@ class VoiceGuideButton: UIButton {
         self.backgroundColor = .systemBackground
         self.layer.cornerRadius = 30
 
-        self.layer.borderColor = UITraitCollection.current.userInterfaceStyle == UIUserInterfaceStyle.dark ? UIColor(red: 178/255, green: 34/255, blue: 24/255, alpha: 1).cgColor : UIColor(red: 105/255, green: 0, blue: 50/255, alpha: 1).cgColor
+        self.layer.borderColor = UIColor.mapButtonBorderExchangeColor.cgColor
         self.layer.borderWidth = 6.0
 
         self.layer.shadowColor = UIColor.black.cgColor

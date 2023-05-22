@@ -75,7 +75,7 @@ extension ARMessageListView {
         titleHeaderLabel.textColor = .label
         titleHeaderLabel.lineBreakMode = .byTruncatingTail
         
-        headerView.backgroundColor = UITraitCollection.current.userInterfaceStyle == UIUserInterfaceStyle.dark ? UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1) : UIColor(red: 232/255, green: 255/255, blue: 255/255, alpha: 1)     // LightCyan    #E0FFFF    224,255,255
+        headerView.backgroundColor = .arListBackgroundExchangeColor
         headerView.addSubview(titleHeaderLabel)
         self.addSubview(headerView)
     }
@@ -85,7 +85,7 @@ extension ARMessageListView {
         tableView.separatorStyle = .none
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UITraitCollection.current.userInterfaceStyle == UIUserInterfaceStyle.dark ? UIColor(red: 32/255, green: 32/255, blue: 32/255, alpha: 1) : UIColor(red: 232/255, green: 255/255, blue: 255/255, alpha: 1)     // LightCyan    #E0FFFF    224,255,255
+        tableView.backgroundColor = .arListBackgroundExchangeColor
         tableView.backgroundView = UIView()
         self.addSubview(tableView)
     }
