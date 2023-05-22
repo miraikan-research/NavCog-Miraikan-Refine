@@ -1680,6 +1680,7 @@
 			inputPaths = (
 			);
 			outputPaths = (
+				$SRCROOT/lastcommit.txt,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

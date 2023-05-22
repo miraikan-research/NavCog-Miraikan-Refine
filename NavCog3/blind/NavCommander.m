@@ -183,6 +183,8 @@
                 side = @"RightSide";
             } else if (right) {
                 side = @"LeftSide";
+            } else {
+                side = @"InMiddle";
             }
             side = NSLocalizedStringFromTable(side, @"BlindView", @"");
 
@@ -190,7 +192,7 @@
             NSString *format = fabs(sourceHeight - targetHeight) < 0.1 ? @"FloorChangeActionString3" : @"FloorChangeActionString4";
             format = [format stringByAppendingString:up ? @"Up" : @"Down"];
             
-            string = [NSString stringWithFormat:NSLocalizedStringFromTable(format,@"BlindView",@"") , angle, side, mean, tfloor];//@""
+            string = [NSString stringWithFormat:NSLocalizedStringFromTable(format, @"BlindView", @"") , angle, side, mean, tfloor];
             string = [string stringByAppendingString:NSLocalizedStringFromTable(@"PERIOD", @"BlindView", @"")];
             
             if (nextLinkType == LINK_TYPE_ESCALATOR && [flags count] > 0) {
@@ -209,8 +211,10 @@
                     if (flag.backward) {
                         format = [format stringByAppendingString:@"Backward"];
                     }
-                    string = [string stringByAppendingString:NSLocalizedStringFromTable(format, @"BlindView", @"")];
-                    string = [string stringByAppendingString:NSLocalizedStringFromTable(@"PERIOD", @"BlindView", @"")];
+                    if (format != nil) {
+                        string = [string stringByAppendingString:NSLocalizedStringFromTable(format, @"BlindView", @"")];
+                        string = [string stringByAppendingString:NSLocalizedStringFromTable(@"PERIOD", @"BlindView", @"")];
+                    }
                 }
             }
         }
@@ -949,7 +953,7 @@
             nearestPOI = poi;
         }
     }
-    if (minDistance < 10 && !resume) {
+    if (minDistance < 10 && !resume && nearestPOI != nil) {
         [self userIsApproachingToPOI:@{
                                        @"poi": nearestPOI,
                                        @"heading": @(nearestPOI.diffAngleFromUserOrientation)
