@@ -610,9 +610,11 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
 - (void)webView:(HLPWebView *)webView didFinishNavigationStart:(NSTimeInterval)start end:(NSTimeInterval)end from:(NSString *)from to:(NSString *)to
 {
+#if NavCogMiraikan
     if ([self checkDestId]) {
         [self nearArAlert];
     }
+#endif
     destId = nil;
     isNaviStarted = false;
 }
@@ -1386,7 +1388,9 @@ typedef NS_ENUM(NSInteger, ViewState) {
 
 - (void)navigationFinished
 {
+#if NavCogMiraikan
     [self nearArAlert];
+#endif
     destId = nil;
 }
 

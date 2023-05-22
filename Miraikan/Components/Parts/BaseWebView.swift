@@ -66,9 +66,10 @@ class BaseWebView: BaseView, WKNavigationDelegate {
 
     // MARK: Public Customized Functions
     public func loadContent(_ address: String) {
-        let url = URL(string: address)
-        let req = URLRequest(url: url!)
-        webView.load(req)
+        if let url = URL(string: address) {
+            let req = URLRequest(url: url)
+            webView.load(req)
+        }
     }
 
     public func loadDetail(html: String) {
