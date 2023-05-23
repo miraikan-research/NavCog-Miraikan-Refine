@@ -76,8 +76,14 @@ static NavSound *instance;
     BOOL for_bone_conduction_headset = [[NSUserDefaults standardUserDefaults] boolForKey:@"for_bone_conduction_headset"];
     
     void(^loadSound)(NSString*,SystemSoundID*) = ^(NSString *name, SystemSoundID *soundIDRef) {
-        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"file:///System/Library/Audio/UISounds/%@", name]];
-        AudioServicesCreateSystemSoundID((__bridge_retained CFURLRef)url,soundIDRef);
+        NSString *path = [NSString stringWithFormat:@"file:///System/Library/Audio/UISounds/%@", name];
+        NSFileManager *fileManager = [NSFileManager defaultManager];
+        BOOL isDir;
+        BOOL fileExists = [fileManager fileExistsAtPath:path isDirectory:&isDir];
+        if (fileExists && isDir) {
+            NSURL *url = [NSURL URLWithString:path];
+            AudioServicesCreateSystemSoundID((__bridge CFURLRef _Nonnull)url, soundIDRef);
+        }
     };
     
     if (for_bone_conduction_headset) {
