@@ -72,7 +72,8 @@
 @property (nonatomic, readonly) NSString *type;
 @property (nonatomic, readonly) NSArray *coordinates;
 
-- (void) updateCoordinates:(NSArray*)coordinates;
+- (void)updateType:(NSString *)type;
+- (void)updateCoordinates:(NSArray*)coordinates;
 - (instancetype)initWithLocations:(NSArray*) locations;
 - (HLPLocation*)point;
 - (NSArray<HLPLocation*>*)points;

@@ -43,7 +43,12 @@
     return [NSString stringWithFormat:@"coordinates:%@, type:%@", _coordinates, _type];
 }
 
--(void)updateCoordinates:(NSArray *)coordinates
+- (void)updateType:(NSString *)type
+{
+    _type = type;
+}
+
+- (void)updateCoordinates:(NSArray *)coordinates
 {
     _coordinates = coordinates;
 }
@@ -1123,12 +1128,9 @@ static NSRegularExpression *patternHLPPOIFlags;
             [coords removeObjectAtIndex:i+1];
         }
     }
-    
-    _geometry = [[HLPGeometry alloc] initWithDictionary:
-                 @{
-                   @"type":([coords count] == 1) ? @"Point" : @"LineString",
-                   @"coordinates":([coords count] == 1) ? coords[0] : coords
-                   } error:nil];
+
+    [_geometry updateType:[coords count] == 1 ? @"Point" : @"LineString"];
+    [_geometry updateCoordinates:[coords count] == 1 ? coords[0] : coords];
     
     _length = link1.length + link2.length;
     _direction = link1.direction;
