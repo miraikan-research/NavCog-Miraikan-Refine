@@ -1034,7 +1034,7 @@
 - (void)showPOI:(NSString *)contentURL withName:(NSString*)name
 {
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (contentURL == nil && name == nil) {
+        if (contentURL == nil || name == nil) {
             if (showingPage) {
                 [showingPage.navigationController popViewControllerAnimated:YES];
             }

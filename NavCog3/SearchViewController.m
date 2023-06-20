@@ -163,8 +163,8 @@
 
     NavDataStore *nds = [NavDataStore sharedDataStore];
     if ([[nds destinations] count] == 0) {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                       message:@"No destinations"
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Error", @"")
+                                                                       message:NSLocalizedStringFromTable(@"No destinations", @"BlindView", @"")
                                                                 preferredStyle:UIAlertControllerStyleAlert];
         
         [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"OK", @"BlindView", @"")

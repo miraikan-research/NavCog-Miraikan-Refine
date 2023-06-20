@@ -43,7 +43,12 @@
     return [NSString stringWithFormat:@"coordinates:%@, type:%@", _coordinates, _type];
 }
 
--(void)updateCoordinates:(NSArray *)coordinates
+- (void)updateType:(NSString *)type
+{
+    _type = type;
+}
+
+- (void)updateCoordinates:(NSArray *)coordinates
 {
     _coordinates = coordinates;
 }
@@ -357,7 +362,7 @@
 + (NSValueTransformer *)nodeHeightJSONTransformer {
     return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *height, BOOL *success, NSError *__autoreleasing *error) {
         double h = [height doubleValue];
-        return @((h == 0) ? h = -999 : (h >= 1) ? h - 1 : h);
+        return @((h == 0) ? -999 : (h >= 1) ? h - 1 : h);
     } reverseBlock:^id(NSNumber *height, BOOL *success, NSError *__autoreleasing *error) {
         double h = [height doubleValue];
         if (h == -999) { return @""; }
@@ -663,6 +668,9 @@ static NSRegularExpression *patternHLPPOIFlags;
         pos = [pos stringByAppendingString:@"Lower"];
     }
     
+    if (pos == nil) {
+        return @"";
+    }
     NSString *str = NSLocalizedStringFromTable(pos, @"HLPGeoJSON", @"");
     if (brail) {
         str = [NSString stringWithFormat:NSLocalizedStringFromTable(@"ElvButtonWithBraille", @"HLPGeoJSON", @""), str];
@@ -1113,19 +1121,16 @@ static NSRegularExpression *patternHLPPOIFlags;
         }
     }
     
-    for(long i = [coords count]-2; i>=0; i--) {
+    for (long i = [coords count]-2; i>=0; i--) {
         if ([coords[i][0] doubleValue] == [coords[i+1][0] doubleValue] &&
             [coords[i][1] doubleValue] == [coords[i+1][1] doubleValue]
             ) {
             [coords removeObjectAtIndex:i+1];
         }
     }
-    
-    _geometry = [[HLPGeometry alloc] initWithDictionary:
-                 @{
-                   @"type":([coords count] == 1) ? @"Point" : @"LineString",
-                   @"coordinates":([coords count] == 1) ? coords[0] : coords
-                   } error:nil];
+
+    [_geometry updateType:[coords count] == 1 ? @"Point" : @"LineString"];
+    [_geometry updateCoordinates:[coords count] == 1 ? coords[0] : coords];
     
     _length = link1.length + link2.length;
     _direction = link1.direction;

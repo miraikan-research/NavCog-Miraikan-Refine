@@ -259,6 +259,9 @@
 }
 
 - (void)manualLocation:(HLPLocation*)loc {
+    if (loc == nil) {
+        return;
+    }
     if ([NavDataStore sharedDataStore].previewMode) {
         [[NavDataStore sharedDataStore] manualLocation:loc];
     } else {

@@ -121,7 +121,7 @@ static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
     UIMessageView *overlay = [[UIMessageView alloc]initWithFrame:CGRectMake(0, 0, w, size)];
 
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, w - size, size)];
-    label.text = @"Log Replaying";
+    label.text = NSLocalizedString(@"Log Replaying", @"");
     label.font = [UIFont fontWithName:@"Courier" size:14];
     label.numberOfLines = 0;
     //[label setTranslatesAutoresizingMaskIntoConstraints:NO];
@@ -160,7 +160,7 @@ static NSMutableDictionary<NSString*, UIView*>* messageViewMap;
     if (url == nil) {
         return;
     }
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Open_with_Safari",@"")
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Open_with_Safari", @"")
                                                                    message:NSLocalizedString(@"Open_with_Safari_Message", @"")
                                                             preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedStringFromTable(@"Cancel", @"BlindView", @"")

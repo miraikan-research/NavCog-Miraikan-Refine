@@ -65,7 +65,7 @@ static I18nStringsTransformer *I18nStringsTransformerInstance;
         return _table[lang];
     }
     //return [NSString stringWithFormat:@"_string_not_found_with_%@", lang];
-    return nil;
+    return @"";
 }
 @end
 
