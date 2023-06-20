@@ -11,7 +11,7 @@
                 "en": "",
                 "ja": ""
             },
-            "hostname": "miraikan.au-syd.mybluemix.net/map",
+            "hostname": "miraikan.12d3pmjoc2ln.au-syd.codeengine.appdomain.cloud/map",
             "config_file_name": "server_config.json"
         }
     ]
