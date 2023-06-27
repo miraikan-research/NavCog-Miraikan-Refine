@@ -120,7 +120,7 @@ static NavDeviceTTS *instance = nil;
 
 - (void)stop:(BOOL)immediate
 {
-    if (isSpeaking) {
+    if (isSpeaking || isProcessing) {
         isSpeaking = NO;
         [speaking removeAllObjects];
         [voice stopSpeakingAtBoundary:immediate ? AVSpeechBoundaryImmediate : AVSpeechBoundaryWord];
@@ -270,7 +270,7 @@ static NavDeviceTTS *instance = nil;
                  quickAnswer:quickAnswer
                        voice:nil
            completionHandler:nil];
-                [self pause: 0.2 * keep];
+                [self pause: 0.2 * delay];
                 text = [text substringFromIndex:i];
                 flag = NO;
                 i = 0;

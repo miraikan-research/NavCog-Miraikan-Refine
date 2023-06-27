@@ -97,8 +97,8 @@ class ARViewController: UIViewController {
         let scene = SCNScene()
         sceneView.scene = scene
 
-        _ = ArUcoManager.shared
-        
+        ArUcoManager.shared.initArUcoModel()
+
         if !UIAccessibility.isVoiceOverRunning {
             AudioManager.shared.setupInitialize()
         }
@@ -237,6 +237,7 @@ extension ARViewController {
             AudioManager.shared.addGuide(voiceModel: VoiceModel(id: phonationModel.explanation ? arUcoModel.id : nil,
                                                                 voice: phonationModel.phonation,
                                                                 message: phonationModel.string,
+                                                                descriptionDetail: arUcoModel.descriptionDetail,
                                                                 priority: 10),
                                          soundEffect: true)
             locationChangedTime = now

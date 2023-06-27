@@ -280,6 +280,12 @@ class NaviSettingController : BaseListController, BaseListDelegate {
 //                                                     desc: NSLocalizedString("AR Same reading interval",
 //                                                                             comment: "AR Same reading interval"))))
 
+        cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("AR Marker Test Data", comment: ""),
+                                                     key: "ARMarkerTestData",
+                                                     isOn: UserDefaults.standard.bool(forKey: "ARMarkerTestData"),
+                                                     isEnabled: nil)))
+
         cellList.append(CellModel(cellId: sliderId,
                                   model: SliderModel(min: 0,
                                                      max: 300,

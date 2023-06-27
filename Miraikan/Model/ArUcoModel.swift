@@ -38,6 +38,7 @@ struct ArUcoModel: Codable {
     var nextGuide: GuidanceModel?
     var descriptionTitle: GuidanceModel?
     var description: GuidanceModel?
+    var descriptionDetail: GuidanceModel?
     var flatGuide: [GuidanceModel]?
     var soundGuide: Float?
     var comment: String?

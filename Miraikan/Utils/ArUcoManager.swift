@@ -50,7 +50,7 @@ final public class ArUcoManager: NSObject {
     }
 
     func initArUcoModel() {
-        if let arUcoList = MiraikanUtil.readJSONFile(filename: "ArUco",
+        if let arUcoList = MiraikanUtil.readJSONFile(filename: UserDefaults.standard.bool(forKey: "ARMarkerTestData") ? "ArUco" : "ArUcoMiraikan",
                                                      type: [ArUcoModel].self) as? [ArUcoModel] {
             self.arUcoList = arUcoList
             

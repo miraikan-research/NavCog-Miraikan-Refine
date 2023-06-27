@@ -299,6 +299,7 @@ NavCogの設定画面から
 "AR stop reading single tap" = "AR読み上げ中断シングルタップ";
 "AR Same reading interval" = "AR同一読み上げ間隔";
 "AR reading interval" = "AR同一読み上げ間隔";
+"AR Marker Test Data" = "ARマーカーテストデータ";
 
 "Playback even in silent mode" = "マナーモードでも再生可能";
 
