@@ -205,9 +205,9 @@
 		E59424FB298CF57900EF2F65 /* WebFloorMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59424F9298CF4C400EF2F65 /* WebFloorMapView.swift */; };
 		E5B12A9C29AC93850075C23C /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAE818E1E41E89C007B50D3 /* CoreBluetooth.framework */; };
 		E5B12A9D29AC93940075C23C /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EAE818E1E41E89C007B50D3 /* CoreBluetooth.framework */; };
+		E5B5CC282A49850E008B2FC4 /* ArUcoMiraikan.json in Resources */ = {isa = PBXBuildFile; fileRef = E5B5CC272A49847B008B2FC4 /* ArUcoMiraikan.json */; };
 		E5B61E3B29823ACD00533B6F /* OpenCVWrapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5B61E3029823ACD00533B6F /* OpenCVWrapper.mm */; };
 		E5B61E3C29823ACE00533B6F /* MarkerWorldTransform.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5B61E3129823ACD00533B6F /* MarkerWorldTransform.mm */; };
-		E5B61E4429823AF500533B6F /* ArUco.json in Resources */ = {isa = PBXBuildFile; fileRef = E5B61E4129823AF500533B6F /* ArUco.json */; };
 		E5B61E4529823AF500533B6F /* SoundEffect02.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5B61E4229823AF500533B6F /* SoundEffect02.mp3 */; };
 		E5B61E4629823AF500533B6F /* SoundEffect01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5B61E4329823AF500533B6F /* SoundEffect01.mp3 */; };
 		E5B61E4D29823B0F00533B6F /* StrUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B61E4829823B0F00533B6F /* StrUtil.swift */; };
@@ -594,6 +594,7 @@
 		E5913CC629C0513500C1B51B /* UIColorExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColorExtension.m; sourceTree = "<group>"; };
 		E5913CC729C0513500C1B51B /* UIColorExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColorExtension.h; sourceTree = "<group>"; };
 		E59424F9298CF4C400EF2F65 /* WebFloorMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebFloorMapView.swift; sourceTree = "<group>"; };
+		E5B5CC272A49847B008B2FC4 /* ArUcoMiraikan.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ArUcoMiraikan.json; sourceTree = "<group>"; };
 		E5B61E2F29823ACD00533B6F /* MarkerWorldTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarkerWorldTransform.h; sourceTree = "<group>"; };
 		E5B61E3029823ACD00533B6F /* OpenCVWrapper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OpenCVWrapper.mm; sourceTree = "<group>"; };
 		E5B61E3129823ACD00533B6F /* MarkerWorldTransform.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = MarkerWorldTransform.mm; sourceTree = "<group>"; };
@@ -1355,6 +1356,7 @@
 				E5F6FFE42977CCB700D5C22B /* miraikan_serverlist.json */,
 				E5F6FFE62977CCB700D5C22B /* schedule.json */,
 				E5B61E4129823AF500533B6F /* ArUco.json */,
+				E5B5CC272A49847B008B2FC4 /* ArUcoMiraikan.json */,
 				E5B61E4329823AF500533B6F /* SoundEffect01.mp3 */,
 				E5B61E4229823AF500533B6F /* SoundEffect02.mp3 */,
 				E5C59C042A0A34C400577740 /* SoundEffect51.mp3 */,
@@ -1565,7 +1567,6 @@
 				7E7ED5A81F5EDFC90033814B /* lastcommit.txt in Resources */,
 				E5F6FF882977CC3700D5C22B /* EventDetailView.xib in Resources */,
 				7EDEDC2A1D1E0C6800AC111A /* Main.storyboard in Resources */,
-				E5B61E4429823AF500533B6F /* ArUco.json in Resources */,
 				E5F6FFEC2977CCB700D5C22B /* CheckPointPosition.json in Resources */,
 				E5F6FFE92977CCB700D5C22B /* exhibition.json in Resources */,
 				7E17F1A31D9A226100DB1F34 /* Localizable.strings in Resources */,
@@ -1581,6 +1582,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5B5CC282A49850E008B2FC4 /* ArUcoMiraikan.json in Resources */,
 				E506A01E29937BB20046134F /* ar_exhibition.json in Resources */,
 				E5B61E5929823DFB00533B6F /* ArUco.json in Resources */,
 				E5B61E5A29823DFB00533B6F /* SoundEffect01.mp3 in Resources */,

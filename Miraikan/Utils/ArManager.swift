@@ -259,7 +259,7 @@ final public class ArManager: NSObject {
             let voice = String(format: NSLocalizedString("Entrance to %@.", comment: ""),
                                NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.titlePron : arUcoModel.titleEn)
             
-            AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, priority: 10))
+            AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, descriptionDetail: arUcoModel.descriptionDetail, priority: 10))
             return
         }
 
@@ -316,7 +316,7 @@ final public class ArManager: NSObject {
                 let voice = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
                                  meterString,
                                  NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.titlePron : arUcoModel.titleEn)
-                AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, priority: 10))
+                AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, descriptionDetail: arUcoModel.descriptionDetail, priority: 10))
             }
             return
         } else if arFrameSize.height * minMarginRange / widthBaseRatio < transform.intersection.y &&

@@ -185,6 +185,7 @@ final public class AudioManager: NSObject {
     func stop() {
         tts.stop(true)
         self.speakedId = nil
+        self.isPlaying = false
     }
 
     func repeatSpeak() {

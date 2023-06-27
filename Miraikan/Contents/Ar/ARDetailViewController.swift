@@ -65,7 +65,11 @@ class ARDetailViewController: UIViewController {
         super.viewDidAppear(animated)
         if !UIAccessibility.isVoiceOverRunning,
            let model = model {
-            AudioManager.shared.forcedSpeak(text: model.voice)
+            if let descriptionDetail = model.descriptionDetail {
+                AudioManager.shared.forcedSpeak(text: descriptionDetail.messagePron)
+            } else {
+                AudioManager.shared.forcedSpeak(text: model.voice)
+            }
         }
     }
     
@@ -89,8 +93,13 @@ extension ARDetailViewController: UITableViewDataSource {
         cell.backgroundColor = .clear
         cell.selectionStyle = .none
         if let model = model {
-            cell.textLabel?.text = model.message
-            cell.accessibilityLabel = model.voice
+            if let descriptionDetail = model.descriptionDetail {
+                cell.textLabel?.text = descriptionDetail.message
+                cell.accessibilityLabel = descriptionDetail.messagePron
+            } else {
+                cell.textLabel?.text = model.message
+                cell.accessibilityLabel = model.voice
+            }
         }
         return cell
     }
