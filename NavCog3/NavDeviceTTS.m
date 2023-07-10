@@ -262,7 +262,7 @@ static NavDeviceTTS *instance = nil;
             keep++;
             delay += 5;
         } else {
-            if (keep >= 3) {
+            if (keep >= 2) {
                 [self _speak:[text substringWithRange:NSMakeRange(start, i - keep)]
                        force:flag && isFirst
                  selfvoicing:selfvoicing
