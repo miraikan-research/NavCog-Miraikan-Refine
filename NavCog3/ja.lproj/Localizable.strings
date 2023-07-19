@@ -296,6 +296,7 @@ NavCogの設定画面から
 
 "AR Audio interrupt disabled" = "AR音声割り込み無効";
 "AR Distance Limit Invalid" = "AR距離制限無効";
+"AR Camera View" = "ARカメラ画面表示";
 "AR stop reading single tap" = "AR読み上げ中断シングルタップ";
 "AR Same reading interval" = "AR同一読み上げ間隔";
 "AR reading interval" = "AR同一読み上げ間隔";

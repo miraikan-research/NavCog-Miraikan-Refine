@@ -107,6 +107,8 @@ class ARViewController: UIViewController {
         setFooterView()
         setNotification()
 
+        arMessageListView.isHidden = UserDefaults.standard.bool(forKey: "ARCameraView")
+
 #if targetEnvironment(simulator)
         let alert = UIAlertController(title: nil, message: "simulator does not support", preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "OK", style: .default)
