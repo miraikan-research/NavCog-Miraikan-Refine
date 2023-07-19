@@ -291,7 +291,7 @@ extension ARViewController: ARSessionDelegate {
                                                           withIntrinsics: frame.camera.intrinsics,
                                                           andMarkerSize: ArUcoManager.shared.ArucoMarkerSize) as! Array<MarkerWorldTransform>
         if(transMatrixArray.count == 0) {
-            DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 0.2, execute: {
+            DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 0.01, execute: {
                 self.mutexlock = false
             })
             return
@@ -299,7 +299,7 @@ extension ARViewController: ARSessionDelegate {
 
         DispatchQueue.main.async(execute: {
             self.updateArContent(transforms: transMatrixArray)
-            DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 0.25, execute: {
+            DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 0.1, execute: {
                 self.mutexlock = false
             })
         })
