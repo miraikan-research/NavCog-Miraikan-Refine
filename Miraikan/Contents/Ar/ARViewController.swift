@@ -32,6 +32,7 @@ import ARKit
 class ARViewController: UIViewController {
 
     var sceneView: ARSCNView!
+    var coverText: UITextView!
     // for VoiceOver
     var controlView: UIButton!
 
@@ -39,6 +40,7 @@ class ARViewController: UIViewController {
 
     var mutexlock = false
     var arFrameSize: CGSize?
+    var isShowARCamera = false
 
     private var locationChangedTime = Date().timeIntervalSince1970
 
@@ -52,6 +54,8 @@ class ARViewController: UIViewController {
         self.title = NSLocalizedString("AR navigation", comment: "")
         self.view.backgroundColor = .systemBackground
 
+        isShowARCamera = UserDefaults.standard.bool(forKey: "ARCameraView")
+        
         let chevronLeftImage: UIImage? = UIImage(systemName: "chevron.left")
         let backButtonItem = UIBarButtonItem(image: chevronLeftImage, style: .plain, target: self, action: #selector(backButtonPressed(_:)))
         self.navigationItem.leftBarButtonItem = backButtonItem
@@ -65,6 +69,31 @@ class ARViewController: UIViewController {
         sceneView.delegate = self
         sceneView.session.delegate = self
         self.view.addSubview(sceneView)
+        sceneView.translatesAutoresizingMaskIntoConstraints = false
+        var leading = sceneView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0)
+        var trailing = sceneView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
+        var top = sceneView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0)
+        var bottom = sceneView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
+        NSLayoutConstraint.activate([leading, trailing, top, bottom])
+
+        if isShowARCamera {
+            sceneView.showsStatistics = true
+            // Nodeに無指向性の光を追加する
+            sceneView.autoenablesDefaultLighting = true
+            sceneView.debugOptions = [.showWorldOrigin, .showFeaturePoints]
+        }
+
+        coverText = UITextView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
+        coverText.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
+        coverText.textColor = .white
+        coverText.font = .systemFont(ofSize: 20)
+        self.view.addSubview(coverText)
+        coverText.translatesAutoresizingMaskIntoConstraints = false
+        leading = coverText.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0)
+        trailing = coverText.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
+        top = coverText.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0)
+        bottom = coverText.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
+        NSLayoutConstraint.activate([leading, trailing, top, bottom])
 
         arMessageListView.tapAction({ model in
             if UIAccessibility.isVoiceOverRunning {
@@ -77,14 +106,21 @@ class ARViewController: UIViewController {
         self.view.addSubview(arMessageListView)
 
         arMessageListView.translatesAutoresizingMaskIntoConstraints = false
-        let leading = arMessageListView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0)
-        let trailing = arMessageListView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
-        let top = arMessageListView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0)
-        let bottom = arMessageListView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
+        leading = arMessageListView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0)
+        trailing = arMessageListView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
+        top = arMessageListView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0)
+        bottom = arMessageListView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
         NSLayoutConstraint.activate([leading, trailing, top, bottom])
 
         controlView = UIButton(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         self.view.addSubview(controlView)
+        controlView.translatesAutoresizingMaskIntoConstraints = false
+        leading = controlView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0)
+        trailing = controlView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
+        top = controlView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0)
+        bottom = controlView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
+        NSLayoutConstraint.activate([leading, trailing, top, bottom])
+
         controlView.accessibilityTraits = .none
         UIAccessibility.post(notification: .screenChanged, argument: controlView)
         controlView.isHidden = true
@@ -107,7 +143,8 @@ class ARViewController: UIViewController {
         setFooterView()
         setNotification()
 
-        arMessageListView.isHidden = UserDefaults.standard.bool(forKey: "ARCameraView")
+        coverText.isHidden = !isShowARCamera
+        arMessageListView.isHidden = isShowARCamera
 
 #if targetEnvironment(simulator)
         let alert = UIAlertController(title: nil, message: "simulator does not support", preferredStyle: .alert)
@@ -139,8 +176,6 @@ class ARViewController: UIViewController {
 //        configuration.isLightEstimationEnabled = true
         configuration.worldAlignment = .gravity
 
-        // Nodeに無指向性の光を追加するオプション
-//        sceneView.autoenablesDefaultLighting = true
         sceneView.session.run(configuration)
         
         UIAccessibility.post(notification: .screenChanged, argument: arMessageListView.headerView)
@@ -199,20 +234,30 @@ extension ARViewController {
         }
     }
 
-    private func updateArContent(transforms: Array<MarkerWorldTransform>) {
+    private func updateArContent(transforms: Array<MarkerWorldTransform>) -> String {
 
+        var hit = false
+        var cognition = ""
         let sortedTransforms = transforms.sorted { $0.distance < $1.distance }
 
         for transform in sortedTransforms {
             for arUcoModel in ArUcoManager.shared.arUcoList {
 //                NSLog("\(transform.arucoId), yaw: \(transform.yaw), pitch: \(transform.pitch), roll: \(transform.roll),  x: \(transform.x), y: \(transform.y), z: \(transform.z), horizontalDistance: \(transform.horizontalDistance)")
-                if arUcoModel.id == transform.arucoId &&
-                    ArUcoManager.shared.checkActiveSettings(key: arUcoModel.id, timeCheck: true) {
-                    activeArUcoData(arUcoModel: arUcoModel, transform: transform)
-                    break
+                if arUcoModel.id == transform.arucoId {
+                    let ratio = ArUcoManager.shared.getMarkerSizeRatio(arUcoModel: arUcoModel)
+                    let distance = Double(transform.distance) * ratio
+                    let checkStr = String(format: "id: %d, marker: %.1f, distance: %.4f", arUcoModel.id, arUcoModel.marker ?? 10, distance)
+                    cognition += "\n" + checkStr
+//                    NSLog(checkStr)
+                    if !hit &&
+                        ArUcoManager.shared.checkActiveSettings(key: arUcoModel.id, timeCheck: true) {
+                        activeArUcoData(arUcoModel: arUcoModel, transform: transform)
+                        hit = true
+                    }
                 }
             }
         }
+        return cognition.trimmingCharacters(in: .newlines)
     }
 
     private func activeArUcoData(arUcoModel: ArUcoModel, transform: MarkerWorldTransform) {
@@ -298,7 +343,10 @@ extension ARViewController: ARSessionDelegate {
         }
 
         DispatchQueue.main.async(execute: {
-            self.updateArContent(transforms: transMatrixArray)
+            let cognition = self.updateArContent(transforms: transMatrixArray)
+            if self.isShowARCamera {
+                self.coverText.text = cognition
+            }
             DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 0.1, execute: {
                 self.mutexlock = false
             })
