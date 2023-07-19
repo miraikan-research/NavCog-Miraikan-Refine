@@ -79,8 +79,8 @@ class ARViewController: UIViewController {
         if isShowARCamera {
             sceneView.showsStatistics = true
             // Nodeに無指向性の光を追加する
-            sceneView.autoenablesDefaultLighting = true
-            sceneView.debugOptions = [.showWorldOrigin, .showFeaturePoints]
+//            sceneView.autoenablesDefaultLighting = true
+//            sceneView.debugOptions = [.showWorldOrigin, .showFeaturePoints]
         }
 
         coverText = UITextView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
