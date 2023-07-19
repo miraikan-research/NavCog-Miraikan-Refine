@@ -263,6 +263,12 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      isOn: UserDefaults.standard.bool(forKey: "ARDistanceLimit"),
                                                      isEnabled: nil)))
 
+        cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("AR Camera View", comment: ""),
+                                                     key: "ARCameraView",
+                                                     isOn: UserDefaults.standard.bool(forKey: "ARCameraView"),
+                                                     isEnabled: nil)))
+
 //        cellList.append(CellModel(cellId: switchId,
 //                                  model: SwitchModel(desc: NSLocalizedString("AR stop reading single tap", comment: ""),
 //                                                     key: "ARStopReadingSingleTap",
