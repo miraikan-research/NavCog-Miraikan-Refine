@@ -176,6 +176,13 @@ final public class ArManager: NSObject {
                 }
             }
         }
+
+        if !AudioManager.shared.isPlaying,
+           let markerInduction = arUcoModel.markerInduction,
+           markerInduction {
+            setSoundEffect(arUcoModel: arUcoModel, transform: transform, isEntrance: false)
+        }
+
         return phonationModel
     }
 
@@ -245,7 +252,7 @@ final public class ArManager: NSObject {
         }
     }
     
-    func setSoundEffect(arUcoModel: ArUcoModel, transform: MarkerWorldTransform) {
+    func setSoundEffect(arUcoModel: ArUcoModel, transform: MarkerWorldTransform, isEntrance: Bool) {
         guard let arFrameSize = arFrameSize else {
             return
         }
@@ -253,7 +260,7 @@ final public class ArManager: NSObject {
         let ratio = ArUcoManager.shared.getMarkerSizeRatio(arUcoModel: arUcoModel)
         let distance = Double(transform.distance) * ratio
 
-        if distance < 1.2 && !arUcoModel.title.isEmpty {
+        if distance < 1.2 && !arUcoModel.title.isEmpty && isEntrance {
             let str = String(format: NSLocalizedString("Entrance to %@.", comment: ""),
                              NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.title : arUcoModel.titleEn)
             let voice = String(format: NSLocalizedString("Entrance to %@.", comment: ""),
@@ -305,7 +312,8 @@ final public class ArManager: NSObject {
                 markerCenterFlag = true
             } else if guideSoundTime != 0 &&
                         guideSoundTime + 1.0 < now &&
-                        !arUcoModel.title.isEmpty {
+                        !arUcoModel.title.isEmpty &&
+                        isEntrance {
                 guideSoundTime = now + 10.0
                 markerCenterFlag = true
 

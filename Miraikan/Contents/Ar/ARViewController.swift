@@ -265,7 +265,7 @@ extension ARViewController {
 
         if let markerPoint = arUcoModel.markerPoint,
            markerPoint {
-            ArManager.shared.setSoundEffect(arUcoModel: arUcoModel, transform: transform)
+            ArManager.shared.setSoundEffect(arUcoModel: arUcoModel, transform: transform, isEntrance: true)
         } else {
             setAudioData(arUcoModel: arUcoModel, transform: transform)
         }
