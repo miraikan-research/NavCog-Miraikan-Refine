@@ -145,6 +145,7 @@ class ARViewController: UIViewController {
 
         coverText.isHidden = !isShowARCamera
         arMessageListView.isHidden = isShowARCamera
+        controlView.isHidden = !isShowARCamera
 
 #if targetEnvironment(simulator)
         let alert = UIAlertController(title: nil, message: "simulator does not support", preferredStyle: .alert)
