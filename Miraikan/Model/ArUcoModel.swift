@@ -30,8 +30,11 @@ struct ArUcoModel: Codable {
     var id: Int
     var marker: Float?
     var markerPoint: Bool?
+    var markerInduction: Bool?
     var title: String
     var titleEn: String
+    var titleKo: String?
+    var titleZh: String?
     var titlePron: String
     var guideToHere: GuidanceModel?
     var guideFromHere: GuidanceModel?
