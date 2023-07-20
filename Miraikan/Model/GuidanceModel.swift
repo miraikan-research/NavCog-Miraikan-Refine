@@ -32,6 +32,8 @@ struct GuidanceModel: Codable {
     var direction:  Double?
     var message: String
     var messageEn: String
+    var messageKo: String?
+    var messageZh: String?
     var messagePron: String
     var internalDistance: Double?
 
@@ -45,5 +47,21 @@ struct GuidanceModel: Codable {
             return true
         }
         return false
+    }
+
+    func messageLang(_ lang: String, pron: Bool = false) -> String {
+        if lang == "en",
+           !messageEn.isEmpty {
+            return messageEn
+        }
+        if lang == "ko",
+            let message = messageKo {
+            return message
+        }
+        if lang == "zh",
+            let message = messageZh {
+            return message
+        }
+        return pron ? messagePron : message
     }
 }
