@@ -45,4 +45,20 @@ struct ArUcoModel: Codable {
     var flatGuide: [GuidanceModel]?
     var soundGuide: Float?
     var comment: String?
+
+    func titleLang(_ lang: String, pron: Bool = false) -> String {
+        if lang == "en",
+           !titleEn.isEmpty {
+            return titleEn
+        }
+        if lang == "ko",
+            let title = titleKo {
+            return title
+        }
+        if lang == "zh",
+            let title = titleZh {
+            return title
+        }
+        return pron ? titlePron : title
+    }
 }

@@ -131,7 +131,7 @@ final public class ArManager: NSObject {
         if (arUcoModel.markerPoint ?? false) && isDebug && !arUcoModel.title.isEmpty {
             let str = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
                              meterString,
-                             NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.titlePron : arUcoModel.titleEn)
+                             arUcoModel.titleLang(NSLocalizedString("lang", comment: ""), pron: true))
             phonationModel.append(str: str)
         }
 
@@ -262,9 +262,9 @@ final public class ArManager: NSObject {
 
         if distance < 1.2 && !arUcoModel.title.isEmpty && isEntrance {
             let str = String(format: NSLocalizedString("Entrance to %@.", comment: ""),
-                             NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.title : arUcoModel.titleEn)
+                             arUcoModel.titleLang(NSLocalizedString("lang", comment: "")))
             let voice = String(format: NSLocalizedString("Entrance to %@.", comment: ""),
-                               NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.titlePron : arUcoModel.titleEn)
+                               arUcoModel.titleLang(NSLocalizedString("lang", comment: ""), pron: true))
             
             AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, descriptionDetail: arUcoModel.descriptionDetail, priority: 10))
             return
@@ -320,10 +320,10 @@ final public class ArManager: NSObject {
                 let meterString = StrUtil.distanceString(distance: distance)
                 let str = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
                                  meterString,
-                                 NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.title : arUcoModel.titleEn)
+                                 arUcoModel.titleLang(NSLocalizedString("lang", comment: "")))
                 let voice = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
-                                 meterString,
-                                 NSLocalizedString("lang", comment: "") == "ja" ? arUcoModel.titlePron : arUcoModel.titleEn)
+                                   meterString,
+                                   arUcoModel.titleLang(NSLocalizedString("lang", comment: ""), pron: true))
                 AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, descriptionDetail: arUcoModel.descriptionDetail, priority: 10))
             }
             return

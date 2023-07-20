@@ -21,6 +21,9 @@
  * THE SOFTWARE.
  *******************************************************************************/
  
+// Language Code
+"lang" = "ko";
+
 "Back to mode selection" = "모드 선택으로 돌아 가기";
 
 "BluetoothOffAlertMessage" = "실내 위치 추정 기능을 사용하려면 Bluetooth를 선택해야합니다.";
