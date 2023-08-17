@@ -34,7 +34,7 @@ class ARMessageListView: UIView {
     
     private let cellId = "cellId"
     
-    private var action: ((VoiceModel) -> ())?
+    private var action: ((VoiceModel?) -> ())?
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -61,7 +61,7 @@ class ARMessageListView: UIView {
 
     }
 
-    public func tapAction(_ action: @escaping ((VoiceModel)->())) {
+    public func tapAction(_ action: @escaping ((VoiceModel?)->())) {
         self.action = action
     }
 }
@@ -116,14 +116,10 @@ extension ARMessageListView {
         let bottom = tableView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0)
         NSLayoutConstraint.activate([leading, trailing, top, bottom])
     }
+
     @objc func singleTap(_ gesture: UITapGestureRecognizer) {
-        if AudioManager.shared.isPlaying {
-            AudioManager.shared.stop()
-        }
-        if UIAccessibility.isVoiceOverRunning {
-            let announcementString = NSAttributedString(string: " ",
-                                                        attributes: [.accessibilitySpeechQueueAnnouncement: false])
-            UIAccessibility.post(notification: .announcement, argument: announcementString)
+        if let action = action {
+            action(nil)
         }
     }
 }
@@ -152,9 +148,12 @@ extension ARMessageListView: AudioManagerDelegate {
                     AudioManager.shared.stop()
                 }
 
-                let announcementString = NSAttributedString(string: speakingData.voice,
+                // Voice Overで読み上げ
+                let voice = speakingData.voice
+                let announcementString = NSAttributedString(string: voice,
                                                             attributes: [.accessibilitySpeechQueueAnnouncement: false])
                 UIAccessibility.post(notification: .announcement, argument: announcementString)
+                NSLog("Voice Over \(voice)")
             }
         }
     }
@@ -192,8 +191,10 @@ extension ARMessageListView: UITableViewDelegate , UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        if AudioManager.shared.isPlaying {
-            AudioManager.shared.stop()
+        if AudioManager.shared.isSpeaking() {
+            if let action = action {
+                action(nil)
+            }
         } else if let cell = self.tableView(tableView, cellForRowAt: indexPath)
             as? ARGuideRow {
             

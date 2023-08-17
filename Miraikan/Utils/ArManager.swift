@@ -48,16 +48,10 @@ final public class ArManager: NSObject {
 
     private let longRange: Double = 10
     
-    enum arType {
-        case target
-        case exposition
-        case floor
-        case guide
-        case unknown
-    }
-
     private override init() {
         super.init()
+
+        AudioManager.shared.systemDelegate = self
     }
 
     func setArFrameSize(arFrameSize: CGSize?) {
@@ -395,28 +389,11 @@ final public class ArManager: NSObject {
             }
         }
     }
+}
 
-    func getArType(_ arUcoModel: ArUcoModel) -> arType {
-
-        if arUcoModel.markerPoint ?? false {
-            return .target
-        }
-
-        if let _ = arUcoModel.flatGuide {
-            return .floor
-        }
-        
-        if let _ = arUcoModel.description {
-            return .exposition
-        }
-
-        if let _ = arUcoModel.guideToHere {
-            return .guide
-        }
-        if let _ = arUcoModel.guideFromHere {
-            return .guide
-        }
-
-        return .unknown
+// MARK: - AudioManagerDelegate
+extension ArManager: AudioManagerSystemDelegate {
+    func speakFinish(speakingData: VoiceModel) {
+        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line)")
     }
 }

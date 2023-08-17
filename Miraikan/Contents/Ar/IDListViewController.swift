@@ -113,7 +113,7 @@ extension IDListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if AudioManager.shared.isPlaying {
+        if AudioManager.shared.isSpeaking() {
             AudioManager.shared.stop()
         } else {
             let cell = self.tableView(tableView, cellForRowAt: indexPath)
@@ -173,7 +173,7 @@ extension IDListViewController {
         transform.horizontalDistance = 0.4
         transform.yaw = 90
 
-        let arType = ArManager.shared.getArType(arUcoModel)
+        let arType = arUcoModel.getArType()
         var markerType = ""
         switch arType {
         case .target:

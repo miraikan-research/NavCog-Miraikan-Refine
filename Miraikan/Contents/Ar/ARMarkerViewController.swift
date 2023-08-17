@@ -63,6 +63,7 @@ class ARMarkerViewController: UIViewController {
         ARUCOMakerOutput()
     }
 
+    // デバッグ用、マーカー画像生成
     func ARUCOMakerOutput() {
 #if targetEnvironment(simulator)
         let DocumentPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
@@ -75,6 +76,7 @@ class ARMarkerViewController: UIViewController {
                     
                     if let imageFrame = image.ARUCOMakerFrameOutput() {
                         try imageFrame.pngData()?.write(to: URL(fileURLWithPath: DocumentPath + "/7x7_1000-frame-\(name).png" ))
+                        try imageFrame.jpegData(compressionQuality: 100)?.write(to:URL(fileURLWithPath: DocumentPath + "/7x7_1000-frame-\(name).jpg" ) )
                     }
                 } catch {
                     print("Failed to save the image:", error)

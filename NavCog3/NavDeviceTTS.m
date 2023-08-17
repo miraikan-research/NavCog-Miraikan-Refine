@@ -90,11 +90,6 @@ static NavDeviceTTS *instance = nil;
                                            error:nil];
 }
 
-- (void)voiceOverStatusChanged
-{
-    
-}
-
 - (void)reset
 {
     speaking = [[NSMutableArray alloc] init];
@@ -102,7 +97,7 @@ static NavDeviceTTS *instance = nil;
     isSpeaking = NO;
     voice = [[AVSpeechSynthesizer alloc] init];
     voice.delegate = self;
-    
+    speechStatus = SpeechStatusStop;
     dispatch_async(dispatch_get_main_queue(), ^{
         speakTimer = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(processSpeak:) userInfo:nil repeats:YES];
     });
@@ -120,16 +115,43 @@ static NavDeviceTTS *instance = nil;
 
 - (void)stop:(BOOL)immediate
 {
+    NSLog(@"NavDeviceTTS stop");
     if (isSpeaking || isProcessing) {
+        speechStatus = SpeechStatusStopProcessing;
         isSpeaking = NO;
         [speaking removeAllObjects];
         [voice stopSpeakingAtBoundary:immediate ? AVSpeechBoundaryImmediate : AVSpeechBoundaryWord];
     }
 }
 
+/// 一時停止、再開切り替え, forcedPause:trueの時は強制一時停止
+- (void)pauseToggle:(BOOL)immediate forcedPause:(BOOL)forcedPause
+{
+    if (isSpeaking || isProcessing) {
+        if ([voice isPaused] && !forcedPause) {
+            // 再開
+            speechStatus = SpeechStatusPauseProcessing;
+            [voice continueSpeaking];
+        } else {
+            // 一時停止
+            speechStatus = SpeechStatusContinuing;
+            [voice pauseSpeakingAtBoundary:immediate ? AVSpeechBoundaryImmediate : AVSpeechBoundaryWord];
+        }
+    }
+}
+
 - (BOOL)isSpeaking
 {
-    return isSpeaking;
+    return [voice isSpeaking];
+}
+
+- (BOOL)isPause
+{
+    return [voice isPaused];
+}
+
+- (SpeechStatus)speechStatus {
+    return speechStatus;
 }
 
 + (AVSpeechSynthesisVoice*)getVoice {
@@ -246,7 +268,8 @@ static NavDeviceTTS *instance = nil;
     if (voice_ == nil) {
         voice_ = [NavDeviceTTS getVoice];
     }
-    
+    speechStatus = SpeechStatusPlayProcessing;
+
     // check pause
     int delay = 0;
     int keep = 0;
@@ -365,6 +388,7 @@ static NavDeviceTTS *instance = nil;
     };
     double duration = estimatedDuration(se);
     expire = now + duration;
+    speechStatus = SpeechStatusPlay;
 
     if (!se.selfvoicing && [self speakWithVoiceOver:se.ut.speechString]) {
         return;
@@ -372,10 +396,12 @@ static NavDeviceTTS *instance = nil;
     NSLog(@"speak,%@,%f,%f", se.ut.speechString, duration, NSDate.date.timeIntervalSince1970);
     
     [self writeData: se.ut.speechString];
+    // 読み上げ
     [voice speakUtterance:se.ut];
 }
 
-
+// MARK: AVSpeechSynthesizerDelegate
+// 発音キャンセル
 - (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didCancelSpeechUtterance:(AVSpeechUtterance *)utterance
 {
     isSpeaking = NO;
@@ -390,14 +416,16 @@ static NavDeviceTTS *instance = nil;
     if (se && se.completionHandler) {
         se.completionHandler();
     }
+    speechStatus = SpeechStatusStop;
 }
 
-
+// 発音開始
 - (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didStartSpeechUtterance:(AVSpeechUtterance *)utterance
 {
     //isSpeaking = YES;
 }
 
+// 部分発音開始
 - (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer willSpeakRangeOfSpeechString:(NSRange)characterRange utterance:(AVSpeechUtterance *)utterance
 {
     HLPSpeechEntry *se = [processing objectForKey:utterance.speechString];
@@ -419,6 +447,7 @@ static NavDeviceTTS *instance = nil;
     }
 }
 
+// 発音終了
 - (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didFinishSpeechUtterance:(AVSpeechUtterance *)utterance
 {
     isSpeaking = NO;
@@ -430,15 +459,35 @@ static NavDeviceTTS *instance = nil;
         se.speakFinish = [[NSDate date] timeIntervalSince1970];
         NSLog(@"speak_finish,%.2f,%.2f,%f, didFinishSpeechUtterance", se.speakStart - se.issued, se.speakFinish - se.speakStart, NSDate.date.timeIntervalSince1970);
         [processing removeObjectForKey:utterance.speechString];
-        
+
         if (se.completionHandler) {
+            speechStatus = SpeechStatusStop;
             se.completionHandler();
         }
     }
 }
 
+// 発音一時停止
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didPauseSpeechUtterance:(AVSpeechUtterance *)utterance {
+    speechStatus = SpeechStatusPause;
+    NSLog(@"%s: %d, isSpeaking: %d, isProcessing: %d, [voice isSpeaking]: %d, [voice isPaused]: %d", __func__, __LINE__, isSpeaking, isProcessing, [voice isSpeaking], [voice isPaused]);
+}
+
+// 発音再開
+- (void)speechSynthesizer:(AVSpeechSynthesizer *)synthesizer didContinueSpeechUtterance:(AVSpeechUtterance *)utterance {
+    speechStatus = SpeechStatusContinue;
+    NSLog(@"%s: %d, isSpeaking: %d, isProcessing: %d, [voice isSpeaking]: %d, [voice isPaused]: %d", __func__, __LINE__, isSpeaking, isProcessing, [voice isSpeaking], [voice isPaused]);
+}
+
+// MARK: NSNotificationCenter
+- (void)voiceOverStatusChanged
+{
+    NSLog(@"voiceOverStatusChanged, VoiceOverRunning: %d", UIAccessibilityIsVoiceOverRunning());
+}
+
 - (void)voiceOverDidFinishAnnouncing:(NSNotification*)note
 {
+    NSLog(@"voiceOverDidFinishAnnouncing");
     NSDictionary *userInfo = [note userInfo];
     NSString *speechString = userInfo[UIAccessibilityAnnouncementKeyStringValue];
     
@@ -458,11 +507,13 @@ static NavDeviceTTS *instance = nil;
         isProcessing = NO;
         expire = NAN;
         if (se.completionHandler) {
+            speechStatus = SpeechStatusStop;
             se.completionHandler();
         }
     }    
 }
 
+// MARK: 
 - (BOOL)speakWithVoiceOver:(NSString*)str
 {
     UIApplicationState applicationState = [[UIApplication sharedApplication] applicationState];

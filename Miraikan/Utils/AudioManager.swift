@@ -34,11 +34,16 @@ protocol AudioManagerDelegate {
     func speakingMessage(speakingData: VoiceModel)
 }
 
+protocol AudioManagerSystemDelegate {
+    func speakFinish(speakingData: VoiceModel)
+}
+
 // Singleton
 final public class AudioManager: NSObject {
     
     var delegate: AudioManagerDelegate?
-    
+    var systemDelegate: AudioManagerSystemDelegate?
+
     private let tts = DefaultTTS()
     private(set) var isPlaying = false
     private(set) var isSoundEffect = false
@@ -188,6 +193,22 @@ final public class AudioManager: NSObject {
         self.isPlaying = false
     }
 
+    func pauseToggle(forcedPause: Bool = false) {
+        tts.pauseToggle(false, forcedPause:forcedPause)
+    }
+
+    func isSpeaking() -> Bool {
+        tts.isSpeaking()
+    }
+
+    func isPause() -> Bool {
+        tts.isPause()
+    }
+    
+    func speechStatus() -> SpeechStatus {
+        tts.speechStatus()
+    }
+
     func repeatSpeak() {
         if !self.isPlaying,
            let speakingData = self.speakingData {
@@ -230,6 +251,10 @@ final public class AudioManager: NSObject {
                     self.play(model: reserveData)
                 } else {
                     _ = self.dequeueSpeak()
+                }
+
+                if let delegate = self.systemDelegate {
+                    delegate.speakFinish(speakingData: model)
                 }
             })
         }
@@ -275,6 +300,10 @@ final public class AudioManager: NSObject {
                 print("error")
             }
         }
+    }
+
+    func speakingID() -> Int? {
+        self.speakingData?.id
     }
 
     @objc private func voiceOverNotification() {

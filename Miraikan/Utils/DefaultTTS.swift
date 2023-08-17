@@ -37,6 +37,10 @@ class DefaultTTS: TTSProtocol {
         NavDeviceTTS.shared().stop(immediate)
     }
 
+    func pauseToggle(_ immediate:Bool, forcedPause:Bool = false) {
+        NavDeviceTTS.shared().pauseToggle(immediate, forcedPause: forcedPause)
+    }
+
     func vibrate() {
         NavSound.sharedInstance().vibrate(nil)
     }
@@ -47,5 +51,17 @@ class DefaultTTS: TTSProtocol {
 
     func checkSilentMode() {
         NavDeviceTTS.shared().checkSilentMode()
+    }
+
+    func isSpeaking() -> Bool {
+        NavDeviceTTS.shared().isSpeaking()
+    }
+
+    func isPause() -> Bool {
+        NavDeviceTTS.shared().isPause()
+    }
+
+    func speechStatus() -> SpeechStatus {
+        NavDeviceTTS.shared().speechStatus()
     }
 }

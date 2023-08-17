@@ -32,10 +32,13 @@
 #import <CoreVideo/CoreVideo.h>
 #import <SceneKit/SceneKit.h>
 
-@interface OpenCVWrapper : NSObject
+@interface OpenCVWrapper: NSObject
 
-+(UIImage *)createARMarker:(int)markerId;
-+(NSMutableArray *)estimatePose:(CVPixelBufferRef)pixelBuffer withIntrinsics:(matrix_float3x3)intrinsics andMarkerSize:(float)markerSize;
++ (NSMutableArray *)estimatePose:(CVPixelBufferRef)pixelBuffer withIntrinsics:(matrix_float3x3)intrinsics andMarkerSize:(float)markerSize;
+
+// for debug
++ (UIImage *)detectARMarker:(UIImage *)inputImg;
++ (UIImage *)createARMarker:(int)markerId;
 
 @end
 

@@ -26,6 +26,19 @@
 
 import Foundation
 
+enum ARType {
+    // ARではない
+    case none
+    // 入り口案内
+    case target
+    //
+    case exposition
+    // 地面
+    case floor
+    // 展示案内
+    case guide
+}
+
 struct ArUcoModel: Codable {
     var id: Int
     var marker: Float?
@@ -52,13 +65,38 @@ struct ArUcoModel: Codable {
             return titleEn
         }
         if lang == "ko",
-            let title = titleKo {
+           let title = titleKo {
             return title
         }
         if lang == "zh",
-            let title = titleZh {
+           let title = titleZh {
             return title
         }
         return pron ? titlePron : title
+    }
+    
+    func getArType() -> ARType {
+
+        if self.markerPoint ?? false {
+            return .target
+        }
+
+        if let _ = self.flatGuide {
+            return .floor
+        }
+        
+        if let _ = self.description {
+            return .exposition
+        }
+
+        if let _ = self.guideToHere {
+            return .guide
+        }
+
+        if let _ = self.guideFromHere {
+            return .guide
+        }
+
+        return .none
     }
 }

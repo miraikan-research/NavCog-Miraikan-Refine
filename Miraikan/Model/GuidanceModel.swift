@@ -55,11 +55,11 @@ struct GuidanceModel: Codable {
             return messageEn
         }
         if lang == "ko",
-            let message = messageKo {
+           let message = messageKo {
             return message
         }
         if lang == "zh",
-            let message = messageZh {
+           let message = messageZh {
             return message
         }
         return pron ? messagePron : message

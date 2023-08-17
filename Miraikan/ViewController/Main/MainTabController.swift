@@ -111,7 +111,7 @@ class MainTabController: UITabBarController, UITabBarControllerDelegate {
         })
         
         silentModeInvalidObserver = UserDefaults.standard.observe(\.SilentModeInvalid, options: [.initial, .new], changeHandler: { [weak self] (defaults, change) in
-            guard let self = self else { return }
+            guard let _ = self else { return }
             let tts = DefaultTTS()
             tts.checkSilentMode()
         })
