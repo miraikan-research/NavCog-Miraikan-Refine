@@ -38,15 +38,13 @@ class ARViewController: UIViewController {
 
     let arMessageListView = ARMessageListView()
 
-    var mutexlock = false
+    var mutexLock = false
     var arFrameSize: CGSize?
     var isShowARCamera = false
 
     private var locationChangedTime = Date().timeIntervalSince1970
 
-    private let checkTime: Double = 1
-
-    private var shakeDate: Date?
+    private let CheckTime: Double = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,15 +63,17 @@ class ARViewController: UIViewController {
             self.navigationItem.rightBarButtonItem = listButtonItem
         }
 
+        var leading, trailing, top, bottom: NSLayoutConstraint
+
         sceneView = ARSCNView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
         sceneView.delegate = self
         sceneView.session.delegate = self
         self.view.addSubview(sceneView)
         sceneView.translatesAutoresizingMaskIntoConstraints = false
-        var leading = sceneView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0)
-        var trailing = sceneView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
-        var top = sceneView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0)
-        var bottom = sceneView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
+        leading = sceneView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0)
+        trailing = sceneView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0)
+        top = sceneView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 0)
+        bottom = sceneView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0)
         NSLayoutConstraint.activate([leading, trailing, top, bottom])
 
         if isShowARCamera {
@@ -87,6 +87,8 @@ class ARViewController: UIViewController {
         coverText.backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1)
         coverText.textColor = .white
         coverText.font = .systemFont(ofSize: 20)
+        coverText.accessibilityTraits = .none
+        coverText.isAccessibilityElement = false
         self.view.addSubview(coverText)
         coverText.translatesAutoresizingMaskIntoConstraints = false
         leading = coverText.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0)
@@ -97,11 +99,17 @@ class ARViewController: UIViewController {
 
         arMessageListView.tapAction({ model in
             if UIAccessibility.isVoiceOverRunning {
+                self.tapAction()
                 return
             }
-            let arDetailVC = ARDetailViewController()
-            arDetailVC.model = model
-            self.navigationController?.pushViewController(arDetailVC, animated: true)
+
+            if let model = model {
+                let arDetailVC = ARDetailViewController()
+                arDetailVC.model = model
+                self.navigationController?.pushViewController(arDetailVC, animated: true)
+            } else {
+                self.tapAction()
+            }
         })
         self.view.addSubview(arMessageListView)
 
@@ -125,9 +133,7 @@ class ARViewController: UIViewController {
         UIAccessibility.post(notification: .screenChanged, argument: controlView)
         controlView.isHidden = true
         controlView.addAction(.init { _ in
-            if AudioManager.shared.isPlaying {
-                AudioManager.shared.stop()
-            }
+            self.tapAction()
         }, for: .touchUpInside)
 
         let scene = SCNScene()
@@ -173,7 +179,7 @@ class ARViewController: UIViewController {
 
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .horizontal
+        configuration.planeDetection = .vertical
 //        configuration.isLightEstimationEnabled = true
         configuration.worldAlignment = .gravity
 
@@ -187,33 +193,6 @@ class ARViewController: UIViewController {
 
         // Pause the view's session
         sceneView.session.pause()
-    }
-
-    override var canBecomeFirstResponder: Bool {
-        return true
-    }
-
-    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            shakeDate = Date()
-        }
-    }
-
-    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            if let shakeDate = shakeDate {
-                let diff = Date().timeIntervalSince(shakeDate)
-                if diff > 0 && diff < 2 {
-                    AudioManager.shared.repeatSpeak()
-                }
-            }
-        }
-    }
-
-    override func motionCancelled(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if motion == .motionShake {
-            shakeDate = nil
-        }
     }
 }
 
@@ -230,13 +209,17 @@ extension ARViewController {
     }
 
     @objc func singleTap(_ gesture: UITapGestureRecognizer) {
+        tapAction()
+    }
+
+    private func tapAction() {
         if AudioManager.shared.isPlaying {
             AudioManager.shared.stop()
         }
     }
 
     private func updateArContent(transforms: Array<MarkerWorldTransform>) -> String {
-
+//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line)")
         var hit = false
         var cognition = ""
         let sortedTransforms = transforms.sorted { $0.distance < $1.distance }
@@ -252,6 +235,7 @@ extension ARViewController {
 //                    NSLog(checkStr)
                     if !hit &&
                         ArUcoManager.shared.checkActiveSettings(key: arUcoModel.id, timeCheck: true) {
+                        // 最も近くで有効なARマーカーのみ音声マーカー処理する、それ以外も音声以外のデータ処理するため、hitフラグを立てる
                         activeArUcoData(arUcoModel: arUcoModel, transform: transform)
                         hit = true
                     }
@@ -276,7 +260,7 @@ extension ARViewController {
         ArManager.shared.setFlatSoundEffect(arUcoModel: arUcoModel, transform: transform)
 
         let now = Date().timeIntervalSince1970
-        if (locationChangedTime + checkTime > now) {
+        if locationChangedTime + CheckTime > now {
             return
         }
 
@@ -326,41 +310,54 @@ extension ARViewController: ARSessionDelegate {
 
     func session(_ session: ARSession, didUpdate frame: ARFrame) {
 
-        if self.mutexlock {
+        // ARフレーム処理中はロックする
+        if self.mutexLock {
             return
         }
+        self.mutexLock = true
 
-        self.mutexlock = true
         let pixelBuffer = frame.capturedImage
 
         let transMatrixArray = OpenCVWrapper.estimatePose(pixelBuffer,
                                                           withIntrinsics: frame.camera.intrinsics,
                                                           andMarkerSize: ArUcoManager.shared.ArucoMarkerSize) as! Array<MarkerWorldTransform>
-        if(transMatrixArray.count == 0) {
+        // ARマーカー認識無し
+        if transMatrixArray.count == 0 {
+            // 即時に次のカメラフレーム認識解放
             DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 0.01, execute: {
-                self.mutexlock = false
+                self.mutexLock = false
             })
             return
         }
 
         DispatchQueue.main.async(execute: {
             let cognition = self.updateArContent(transforms: transMatrixArray)
+
+            // デバッグ用、現在認識している方ARマーカーのID情報、距離を画面表示する
             if self.isShowARCamera {
                 self.coverText.text = cognition
             }
+
+            // 次のカメラフレーム認識解放
             DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 0.1, execute: {
-                self.mutexlock = false
+                self.mutexLock = false
             })
         })
     }
 
+    // アンカー更新
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
+//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line)")
     }
 
+    // アンカー追加
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line)")
     }
 
+    // アンカー削除
     func session(_ session: ARSession, didRemove anchors: [ARAnchor]) {
+//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line)")
     }
 }
 
@@ -375,12 +372,24 @@ extension ARViewController: ARSCNViewDelegate {
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
     }
-
+    
     func sessionWasInterrupted(_ session: ARSession) {
         // Inform the user that the session has been interrupted, for example, by presenting an overlay
     }
-
+    
     func sessionInterruptionEnded(_ session: ARSession) {
         // Reset tracking and/or remove existing anchors if consistent tracking is required
+    }
+
+    func view(_ view: ARSKView, nodeFor anchor: ARAnchor) -> SKNode? {
+        return nil
+    }
+
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        
+    }
+
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        
     }
 }

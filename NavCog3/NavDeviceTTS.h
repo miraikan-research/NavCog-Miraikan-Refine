@@ -38,13 +38,31 @@ typedef enum {
     SpeechPriorityCanBeDelayed,
 } SpeechPriority;
 
+typedef enum {
+    // 停止待ち
+    SpeechStatusStopProcessing,
+    // 停止中
+    SpeechStatusStop,
+    // 再生待ち
+    SpeechStatusPlayProcessing,
+    // 再生中
+    SpeechStatusPlay,
+    // 一時停止待ち
+    SpeechStatusPauseProcessing,
+    // 一時停止
+    SpeechStatusPause,
+    // 再開待ち
+    SpeechStatusContinuing,
+    // 再開
+    SpeechStatusContinue,
+} SpeechStatus;
+
 @interface HLPSpeechEntry: NSObject
 @property double pauseDuration;
 @property (strong, nonatomic) AVSpeechUtterance *ut;
 @property SpeechSoundEffectType type;
 @property SpeechPriority priority;
 @property NSTimeInterval validBy;
-//@property HLPLocation* location;
 @property double validRadius; // in meter
 @property (strong, nonatomic) void (^completionHandler)(void);
 @property NSTimeInterval issued;
@@ -57,6 +75,7 @@ typedef enum {
 @interface NavDeviceTTS: NSObject <AVSpeechSynthesizerDelegate> {
     BOOL isSpeaking;
     BOOL isProcessing;
+    SpeechStatus speechStatus;
     NSMutableArray *speaking;
     NSMutableDictionary *processing;
     AVSpeechSynthesizer *voice;
@@ -75,9 +94,12 @@ typedef enum {
 
 - (void)checkSilentMode;
 - (void)pause:(double)duration;
+- (void)pauseToggle:(BOOL)immediate forcedPause:(BOOL)forcedPause;
 - (void)reset;
 - (void)stop:(BOOL)immediate;
 - (BOOL)isSpeaking;
+- (BOOL)isPause;
+- (SpeechStatus)speechStatus;
 
 @end
     

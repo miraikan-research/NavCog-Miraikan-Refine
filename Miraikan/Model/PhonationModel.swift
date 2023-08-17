@@ -28,8 +28,11 @@ import Foundation
 
 
 class PhonationModel {
+    // 表示文字列
     var string = ""
+    // 発音文字列
     var phonation = ""
+    // true:マーカー音声, false:アプリ内部定義音声
     var explanation = false
 
     private let Delimiter = "\n"

@@ -43,6 +43,10 @@
     [[NavDeviceTTS sharedTTS] stop:immediate];
 }
 
+- (void)pauseToggle:(BOOL)immediate forcedPause:(BOOL)forcedPause {
+    [[NavDeviceTTS sharedTTS] pauseToggle:immediate forcedPause:forcedPause];
+}
+
 - (void)vibrate
 {
     [[NavSound sharedInstance] vibrate:nil];

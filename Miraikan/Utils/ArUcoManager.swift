@@ -32,12 +32,16 @@ final public class ArUcoManager: NSObject {
     
     public static let shared = ArUcoManager()
 
-    // ARマーカー基準サイズ(m)
+    // ARマーカー基準サイズ(m)、Arマーカーの距離認識は以下で行い、その後、個別設定でマーカーごとのサイズ設定でマーカーサイズの比率で距離を再計算する
     let ArucoMarkerSize: Float = 0.1;
-
+    // AR読み込みデータリスト
     var arUcoList: [ArUcoModel] = []
+    //
     private var activeSettings: Dictionary<String, Bool> = [:]
+    // デバッグ、認識有効無効マーカーID一覧
     private var activeDateList: Dictionary<String, Date> = [:]
+    // 読み終わり時間, 連続読み上げ間隔管理
+    private var finishDateList: Dictionary<String, Date> = [:]
 
     private var lang = ""
     private var userKey = "arUcoSettingKey"
@@ -108,5 +112,24 @@ final public class ArUcoManager: NSObject {
     func setActiveDate(key: Int) {
         let strKey = String(key)
         self.activeDateList[strKey] = Date()
+//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), \(strKey), \( self.activeDateList[strKey])")
+    }
+
+    func setFinishDate(key: Int) {
+        let strKey = String(key)
+        self.finishDateList[strKey] = Date()
+//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), \(strKey), \( self.finishDateList[strKey])")
+    }
+
+    func checkFinishSettings(key: Int) -> Bool {
+        let strKey = String(key)
+        if self.finishDateList.keys.contains(strKey),
+           let date = finishDateList[strKey] {
+            let dayChecker = Date(timeIntervalSinceNow: Double(-MiraikanUtil.arReadingInterval))
+            if dayChecker < date {
+                return false
+            }
+        }
+        return true
     }
 }
