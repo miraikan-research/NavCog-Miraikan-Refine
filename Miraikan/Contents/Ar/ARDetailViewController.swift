@@ -72,7 +72,7 @@ class ARDetailViewController: UIViewController {
             }
         }
     }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -110,7 +110,7 @@ extension ARDetailViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if AudioManager.shared.isPlaying {
-            AudioManager.shared.stop()
+            AudioManager.shared.pauseToggle()
         } else if !UIAccessibility.isVoiceOverRunning,
                   let model = model {
             AudioManager.shared.forcedSpeak(text: model.voice)
@@ -131,6 +131,6 @@ extension ARDetailViewController {
     }
 
     @objc func singleTap(_ gesture: UITapGestureRecognizer) {
-        AudioManager.shared.stop()
+        AudioManager.shared.pauseToggle()
     }
 }

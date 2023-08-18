@@ -1,5 +1,5 @@
 //
-//  VoiceModel.swift
+//  VoiceGuideModel.swift
 //  NavCogMiraikan
 //
 /*******************************************************************************
@@ -26,11 +26,43 @@
 
 import Foundation
 
-struct VoiceModel: Identifiable {
-    var id: Int?
-    var type: ARType?
-    var voice: String
-    var message: String
-    var descriptionDetail: GuidanceModel?
-    var priority: Int
+struct VoiceGuideModel {
+    // 日本語表示用
+    var text: String
+    // 日本語発音用
+    var textPron: String?
+    // 英語
+    var textEn: String?
+    // 韓国語
+    var textKo: String?
+    // 中国語
+    var textZh: String?
+    // テキスト内のメートル数値、フィート変換出来るように別定義
+    var internalDistance: Double?
+
+    func textLang(_ lang: String, pron: Bool = false) -> String {
+        // 距離単位変換用、別設定
+        var internalString = ""
+        if let internalDistance = internalDistance {
+            internalString = StrUtil.distanceString(distance: internalDistance)
+        }
+
+        var str = text
+        if lang == "en",
+           let text = textEn {
+            str = text
+        } else if lang == "ko",
+            let text = textKo {
+            str = text
+        } else if lang == "zh",
+            let text = textZh {
+            str = text
+        } else if pron,
+           lang == "ja",
+            let text = textPron {
+            str = text
+        }
+
+        return String(format: str, internalString)
+    }
 }

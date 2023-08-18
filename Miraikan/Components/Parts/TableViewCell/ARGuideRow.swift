@@ -81,9 +81,16 @@ class ARGuideRow: UITableViewCell {
 
     public func configure(_ model: VoiceModel, lines: Int = 0) {
         self.model = model
+
+        var voice = model.voice
+        if model.type == .lockGuide,
+           let descriptionDetail = model.descriptionDetail {
+            voice = descriptionDetail.unionMessagePron()
+        }
+
         titleLabel.text = model.message
         titleLabel.numberOfLines = lines
-        titleLabel.accessibilityLabel = model.voice
+        titleLabel.accessibilityLabel = voice
 
         baseView.backgroundColor = lines == 0 ? .arCellActiveExchangeColor : .arCellPassiveExchangeColor
     }

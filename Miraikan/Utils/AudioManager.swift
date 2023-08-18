@@ -30,6 +30,15 @@ import AVFoundation
 import AudioToolbox
 import AVKit
 
+// 注視マーカーでの文章進み状態
+enum Progress {
+    case none
+    case title
+    case mainText
+    case next
+    case end
+}
+
 protocol AudioManagerDelegate {
     func speakingMessage(speakingData: VoiceModel)
 }
@@ -59,6 +68,9 @@ final public class AudioManager: NSObject {
     private var lastSpeakTime: Double = 0
     private var soundEffectTime: Double = 0
     private var intervalTime: Double = 0
+
+    // 音声区分の進行状態
+    var progress: Progress = .none
 
     private var lang = ""
 
@@ -167,6 +179,7 @@ final public class AudioManager: NSObject {
         
         if soundEffect {
             AudioManager.shared.SoundEffect(sound: "SoundEffect51", rate: 1, pan: 0, interval: 0)
+            // バイブレーション
             UIImpactFeedbackGenerator(style: .light).impactOccurred()
             if waitTime < 0.5 {
                 waitTime += 0.3
@@ -242,17 +255,23 @@ final public class AudioManager: NSObject {
             self.isPlaying = false
             self.lastSpeakTime = Date().timeIntervalSince1970
         } else {
+            if self.speakingData?.type == .lockGuide {
+                progress = .title
+            }
+
             tts.speak(model.voice, callback: { [weak self] in
                 guard let self = self else { return }
-                self.isPlaying = false
-                self.lastSpeakTime = Date().timeIntervalSince1970
-                
-                if let reserveData = self.reserveData {
-                    self.play(model: reserveData)
-                } else {
-                    _ = self.dequeueSpeak()
+                if self.speakingData?.type != .lockGuide {
+                    self.isPlaying = false
+                    self.lastSpeakTime = Date().timeIntervalSince1970
+                    
+                    if let reserveData = self.reserveData {
+                        self.play(model: reserveData)
+                    } else {
+                        _ = self.dequeueSpeak()
+                    }
                 }
-
+                
                 if let delegate = self.systemDelegate {
                     delegate.speakFinish(speakingData: model)
                 }
@@ -274,6 +293,91 @@ final public class AudioManager: NSObject {
         return true
     }
 
+    func nextStep() {
+//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line) progress: \(progress)")
+        if let speakingData = self.speakingData,
+           speakingData.type == .lockGuide {
+
+            var internalString: String?
+            if let internalDistance = speakingData.descriptionDetail?.internalDistance {
+                internalString = StrUtil.distanceString(distance: internalDistance)
+            }
+
+            switch progress {
+            case .title:
+                progress = .mainText
+                if let mainText = speakingData.descriptionDetail?.mainText,
+                   let mainTextPron = speakingData.descriptionDetail?.mainTextPron {
+                    var message = speakingData.message + "\n"
+                    var text = ""
+                    if let internalString = internalString {
+                        message += String(format: mainText, internalString)
+                        text = String(format: mainTextPron, internalString)
+                    } else {
+                        message += mainText
+                        text = mainTextPron
+                    }
+                    tts.speak(text, callback: { [weak self] in
+                        guard let self = self else { return }
+                        if let delegate = self.systemDelegate {
+                            delegate.speakFinish(speakingData: speakingData)
+                        }
+                    })
+                    
+                    if let delegate = delegate {
+                        delegate.speakingMessage(speakingData: VoiceModel(id: speakingData.id, voice: speakingData.voice + text, message: message, priority: 10))
+                    }
+                }
+
+            case .mainText:
+                progress = .next
+                if let nextGuide = speakingData.descriptionDetail?.nextGuidePron {
+                    var text = ""
+                    if let internalString = internalString {
+                        text = String(format: nextGuide, internalString)
+                    } else {
+                        text = nextGuide
+                    }
+
+                    tts.speak(text, callback: { [weak self] in
+                        guard let self = self else { return }
+                        if let delegate = self.systemDelegate {
+                            delegate.speakFinish(speakingData: speakingData)
+                        }
+                    })
+                }
+
+            case .next:
+                progress = .end
+                self.isPlaying = false
+                self.lastSpeakTime = Date().timeIntervalSince1970
+                
+                if let id = speakingData.id {
+                    ArUcoManager.shared.setFinishDate(key: id)
+                }
+
+                if let reserveData = self.reserveData {
+                    self.play(model: reserveData)
+                } else {
+                    _ = self.dequeueSpeak()
+                }
+                
+            case .end:
+                break
+
+            default:
+                self.isPlaying = false
+                self.lastSpeakTime = Date().timeIntervalSince1970
+                
+                if let reserveData = self.reserveData {
+                    self.play(model: reserveData)
+                } else {
+                    _ = self.dequeueSpeak()
+                }
+            }
+        }
+    }
+    
     func SoundEffect(sound: String, rate: Double, pan: Double, interval: Double) {
         if self.isSoundEffect { return }
         let now = Date().timeIntervalSince1970

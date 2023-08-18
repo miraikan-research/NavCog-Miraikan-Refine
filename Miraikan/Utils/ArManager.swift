@@ -33,6 +33,10 @@ final public class ArManager: NSObject {
     public static let shared = ArManager()
 
     var arFrameSize: CGSize?
+    var lockArMarker: ArUcoModel?
+    var serialMarker = false
+    var lastCheckMarkerTime: Double = 0
+    private var keepMarkerFlag = false
 
     private var guideSoundTime: Double = 0
     private var markerCenterFlag = false
@@ -57,6 +61,48 @@ final public class ArManager: NSObject {
     func setArFrameSize(arFrameSize: CGSize?) {
         self.arFrameSize = arFrameSize
     }
+
+    func setLockArMarker(marker: ArUcoModel) -> Bool {
+        // 読み終わりマーカーの場合は、処理しない
+        if !ArUcoManager.shared.checkFinishSettings(key: marker.id) {
+            return serialMarker
+        }
+
+        if let lockArMarker = lockArMarker {
+            // 識別マーカーの変更状態
+            serialMarker = lockArMarker.id == marker.id
+            if !serialMarker {
+                // マーカーが変更された
+                AudioManager.shared.stop()
+            }
+        }
+//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), lockArMarker.id: \(lockArMarker?.id), marker: \(marker.id) serialMarker: \(serialMarker), keepMarkerFlag: \(keepMarkerFlag), isPlaying: \(AudioManager.shared.isPlaying), isPause: \(AudioManager.shared.isPause())")
+        lockArMarker = marker
+        lastCheckMarkerTime = Date().timeIntervalSince1970
+
+        return serialMarker
+    }
+
+    func serialMarkerAction() {
+        // マーカーをカメラ外にしてから再認識した場合の処理
+        if AudioManager.shared.isPlaying &&
+            serialMarker {
+            if keepMarkerFlag {
+                if AudioManager.shared.speechStatus() == SpeechStatusStop {
+                    // 同一マーカー認識状態で音声停止している場合は、次の段階へ移行する
+                    AudioManager.shared.nextStep()
+                    keepMarkerFlag = false
+                }
+            } else {
+                if AudioManager.shared.speechStatus() != SpeechStatusPauseProcessing {
+                    if AudioManager.shared.isPause() {
+                        // 音声一時停止している場合は、再開する
+                        AudioManager.shared.pauseToggle(forcedPause: false)
+                    }
+                }
+            }
+        }
+    }
     
     func setSpeakStr(arUcoModel: ArUcoModel, transform: MarkerWorldTransform, isDebug: Bool = false) -> PhonationModel {
         
@@ -70,7 +116,8 @@ final public class ArManager: NSObject {
 
         let phonationModel = PhonationModel()
 
-        if let guideToHere = arUcoModel.guideToHere,
+        if arUcoModel.getArType() != .lockGuide,
+           let guideToHere = arUcoModel.guideToHere,
            guideToHere.isDistance(distance) || isDebug {
             
             if let internalDistance = guideToHere.internalDistance {
@@ -83,25 +130,38 @@ final public class ArManager: NSObject {
         
         if let description = arUcoModel.description {
             if description.isDistance(distance) || isDebug {
-                if let descriptionTitle = arUcoModel.descriptionTitle,
-                   descriptionTitle.isDistance(distance) {
-                    if let internalDistance = descriptionTitle.internalDistance {
-                        let internalString = StrUtil.distanceString(distance: internalDistance)
-                        setPhonation(phonationModel, strParam: internalString, guidance: descriptionTitle)
-                    } else {
-                        setPhonation(phonationModel, strParam: meterString, guidance: descriptionTitle)
+                if arUcoModel.getArType() == .lockGuide {
+                    if let title = description.title {
+                        var titlePron = title
+                        if let titlePronStr = description.titlePron {
+                            titlePron = titlePronStr
+                        }
+                        phonationModel.append(str: title, phon: titlePron)
+                        phonationModel.explanation = true
                     }
-                }
-                if let internalDistance = description.internalDistance {
-                    let internalString = StrUtil.distanceString(distance: internalDistance)
-                    setPhonation(phonationModel, strParam: internalString, guidance: description)
+                    
                 } else {
-                    setPhonation(phonationModel, strParam: meterString, guidance: description)
+                    if let descriptionTitle = arUcoModel.descriptionTitle,
+                       descriptionTitle.isDistance(distance) {
+                        if let internalDistance = descriptionTitle.internalDistance {
+                            let internalString = StrUtil.distanceString(distance: internalDistance)
+                            setPhonation(phonationModel, strParam: internalString, guidance: descriptionTitle)
+                        } else {
+                            setPhonation(phonationModel, strParam: meterString, guidance: descriptionTitle)
+                        }
+                    }
+                    if let internalDistance = description.internalDistance {
+                        let internalString = StrUtil.distanceString(distance: internalDistance)
+                        setPhonation(phonationModel, strParam: internalString, guidance: description)
+                    } else {
+                        setPhonation(phonationModel, strParam: meterString, guidance: description)
+                    }
                 }
                 phonationModel.explanation = true
             }
 
-            if let nextGuide = arUcoModel.nextGuide,
+            if arUcoModel.getArType() != .lockGuide,
+               let nextGuide = arUcoModel.nextGuide,
                nextGuide.isDistance(distance) || isDebug {
                 if let internalDistance = nextGuide.internalDistance {
                     let internalString = StrUtil.distanceString(distance: internalDistance)
@@ -111,7 +171,8 @@ final public class ArManager: NSObject {
                 }
             }
 
-            if let guideFromHere = arUcoModel.guideFromHere,
+            if arUcoModel.getArType() != .lockGuide,
+               let guideFromHere = arUcoModel.guideFromHere,
                guideFromHere.isDistance(distance) || isDebug {
                 if let internalDistance = guideFromHere.internalDistance {
                     let internalString = StrUtil.distanceString(distance: internalDistance)
@@ -144,6 +205,7 @@ final public class ArManager: NSObject {
                             msg += NSLocalizedString("Turn to the left a little", comment: "")
                             msg += NSLocalizedString("PERIOD", comment: "")
                         } else {
+                            // バイブレーション
                             UISelectionFeedbackGenerator().selectionChanged()
                         }
                         msg += NSLocalizedString("please proceed slowly.", comment: "")
@@ -296,7 +358,7 @@ final public class ArManager: NSObject {
 
         if arFrameSize.height * minCenterRange / widthBaseRatio  < transform.intersection.y &&
             arFrameSize.height * maxCenterRange / widthBaseRatio > transform.intersection.y {
-            // 中央
+            // 中央, バイブレーション
             UISelectionFeedbackGenerator().selectionChanged()
 
             if !markerCenterFlag &&
@@ -394,6 +456,19 @@ final public class ArManager: NSObject {
 // MARK: - AudioManagerDelegate
 extension ArManager: AudioManagerSystemDelegate {
     func speakFinish(speakingData: VoiceModel) {
-        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line)")
+//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line)")
+
+        if speakingData.type == .lockGuide &&
+            lockArMarker?.id == speakingData.id {
+            if lastCheckMarkerTime + 0.2 > Date().timeIntervalSince1970 {
+                // 音声終了時に音声のIDとカメラのマーカーIDが同一の場合は、次の区切り音声に進む
+                AudioManager.shared.nextStep()
+                keepMarkerFlag = false
+            } else {
+                keepMarkerFlag = true
+            }
+        } else {
+            keepMarkerFlag = false
+        }
     }
 }

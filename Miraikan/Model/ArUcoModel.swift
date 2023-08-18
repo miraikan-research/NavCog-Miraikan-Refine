@@ -37,6 +37,8 @@ enum ARType {
     case floor
     // 展示案内
     case guide
+    // マーカー注視音声
+    case lockGuide
 }
 
 struct ArUcoModel: Codable {
@@ -44,6 +46,7 @@ struct ArUcoModel: Codable {
     var marker: Float?
     var markerPoint: Bool?
     var markerInduction: Bool?
+    var maintainingMarker: Bool?
     var title: String
     var titleEn: String
     var titleKo: String?
@@ -76,6 +79,11 @@ struct ArUcoModel: Codable {
     }
     
     func getArType() -> ARType {
+
+        if self.maintainingMarker ?? false &&
+            !UserDefaults.standard.bool(forKey: "ARCameraLockMarker") {
+            return .lockGuide
+        }
 
         if self.markerPoint ?? false {
             return .target

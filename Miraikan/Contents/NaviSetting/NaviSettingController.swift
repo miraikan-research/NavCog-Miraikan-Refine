@@ -269,6 +269,24 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      isOn: UserDefaults.standard.bool(forKey: "ARCameraView"),
                                                      isEnabled: nil)))
 
+        cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("AR Camera Marker Anchor", comment: ""),
+                                                     key:  "ARCameraMarkerAnchor",
+                                                     isOn: UserDefaults.standard.bool(forKey: "ARCameraMarkerAnchor"),
+                                                     isEnabled: nil)))
+
+        cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("AR Camera Check Image", comment: ""),
+                                                     key:  "ARCameraCheckImage",
+                                                     isOn: UserDefaults.standard.bool(forKey: "ARCameraCheckImage"),
+                                                     isEnabled: nil)))
+
+        cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString( "AR Camera Lock Marker", comment: ""),
+                                                     key:  "ARCameraLockMarker",
+                                                     isOn: UserDefaults.standard.bool(forKey: "ARCameraLockMarker"),
+                                                     isEnabled: nil)))
+        
 //        cellList.append(CellModel(cellId: switchId,
 //                                  model: SwitchModel(desc: NSLocalizedString("AR stop reading single tap", comment: ""),
 //                                                     key: "ARStopReadingSingleTap",
