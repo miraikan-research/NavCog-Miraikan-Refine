@@ -36,6 +36,12 @@ struct GuidanceModel: Codable {
     var messageZh: String?
     var messagePron: String
     var internalDistance: Double?
+    var title: String?
+    var mainText: String?
+    var nextGuide: String?
+    var titlePron: String?
+    var mainTextPron: String?
+    var nextGuidePron: String?
 
     func isDistance(_ distance: Double) -> Bool {
         if let shortDistance = shortDistance,
@@ -63,5 +69,41 @@ struct GuidanceModel: Codable {
             return message
         }
         return pron ? messagePron : message
+    }
+
+    func unionMessage() -> String {
+        var message = ""
+        var internalString = ""
+        if let internalDistance = self.internalDistance {
+            internalString = StrUtil.distanceString(distance: internalDistance)
+        }
+        if let title = self.title {
+            message += String(format: title, internalString)
+        }
+        if let mainText = self.mainText {
+            message += String(format: mainText, internalString)
+        }
+        if let nextGuide = self.nextGuide {
+            message += String(format: nextGuide, internalString)
+        }
+        return message
+    }
+
+    func unionMessagePron() -> String {
+        var message = ""
+        var internalString = ""
+        if let internalDistance = self.internalDistance {
+            internalString = StrUtil.distanceString(distance: internalDistance)
+        }
+        if let title = self.titlePron {
+            message += String(format: title, internalString)
+        }
+        if let mainText = self.mainTextPron {
+            message += String(format: mainText, internalString)
+        }
+        if let nextGuide = self.nextGuidePron {
+            message += String(format: nextGuide, internalString)
+        }
+        return message
     }
 }

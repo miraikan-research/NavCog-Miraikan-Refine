@@ -113,7 +113,7 @@ extension IDListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if AudioManager.shared.isSpeaking() {
+        if AudioManager.shared.isPlaying {
             AudioManager.shared.stop()
         } else {
             let cell = self.tableView(tableView, cellForRowAt: indexPath)

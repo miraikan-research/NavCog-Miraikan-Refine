@@ -253,6 +253,14 @@
 		E5C59C032A08EA8100577740 /* ARDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C59C012A08EA8100577740 /* ARDetailViewController.swift */; };
 		E5C59C052A0A34C400577740 /* SoundEffect51.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5C59C042A0A34C400577740 /* SoundEffect51.mp3 */; };
 		E5C59C062A0A34C400577740 /* SoundEffect51.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5C59C042A0A34C400577740 /* SoundEffect51.mp3 */; };
+		E5EE1CF52A8F069A004C1331 /* VoiceGuideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF42A8F069A004C1331 /* VoiceGuideModel.swift */; };
+		E5EE1CF62A8F069A004C1331 /* VoiceGuideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF42A8F069A004C1331 /* VoiceGuideModel.swift */; };
+		E5EE1CF82A8F07B7004C1331 /* ArAnchorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF72A8F07B7004C1331 /* ArAnchorManager.swift */; };
+		E5EE1CF92A8F07B7004C1331 /* ArAnchorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF72A8F07B7004C1331 /* ArAnchorManager.swift */; };
+		E5EE1CFB2A8F07D6004C1331 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CFA2A8F07D6004C1331 /* MotionManager.swift */; };
+		E5EE1CFC2A8F07D6004C1331 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CFA2A8F07D6004C1331 /* MotionManager.swift */; };
+		E5EE1CFE2A8F07E6004C1331 /* InquiryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CFD2A8F07E6004C1331 /* InquiryManager.swift */; };
+		E5EE1CFF2A8F07E6004C1331 /* InquiryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CFD2A8F07E6004C1331 /* InquiryManager.swift */; };
 		E5F600002977CCC100D5C22B /* DistanceCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F6FFF82977CCC100D5C22B /* DistanceCheckViewController.swift */; };
 		E5F6000C2977CCD500D5C22B /* MapManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F600012977CCD500D5C22B /* MapManager.swift */; };
 		E5F6000D2977CCD500D5C22B /* Host.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F600022977CCD500D5C22B /* Host.swift */; };
@@ -621,6 +629,10 @@
 		E5C59BFE2A08CE2000577740 /* ARGuideRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARGuideRow.swift; sourceTree = "<group>"; };
 		E5C59C012A08EA8100577740 /* ARDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailViewController.swift; sourceTree = "<group>"; };
 		E5C59C042A0A34C400577740 /* SoundEffect51.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SoundEffect51.mp3; sourceTree = "<group>"; };
+		E5EE1CF42A8F069A004C1331 /* VoiceGuideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceGuideModel.swift; sourceTree = "<group>"; };
+		E5EE1CF72A8F07B7004C1331 /* ArAnchorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArAnchorManager.swift; sourceTree = "<group>"; };
+		E5EE1CFA2A8F07D6004C1331 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
+		E5EE1CFD2A8F07E6004C1331 /* InquiryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquiryManager.swift; sourceTree = "<group>"; };
 		E5F600012977CCD500D5C22B /* MapManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapManager.swift; sourceTree = "<group>"; };
 		E5F600022977CCD500D5C22B /* Host.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Host.swift; sourceTree = "<group>"; };
 		E5F600032977CCD500D5C22B /* ImageAdaptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageAdaptor.swift; sourceTree = "<group>"; };
@@ -1332,6 +1344,7 @@
 				E5B61E5429823B2D00533B6F /* GuidanceModel.swift */,
 				E5B61E5329823B2D00533B6F /* PhonationModel.swift */,
 				E5B61E5129823B2C00533B6F /* VoiceModel.swift */,
+				E5EE1CF42A8F069A004C1331 /* VoiceGuideModel.swift */,
 				E53814052989F3D30098E082 /* SliderModel.swift */,
 				E53814082989F4DC0098E082 /* SwitchModel.swift */,
 				E538140B2989F4F50098E082 /* LabelModel.swift */,
@@ -1387,8 +1400,11 @@
 				E5F600012977CCD500D5C22B /* MapManager.swift */,
 				E5F600042977CCD500D5C22B /* MiraikanUtil.swift */,
 				E5B61E4A29823B0F00533B6F /* ArManager.swift */,
+				E5EE1CF72A8F07B7004C1331 /* ArAnchorManager.swift */,
 				E5B61E4929823B0F00533B6F /* ArUcoManager.swift */,
 				E5B61E4B29823B0F00533B6F /* AudioManager.swift */,
+				E5EE1CFA2A8F07D6004C1331 /* MotionManager.swift */,
+				E5EE1CFD2A8F07E6004C1331 /* InquiryManager.swift */,
 				E5B61E4829823B0F00533B6F /* StrUtil.swift */,
 				E5F6FF5E2977CB9700D5C22B /* Extension */,
 			);
@@ -1736,6 +1752,7 @@
 				E52D54B629A32B8700D48CF9 /* RadioCell.swift in Sources */,
 				7EF7F7AE1DD1949C000A625A /* NavDataSource.m in Sources */,
 				E5F6000E2977CCD500D5C22B /* ImageAdaptor.swift in Sources */,
+				E5EE1CFE2A8F07E6004C1331 /* InquiryManager.swift in Sources */,
 				E5F600102977CCD500D5C22B /* ExhibitionDataStore.swift in Sources */,
 				7E433DD41D6E84D300C6C993 /* NavUtil.m in Sources */,
 				E5F6FF8C2977CC3700D5C22B /* FloorMapView.swift in Sources */,
@@ -1770,6 +1787,7 @@
 				7EF45E351E3F1E3700208042 /* WelcomViewController.m in Sources */,
 				E5B61E4D29823B0F00533B6F /* StrUtil.swift in Sources */,
 				7E9238E81D5189F100875766 /* HLPSettingTableView.m in Sources */,
+				E5EE1CFB2A8F07D6004C1331 /* MotionManager.swift in Sources */,
 				E5F6FFD42977CCA500D5C22B /* GuidePositionModel.swift in Sources */,
 				E5F600142977CCD500D5C22B /* DefaultTTS.swift in Sources */,
 				E5F6FFBB2977CC9300D5C22B /* BaseListView.swift in Sources */,
@@ -1787,11 +1805,13 @@
 				E5F6FEF32977A98C00D5C22B /* SettingDataManager.m in Sources */,
 				E5B61E5529823B2D00533B6F /* VoiceModel.swift in Sources */,
 				7E6E42DE1D90C77C006B6899 /* HLPGeoJSON.m in Sources */,
+				E5EE1CF82A8F07B7004C1331 /* ArAnchorManager.swift in Sources */,
 				E5F6FFB02977CC9300D5C22B /* LinkRow.swift in Sources */,
 				E5B61E3B29823ACD00533B6F /* OpenCVWrapper.mm in Sources */,
 				E506A01B29923FB60046134F /* DestinationViewController.swift in Sources */,
 				E58B00BB2A0CACFC00437E2D /* ARMessageListView.swift in Sources */,
 				E5F6FF862977CC3700D5C22B /* EventDetailView.swift in Sources */,
+				E5EE1CF52A8F069A004C1331 /* VoiceGuideModel.swift in Sources */,
 				E5F6001C2977CCE000D5C22B /* UINavigationControllerExtension.swift in Sources */,
 				E5F6FFBA2977CC9300D5C22B /* DescriptionRow.swift in Sources */,
 				E5F600222977CCFC00D5C22B /* LoginTabController.swift in Sources */,
@@ -1866,6 +1886,7 @@
 				E59424FB298CF57900EF2F65 /* WebFloorMapView.swift in Sources */,
 				E5B61E6A298245A700533B6F /* ARViewController.swift in Sources */,
 				E5B61E6629823F0200533B6F /* MarkerWorldTransform.mm in Sources */,
+				E5EE1CF62A8F069A004C1331 /* VoiceGuideModel.swift in Sources */,
 				E5B61E6729823F0200533B6F /* OpenCVWrapper.mm in Sources */,
 				E5B61E5D29823E1300533B6F /* ArUcoModel.swift in Sources */,
 				E5B61E5E29823E1300533B6F /* GuidanceModel.swift in Sources */,
@@ -1901,6 +1922,7 @@
 				E537508D2977D73900BC3ACA /* EventViewController.swift in Sources */,
 				E537508E2977D73900BC3ACA /* ExhibitionView.swift in Sources */,
 				E537508F2977D73900BC3ACA /* FloorMapView.swift in Sources */,
+				E5EE1CFF2A8F07E6004C1331 /* InquiryManager.swift in Sources */,
 				E5B61E7629838DEE00533B6F /* IDListViewController.swift in Sources */,
 				E52D54B729A32B8700D48CF9 /* RadioCell.swift in Sources */,
 				E53750902977D73900BC3ACA /* FloorMapViewController.swift in Sources */,
@@ -1975,6 +1997,7 @@
 				E53750782977D71B00BC3ACA /* NaviSettingController.swift in Sources */,
 				E5C59C002A08CE2000577740 /* ARGuideRow.swift in Sources */,
 				E53750792977D71B00BC3ACA /* SettingView.swift in Sources */,
+				E5EE1CF92A8F07B7004C1331 /* ArAnchorManager.swift in Sources */,
 				E537507A2977D71B00BC3ACA /* TabItem.swift in Sources */,
 				E5F6FF082977B2F700D5C22B /* NavDataStore.m in Sources */,
 				E5F6FF092977B2F700D5C22B /* ServerConfig.m in Sources */,
@@ -1990,6 +2013,7 @@
 				E5F6FF132977B2F700D5C22B /* ViewController.m in Sources */,
 				E5F6FF142977B2F700D5C22B /* NavDeviceTTS.m in Sources */,
 				E538140A2989F4DC0098E082 /* SwitchModel.swift in Sources */,
+				E5EE1CFC2A8F07D6004C1331 /* MotionManager.swift in Sources */,
 				E5F6FF152977B2F700D5C22B /* BlindViewController.m in Sources */,
 				E5B61E842983C11000533B6F /* BaseBarButton.swift in Sources */,
 				E5F6FF162977B2F700D5C22B /* NavCommander.m in Sources */,

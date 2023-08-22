@@ -149,7 +149,12 @@ extension ARMessageListView: AudioManagerDelegate {
                 }
 
                 // Voice Overで読み上げ
-                let voice = speakingData.voice
+                var voice = speakingData.voice
+                
+                if speakingData.type == .lockGuide,
+                   let descriptionDetail = speakingData.descriptionDetail {
+                    voice = descriptionDetail.unionMessagePron()
+                }
                 let announcementString = NSAttributedString(string: voice,
                                                             attributes: [.accessibilitySpeechQueueAnnouncement: false])
                 UIAccessibility.post(notification: .announcement, argument: announcementString)
