@@ -143,7 +143,8 @@ extension ARMessageListView: AudioManagerDelegate {
                                       with: .automatic)
             self.tableView.endUpdates()
 
-            if UIAccessibility.isVoiceOverRunning {
+            if UserDefaults.standard.bool(forKey: "ARCameraLockMarker") &&
+                UIAccessibility.isVoiceOverRunning {
                 if AudioManager.shared.isPlaying {
                     AudioManager.shared.stop()
                 }
@@ -158,7 +159,7 @@ extension ARMessageListView: AudioManagerDelegate {
                 let announcementString = NSAttributedString(string: voice,
                                                             attributes: [.accessibilitySpeechQueueAnnouncement: false])
                 UIAccessibility.post(notification: .announcement, argument: announcementString)
-                NSLog("Voice Over \(voice)")
+                NSLog("VoiceOver \(voice)")
             }
         }
     }

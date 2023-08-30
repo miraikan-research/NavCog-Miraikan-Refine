@@ -66,7 +66,7 @@ class ARDetailViewController: UIViewController {
         if !UIAccessibility.isVoiceOverRunning,
            let model = model {
             if let descriptionDetail = model.descriptionDetail {
-                AudioManager.shared.forcedSpeak(text: descriptionDetail.messagePron)
+                AudioManager.shared.forcedSpeak(text: descriptionDetail.message(pron: true))
             } else {
                 AudioManager.shared.forcedSpeak(text: model.voice)
             }
@@ -94,8 +94,8 @@ extension ARDetailViewController: UITableViewDataSource {
         cell.selectionStyle = .none
         if let model = model {
             if let descriptionDetail = model.descriptionDetail {
-                cell.textLabel?.text = descriptionDetail.message
-                cell.accessibilityLabel = descriptionDetail.messagePron
+                cell.textLabel?.text = descriptionDetail.message()
+                cell.accessibilityLabel = descriptionDetail.message(pron: true)
             } else {
                 cell.textLabel?.text = model.message
                 cell.accessibilityLabel = model.voice

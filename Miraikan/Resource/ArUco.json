@@ -9,9 +9,11 @@
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 30,
-        "message": "%@先",
-        "message_en": "%@ ahead.",
-        "message_pron": "%@先",
+        "message_language": {
+            "text": "%@先",
+            "text_en": "%@ ahead.",
+            "text_pron": "%@先",
+        },
     },
 },
 {
@@ -56,9 +58,6 @@
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 100,
-        "message": "",
-        "message_en": "",
-        "message_pron": "",
     },
 },
 {
@@ -70,10 +69,12 @@
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 5,
-        "message": "左を向いて%@ 進んで下さい。壁に展示パネルがあります。",
-        "message_en": "Turn left and go about %@. There is an exhibition panel on the wall.",
-        "message_pron": "左を向いて%@ 進んで下さい。壁に展示パネルがあります。",
-        "internal_distance" : 12,
+        "message_language": {
+            "text": "左を向いて%@ 進んで下さい。壁に展示パネルがあります。",
+            "text_en": "Turn left and go about %@. There is an exhibition panel on the wall.",
+            "text_pron": "左を向いて%@ 進んで下さい。壁に展示パネルがあります。",
+            "internal_distance" : 12,
+        },
     },
 },
 {
@@ -85,13 +86,14 @@
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "左を向いて%@ 進んで下さい。壁に展示パネルがあります。",
-        "message_en": "Turn left and go about %@. There is an exhibition panel on the wall.",
-        "message_pron": "左を向いて%@ 進んで下さい。壁に展示パネルがあります。",
-        "internal_distance" : 6,
+        "message_language": {
+            "text": "左を向いて%@ 進んで下さい。壁に展示パネルがあります。",
+            "text_en": "Turn left and go about %@. There is an exhibition panel on the wall.",
+            "text_pron": "左を向いて%@ 進んで下さい。壁に展示パネルがあります。",
+            "internal_distance" : 6,
+        },
     },
 },
-
 
 {
     "id": 503,
@@ -102,9 +104,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1.8,
-        "message": "体を新しくする幹細胞たち\n幹細胞とは「分裂して増える能力と、体のさまざまな部位の細胞になる能力（分化）」をもった細胞です。幹細胞を研究することで、治療法のない病気の解明や、新しい薬の開発に役立てることができます。また、病気になった細胞を、幹細胞からつくった元気な細胞と入れ替える「再生治療」が可能になります。",
-        "message_en": "Body - Restoring Stem Cells. Stem cells are cells that \"can divide and propagate, and have the ability to turn (differentiate) into various other cells in the body.\" Research into stem cells helps us understand the mechanisms of untreatable diseases and develop medications for them. It also facilitates \"regenerative medicine,\" in which diseased cells are replaced with healthy or functional ones made from stem cells.",
-        "message_pron": "体を新しくするカンサイボウたち。カンサイボウとは「分裂して増える能力と、体のさまざまな部位の細胞になる能力（分化）」をもった細胞です。カンサイボウを研究することで、治療法のない病気の解明や、新しい薬の開発に役立てることができます。また、病気になった細胞を、カンサイボウからつくった元気な細胞と入れ替える「再生治療」が可能になります。",
+        "message_language": {
+            "text": "体を新しくする幹細胞たち\n幹細胞とは「分裂して増える能力と、体のさまざまな部位の細胞になる能力（分化）」をもった細胞です。幹細胞を研究することで、治療法のない病気の解明や、新しい薬の開発に役立てることができます。また、病気になった細胞を、幹細胞からつくった元気な細胞と入れ替える「再生治療」が可能になります。",
+            "text_en": "Body - Restoring Stem Cells. Stem cells are cells that \"can divide and propagate, and have the ability to turn (differentiate) into various other cells in the body.\" Research into stem cells helps us understand the mechanisms of untreatable diseases and develop medications for them. It also facilitates \"regenerative medicine,\" in which diseased cells are replaced with healthy or functional ones made from stem cells.",
+            "text_pron": "体を新しくするカンサイボウたち。カンサイボウとは「分裂して増える能力と、体のさまざまな部位の細胞になる能力（分化）」をもった細胞です。カンサイボウを研究することで、治療法のない病気の解明や、新しい薬の開発に役立てることができます。また、病気になった細胞を、カンサイボウからつくった元気な細胞と入れ替える「再生治療」が可能になります。",
+        },
     },
 },
 {
@@ -116,9 +120,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1.8,
-        "message": "体性幹細胞\n体の中に元々ある幹細胞で、「新しい細胞をつくる能力」をもっています。傷ついたり、古くなった細胞を入れ替えたり、病気やケガで失われた細胞を補います。1965年から始まった骨髄移植では、ドナーの体性幹細胞を患者に移植する方法がとられています。自分自身の細胞を使うことで、拒絶反応が少ない治療も可能です。体性幹細胞では、分化できる細胞の種類が限定されます。また、細胞の種類によって、取り出しやすさや、取り出せる細胞の数、新しい細胞をつくる能力に違いがあります。",
-        "message_en": "Somatic Stem Cells. These are stem cells in your body which have \"the ability to produce new cells (differentiation).\" They can supplement damaged or aging cells and replace cells lost to disease and injury. As with bone marrow transplants, which began in 1965, somatic stem cells are taken from the donor's body before being used in treatment. When they are taken from the patient's body, treatment can also be achieved with a much lower rate of transplant rejection. However, somatic stem cells are only capable of differentiating into certain cell types.",
-        "message_pron": "タイセイカンサイボウ。体の中に元々あるカンサイボウで、「新しい細胞をつくる能力」をもっています。傷ついたり、古くなった細胞を入れ替えたり、病気やケガで失われた細胞を補います。1965年から始まった骨髄移植では、ドナーのタイセイカンサイボウを患者に移植する方法がとられています。自分自身の細胞を使うことで、拒絶反応が少ない治療も可能です。タイセイカンサイボウでは、分化できる細胞の種類が限定されます。また、細胞の種類によって、取り出しやすさや、取り出せる細胞の数、新しい細胞をつくる能力に違いがあります。",
+        "message_language": {
+            "text": "体性幹細胞\n体の中に元々ある幹細胞で、「新しい細胞をつくる能力」をもっています。傷ついたり、古くなった細胞を入れ替えたり、病気やケガで失われた細胞を補います。1965年から始まった骨髄移植では、ドナーの体性幹細胞を患者に移植する方法がとられています。自分自身の細胞を使うことで、拒絶反応が少ない治療も可能です。体性幹細胞では、分化できる細胞の種類が限定されます。また、細胞の種類によって、取り出しやすさや、取り出せる細胞の数、新しい細胞をつくる能力に違いがあります。",
+            "text_en": "Somatic Stem Cells. These are stem cells in your body which have \"the ability to produce new cells (differentiation).\" They can supplement damaged or aging cells and replace cells lost to disease and injury. As with bone marrow transplants, which began in 1965, somatic stem cells are taken from the donor's body before being used in treatment. When they are taken from the patient's body, treatment can also be achieved with a much lower rate of transplant rejection. However, somatic stem cells are only capable of differentiating into certain cell types.",
+            "text_pron": "タイセイカンサイボウ。体の中に元々あるカンサイボウで、「新しい細胞をつくる能力」をもっています。傷ついたり、古くなった細胞を入れ替えたり、病気やケガで失われた細胞を補います。1965年から始まった骨髄移植では、ドナーのタイセイカンサイボウを患者に移植する方法がとられています。自分自身の細胞を使うことで、拒絶反応が少ない治療も可能です。タイセイカンサイボウでは、分化できる細胞の種類が限定されます。また、細胞の種類によって、取り出しやすさや、取り出せる細胞の数、新しい細胞をつくる能力に違いがあります。",
+        },
     },
 },
 {
@@ -130,9 +136,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1.8,
-        "message": "ES細胞(胚性幹細胞)\n受精後、しばらく成長した受精卵からとった幹細胞で、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは1998年に初めて培養に成功しました。体性幹細胞と比べて、体中の細胞をつくることができます。ES細胞では、主に不妊治療で不要となった受精卵からつくります。そのため、材料となる細胞が限られるので、細胞の周りのゲノム(全遺伝情報)の多様性も限られます。また、治療の際には、患者と同じゲノムを持った細胞を使う事ができません。",
-        "message_en": "ES Cells (Embryonic Stem Cells). Obtained from embryos in the stages immediately following fertilization, ES cells have the ability to \"propagate infinitely, and differentiate into many types of cells in the body (pluripotency).\" Human ES cells were first successfully grown in 1998. Unlike somatic stem cells, they are capable of producing a wide variety of the body's cells. ES cells are generally made out of surplus embryos taken from fertility treatments. Because there is a limited source of these cells, the pluripotency of their DNA (their complete genome) is finite.",
-        "message_pron": "イーエス細胞(ハイセイカンサイボウ)。受精後、しばらく成長した受精卵からとったカンサイボウで、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは1998年に初めて培養に成功しました。タイセイカンサイボウと比べて、体中の細胞をつくることができます。イーエス細胞では、主に不妊治療で不要となった受精卵からつくります。そのため、材料となる細胞が限られるので、細胞の周りのゲノム(全遺伝情報)の多様性も限られます。また、治療の際には、患者と同じゲノムを持った細胞を使う事ができません。",
+        "message_language": {
+            "text": "ES細胞(胚性幹細胞)\n受精後、しばらく成長した受精卵からとった幹細胞で、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは1998年に初めて培養に成功しました。体性幹細胞と比べて、体中の細胞をつくることができます。ES細胞では、主に不妊治療で不要となった受精卵からつくります。そのため、材料となる細胞が限られるので、細胞の周りのゲノム(全遺伝情報)の多様性も限られます。また、治療の際には、患者と同じゲノムを持った細胞を使う事ができません。",
+            "text_en": "ES Cells (Embryonic Stem Cells). Obtained from embryos in the stages immediately following fertilization, ES cells have the ability to \"propagate infinitely, and differentiate into many types of cells in the body (pluripotency).\" Human ES cells were first successfully grown in 1998. Unlike somatic stem cells, they are capable of producing a wide variety of the body's cells. ES cells are generally made out of surplus embryos taken from fertility treatments. Because there is a limited source of these cells, the pluripotency of their DNA (their complete genome) is finite.",
+            "text_pron": "イーエス細胞(ハイセイカンサイボウ)。受精後、しばらく成長した受精卵からとったカンサイボウで、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは1998年に初めて培養に成功しました。タイセイカンサイボウと比べて、体中の細胞をつくることができます。イーエス細胞では、主に不妊治療で不要となった受精卵からつくります。そのため、材料となる細胞が限られるので、細胞の周りのゲノム(全遺伝情報)の多様性も限られます。また、治療の際には、患者と同じゲノムを持った細胞を使う事ができません。",
+        },
     },
 },
 {
@@ -144,9 +152,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1.8,
-        "message": "iPS細胞(人工多能性幹細胞)\n体をつくる幹細胞に遺伝子を入れてつくった幹細胞で、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは2007年に初めて作製に成功しました。iPS細胞は、皮膚や血液などの体細胞に操作を行ってつくるため、もとの体細胞がもつゲノムに異常がないかや、つくられたiPS細胞がその異常を引き継いでいないか、人為的な操作による影響を受けていないかを調べています。",
-        "message_en": "iPS Cells (Induced Pluripotent Stem Cells). iPS cells are created by replacing the genes of somatic cells, and have \"the ability to propagate infinitely and differentiate into many types of cells in the body (pluripotency).\" They were first successfully created with human cells in 2007. Because iPS cells are reprogrammed from blood and skin cells, they are tested to ensure that there are no irregularities in the DNA of the original somatic cells, that the resulting iPS cells haven't inherited these irregularities, and that their artificial reprogramming hasn't had any undue influence.",
-        "message_pron": "iPS細胞(ジンコウタノウセイカンサイボウ)。体をつくるカンサイボウに遺伝子を入れてつくったカンサイボウで、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは2007年に初めて作製に成功しました。iPS細胞は、皮膚や血液などのタイサイボウに操作を行ってつくるため、もとのタイサイボウがもつゲノムに異常がないかや、つくられたiPS細胞がその異常を引き継いでいないか、人為的な操作による影響を受けていないかを調べています。",
+        "message_language": {
+            "text": "iPS細胞(人工多能性幹細胞)\n体をつくる幹細胞に遺伝子を入れてつくった幹細胞で、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは2007年に初めて作製に成功しました。iPS細胞は、皮膚や血液などの体細胞に操作を行ってつくるため、もとの体細胞がもつゲノムに異常がないかや、つくられたiPS細胞がその異常を引き継いでいないか、人為的な操作による影響を受けていないかを調べています。",
+            "text_en": "iPS Cells (Induced Pluripotent Stem Cells). iPS cells are created by replacing the genes of somatic cells, and have \"the ability to propagate infinitely and differentiate into many types of cells in the body (pluripotency).\" They were first successfully created with human cells in 2007. Because iPS cells are reprogrammed from blood and skin cells, they are tested to ensure that there are no irregularities in the DNA of the original somatic cells, that the resulting iPS cells haven't inherited these irregularities, and that their artificial reprogramming hasn't had any undue influence.",
+            "text_pron": "iPS細胞(ジンコウタノウセイカンサイボウ)。体をつくるカンサイボウに遺伝子を入れてつくったカンサイボウで、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは2007年に初めて作製に成功しました。iPS細胞は、皮膚や血液などのタイサイボウに操作を行ってつくるため、もとのタイサイボウがもつゲノムに異常がないかや、つくられたiPS細胞がその異常を引き継いでいないか、人為的な操作による影響を受けていないかを調べています。",
+        },
     },
 },
 {
@@ -158,29 +168,37 @@
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 1.5,
-        "message": "%@先。正面の壁。展示パネルがあります。",
-        "message_en": "%@ ahead. Front wall. There are display panels.",
-        "message_pron": "%@先。正面の壁。展示パネルがあります。",
+        "message_language": {
+            "text": "%@先。正面の壁。展示パネルがあります。",
+            "text_en": "%@ ahead. Front wall. There are display panels.",
+            "text_pron": "%@先。正面の壁。展示パネルがあります。",
+        },
     },
     "guide_from_here_reserve": {
         "short_distance": 0,
         "long_distance": 1.5,
-        "message": "4時の方向を向いて%@ 進んでください。正面の壁に展示パネルがあります。",
-        "message_en": "Turn to face 4 o'clock and go about %@. There is an exhibition panel on the front wall.",
-        "message_pron": "4時の方向を向いて%@ 進んでください。正面の壁に展示パネルがあります。",
-        "internal_distance" : 3,
+        "message_language": {
+            "text": "4時の方向を向いて%@ 進んでください。正面の壁に展示パネルがあります。",
+            "text_en": "Turn to face 4 o'clock and go about %@. There is an exhibition panel on the front wall.",
+            "text_pron": "4時の方向を向いて%@ 進んでください。正面の壁に展示パネルがあります。",
+            "internal_distance" : 3,
+        },
     },
     "next_guide_reserve": {
-        "message": "次の展示を案内します。",
-        "message_en": "We will guide you through the next exhibit.",
-        "message_pron": "次の展示を案内します。",
+        "message_language": {
+            "text": "次の展示を案内します。",
+            "text_en": "We will guide you through the next exhibit.",
+            "text_pron": "次の展示を案内します。",
+        },
     },
     "description": {
         "short_distance": 0,
         "long_distance": 2,
-        "message": "はじまりはひとつの細胞から。細胞は、生命活動の基本単位。「生きている」という状態の、もっとも小さな姿が細胞です。あなたはたったひとつの細胞から始まりました。そして今、40兆ほどの細胞があなたの体をかたちづくり、生かしています。あなたは受精卵という、たった一つの細胞からはじまりました。両親の遺伝子を引きついだ受精卵は、「体の全ての細胞になれる」特別な細胞です。受精卵が分裂し数を増やしていくうちに、細胞ごとに異なる遺伝子がはたらき、体がつくられはじめます。",
-        "message_en": "It All Began with a Single Cell. Cells are the basic unit of biological activity. The smallest form that \"life\" can take is that of a cell. You began with a single cell. Now some 40 trillion cells make up your body and give you life. You began as a single, fertilized egg. This special cell carried your biological parents' DNA, and had the ability to turn into all of the body's cells. As your embryo went about building your body, it divided itself, using different parts of the genome for each new cell it made.",
-        "message_pron": "はじまりはひとつの細胞から。 。細胞は、生命活動の基本単位。「生きている」という状態の、もっとも小さな姿が細胞です。あなたはたったひとつの細胞から始まりました。そして今、40兆ほどの細胞があなたの体をかたちづくり、生かしています。 。あなたは受精卵という、たった一つの細胞からはじまりました。両親の遺伝子を引きついだ受精卵は、「体の全ての細胞になれる」特別な細胞です。受精卵が分裂し数を増やしていくうちに、細胞ごとに異なる遺伝子がはたらき、体がつくられはじめます。",
+        "message_language": {
+            "text": "はじまりはひとつの細胞から。細胞は、生命活動の基本単位。「生きている」という状態の、もっとも小さな姿が細胞です。あなたはたったひとつの細胞から始まりました。そして今、40兆ほどの細胞があなたの体をかたちづくり、生かしています。あなたは受精卵という、たった一つの細胞からはじまりました。両親の遺伝子を引きついだ受精卵は、「体の全ての細胞になれる」特別な細胞です。受精卵が分裂し数を増やしていくうちに、細胞ごとに異なる遺伝子がはたらき、体がつくられはじめます。",
+            "text_en": "It All Began with a Single Cell. Cells are the basic unit of biological activity. The smallest form that \"life\" can take is that of a cell. You began with a single cell. Now some 40 trillion cells make up your body and give you life. You began as a single, fertilized egg. This special cell carried your biological parents' DNA, and had the ability to turn into all of the body's cells. As your embryo went about building your body, it divided itself, using different parts of the genome for each new cell it made.",
+            "text_pron": "はじまりはひとつの細胞から。 。細胞は、生命活動の基本単位。「生きている」という状態の、もっとも小さな姿が細胞です。あなたはたったひとつの細胞から始まりました。そして今、40兆ほどの細胞があなたの体をかたちづくり、生かしています。 。あなたは受精卵という、たった一つの細胞からはじまりました。両親の遺伝子を引きついだ受精卵は、「体の全ての細胞になれる」特別な細胞です。受精卵が分裂し数を増やしていくうちに、細胞ごとに異なる遺伝子がはたらき、体がつくられはじめます。",
+        },
     },
 },
 {
@@ -192,9 +210,11 @@
     "guide_to_here": {
         "short_distance": 2,
         "long_distance": 6,
-        "message": "%@先。正面の壁にさわることができる展示パネルがあります。",
-        "message_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
-        "message_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
+        "message_language": {
+            "text": "%@先。正面の壁にさわることができる展示パネルがあります。",
+            "text_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
+            "text_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
+        },
     },
 },
 {
@@ -206,9 +226,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 2,
-        "message": "あなたの体がつくられるなかで、細胞は特定のはたらきをもつ細胞へと「分化」します。血液や眼など、それぞれの役割を担う細胞へと変化します。受精卵から約56日かけておおまかな体のかたちができあがります。その後、臓器や組織の細かい構造がつくられ、きちんとはたらけるようになり、受精から約38週ほどであなたは生まれてきたのです。",
-        "message_en": "As your body formed, your cells continued \"differentiating\" into more specialized cells. These cells developed into your blood, eyes, and other parts meant to handle specific tasks. It took some 56 days for your body to develop its general form. Then it moved on to organs, tissues, and other complex structures. After 38 weeks, you were born.",
-        "message_pron": "あなたの体がつくられるなかで、細胞は特定のはたらきをもつ細胞へと「分化」します。血液や眼など、それぞれの役割を担う細胞へと変化します。受精卵から約56日かけておおまかな体のかたちができあがります。その後、臓器や組織の細かい構造がつくられ、きちんとはたらけるようになり、受精から約38週ほどであなたは生まれてきたのです。",
+        "message_language": {
+            "text": "あなたの体がつくられるなかで、細胞は特定のはたらきをもつ細胞へと「分化」します。血液や眼など、それぞれの役割を担う細胞へと変化します。受精卵から約56日かけておおまかな体のかたちができあがります。その後、臓器や組織の細かい構造がつくられ、きちんとはたらけるようになり、受精から約38週ほどであなたは生まれてきたのです。",
+            "text_en": "As your body formed, your cells continued \"differentiating\" into more specialized cells. These cells developed into your blood, eyes, and other parts meant to handle specific tasks. It took some 56 days for your body to develop its general form. Then it moved on to organs, tissues, and other complex structures. After 38 weeks, you were born.",
+            "text_pron": "あなたの体がつくられるなかで、細胞は特定のはたらきをもつ細胞へと「分化」します。血液や眼など、それぞれの役割を担う細胞へと変化します。受精卵から約56日かけておおまかな体のかたちができあがります。その後、臓器や組織の細かい構造がつくられ、きちんとはたらけるようになり、受精から約38週ほどであなたは生まれてきたのです。",
+        },
     },
 },
 {
@@ -220,31 +242,34 @@
     "guide_to_here": {
         "short_distance": 1.2,
         "long_distance": 5,
-        "message": "%@先。正面の壁にさわることができる展示パネルがあります。",
-        "message_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
-        "message_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
+        "message_language": {
+            "text": "%@先。正面の壁にさわることができる展示パネルがあります。",
+            "text_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
+            "text_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
+        },
     },
     "guide_from_here": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "",
-        "message_en": "",
-        "message_pron": "",
     },
     "next_guide": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "正面の壁の下側に奥行き%@の棚板があります。その上部に展示があります。",
-        "message_en": "On the lower side of the front wall there is a %@ deep shelf. The exhibit is located above it.",
-        "message_pron": "正面の壁の下側に奥行き%@の棚板があります。その上部に展示があります。",
-        "internal_distance" : 0.25,
+        "message_language": {
+            "text": "正面の壁の下側に奥行き%@の棚板があります。その上部に展示があります。",
+            "text_en": "On the lower side of the front wall there is a %@ deep shelf. The exhibit is located above it.",
+            "text_pron": "正面の壁の下側に奥行き%@の棚板があります。その上部に展示があります。",
+            "internal_distance" : 0.25,
+        },
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "受精から約32週の胎児。さわってみてください。生まれた後も、新しい細胞を作り続ける「幹細胞」により、体は大きく成長します。古くなった細胞の入れ替えや、病気やケガで失われた細胞の補充も、幹細胞によって行われています。",
-        "message_en": "A fetus at 32 weeks. Go ahead and touch. Even after you were born, \"stem cells\" continued producing new cells, causing your body to grow. Stem cells also work to replace cells that have grown old or been damaged through injury or sickness.",
-        "message_pron": "受精から約32週の胎児。さわってみてください。生まれたアトも、新しい細胞を作り続ける「カンサイボウ」により、体は大きく成長します。古くなった細胞の入れ替えや、病気やケガで失われた細胞の補充も、カンサイボウによって行われています。",
+        "message_language": {
+            "text": "受精から約32週の胎児。さわってみてください。生まれた後も、新しい細胞を作り続ける「幹細胞」により、体は大きく成長します。古くなった細胞の入れ替えや、病気やケガで失われた細胞の補充も、幹細胞によって行われています。",
+            "text_en": "A fetus at 32 weeks. Go ahead and touch. Even after you were born, \"stem cells\" continued producing new cells, causing your body to grow. Stem cells also work to replace cells that have grown old or been damaged through injury or sickness.",
+            "text_pron": "受精から約32週の胎児。さわってみてください。生まれたアトも、新しい細胞を作り続ける「カンサイボウ」により、体は大きく成長します。古くなった細胞の入れ替えや、病気やケガで失われた細胞の補充も、カンサイボウによって行われています。",
+        },
     },
 },
 {
@@ -256,29 +281,37 @@
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "%@先。正面に棚板があります。棚板の上に展示パネルがあります。",
-        "message_en": "There is a shelf on the front.",
-        "message_pron": "%@先。正面に棚板があります。棚板の上に展示パネルがあります。",
+        "message_language": {
+            "text": "%@先。正面に棚板があります。棚板の上に展示パネルがあります。",
+            "text_en": "There is a shelf on the front.",
+            "text_pron": "%@先。正面に棚板があります。棚板の上に展示パネルがあります。",
+        },
     },
     "guide_from_here_reserve": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "右を向いて%@ 進んで下さい。左の壁に展示パネルがあります。",
-        "message_en": "Turn right and go about %@. There is an exhibition panel on the left wall.",
-        "message_pron": "右を向いて%@ 進んで下さい。左の壁に展示パネルがあります。",
-        "internal_distance" : 7,
+        "message_language": {
+            "text": "右を向いて%@ 進んで下さい。左の壁に展示パネルがあります。",
+            "text_en": "Turn right and go about %@. There is an exhibition panel on the left wall.",
+            "texte_pron": "右を向いて%@ 進んで下さい。左の壁に展示パネルがあります。",
+            "internal_distance" : 7,
+        },
     },
     "next_guide_reserve": {
-        "message": "次の展示を案内します 。",
-        "message_en": "We will guide you through the next exhibit.",
-        "message_pron": "次の展示を案内します 。",
+        "message_language": {
+            "text": "次の展示を案内します 。",
+            "text_en": "We will guide you through the next exhibit.",
+            "text_pron": "次の展示を案内します 。",
+        },
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "胎児の成長過程（実寸大）さわって、かたちの変化を感じてみてください。受精卵（0.1mm）、受精から19日（2.0mm）、28日（4.5mm）、40日（9mm）、44日（13mm）、50日（18mm）、56日（30mm）",
-        "message_en": "Stages of Fetal Growth (actual size). Touch to feel the shape change. Fertilized egg (0.1 millimeter). days after fertilization (2 millimeter). 28 days (4.5 millimeter). 40 days (9 millimeter). 44 days (13 millimeter). 50 days (18 millimeter). 56 days (30 millimeter).",
-        "message_pron": "胎児の成長過程（実寸大）。棚板の左側からさわって、かたちの変化を感じてみてください。 。受精卵（0.1ミリメートル）。 。受精から19日（2ミリメートル）。 。28日（4.5ミリメートル）。 。40日（9ミリメートル）。 。44日（13ミリメートル）。 。50日（18ミリメートル）。 。56日（30ミリメートル）。",
+        "message_language": {
+            "text": "胎児の成長過程（実寸大）さわって、かたちの変化を感じてみてください。受精卵（0.1mm）、受精から19日（2.0mm）、28日（4.5mm）、40日（9mm）、44日（13mm）、50日（18mm）、56日（30mm）",
+            "text_en": "Stages of Fetal Growth (actual size). Touch to feel the shape change. Fertilized egg (0.1 millimeter). days after fertilization (2 millimeter). 28 days (4.5 millimeter). 40 days (9 millimeter). 44 days (13 millimeter). 50 days (18 millimeter). 56 days (30 millimeter).",
+            "text_pron": "胎児の成長過程（実寸大）。棚板の左側からさわって、かたちの変化を感じてみてください。 。受精卵（0.1ミリメートル）。 。受精から19日（2ミリメートル）。 。28日（4.5ミリメートル）。 。40日（9ミリメートル）。 。44日（13ミリメートル）。 。50日（18ミリメートル）。 。56日（30ミリメートル）。",
+        },
     },
 },
 {
@@ -290,9 +323,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 2,
-        "message": "あなたの中ではたらく細胞\nあなたの体がきちんと動くには、細胞がつくるタンパク質が必要です。そのため、細胞は状況に合わせて必要なタンパク質をつくります。タンパク質は用途に応じて運ばれ、それぞれの役割を果たします。今もあなたの体の働きを支えている細胞のしくみを、体を触ることで体験してください。",
-        "message_en": "Cells at Work in Your Body. Your body relies on the proteins produced by cells in order to function. Your cells produce the proteins demanded by your body at any given time. Depending on their use, these proteins are carried to various parts of the body for different applications. Touch your body to see how each different type of cell works to maintain bodily functions.",
-        "message_pron": "あなたの中ではたらく細胞。あなたの体がきちんと動くには、細胞がつくるタンパク質が必要です。そのため、細胞は状況に合わせて必要なタンパク質をつくります。タンパク質は用途に応じて運ばれ、それぞれの役割を果たします。今もあなたの体の働きを支えている細胞の'しくみ'を、体を触ることで体験してください。",
+        "message_language": {
+            "text": "あなたの中ではたらく細胞\nあなたの体がきちんと動くには、細胞がつくるタンパク質が必要です。そのため、細胞は状況に合わせて必要なタンパク質をつくります。タンパク質は用途に応じて運ばれ、それぞれの役割を果たします。今もあなたの体の働きを支えている細胞のしくみを、体を触ることで体験してください。",
+            "text_en": "Cells at Work in Your Body. Your body relies on the proteins produced by cells in order to function. Your cells produce the proteins demanded by your body at any given time. Depending on their use, these proteins are carried to various parts of the body for different applications. Touch your body to see how each different type of cell works to maintain bodily functions.",
+            "text_pron": "あなたの中ではたらく細胞。あなたの体がきちんと動くには、細胞がつくるタンパク質が必要です。そのため、細胞は状況に合わせて必要なタンパク質をつくります。タンパク質は用途に応じて運ばれ、それぞれの役割を果たします。今もあなたの体の働きを支えている細胞の'しくみ'を、体を触ることで体験してください。",
+        },
     },
 },
 {
@@ -304,9 +339,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 2,
-        "message": "細胞がもつ10の装置\nあなたの細胞は、体が動くのに必要なタンパク質をつくり、分裂して増え、かたちを保ち、時には移動することもあります。それを可能にしているのは、どの細胞にも共通にそなわっている10の装置とゲノム（全遺伝情報）です。くわしく知りたい装置を選び、あなたの体を保ちつづけている細胞の仕組みを見てください。",
-        "message_en": "The Ten Apparatuses in Your Cells. Your cells not only make the proteins demanded by your bodily functions, but reproduce through cell division, maintain your bodily functions, and sometimes even move around, as well. They do all of these things thanks to the ten apparatuses shared by all cells, and your genome (all of your genetic data). Select an apparatus to learn more about the makeup of the cells that maintain your body.",
-        "message_pron": "細胞がもつ10の装置。あなたの細胞は、体が動くのに必要なタンパク質をつくり、分裂して増え、かたちを保ち、時には移動することもあります。それを可能にしているのは、どの細胞にも共通にそなわっている10の装置とゲノム（全遺伝情報）です。くわしく知りたい装置を選び、あなたの体を保ちつづけている細胞の仕組みを見てください。",
+        "message_language": {
+            "text": "細胞がもつ10の装置\nあなたの細胞は、体が動くのに必要なタンパク質をつくり、分裂して増え、かたちを保ち、時には移動することもあります。それを可能にしているのは、どの細胞にも共通にそなわっている10の装置とゲノム（全遺伝情報）です。くわしく知りたい装置を選び、あなたの体を保ちつづけている細胞の仕組みを見てください。",
+            "text_en": "The Ten Apparatuses in Your Cells. Your cells not only make the proteins demanded by your bodily functions, but reproduce through cell division, maintain your bodily functions, and sometimes even move around, as well. They do all of these things thanks to the ten apparatuses shared by all cells, and your genome (all of your genetic data). Select an apparatus to learn more about the makeup of the cells that maintain your body.",
+            "texte_pron": "細胞がもつ10の装置。あなたの細胞は、体が動くのに必要なタンパク質をつくり、分裂して増え、かたちを保ち、時には移動することもあります。それを可能にしているのは、どの細胞にも共通にそなわっている10の装置とゲノム（全遺伝情報）です。くわしく知りたい装置を選び、あなたの体を保ちつづけている細胞の仕組みを見てください。",
+        },
     },
 },
 {
@@ -318,29 +355,37 @@
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 1.5,
-        "message": "%@先。正面の壁にさわることができる展示パネルがあります。",
-        "message_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
-        "message_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
+        "message_language": {
+            "text": "%@先。正面の壁にさわることができる展示パネルがあります。",
+            "text_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
+            "texte_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
+        },
     },
     "guide_from_here_reserve": {
         "short_distance": 0,
         "long_distance": 1.2,
-        "message": "4時の方向を向いて%@ 進んで下さい。左側が展示の出口です。",
-        "message_en": "Turn to 4 o'clock and go about %@. The exit for the exhibit is on the left.",
-        "message_pron": "4時の方向を向いて%@ 進んで下さい。左側が展示の出口です。",
-        "internal_distance" : 3,
+        "message_language": {
+            "text": "4時の方向を向いて%@ 進んで下さい。左側が展示の出口です。",
+            "text_en": "Turn to 4 o'clock and go about %@. The exit for the exhibit is on the left.",
+            "text_pron": "4時の方向を向いて%@ 進んで下さい。左側が展示の出口です。",
+            "internal_distance" : 3,
+        },
     },
     "next_guide_reserve": {
-        "message": "出口を案内します。",
-        "message_en": "Guided Exit.",
-        "message_pron": "出口を案内します。",
+        "message_language": {
+            "text": "出口を案内します。",
+            "text_en": "Guided Exit.",
+            "text_pron": "出口を案内します。",
+        },
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1.5,
-        "message": "細胞の基本的な構造。さわってみてください。細胞たちが共通に持つ構造と装置（細胞内小器官）を現した模型です。これらの装置の見事な連携によって、細胞は機能しています。",
-        "message_en": "The Basic Structure of Cells. Go ahead and touch. This is a model of the structure and mechanisms (organelles) shared by all cells. The deft interplay of these mechanisms allow cells to function.",
-        "message_pron": "細胞の基本的な構造。さわってみてください。細胞たちが共通に持つ構造と装置（細胞内小器官）を現したモケイです。これらの装置の見事な連携によって、細胞は機能しています。",
+        "message_language": {
+            "text": "細胞の基本的な構造。さわってみてください。細胞たちが共通に持つ構造と装置（細胞内小器官）を現した模型です。これらの装置の見事な連携によって、細胞は機能しています。",
+            "text_en": "The Basic Structure of Cells. Go ahead and touch. This is a model of the structure and mechanisms (organelles) shared by all cells. The deft interplay of these mechanisms allow cells to function.",
+            "text_pron": "細胞の基本的な構造。さわってみてください。細胞たちが共通に持つ構造と装置（細胞内小器官）を現したモケイです。これらの装置の見事な連携によって、細胞は機能しています。",
+        },
     },
 },
 {
@@ -352,9 +397,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1.5,
-        "message": "細胞の進路を決めるゲノム\nあなたの細胞は何をするときにも、必ずゲノム(全遺伝情報)の一部を読みとっています。ゲノムは「DNA」という物質に記録され、必要なときに読み出され、タンパク質などをつくります。ゲノムのどこが読みとられるのかは、細胞の種類や状況によって変わります。生きている間、あなたの体の細胞はたえず外から影響を受け、ゲノムのどこが読みとられるのかも変化していきます。",
-        "message_en": "The Genome that Guides a Cell's Growth.Whenever one of your cells does something, it first reads part of your genome (all of your genetic data). Your genome is written on material called DNA, where it can be transcribed as needed or used to make proteins. Different parts of the genome are read depending on the type of cell and its circumstances. As you go about living, your cells are constantly being influenced by circumstances, which alter the part of the genome that is read.",
-        "message_pron": "細胞の進路を決めるゲノム。あなたの細胞は何をするときにも、必ずゲノム(全遺伝情報)の一部を読みとっています。ゲノムは「DNA」という物質に記録され、必要なときに読み出され、タンパク質などをつくります。ゲノムのどこが読みとられるのかは、細胞の種類や状況によって変わります。生きている間、あなたの体の細胞はたえず外から影響を受け、ゲノムのどこが読みとられるのかも変化していきます。",
+        "message_language": {
+            "text": "細胞の進路を決めるゲノム\nあなたの細胞は何をするときにも、必ずゲノム(全遺伝情報)の一部を読みとっています。ゲノムは「DNA」という物質に記録され、必要なときに読み出され、タンパク質などをつくります。ゲノムのどこが読みとられるのかは、細胞の種類や状況によって変わります。生きている間、あなたの体の細胞はたえず外から影響を受け、ゲノムのどこが読みとられるのかも変化していきます。",
+            "text_en": "The Genome that Guides a Cell's Growth.Whenever one of your cells does something, it first reads part of your genome (all of your genetic data). Your genome is written on material called DNA, where it can be transcribed as needed or used to make proteins. Different parts of the genome are read depending on the type of cell and its circumstances. As you go about living, your cells are constantly being influenced by circumstances, which alter the part of the genome that is read.",
+            "text_pron": "細胞の進路を決めるゲノム。あなたの細胞は何をするときにも、必ずゲノム(全遺伝情報)の一部を読みとっています。ゲノムは「DNA」という物質に記録され、必要なときに読み出され、タンパク質などをつくります。ゲノムのどこが読みとられるのかは、細胞の種類や状況によって変わります。生きている間、あなたの体の細胞はたえず外から影響を受け、ゲノムのどこが読みとられるのかも変化していきます。",
+        },
     },
 },
 {
@@ -366,9 +413,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 2.5,
-        "message": "あなたは細胞をつかって長生きしたいですか?\nこの展示は、こうしたさまざまな能力を持った細胞に人の手を加える未来について考えるものです。\nこれまでの研究が実を結び、わたしたちは細胞を操作する技術を手に入れました。\n将来は、細胞をつかった医療を選ぶことができるかもしれません。\nしかし、わたしたちヒトは、地球上では新しい生きもので、まだ解明されていない細胞のしくみもたくさんあります。\n多様な他の生きものと共存しながら、細胞の本来の姿やあり方をもっと学んでいく必要もあるでしょう。\nあなたをつくる細胞と、細胞を使った医療について、一緒に考えてみませんか。",
-        "message_en": "This exhibit considers the ways that cells, with their various abilities, might be manipulated to help people in the future. Research has yielded technologies which allow us to manipulate cells. In the future, you may be able to elect to have cell-based medical treatment. We humans, however, are relatively new organisms here on Earth, and many things are yet unclear about how our cells work. As we look at future uses for cells, it's important that we also consider what cells are for us and the diverse forms of life with which we share them. With that in mind, why don't we take a look at the cells that make up your body, and the medical procedures that employ them.",
-        "message_pron": "あなたは細胞をつかって長生きしたいですか?。この展示は、こうしたさまざまな能力を持った細胞に人の手を加える未来について考えるものです。これまでの研究が実を結び、わたしたちは細胞を操作する技術を手に入れました。将来は、細胞をつかった医療を選ぶことができるかもしれません。しかし、わたしたちヒトは、地球上では新しい生きもので、まだ解明されていない細胞のしくみもたくさんあります。多様な他の生きものと共存しながら、細胞の本来の姿やあり方をもっと学んでいく必要もあるでしょう。あなたをつくる細胞と、細胞を使った医療について、一緒に考えてみませんか。",
+        "message_language": {
+            "text": "あなたは細胞をつかって長生きしたいですか?\nこの展示は、こうしたさまざまな能力を持った細胞に人の手を加える未来について考えるものです。\nこれまでの研究が実を結び、わたしたちは細胞を操作する技術を手に入れました。\n将来は、細胞をつかった医療を選ぶことができるかもしれません。\nしかし、わたしたちヒトは、地球上では新しい生きもので、まだ解明されていない細胞のしくみもたくさんあります。\n多様な他の生きものと共存しながら、細胞の本来の姿やあり方をもっと学んでいく必要もあるでしょう。\nあなたをつくる細胞と、細胞を使った医療について、一緒に考えてみませんか。",
+            "text_en": "This exhibit considers the ways that cells, with their various abilities, might be manipulated to help people in the future. Research has yielded technologies which allow us to manipulate cells. In the future, you may be able to elect to have cell-based medical treatment. We humans, however, are relatively new organisms here on Earth, and many things are yet unclear about how our cells work. As we look at future uses for cells, it's important that we also consider what cells are for us and the diverse forms of life with which we share them. With that in mind, why don't we take a look at the cells that make up your body, and the medical procedures that employ them.",
+            "text_pron": "あなたは細胞をつかって長生きしたいですか?。この展示は、こうしたさまざまな能力を持った細胞に人の手を加える未来について考えるものです。これまでの研究が実を結び、わたしたちは細胞を操作する技術を手に入れました。将来は、細胞をつかった医療を選ぶことができるかもしれません。しかし、わたしたちヒトは、地球上では新しい生きもので、まだ解明されていない細胞のしくみもたくさんあります。多様な他の生きものと共存しながら、細胞の本来の姿やあり方をもっと学んでいく必要もあるでしょう。あなたをつくる細胞と、細胞を使った医療について、一緒に考えてみませんか。",
+        },
     },
 },
 {
@@ -379,17 +428,21 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先。壁に展示パネルがあります。",
-        "message_en": "%@ ahead. There is an exhibition panel on the wall.",
-        "message_pron": "%@先。壁に展示パネルがあります。",
-        "internal_distance" : 10,
+        "message_language": {
+            "text": "%@先。壁に展示パネルがあります。",
+            "text_en": "%@ ahead. There is an exhibition panel on the wall.",
+            "text_pron": "%@先。壁に展示パネルがあります。",
+            "internal_distance" : 10,
+        },
     },
     {
         "direction": 180,
-        "message": "%@先。展示の出口です。",
-        "message_en": "%@ ahead. The exit of the exhibition.",
-        "message_pron": "%@先。展示の出口です。",
-        "internal_distance" : 2,
+        "message_language": {
+            "text": "%@先。展示の出口です。",
+            "text_en": "%@ ahead. The exit of the exhibition.",
+            "text_pron": "%@先。展示の出口です。",
+            "internal_distance" : 2,
+        },
     }]
 },
 {
@@ -400,17 +453,21 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先。正面の壁。展示パネルがあります。",
-        "message_en": "%@ ahead. Front wall. There are display panels.",
-        "message_pron": "%@先。正面の壁。展示パネルがあります。",
-        "internal_distance" : 8,
+        "message_language": {
+            "text": "%@先。正面の壁。展示パネルがあります。",
+            "text_en": "%@ ahead. Front wall. There are display panels.",
+            "text_pron": "%@先。正面の壁。展示パネルがあります。",
+            "internal_distance" : 8,
+        },
     },
     {
         "direction": 180,
-        "message": "%@先。展示の出口です。",
-        "message_en": "%@ ahead. The exit of the exhibition.",
-        "message_pron": "%@先。展示の出口です。",
-        "internal_distance" : 4,
+        "message_language": {
+            "text": "%@先。展示の出口です。",
+            "text_en": "%@ ahead. The exit of the exhibition.",
+            "text_pron": "%@先。展示の出口です。",
+            "internal_distance" : 4,
+        },
     }]
 },
 {
@@ -421,10 +478,12 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先。正面の壁。展示パネルがあります。",
-        "message_en": "%@ ahead. Front wall. There are display panels.",
-        "message_pron": "%@先。正面の壁。展示パネルがあります。",
-        "internal_distance" : 6,
+        "message_language": {
+            "text": "%@先。正面の壁。展示パネルがあります。",
+            "text_en": "%@ ahead. Front wall. There are display panels.",
+            "text_pron": "%@先。正面の壁。展示パネルがあります。",
+            "internal_distance" : 6,
+        },
     }]
 },
 {
@@ -435,10 +494,12 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先。正面の壁。展示パネルがあります。",
-        "message_en": "%@ ahead. Front wall. There are display panels.",
-        "message_pron": "%@先。正面の壁。展示パネルがあります。",
-        "internal_distance" : 3,
+        "message_language": {
+            "text": "%@先。正面の壁。展示パネルがあります。",
+            "text_en": "%@ ahead. Front wall. There are display panels.",
+            "text_pron": "%@先。正面の壁。展示パネルがあります。",
+            "internal_distance" : 3,
+        },
     }]
 },
 {
@@ -449,10 +510,12 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先。正面の壁。展示パネルがあります。",
-        "message_en": "%@ ahead. Front wall. There are display panels.",
-        "message_pron": "%@先。正面の壁。展示パネルがあります。",
-        "internal_distance" : 1,
+        "message_language": {
+            "text": "%@先。正面の壁。展示パネルがあります。",
+            "text_en": "%@ ahead. Front wall. There are display panels.",
+            "text_pron": "%@先。正面の壁。展示パネルがあります。",
+            "internal_distance" : 1,
+        },
     }]
 },
 {
@@ -463,17 +526,21 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
             "direction": 120,
-            "message": "%@先。壁に展示パネルがあります。",
-            "message_en": "%@ ahead. Front wall. There are display panels.",
-            "message_pron": "%@先。壁に展示パネルがあります。",
-            "internal_distance" : 0.5,
+            "message_language": {
+                "text": "%@先。壁に展示パネルがあります。",
+                "text_en": "%@ ahead. Front wall. There are display panels.",
+                "text_pron": "%@先。壁に展示パネルがあります。",
+                "internal_distance" : 0.5,
+            },
         },
         {
         "direction": 0,
-        "message": "%@先。進行経路です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 4,
+        "message_language": {
+            "text": "%@先。進行経路です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 4,
+        },
     }]
 },
 {
@@ -484,17 +551,21 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 120,
-        "message": "%@先。壁に展示パネルがあります。",
-        "message_en": "%@ ahead. Front wall. There are display panels.",
-        "message_pron": "%@先。壁に展示パネルがあります。",
-        "internal_distance" : 0.5,
+        "message_language": {
+            "text": "%@先。壁に展示パネルがあります。",
+            "text_en": "%@ ahead. Front wall. There are display panels.",
+            "text_pron": "%@先。壁に展示パネルがあります。",
+            "internal_distance" : 0.5,
+        },
     },
     {
         "direction": 0,
-        "message": "%@先。進行経路です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 7,
+        "message_language": {
+            "text": "%@先。進行経路です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 7,
+        },
     }]
 },
 {
@@ -505,17 +576,21 @@
     "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "flat_guide": [{
         "direction": 150,
-        "message": "%@先。壁に展示パネルがあります。",
-        "message_en": "%@ ahead. Front wall. There are display panels.",
-        "message_pron": "%@先。壁に展示パネルがあります。",
-        "internal_distance" : 0.5,
+        "message_language": {
+            "text": "%@先。壁に展示パネルがあります。",
+            "text_en": "%@ ahead. Front wall. There are display panels.",
+            "text_pron": "%@先。壁に展示パネルがあります。",
+            "internal_distance" : 0.5,
+        },
     },
     {
         "direction": 0,
-        "message": "%@先。展示の出口経路です。",
-        "message_en": "%@ ahead. The exit of the exhibition.",
-        "message_pron": "%@先。展示の出口経路です。",
-        "internal_distance" : 4,
+        "message_language": {
+            "text": "%@先。展示の出口経路です。",
+            "text_en": "%@ ahead. The exit of the exhibition.",
+            "text_pron": "%@先。展示の出口経路です。",
+            "internal_distance" : 4,
+        },
     }]
 },
 {
@@ -558,9 +633,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1.5,
-        "message": "わたしたちはたくさんの目に見えない微生物たちとともに暮らしています。私たちの過ごす家や学校、わたしたち自身の体さえもたくさんの微生物が暮らす生態系になっていて、微生物のやりとりを通じて周りの環境とつながっています。しかし、無生物的で、\"清潔\"な環境を追い求めるあまり。これまで長い時間をかけて紡がれてきたわたしたちと微生物との関係がほつれかけています。目に見えないパートナーをないがしろにしてはいないか\nこの展示ではビジョナリーの伊藤光平さんと一緒に、身のまわりにいる微生物の多様性と、彼らと共に生きる未来の暮らしについて考えます。",
-        "message_en": "We live with multitudes of microbes that are invisible to our eyes. Our homes, schools, and even our bodies are ecosystems where lots of microbes live, and are connected to the surrounding environment through microbe interactions. But, we are intensely working to create a \"clean\", inorganic environment. These efforts hinder our relationship with natural microbes, which has been formed over a long period of time. Are we ignoring our invisible partners? In this exhibition, guided by the visionary Kohei Ito, we invite you to think about the diversity of the microbes around us, and how we can better live with them in the future.",
-        "message_pron": "わたしたちはたくさんの目に見えない微生物たちとともに暮らしています。私たちの過ごす家や学校、わたしたち自身の体さえもたくさんの微生物が暮らす生態系になっていて、微生物のやりとりを通じて周りの環境とつながっています。しかし、無生物的で、\"清潔\"な環境を追い求めるあまり。これまで長い時間をかけて紡がれてきたわたしたちと微生物との関係がほつれかけています。目に見えないパートナーをないがしろにしてはいないか。\nこの展示ではビジョナリーのイトウコウヘイさんと一緒に、身のまわりにいる微生物の多様性と、彼らと共に生きる未来の暮らしについて考えます。",
+        "message_language": {
+            "text": "わたしたちはたくさんの目に見えない微生物たちとともに暮らしています。私たちの過ごす家や学校、わたしたち自身の体さえもたくさんの微生物が暮らす生態系になっていて、微生物のやりとりを通じて周りの環境とつながっています。しかし、無生物的で、\"清潔\"な環境を追い求めるあまり。これまで長い時間をかけて紡がれてきたわたしたちと微生物との関係がほつれかけています。目に見えないパートナーをないがしろにしてはいないか\nこの展示ではビジョナリーの伊藤光平さんと一緒に、身のまわりにいる微生物の多様性と、彼らと共に生きる未来の暮らしについて考えます。",
+            "text_en": "We live with multitudes of microbes that are invisible to our eyes. Our homes, schools, and even our bodies are ecosystems where lots of microbes live, and are connected to the surrounding environment through microbe interactions. But, we are intensely working to create a \"clean\", inorganic environment. These efforts hinder our relationship with natural microbes, which has been formed over a long period of time. Are we ignoring our invisible partners? In this exhibition, guided by the visionary Kohei Ito, we invite you to think about the diversity of the microbes around us, and how we can better live with them in the future.",
+            "text_pron": "わたしたちはたくさんの目に見えない微生物たちとともに暮らしています。私たちの過ごす家や学校、わたしたち自身の体さえもたくさんの微生物が暮らす生態系になっていて、微生物のやりとりを通じて周りの環境とつながっています。しかし、無生物的で、\"清潔\"な環境を追い求めるあまり。これまで長い時間をかけて紡がれてきたわたしたちと微生物との関係がほつれかけています。目に見えないパートナーをないがしろにしてはいないか。\nこの展示ではビジョナリーのイトウコウヘイさんと一緒に、身のまわりにいる微生物の多様性と、彼らと共に生きる未来の暮らしについて考えます。",
+        },
     },
 },
 {
@@ -572,9 +649,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1.5,
-        "message": "展示ガイドマップ\nCHAPTER 1. 微生物とは？\n目に見えない微生物の形や大きさ、人の体に住む微生物の多様性を知ることができます。\nCHAPTER 2. 暮らしの環境と微生物の多様性\nわたしたちが暮らす環境に住む微生物の多様性や、多様性が低下することへのリスクについて知ることができます。\nCHAPTER 3. 微生物と共生する暮らし\n未来の居住空間を舞台に、微生物と共生する暮らしとそのためのさまざまなアイディアに触れることができます。\nCHAPTER 4. 人と微生物が共生する未来へ\n人と微生物が共生する未来を見据えるビジョナリー、伊藤光平さんのビジョンを知ることができます。",
-        "message_en": "Exhibition Guide Map. CHAPTER 1. What are microbes? Learn about the size and shape of microbes, invisible to the naked eye, and about their diversity that live within the human body. CHAPTER 2. Our daily environment and microbial diversity. Learn about the diversity of microbes in our environment and the risks that can be caused by poor microbial diversity. CHAPTER 3. Living together with microbes. Experience what it would be like to coexist with microbes in the living space of the future, and the ideas to make it a reality. CHAPTER 4. Toward a future where people and microbes live together. Imagine a future in which humans and microbes live together as imagined by visionary Kohei Ito.",
-        "message_pron": "展示ガイドマップ。CHAPTER 1. 微生物とは？。目に見えない微生物の形や大きさ、人の体に住む微生物の多様性を知ることができます。|CHAPTER 2. 暮らしの環境と微生物の多様性。わたしたちが暮らす環境に住む微生物の多様性や、多様性が低下することへのリスクについて知ることができます。|nCHAPTER 3. 微生物と共生する暮らし。未来の居住空間を舞台に、微生物と共生する暮らしとそのためのさまざまなアイディアに触れることができます。|CHAPTER 4. ヒトと微生物が共生する未来へ。ヒトと微生物が共生する未来を見据えるビジョナリー、イトウコウヘイさんのビジョンを知ることができます。",
+        "message_language": {
+            "text": "展示ガイドマップ\nCHAPTER 1. 微生物とは？\n目に見えない微生物の形や大きさ、人の体に住む微生物の多様性を知ることができます。\nCHAPTER 2. 暮らしの環境と微生物の多様性\nわたしたちが暮らす環境に住む微生物の多様性や、多様性が低下することへのリスクについて知ることができます。\nCHAPTER 3. 微生物と共生する暮らし\n未来の居住空間を舞台に、微生物と共生する暮らしとそのためのさまざまなアイディアに触れることができます。\nCHAPTER 4. 人と微生物が共生する未来へ\n人と微生物が共生する未来を見据えるビジョナリー、伊藤光平さんのビジョンを知ることができます。",
+            "text_en": "Exhibition Guide Map. CHAPTER 1. What are microbes? Learn about the size and shape of microbes, invisible to the naked eye, and about their diversity that live within the human body. CHAPTER 2. Our daily environment and microbial diversity. Learn about the diversity of microbes in our environment and the risks that can be caused by poor microbial diversity. CHAPTER 3. Living together with microbes. Experience what it would be like to coexist with microbes in the living space of the future, and the ideas to make it a reality. CHAPTER 4. Toward a future where people and microbes live together. Imagine a future in which humans and microbes live together as imagined by visionary Kohei Ito.",
+            "text_pron": "展示ガイドマップ。CHAPTER 1. 微生物とは？。目に見えない微生物の形や大きさ、人の体に住む微生物の多様性を知ることができます。|CHAPTER 2. 暮らしの環境と微生物の多様性。わたしたちが暮らす環境に住む微生物の多様性や、多様性が低下することへのリスクについて知ることができます。|nCHAPTER 3. 微生物と共生する暮らし。未来の居住空間を舞台に、微生物と共生する暮らしとそのためのさまざまなアイディアに触れることができます。|CHAPTER 4. ヒトと微生物が共生する未来へ。ヒトと微生物が共生する未来を見据えるビジョナリー、イトウコウヘイさんのビジョンを知ることができます。",
+        },
     },
 },
 {
@@ -584,16 +663,20 @@
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
     "description_title": {
-        "message": "Nukabotの解説",
-        "message_en": "Nukabot Commentary",
-        "message_pron": "ヌカボットの解説",
+        "message_language": {
+            "text": "Nukabotの解説",
+            "texte_en": "Nukabot Commentary",
+            "text_pron": "ヌカボットの解説",
+        },
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "Nukabot\n伝統的な発酵食品である糠漬けをつくる「ぬか床」のなかでは、野菜などを美味しく発酵させるために多種多様な微生物たちが活躍しています。うまく発酵が進むためにはぬか床を毎日かき混ぜて手入れすることが欠かせません。Nukabotは会話を通してぬか床の様子や混ぜ方を知らせてくれるロボットで、人間と微生物の親密な関係性を作ることを目的に研究開発されています。",
-        "message_en": "Nukabot. Microbes play an important role in the fermentation process in nukadoko (salted rice bran) when pickling vegetables. The nukadoko has to be mixed every day to encourage fermentation. Nukabot is a robot that communicates with users to let them know the state of the nukadoko and when to mix it. Research and development is carried out with the aim of building closer ties between people and microbes.",
-        "message_pron": "ヌカボット。伝統的な発酵食品である糠漬けをつくる「ぬか床」のなかでは、野菜などを美味しく発酵させるために多種多様な微生物たちが活躍しています。うまく発酵が進むためにはぬか床を毎日かき混ぜて手入れすることが欠かせません。ヌカボットは会話を通してぬか床の様子や混ぜ方を知らせてくれるロボットで、人間と微生物の親密な関係性を作ることを目的に研究開発されています。",
+        "message_language": {
+            "text": "Nukabot\n伝統的な発酵食品である糠漬けをつくる「ぬか床」のなかでは、野菜などを美味しく発酵させるために多種多様な微生物たちが活躍しています。うまく発酵が進むためにはぬか床を毎日かき混ぜて手入れすることが欠かせません。Nukabotは会話を通してぬか床の様子や混ぜ方を知らせてくれるロボットで、人間と微生物の親密な関係性を作ることを目的に研究開発されています。",
+            "text_en": "Nukabot. Microbes play an important role in the fermentation process in nukadoko (salted rice bran) when pickling vegetables. The nukadoko has to be mixed every day to encourage fermentation. Nukabot is a robot that communicates with users to let them know the state of the nukadoko and when to mix it. Research and development is carried out with the aim of building closer ties between people and microbes.",
+            "text_pron": "ヌカボット。伝統的な発酵食品である糠漬けをつくる「ぬか床」のなかでは、野菜などを美味しく発酵させるために多種多様な微生物たちが活躍しています。うまく発酵が進むためにはぬか床を毎日かき混ぜて手入れすることが欠かせません。ヌカボットは会話を通してぬか床の様子や混ぜ方を知らせてくれるロボットで、人間と微生物の親密な関係性を作ることを目的に研究開発されています。",
+        },
     },
 },
 {
@@ -603,16 +686,20 @@
     "title_en": "Visionaries Lab",
     "title_pron": "ビジョナリーラボ",
     "description_title": {
-        "message": "Nukabotの取り扱い",
-        "message_en": "Nukabot handling",
-        "message_pron": "ヌカボットのトリアツカイ",
+        "message_language": {
+            "text": "Nukabotの取り扱い",
+            "text_en": "Nukabot handling",
+            "text_pron": "ヌカボットのトリアツカイ",
+        },
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "大きな声で話しかけてください。反応しない時は初めから！「おーい、ヌカボット！」呼びかけると会話がスタートします。器に近づいて、ゆっくりと少し大きな声で話しかけてください。呼びかけに反応すると、まばたきをしながら「なーに？」「ん？」と返します。しない場合は、再度呼びかけてみてください。以下の質問リストを参考に、ヌカボットと会話してみましょう。「今どんな感じ？」「調子はどう？」「元気？」「何かしてほしい？」「状態を詳しく教えて」「酸味は？」「おはよう」「おつかれさま」「おやすみ」「かわいいね」",
-        "message_en": "Nukabot speaks only Japanese. Please speak loudly. \"Ooi Nukabotto!\". The conversation starts when you call the Nukabot. Approach the bucket and speak slowly and in a slightly louder voice. When it responds to the call, it blinks and returns \"Naani? (What?)\" or \"Hmm?\". If not, please try to call its name again. Use the question list below to talk to Nukabot. \"Genki?\" (How are you?). \"Nani shite ho-shil?\" (Do you want me to do something?). \"Kuwashiku'\" (Tell me your condition in detail). \"Sanmi wa?\" (How sour is it?). \"Oha-you\" (Good morning). \"Otsukare-sama\" (You must be tired). \"Oyasumi\" (Good night). \"Kawaii ne\" (You are cute).",
-        "message_pron": "大きな声で話しかけてください。反応しない時は初めから！「おーい、ヌカボット！」呼びかけると会話がスタートします。ウツワに近づいて、ゆっくりと少し大きな声で話しかけてください。呼びかけに反応すると、まばたきをしながら「なーに？」「ん？」と返します。しない場合は、再度呼びかけてみてください。以下の質問リストを参考に、ヌカボットと会話してみましょう。「今どんな感じ？」「調子はどう？」「元気？」「何かしてほしい？」「状態を詳しく教えて」「酸味は？」「おはよう」「おつかれさま」「おやすみ」「かわいいね」",
+        "message_language": {
+            "text": "大きな声で話しかけてください。反応しない時は初めから！「おーい、ヌカボット！」呼びかけると会話がスタートします。器に近づいて、ゆっくりと少し大きな声で話しかけてください。呼びかけに反応すると、まばたきをしながら「なーに？」「ん？」と返します。しない場合は、再度呼びかけてみてください。以下の質問リストを参考に、ヌカボットと会話してみましょう。「今どんな感じ？」「調子はどう？」「元気？」「何かしてほしい？」「状態を詳しく教えて」「酸味は？」「おはよう」「おつかれさま」「おやすみ」「かわいいね」",
+            "text_en": "Nukabot speaks only Japanese. Please speak loudly. \"Ooi Nukabotto!\". The conversation starts when you call the Nukabot. Approach the bucket and speak slowly and in a slightly louder voice. When it responds to the call, it blinks and returns \"Naani? (What?)\" or \"Hmm?\". If not, please try to call its name again. Use the question list below to talk to Nukabot. \"Genki?\" (How are you?). \"Nani shite ho-shil?\" (Do you want me to do something?). \"Kuwashiku'\" (Tell me your condition in detail). \"Sanmi wa?\" (How sour is it?). \"Oha-you\" (Good morning). \"Otsukare-sama\" (You must be tired). \"Oyasumi\" (Good night). \"Kawaii ne\" (You are cute).",
+            "text_pron": "大きな声で話しかけてください。反応しない時は初めから！「おーい、ヌカボット！」呼びかけると会話がスタートします。ウツワに近づいて、ゆっくりと少し大きな声で話しかけてください。呼びかけに反応すると、まばたきをしながら「なーに？」「ん？」と返します。しない場合は、再度呼びかけてみてください。以下の質問リストを参考に、ヌカボットと会話してみましょう。「今どんな感じ？」「調子はどう？」「元気？」「何かしてほしい？」「状態を詳しく教えて」「酸味は？」「おはよう」「おつかれさま」「おやすみ」「かわいいね」",
+        },
     },
 },
 {
@@ -624,9 +711,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "微生物とは？\n見えないけれど、確かにそこで生きています。わたしたちの目に見えないほど小さい生き物たちのことを。微生物といいます。そこには細菌や、カビやキノコといった菌類、ウイルス（ウイルスは生き物に含めないという考え方もあります。）原生動物など、たくさんの種類のいきものが含まれています。微生物の生態はまだまだ未知のことだらけですが、少しずつわかってきたこともあります。彼らの世界をすこしのぞいてみましょう。",
-        "message_en": "What are microbes? We can't see them, but they're definitely there! \"Microbes\" is the word to describe living things that are too small to see with the naked eye. Microbes consist of many different types of living things, including bacteria, viruses, protozoa, and fungi, such as mold and mushrooms. The ecology of microbes has yet to be fully understood, however we are learning little by little. Let's take a peek at their world. Viruses are not necessarily considered living things.",
-        "message_pron": "微生物とは？。見えないけれど、確かにそこで生きています。わたしたちの目に見えないほど小さい生き物たちのことを。微生物といいます。そこには細菌や、カビやキノコといった菌類、ウイルス（ウイルスは生き物に含めないという考え方もあります。）原生動物など、たくさんの種類のいきものが含まれています。微生物の生態はまだまだ未知のことだらけですが、少しずつわかってきたこともあります。彼らの世界をすこしのぞいてみましょう。",
+        "message_language": {
+            "text": "微生物とは？\n見えないけれど、確かにそこで生きています。わたしたちの目に見えないほど小さい生き物たちのことを。微生物といいます。そこには細菌や、カビやキノコといった菌類、ウイルス（ウイルスは生き物に含めないという考え方もあります。）原生動物など、たくさんの種類のいきものが含まれています。微生物の生態はまだまだ未知のことだらけですが、少しずつわかってきたこともあります。彼らの世界をすこしのぞいてみましょう。",
+            "text_en": "What are microbes? We can't see them, but they're definitely there! \"Microbes\" is the word to describe living things that are too small to see with the naked eye. Microbes consist of many different types of living things, including bacteria, viruses, protozoa, and fungi, such as mold and mushrooms. The ecology of microbes has yet to be fully understood, however we are learning little by little. Let's take a peek at their world. Viruses are not necessarily considered living things.",
+            "text_pron": "微生物とは？。見えないけれど、確かにそこで生きています。わたしたちの目に見えないほど小さい生き物たちのことを。微生物といいます。そこには細菌や、カビやキノコといった菌類、ウイルス（ウイルスは生き物に含めないという考え方もあります。）原生動物など、たくさんの種類のいきものが含まれています。微生物の生態はまだまだ未知のことだらけですが、少しずつわかってきたこともあります。彼らの世界をすこしのぞいてみましょう。",
+        },
     },
 },
 {
@@ -638,16 +727,20 @@
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "%@先。正面の壁にさわることができる展示パネルがあります。",
-        "message_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
-        "message_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
+        "message_language": {
+            "text": "%@先。正面の壁にさわることができる展示パネルがあります。",
+            "text_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
+            "text_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
+        },
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "微生物の大きさを比べる\n目に見えないといっても、微生物はいったいどれくらいの大きさなのでしょうか。10000倍に拡大した人の髪の毛の太さと、微生物の大きさを比べてみましょう。正面の円形のパネルの直径が1000mmの髪の毛を表しています。その内部の中央の左から突起があります。左から真菌（胞子）50mm、細菌10mm、ウイルス、0.5から1mmです。",
-        "message_en": "Comparing the size of microbes. Even though microbes are invisible to our eyes, how big are they really? Compare the thickness of a human hair to the size of microbes, both magnified 10,000 times. The diameter of the circular panel in front represents a 1000 millimeter hair. Inside it, from left to center, are protrusions. From left to right: Fungi (spore), 50 millimeter; Bacteria, 10 millimeter; Viruses, 0.5 to 1 millimeter.",
-        "message_pron": "微生物の大きさを比べる。目に見えないといっても、微生物はいったいどれくらいの大きさなのでしょうか。10000倍に拡大した人の髪の毛の太さと、微生物の大きさを比べてみましょう。正面の円形のパネルの直径が1000ミリメートルの髪の毛を表しています。その内部の中央の左から突起があります。左から真菌（胞子）50ミリメートル、細菌10ミリメートル、ウイルス、0.5から1ミリメートルです。",
+        "message_language": {
+            "text": "微生物の大きさを比べる\n目に見えないといっても、微生物はいったいどれくらいの大きさなのでしょうか。10000倍に拡大した人の髪の毛の太さと、微生物の大きさを比べてみましょう。正面の円形のパネルの直径が1000mmの髪の毛を表しています。その内部の中央の左から突起があります。左から真菌（胞子）50mm、細菌10mm、ウイルス、0.5から1mmです。",
+            "text_en": "Comparing the size of microbes. Even though microbes are invisible to our eyes, how big are they really? Compare the thickness of a human hair to the size of microbes, both magnified 10,000 times. The diameter of the circular panel in front represents a 1000 millimeter hair. Inside it, from left to center, are protrusions. From left to right: Fungi (spore), 50 millimeter; Bacteria, 10 millimeter; Viruses, 0.5 to 1 millimeter.",
+            "text_pron": "微生物の大きさを比べる。目に見えないといっても、微生物はいったいどれくらいの大きさなのでしょうか。10000倍に拡大した人の髪の毛の太さと、微生物の大きさを比べてみましょう。正面の円形のパネルの直径が1000ミリメートルの髪の毛を表しています。その内部の中央の左から突起があります。左から真菌（胞子）50ミリメートル、細菌10ミリメートル、ウイルス、0.5から1ミリメートルです。",
+        },
     },
 },
 {
@@ -659,9 +752,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "微生物の多様性が高いって、どういうこと？「微生物の多様性」とは、どれだけたくさんの種類の微生物がいるかということです。たとえば上の図では、右側のほうが種類が多いので、多様性が高いといえます。",
-        "message_en": "What does \"highly diverse\" mean? \"Microbial diversity\" refers to the variety or range of microbes. For example, there are more varieties on the right diagram, so that means it has higher diversity.",
-        "message_pron": "微生物の多様性が高いって、どういうこと？。「微生物の多様性」とは、どれだけたくさんの種類の微生物がいるかということです。たとえば上の図では、右側のほうが種類が多いので、多様性が高いといえます。",
+        "message_language": {
+            "text": "微生物の多様性が高いって、どういうこと？「微生物の多様性」とは、どれだけたくさんの種類の微生物がいるかということです。たとえば上の図では、右側のほうが種類が多いので、多様性が高いといえます。",
+            "text_en": "What does \"highly diverse\" mean? \"Microbial diversity\" refers to the variety or range of microbes. For example, there are more varieties on the right diagram, so that means it has higher diversity.",
+            "text_pron": "微生物の多様性が高いって、どういうこと？。「微生物の多様性」とは、どれだけたくさんの種類の微生物がいるかということです。たとえば上の図では、右側のほうが種類が多いので、多様性が高いといえます。",
+        },
     },
 },
 {
@@ -673,9 +768,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "微生物とわたし\n微生物たちは、海の奥底やとても高い山など、さまざまな自然環境だけではなく、電車やトイレの中など、私たちの周りの生活環境にも存在しています。それだけではなく実はわたしたちの体にも、たくさんの微生物がいます。お互いどのように影響し合っているのか、あなたと微生物との関係を探ってみましょう。ヒトの体の「常在菌」\nわたしたちの体のうち、外の世界に触れているのは皮膚だけではありません。一般的に体の中とされている口や腸のなかも、食べ物の通り道となっているように外の世界なのです。そして、外界と触れ合う体の表面には、さまざまな微生物が、お互いにバランスを保ちながら共存しています。その数はなんと約38兆個。場所ごとにどんな違いがあるかを比べてみましょう。円グラフは微生物（細菌）のグループごとの割合を表したものです。",
-        "message_en": "Microbes and me. Microbes don't just live in natural environments such as on the bottom of the sea or on very high mountains they are also present in and around the environments where we live, such as in/on trains and toilets. In fact, there are a lot of microbes living in/on our bodies too. How do we affect each other? Let's explore your relationship with microbes. The \"resident bacteria\" in the human body. Our skin is not the only part of our body that contacts the outside world. Though the mouth and intestines seem to be inside the body, they also contact the outside world through the passage of food. On those body surfaces that contact the outside world, countless types of microbes coexist in balance with each other. There are, in fact, nearly 38 trillion of them. Compare the differences of these pie charts, that show the ratio of different groups (phylum) of microbes. A phylum is one of the levels used to classify organisms.",
-        "message_pron": "微生物とわたし。微生物たちは、海の奥底やとても高い山など、さまざまな自然環境だけではなく、電車やトイレの中など、私たちの周りの生活環境にも存在しています。それだけではなく実はわたしたちの体にも、たくさんの微生物がいます。お互いどのように影響し合っているのか、あなたと微生物との関係を探ってみましょう。ヒトの体の「常在菌」。わたしたちの体のうち、外の世界に触れているのは皮膚だけではありません。一般的に体の中とされている口や腸のなかも、食べ物の通り道となっているように外の世界なのです。そして、外界と触れ合う体の表面には、さまざまな微生物が、お互いにバランスを保ちながら共存しています。その数はなんと約38兆個。場所ごとにどんな違いがあるかを比べてみましょう。円グラフは微生物（細菌）のグループごとの割合を表したものです。",
+        "message_language": {
+            "text": "微生物とわたし\n微生物たちは、海の奥底やとても高い山など、さまざまな自然環境だけではなく、電車やトイレの中など、私たちの周りの生活環境にも存在しています。それだけではなく実はわたしたちの体にも、たくさんの微生物がいます。お互いどのように影響し合っているのか、あなたと微生物との関係を探ってみましょう。ヒトの体の「常在菌」\nわたしたちの体のうち、外の世界に触れているのは皮膚だけではありません。一般的に体の中とされている口や腸のなかも、食べ物の通り道となっているように外の世界なのです。そして、外界と触れ合う体の表面には、さまざまな微生物が、お互いにバランスを保ちながら共存しています。その数はなんと約38兆個。場所ごとにどんな違いがあるかを比べてみましょう。円グラフは微生物（細菌）のグループごとの割合を表したものです。",
+            "text_en": "Microbes and me. Microbes don't just live in natural environments such as on the bottom of the sea or on very high mountains they are also present in and around the environments where we live, such as in/on trains and toilets. In fact, there are a lot of microbes living in/on our bodies too. How do we affect each other? Let's explore your relationship with microbes. The \"resident bacteria\" in the human body. Our skin is not the only part of our body that contacts the outside world. Though the mouth and intestines seem to be inside the body, they also contact the outside world through the passage of food. On those body surfaces that contact the outside world, countless types of microbes coexist in balance with each other. There are, in fact, nearly 38 trillion of them. Compare the differences of these pie charts, that show the ratio of different groups (phylum) of microbes. A phylum is one of the levels used to classify organisms.",
+            "text_pron": "微生物とわたし。微生物たちは、海の奥底やとても高い山など、さまざまな自然環境だけではなく、電車やトイレの中など、私たちの周りの生活環境にも存在しています。それだけではなく実はわたしたちの体にも、たくさんの微生物がいます。お互いどのように影響し合っているのか、あなたと微生物との関係を探ってみましょう。ヒトの体の「常在菌」。わたしたちの体のうち、外の世界に触れているのは皮膚だけではありません。一般的に体の中とされている口や腸のなかも、食べ物の通り道となっているように外の世界なのです。そして、外界と触れ合う体の表面には、さまざまな微生物が、お互いにバランスを保ちながら共存しています。その数はなんと約38兆個。場所ごとにどんな違いがあるかを比べてみましょう。円グラフは微生物（細菌）のグループごとの割合を表したものです。",
+        },
     },
 },
 
@@ -688,16 +785,20 @@
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "%@先。正面の壁にさわることができる展示パネルがあります。",
-        "message_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
-        "message_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
+        "message_language": {
+            "text": "%@先。正面の壁にさわることができる展示パネルがあります。",
+            "text_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
+            "text_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
+        },
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "壁に触る事ができる身長160cmの人の輪郭と口から胃と腸の内部輪郭があります。人の周囲に5つの円グラフがあり、右下地面から60cmにグラフ内の分類があります。円グラフは顔の左側の上から「口の中」「食道」。顔の右側には上から「髪の毛」「皮膚」「胃腸」があります。",
-        "message_en": "here is an outline of a person 160 centimeter tall that can be touched on the wall and an internal outline of the stomach and intestines through the mouth. There are five pie charts around the person, with the classification within the charts at 60 centimeter from the lower right ground plane. The pie charts are \"Mouth\" and \"Oesophagus\" from the top on the left side of the face. On the right side of the face are \"Hair on the head\", \"skin\", and \"Gastrointestinal tract\" from the top.",
-        "message_pron": "壁に触る事ができる身長160cmの人の輪郭と口から胃と腸の内部輪郭があります。人の周囲に5つの円グラフがあり、右下地面から60cmにグラフ内の分類があります。円グラフは顔の左側の上から「口の中」「食道」。顔の右側には上から「髪の毛」「皮膚」「胃腸」があります。",
+        "message_language": {
+            "text": "壁に触る事ができる身長160cmの人の輪郭と口から胃と腸の内部輪郭があります。人の周囲に5つの円グラフがあり、右下地面から60cmにグラフ内の分類があります。円グラフは顔の左側の上から「口の中」「食道」。顔の右側には上から「髪の毛」「皮膚」「胃腸」があります。",
+            "text_en": "here is an outline of a person 160 centimeter tall that can be touched on the wall and an internal outline of the stomach and intestines through the mouth. There are five pie charts around the person, with the classification within the charts at 60 centimeter from the lower right ground plane. The pie charts are \"Mouth\" and \"Oesophagus\" from the top on the left side of the face. On the right side of the face are \"Hair on the head\", \"skin\", and \"Gastrointestinal tract\" from the top.",
+            "text_pron": "壁に触る事ができる身長160cmの人の輪郭と口から胃と腸の内部輪郭があります。人の周囲に5つの円グラフがあり、右下地面から60cmにグラフ内の分類があります。円グラフは顔の左側の上から「口の中」「食道」。顔の右側には上から「髪の毛」「皮膚」「胃腸」があります。",
+        },
     },
 },
 
@@ -710,9 +811,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "グラフ内の分類。触ってみてください。左上から下に「フィルミクテス」「アクチノバクテリア」「バクテロイデス」右上から下に「シアノバクテリア」 「フソバクテリウム」 「プロテオバクテリア」を表しています。",
-        "message_en": "Classification in graphs. Touch. From top left to bottom: \"Firmicutes\", \"Actinobacteriota\", and \"Bacterolidota\"; from top right to bottom: \"Cyanobacteria\", \"Fusobacteria\", and \"Proteobcteria\".",
-        "message_pron": "グラフ内の分類。触ってみてください。左上から下に「フィルミクテス」「アクチノバクテリア」「バクテロイデス」右上から下に「シアノバクテリア」 「フソバクテリウム」 「プロテオバクテリア」を表しています。",
+        "message_language": {
+            "text": "グラフ内の分類。触ってみてください。左上から下に「フィルミクテス」「アクチノバクテリア」「バクテロイデス」右上から下に「シアノバクテリア」 「フソバクテリウム」 「プロテオバクテリア」を表しています。",
+            "text_en": "Classification in graphs. Touch. From top left to bottom: \"Firmicutes\", \"Actinobacteriota\", and \"Bacterolidota\"; from top right to bottom: \"Cyanobacteria\", \"Fusobacteria\", and \"Proteobcteria\".",
+            "text_pron": "グラフ内の分類。触ってみてください。左上から下に「フィルミクテス」「アクチノバクテリア」「バクテロイデス」右上から下に「シアノバクテリア」 「フソバクテリウム」 「プロテオバクテリア」を表しています。",
+        },
     },
 },
 {
@@ -724,9 +827,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "マイクロバイオームって何？微生物の集まり全体を「マイクロバイオーム」といいます。ヒトの体に共生する微生物の集まり（ヒトのマイクロバイオーム）のなかに含まれる微生物の種類や多様性は、一人ひとり違っていて、生活環境や、食事などの生活習慣によっても変化します。また、近年の研究からマイクロバイオームが人の健康状態に大きく関わっていることが明らかになってきています。",
-        "message_en": "A community of microbes is called \"microbiome\". The types and the diversity of microbe found in the microbiomes that live symbiotically in the human body vary from person to person, and change depending on our living environments and our lifestyle choices, like our diets. Recent researches have also shown that microbiomes have a huge effect on human health.",
-        "message_pron": "マイクロバイオームって何？。微生物の集まり全体を「マイクロバイオーム」といいます。ヒトの体に共生する微生物の集まり（ヒトのマイクロバイオーム）のなかに含まれる微生物の種類や多様性は、一人ひとり違っていて、生活環境や、食事などの生活習慣によっても変化します。また、近年の研究からマイクロバイオームが人の健康状態に大きく関わっていることが明らかになってきています。",
+        "message_language": {
+            "text": "マイクロバイオームって何？微生物の集まり全体を「マイクロバイオーム」といいます。ヒトの体に共生する微生物の集まり（ヒトのマイクロバイオーム）のなかに含まれる微生物の種類や多様性は、一人ひとり違っていて、生活環境や、食事などの生活習慣によっても変化します。また、近年の研究からマイクロバイオームが人の健康状態に大きく関わっていることが明らかになってきています。",
+            "text_en": "A community of microbes is called \"microbiome\". The types and the diversity of microbe found in the microbiomes that live symbiotically in the human body vary from person to person, and change depending on our living environments and our lifestyle choices, like our diets. Recent researches have also shown that microbiomes have a huge effect on human health.",
+            "text_pron": "マイクロバイオームって何？。微生物の集まり全体を「マイクロバイオーム」といいます。ヒトの体に共生する微生物の集まり（ヒトのマイクロバイオーム）のなかに含まれる微生物の種類や多様性は、一人ひとり違っていて、生活環境や、食事などの生活習慣によっても変化します。また、近年の研究からマイクロバイオームが人の健康状態に大きく関わっていることが明らかになってきています。",
+        },
     },
 },
 {
@@ -738,9 +843,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "マウスの腸の断面図\nこの図はマウスの腸を輪切りにした画像で、腸内細菌は緑色、食べ物は中央の青色、腸の細胞は赤色で着色されています。図を見ると中央の食べ物のまわりや腸の表面に微生物たちがいる様子がわかります。特に腸の表面では微生物たちがたくさん集まった層ができています。このような微生物たちの層が皮膚や腸の表面でバリアの役割をして、外から侵入してくる病原菌からわたしたちの体を守ってくれています。",
-        "message_en": "Cross-section view of a mouse intestine. This image shows a cross-sectional view of a mouse intestine. Intestinal bacteria are colored green, food is colored blue in the middle, and intestinal cells are colored red. If you look at the image, you'll see that there are microbes around the food near the center and on the surface of the intestines. There are layers where lots of microbes are gathered, especially on the surface of the intestine. These microbial layers act as barriers on the skin and on the surface of the intestine, and protect our bodies from any pathogens (microbes that can cause diseases) that invade from outside.",
-        "message_pron": "マウスの腸の断面図。この図はマウスの腸を輪切りにした画像で、腸内細菌は緑色、食べ物は中央の青色、腸の細胞は赤色で着色されています。図を見ると中央の食べ物のまわりや腸の表面に微生物たちがいる様子がわかります。特に腸の表面では微生物たちがたくさん集まった層ができています。このような微生物たちの層が皮膚や腸の表面でバリアの役割をして、外から侵入してくる病原菌からわたしたちの体を守ってくれています。",
+        "message_language": {
+            "text": "マウスの腸の断面図\nこの図はマウスの腸を輪切りにした画像で、腸内細菌は緑色、食べ物は中央の青色、腸の細胞は赤色で着色されています。図を見ると中央の食べ物のまわりや腸の表面に微生物たちがいる様子がわかります。特に腸の表面では微生物たちがたくさん集まった層ができています。このような微生物たちの層が皮膚や腸の表面でバリアの役割をして、外から侵入してくる病原菌からわたしたちの体を守ってくれています。",
+            "text_en": "Cross-section view of a mouse intestine. This image shows a cross-sectional view of a mouse intestine. Intestinal bacteria are colored green, food is colored blue in the middle, and intestinal cells are colored red. If you look at the image, you'll see that there are microbes around the food near the center and on the surface of the intestines. There are layers where lots of microbes are gathered, especially on the surface of the intestine. These microbial layers act as barriers on the skin and on the surface of the intestine, and protect our bodies from any pathogens (microbes that can cause diseases) that invade from outside.",
+            "text_pron": "マウスの腸の断面図。この図はマウスの腸を輪切りにした画像で、腸内細菌は緑色、食べ物は中央の青色、腸の細胞は赤色で着色されています。図を見ると中央の食べ物のまわりや腸の表面に微生物たちがいる様子がわかります。特に腸の表面では微生物たちがたくさん集まった層ができています。このような微生物たちの層が皮膚や腸の表面でバリアの役割をして、外から侵入してくる病原菌からわたしたちの体を守ってくれています。",
+        },
     },
 },
 {
@@ -752,9 +859,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "暮らしの環境と微生物の多様性\nこれまでわたしたちは多様な微生物に囲まれて生活してきました。しかし、都市のように外と居住空間が壁で切り離されることによって、人と微生物の関係は大きく変わりました。わたしたちの生活環境のマイクロバイオームはどのような特徴を持ち、健康や生活にどのような影響をもたらすのでしょうか？",
-        "message_en": "Daily environments and microbial diversity. In the past, our daily lives were surrounded by a huge, variety of microbes. However, because our living spaces have been separated from the outside world by walls, as we see in cities, people's relationship with microbes has undergone a huge change. What are the characteristics of the microbiomes in our daily environments, and how do they affect our health and everyday lives?",
-        "message_pron": "暮らしの環境と微生物の多様性。これまでわたしたちは多様な微生物に囲まれて生活してきました。しかし、都市のように外と居住空間が壁で切り離されることによって、人と微生物の関係は大きく変わりました。わたしたちの生活環境のマイクロバイオームはどのような特徴を持ち、健康や生活にどのような影響をもたらすのでしょうか？",
+        "message_language": {
+            "text": "暮らしの環境と微生物の多様性\nこれまでわたしたちは多様な微生物に囲まれて生活してきました。しかし、都市のように外と居住空間が壁で切り離されることによって、人と微生物の関係は大きく変わりました。わたしたちの生活環境のマイクロバイオームはどのような特徴を持ち、健康や生活にどのような影響をもたらすのでしょうか？",
+            "text_en": "Daily environments and microbial diversity. In the past, our daily lives were surrounded by a huge, variety of microbes. However, because our living spaces have been separated from the outside world by walls, as we see in cities, people's relationship with microbes has undergone a huge change. What are the characteristics of the microbiomes in our daily environments, and how do they affect our health and everyday lives?",
+            "text_pron": "暮らしの環境と微生物の多様性。これまでわたしたちは多様な微生物に囲まれて生活してきました。しかし、都市のように外と居住空間が壁で切り離されることによって、人と微生物の関係は大きく変わりました。わたしたちの生活環境のマイクロバイオームはどのような特徴を持ち、健康や生活にどのような影響をもたらすのでしょうか？",
+        },
     },
 },
 {
@@ -766,9 +875,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "生活環境ごとの微生物多様性の違いは？この図では、わたしたちの生活環境における微生物(ここでは特に細菌)の多様性の高さを比較しています。屋外より屋内のほうが微生物の多様性(系統的多様性)が低いことや、同じ屋内でも場所によって多様性の高さに違いがあることがわかります。",
-        "message_en": "How does microbial diversity vary in each environment? This image compares the diversity levels of microbes (in particular, bacteria) in our daily environments. We can see that microbes are less diverse indoors than outdoors regarding phylogenetic diversity, and that even indoors there are differences in the level of diversity depending on the place.",
-        "message_pron": "生活環境ごとの微生物多様性の違いは？。この図では、わたしたちの生活環境における微生物(ここでは特に細菌)の多様性の高さを比較しています。屋外より屋内のほうが微生物の多様性(系統的多様性)が低いことや、同じ屋内でも場所によって多様性の高さに違いがあることがわかります。",
+        "message_language": {
+            "text": "生活環境ごとの微生物多様性の違いは？この図では、わたしたちの生活環境における微生物(ここでは特に細菌)の多様性の高さを比較しています。屋外より屋内のほうが微生物の多様性(系統的多様性)が低いことや、同じ屋内でも場所によって多様性の高さに違いがあることがわかります。",
+            "text_en": "How does microbial diversity vary in each environment? This image compares the diversity levels of microbes (in particular, bacteria) in our daily environments. We can see that microbes are less diverse indoors than outdoors regarding phylogenetic diversity, and that even indoors there are differences in the level of diversity depending on the place.",
+            "text_pron": "生活環境ごとの微生物多様性の違いは？。この図では、わたしたちの生活環境における微生物(ここでは特に細菌)の多様性の高さを比較しています。屋外より屋内のほうが微生物の多様性(系統的多様性)が低いことや、同じ屋内でも場所によって多様性の高さに違いがあることがわかります。",
+        },
     },
 },
 {
@@ -780,9 +891,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "生活環境ごとの「マイクロバイオーム」の特徴は？この図は生活環境ごとに、生息する微生物(細菌)の種類(門)の割合を示しています。それぞれを比較すると、生息する微生物の種類と割合が異なっている事がわかります。特に公園のような緑や土が豊かな場所では、他の屋内空間と比べて、微生物の種類が多いことが色の多さからも確認できます。",
-        "message_en": "The characteristics of microbiomes in different environments. This diagram shows the ratios of the different types (phylum) of microbes (bacteria) found in each type of environment. Comparing them shows that the types and ratios of microbes differ depending on the environment. You can see that places, such as parks with a lot of greenery and soil, are particularly diverse compared to indoor environments.",
-        "message_pron": "生活環境ごとの「マイクロバイオーム」の特徴は？。この図は生活環境ごとに、生息する微生物(細菌)の種類(門)の割合を示しています。それぞれを比較すると、生息する微生物の種類と割合が異なっている事がわかります。特に公園のような緑や土が豊かな場所では、他の屋内空間と比べて、微生物の種類が多いことが色の多さからも確認できます。",
+        "message_language": {
+            "text": "生活環境ごとの「マイクロバイオーム」の特徴は？この図は生活環境ごとに、生息する微生物(細菌)の種類(門)の割合を示しています。それぞれを比較すると、生息する微生物の種類と割合が異なっている事がわかります。特に公園のような緑や土が豊かな場所では、他の屋内空間と比べて、微生物の種類が多いことが色の多さからも確認できます。",
+            "text_en": "The characteristics of microbiomes in different environments. This diagram shows the ratios of the different types (phylum) of microbes (bacteria) found in each type of environment. Comparing them shows that the types and ratios of microbes differ depending on the environment. You can see that places, such as parks with a lot of greenery and soil, are particularly diverse compared to indoor environments.",
+            "text_pron": "生活環境ごとの「マイクロバイオーム」の特徴は？。この図は生活環境ごとに、生息する微生物(細菌)の種類(門)の割合を示しています。それぞれを比較すると、生息する微生物の種類と割合が異なっている事がわかります。特に公園のような緑や土が豊かな場所では、他の屋内空間と比べて、微生物の種類が多いことが色の多さからも確認できます。",
+        },
     },
 },
 {
@@ -794,9 +907,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "わたしたちの\"清潔\"はやり過ぎ？現在のわたしたちの生活では、微生物たちは邪魔者のように扱われることも少なくありません。微生物が少ない方が「清潔」だ、という現在の衛生観念は、微生物に触れる機会を減らし、わたしたちの健康や生活に思ってみない影響を与えているかもしれません。",
-        "message_en": "Are we too \"clean\"? In our modern lifestyles, microbes are often treated as nuisances. The current concept of hygiene is that \"clean\" means fewer microbes, which reduces our chances of exposure to microbes and this may have an unforeseen effect on our health and everyday lives.",
-        "message_pron": "わたしたちの\"清潔\"ワやり過ぎ？。現在のわたしたちの生活では、微生物たちはジャマモノのように扱われることも少なくありません。微生物が少ない方が「清潔」だ、という現在の衛生観念は、微生物に触れる機会を減らし、わたしたちの健康や生活に思ってみない影響を与えているかもしれません。",
+        "message_language": {
+            "text": "わたしたちの\"清潔\"はやり過ぎ？現在のわたしたちの生活では、微生物たちは邪魔者のように扱われることも少なくありません。微生物が少ない方が「清潔」だ、という現在の衛生観念は、微生物に触れる機会を減らし、わたしたちの健康や生活に思ってみない影響を与えているかもしれません。",
+            "text_en": "Are we too \"clean\"? In our modern lifestyles, microbes are often treated as nuisances. The current concept of hygiene is that \"clean\" means fewer microbes, which reduces our chances of exposure to microbes and this may have an unforeseen effect on our health and everyday lives.",
+            "text_pron": "わたしたちの\"清潔\"ワやり過ぎ？。現在のわたしたちの生活では、微生物たちはジャマモノのように扱われることも少なくありません。微生物が少ない方が「清潔」だ、という現在の衛生観念は、微生物に触れる機会を減らし、わたしたちの健康や生活に思ってみない影響を与えているかもしれません。",
+        },
     },
 },
 
@@ -809,9 +924,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "微生物と免疫\n病気を引き起こす外敵からわたしたちの体を守るシステム、免疫。しかし無菌的な清潔さをよしとする衛生観念によって、微生物を含む多様性な生物と触れ合う機会が減っていることが、ヒトの免疫の発達に影響を与えているとする仮説があります。たとえば、幼少期に都市部の衛生的な環境で育った子供は、農村などで多様な微生物に囲まれて育った子どもと比べて花粉症などのアレルギー疾患を発症しやすい傾向にあると報告されています。",
-        "message_en": "Microbes and immunity. The immune system protects our bodies from external threats that can cause disease. However, one hypothesis suggests that our modern concept of sanitation, of cleaning to eliminate all microbes, has a negative influence on the development of our immune system because we have fewer opportunities to interact with diverse organisms such as microbes.",
-        "message_pron": "微生物と免疫。病気を引き起こす外敵からわたしたちの体を守るシステム、免疫。しかし無菌的な清潔さをよしとする衛生観念によって、微生物を含む多様性な生物と触れ合う機会が減っていることが、ヒトの免疫の発達に影響を与えているとする仮説があります。たとえば、幼少期に都市部の衛生的な環境で育った子供は、農村などで多様な微生物に囲まれて育った子どもと比べて花粉症などのアレルギー疾患を発症しやすい傾向にあると報告されています。",
+        "message_language": {
+            "text": "微生物と免疫\n病気を引き起こす外敵からわたしたちの体を守るシステム、免疫。しかし無菌的な清潔さをよしとする衛生観念によって、微生物を含む多様性な生物と触れ合う機会が減っていることが、ヒトの免疫の発達に影響を与えているとする仮説があります。たとえば、幼少期に都市部の衛生的な環境で育った子供は、農村などで多様な微生物に囲まれて育った子どもと比べて花粉症などのアレルギー疾患を発症しやすい傾向にあると報告されています。",
+            "text_en": "Microbes and immunity. The immune system protects our bodies from external threats that can cause disease. However, one hypothesis suggests that our modern concept of sanitation, of cleaning to eliminate all microbes, has a negative influence on the development of our immune system because we have fewer opportunities to interact with diverse organisms such as microbes.",
+            "text_pron": "微生物と免疫。病気を引き起こす外敵からわたしたちの体を守るシステム、免疫。しかし無菌的な清潔さをよしとする衛生観念によって、微生物を含む多様性な生物と触れ合う機会が減っていることが、ヒトの免疫の発達に影響を与えているとする仮説があります。たとえば、幼少期に都市部の衛生的な環境で育った子供は、農村などで多様な微生物に囲まれて育った子どもと比べて花粉症などのアレルギー疾患を発症しやすい傾向にあると報告されています。",
+        },
     },
 },
 {
@@ -823,9 +940,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "薬剤耐性菌\n薬剤耐性菌とは、抗生物質が効かない、もしくは効きにくい微生物（細菌）のことを指し、その蔓延による感染症や医療コストの増加が問題となっています。ヒトが抗生物質を不適切に使用することで、抗生物質に耐性を持った細菌の増殖を助けてしまうのです。",
-        "message_en": "Drug-resistant bacteria. \"Drug-resistant bacteria\" are the microbes that cannot be controlled or killed by antibiotics. The increase of infectious diseases and healthcare costs resulting from the spread of those bacteria have become serious issues. The inappropriate use of antibiotics promotes the spread of these antibiotic-resistant bacteria.",
-        "message_pron": "薬剤耐性菌。薬剤耐性菌とは、抗生物質が効かない、もしくは効きにくい微生物（細菌）のことを指し、その蔓延による感染症や医療コストの増加が問題となっています。ヒトが抗生物質を不適切に使用することで、抗生物質に耐性を持った細菌の増殖を助けてしまうのです。",
+        "message_language": {
+            "text": "薬剤耐性菌\n薬剤耐性菌とは、抗生物質が効かない、もしくは効きにくい微生物（細菌）のことを指し、その蔓延による感染症や医療コストの増加が問題となっています。ヒトが抗生物質を不適切に使用することで、抗生物質に耐性を持った細菌の増殖を助けてしまうのです。",
+            "text_en": "Drug-resistant bacteria. \"Drug-resistant bacteria\" are the microbes that cannot be controlled or killed by antibiotics. The increase of infectious diseases and healthcare costs resulting from the spread of those bacteria have become serious issues. The inappropriate use of antibiotics promotes the spread of these antibiotic-resistant bacteria.",
+            "text_pron": "薬剤耐性菌。薬剤耐性菌とは、抗生物質が効かない、もしくは効きにくい微生物（細菌）のことを指し、その蔓延による感染症や医療コストの増加が問題となっています。ヒトが抗生物質を不適切に使用することで、抗生物質に耐性を持った細菌の増殖を助けてしまうのです。",
+        },
     },
 },
 {
@@ -837,9 +956,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "今の生活スタイルを無理に変えることなく、多様な微生物と共に生きていくために、私たちはどのような工夫ができるのでしょうか？",
-        "message_en": "What can we do to live with diverse microbes, without changing our current lifestyles too much?",
-        "message_pron": "今の生活スタイルを無理に変えることなく、多様な微生物と共に生きていくために、私たちはどのような工夫ができるのでしょうか？",
+        "message_language": {
+            "text": "今の生活スタイルを無理に変えることなく、多様な微生物と共に生きていくために、私たちはどのような工夫ができるのでしょうか？",
+            "text_en": "What can we do to live with diverse microbes, without changing our current lifestyles too much?",
+            "text_pron": "今の生活スタイルを無理に変えることなく、多様な微生物と共に生きていくために、私たちはどのような工夫ができるのでしょうか？",
+        },
     },
 },
 {
@@ -851,9 +972,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "抗生物質のある環境で増殖する大腸菌の様子。左右の端から中央にいくほど抗生物質の濃度が高くなっています。高濃度の層にぶつかると一度増殖は止まりますが、すぐに耐性を持った大腸菌が現れ、増えていきます。大腸菌が2週間という短い期間で、高濃度の抗生物質に対する耐性を身につけていく様子がわかります。",
-        "message_en": "This is E. coll, a kind of bacteria, that multiplies in environments with antibiotics. The concentration of antibiotics increases from the left/right edges toward the center. E. coli temporarily stops multiplying when it hits a layer with a higher concentration, but E. coli with resistance appears very quickly and then increases in number. In only two weeks, we can see E. coli gaining resistance to highly concentrated antibiotics.",
-        "message_pron": "抗生物質のある環境で増殖する大腸菌の様子。左右の端から中央にいくほど抗生物質の濃度が高くなっています。高濃度の層にぶつかると一度増殖は止まりますが、すぐに耐性を持った大腸菌が現れ、増えていきます。大腸菌が2週間という短い期間で、高濃度の抗生物質に対する耐性を身につけていく様子がわかります。",
+        "message_language": {
+            "text": "抗生物質のある環境で増殖する大腸菌の様子。左右の端から中央にいくほど抗生物質の濃度が高くなっています。高濃度の層にぶつかると一度増殖は止まりますが、すぐに耐性を持った大腸菌が現れ、増えていきます。大腸菌が2週間という短い期間で、高濃度の抗生物質に対する耐性を身につけていく様子がわかります。",
+            "text_en": "This is E. coll, a kind of bacteria, that multiplies in environments with antibiotics. The concentration of antibiotics increases from the left/right edges toward the center. E. coli temporarily stops multiplying when it hits a layer with a higher concentration, but E. coli with resistance appears very quickly and then increases in number. In only two weeks, we can see E. coli gaining resistance to highly concentrated antibiotics.",
+            "text_pron": "抗生物質のある環境で増殖する大腸菌の様子。左右の端から中央にいくほど抗生物質の濃度が高くなっています。高濃度の層にぶつかると一度増殖は止まりますが、すぐに耐性を持った大腸菌が現れ、増えていきます。大腸菌が2週間という短い期間で、高濃度の抗生物質に対する耐性を身につけていく様子がわかります。",
+        },
     },
 },
 {
@@ -865,9 +988,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "人と微生物が共生する未来へ\nこれまでと、これから\n微生物と私たちの行方\nビジョナリーの伊藤光平さんは、微生物を研究していく中で、どのようにビジョンを発展させてきたのでしょうか・そしてそのビジョンは、わたしたちと微生物との関係をどのように変化させていくのでしょうか。空間的なスケールに注目しながらご覧ください。\n高校時代\n皮膚や腸内などのヒトの体に住むマイクロバイオームに注目！\n体の微生物の多様性やそのバランスが保たれることが健康につながっているのか・・・\n大学時代\n移住環境のマイクロバイオームに注目！\n屋内は偏った微生物バランスになっていて、多様性が低いぞ・・・。\n\"清潔\"を目指して除菌・殺菌が行われすぎているのかも。微生物多様性を高めれば、問題が解決できるかもしれないな。\nBIOTAを起業\n都市環境のマイクロバイオームに注目!\n屋内の微生物多様性を高めるためには屋外から微生物を取り込む必要があるぞ。でも、今の都市の屋外は植物の種類も量も少ないし、地面はコンクリートばっかり。このままじゃ、微生物と触れ合う機会はどんどん減っていく。屋内の環境と、屋外の環境を全体的に考えて都市を少しずつ変えていこう。",
-        "message_en": "From the past to the future: What lies in store for people and microbes. How did Kohei Ito, the visionary, has developed his vision through his microbe research, and how will his vision change the way we associate with microbes? Please take a look at his journey, paying attention to the spatial scale. In High School. Let's focus on the microbiomes found on human skin, inside the intestines, etc.! It seems that maintaining the diversity and balance of microbes is the key to good health. In University. Let's focus on the microbiomes found in our living environments! The ratio of microbes is out of balance in indoor environments and there's little diversity. Maybe everything's been sterilized or disinfected too much in pursuit of hygiene. Various problems might be solved by boosting microbial diversity. Founding of BIOTA. Let's focus on the microbiomes in urban environments! Microbes need to be brought in from the outside to boost indoor microbial diversity. In addition, few plants of few varieties are found in urban outdoor environments today, and the ground is covered with concrete. This is not ideal for microbial diversity. We have to slowly change our urban environments by considering the indoor and outdoor environments as a whole.",
-        "message_pron": "人と微生物が共生する未来へ。これまでと、これから。微生物と私たちの行方。ビジョナリーのイトウコウヘイさんは、微生物を研究していく中で、どのようにビジョンを発展させてきたのでしょうか・そしてそのビジョンは、わたしたちと微生物との関係をどのように変化させていくのでしょうか。空間的なスケールに注目しながらご覧ください。。高校時代。皮膚や腸内などのヒトの体に住むマイクロバイオームに注目！。体の微生物の多様性やそのバランスが保たれることが健康につながっているのか・・・。大学時代。移住環境のマイクロバイオームに注目！。屋内は偏った微生物バランスになっていて、多様性が低いぞ・・・。。\"清潔\"を目指して除菌・殺菌が行われすぎているのかも。微生物多様性を高めれば、問題が解決できるかもしれないな。。バイオウタを起業。都市環境のマイクロバイオームに注目!。屋内の微生物多様性を高めるためには屋外から微生物を取り込む必要があるぞ。でも、今の都市の屋外は植物の種類も量も少ないし、地面はコンクリートばっかり。このままじゃ、微生物と触れ合う機会はどんどん減っていく。屋内の環境と、屋外の環境を全体的に考えて都市を少しずつ変えていこう。",
+        "message_language": {
+            "text": "人と微生物が共生する未来へ\nこれまでと、これから\n微生物と私たちの行方\nビジョナリーの伊藤光平さんは、微生物を研究していく中で、どのようにビジョンを発展させてきたのでしょうか・そしてそのビジョンは、わたしたちと微生物との関係をどのように変化させていくのでしょうか。空間的なスケールに注目しながらご覧ください。\n高校時代\n皮膚や腸内などのヒトの体に住むマイクロバイオームに注目！\n体の微生物の多様性やそのバランスが保たれることが健康につながっているのか・・・\n大学時代\n移住環境のマイクロバイオームに注目！\n屋内は偏った微生物バランスになっていて、多様性が低いぞ・・・。\n\"清潔\"を目指して除菌・殺菌が行われすぎているのかも。微生物多様性を高めれば、問題が解決できるかもしれないな。\nBIOTAを起業\n都市環境のマイクロバイオームに注目!\n屋内の微生物多様性を高めるためには屋外から微生物を取り込む必要があるぞ。でも、今の都市の屋外は植物の種類も量も少ないし、地面はコンクリートばっかり。このままじゃ、微生物と触れ合う機会はどんどん減っていく。屋内の環境と、屋外の環境を全体的に考えて都市を少しずつ変えていこう。",
+            "text_en": "From the past to the future: What lies in store for people and microbes. How did Kohei Ito, the visionary, has developed his vision through his microbe research, and how will his vision change the way we associate with microbes? Please take a look at his journey, paying attention to the spatial scale. In High School. Let's focus on the microbiomes found on human skin, inside the intestines, etc.! It seems that maintaining the diversity and balance of microbes is the key to good health. In University. Let's focus on the microbiomes found in our living environments! The ratio of microbes is out of balance in indoor environments and there's little diversity. Maybe everything's been sterilized or disinfected too much in pursuit of hygiene. Various problems might be solved by boosting microbial diversity. Founding of BIOTA. Let's focus on the microbiomes in urban environments! Microbes need to be brought in from the outside to boost indoor microbial diversity. In addition, few plants of few varieties are found in urban outdoor environments today, and the ground is covered with concrete. This is not ideal for microbial diversity. We have to slowly change our urban environments by considering the indoor and outdoor environments as a whole.",
+            "text_pron": "人と微生物が共生する未来へ。これまでと、これから。微生物と私たちの行方。ビジョナリーのイトウコウヘイさんは、微生物を研究していく中で、どのようにビジョンを発展させてきたのでしょうか・そしてそのビジョンは、わたしたちと微生物との関係をどのように変化させていくのでしょうか。空間的なスケールに注目しながらご覧ください。。高校時代。皮膚や腸内などのヒトの体に住むマイクロバイオームに注目！。体の微生物の多様性やそのバランスが保たれることが健康につながっているのか・・・。大学時代。移住環境のマイクロバイオームに注目！。屋内は偏った微生物バランスになっていて、多様性が低いぞ・・・。。\"清潔\"を目指して除菌・殺菌が行われすぎているのかも。微生物多様性を高めれば、問題が解決できるかもしれないな。。バイオウタを起業。都市環境のマイクロバイオームに注目!。屋内の微生物多様性を高めるためには屋外から微生物を取り込む必要があるぞ。でも、今の都市の屋外は植物の種類も量も少ないし、地面はコンクリートばっかり。このままじゃ、微生物と触れ合う機会はどんどん減っていく。屋内の環境と、屋外の環境を全体的に考えて都市を少しずつ変えていこう。",
+        },
     },
 },
 {
@@ -879,9 +1004,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "ビジョナリーが思い描く未来\n現代社会では過剰なまでの衛生環境によって、さまざまな公衆衛生や健康の問題が引き起こされています。それらの問題を解決するため、都市部やまちなか、室内外などあらゆる環境の微生物コミュニティの実態を解明し、それに基づいて微生物の多様性が高く、バランスの取れた環境を実現するための施策を実行していきます。そして、人が安心して集い暮らせる、健康な社会の創造を目指しています。",
-        "message_en": "The vision: the future envisaged by the visionary. In today's society, excessive sanitation has led to a variety of public hygiene and health problems. To solve these problems, we must clarify the status of microbe communities in all kinds of indoor and outdoor environments. Based on this knowledge, we will implement measures to establish the environments with microbial diversity and balance. By doing so, we will realize a healthy society in which we can all live together.",
-        "message_pron": "ビジョナリーが思い描く未来。現代社会では過剰なまでの衛生環境によって、さまざまな公衆衛生や健康の問題が引き起こされています。それらの問題を解決するため、都市部やまちなか、室内外などあらゆる環境の微生物コミュニティの実態を解明し、それに基づいて微生物の多様性が高く、バランスの取れた環境を実現するための施策を実行していきます。そして、人が安心して集い暮らせる、健康な社会の創造を目指しています。",
+        "message_language": {
+            "text": "ビジョナリーが思い描く未来\n現代社会では過剰なまでの衛生環境によって、さまざまな公衆衛生や健康の問題が引き起こされています。それらの問題を解決するため、都市部やまちなか、室内外などあらゆる環境の微生物コミュニティの実態を解明し、それに基づいて微生物の多様性が高く、バランスの取れた環境を実現するための施策を実行していきます。そして、人が安心して集い暮らせる、健康な社会の創造を目指しています。",
+            "text_en": "The vision: the future envisaged by the visionary. In today's society, excessive sanitation has led to a variety of public hygiene and health problems. To solve these problems, we must clarify the status of microbe communities in all kinds of indoor and outdoor environments. Based on this knowledge, we will implement measures to establish the environments with microbial diversity and balance. By doing so, we will realize a healthy society in which we can all live together.",
+            "text_pron": "ビジョナリーが思い描く未来。現代社会では過剰なまでの衛生環境によって、さまざまな公衆衛生や健康の問題が引き起こされています。それらの問題を解決するため、都市部やまちなか、室内外などあらゆる環境の微生物コミュニティの実態を解明し、それに基づいて微生物の多様性が高く、バランスの取れた環境を実現するための施策を実行していきます。そして、人が安心して集い暮らせる、健康な社会の創造を目指しています。",
+        },
     },
 },
 {
@@ -892,10 +1019,12 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先。進行方向です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 2,
+        "message_language": {
+            "text": "%@先。進行方向です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 2,
+        },
     }]
 },
 {
@@ -906,10 +1035,12 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先に机があります。",
-        "message_en": "There is a desk %@ away.",
-        "message_pron": "%@先に机があります。",
-        "internal_distance" : 2,
+        "message_language": {
+            "text": "%@先に机があります。",
+            "text_en": "There is a desk %@ away.",
+            "text_pron": "%@先に机があります。",
+            "internal_distance" : 2,
+        },
     }]
 },
 {
@@ -920,16 +1051,20 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 270,
-        "message": "机の上に触ることができる部屋の形をした模型があります。",
-        "message_en": "There is a model in the shape of a room that can be touched on the desk.",
-        "message_pron": "机の上に触ることができる部屋の形をしたモケイがあります。",
+        "message_language": {
+            "text": "机の上に触ることができる部屋の形をした模型があります。",
+            "text_en": "There is a model in the shape of a room that can be touched on the desk.",
+            "text_pron": "机の上に触ることができる部屋の形をしたモケイがあります。",
+        },
     },
     {
         "direction": 0,
-        "message": "%@先。進行方向です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 1,
+        "message_language": {
+            "text": "%@先。進行方向です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 1,
+        },
     }]
 },
 {
@@ -940,16 +1075,20 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 270,
-        "message": "机の上に音声対話ができるヌカボットがあります。",
-        "message_en": "There is a Nukabot on the desk that allows voice interaction.",
-        "message_pron": "机の上に音声対話ができるヌカボットがあります。",
+        "message_language": {
+            "text": "机の上に音声対話ができるヌカボットがあります。",
+            "text_en": "There is a Nukabot on the desk that allows voice interaction.",
+            "text_pron": "机の上に音声対話ができるヌカボットがあります。",
+        },
     },
     {
         "direction": 0,
-        "message": "%@先。進行方向です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 1.5,
+        "message_language": {
+            "text": "%@先。進行方向です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 1.5,
+        },
     }]
 },
 {
@@ -960,10 +1099,12 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先。進行方向です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 1.5,
+        "message_language": {
+            "text": "%@先。進行方向です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 1.5,
+        },
     }]
 },
 {
@@ -974,16 +1115,20 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 90,
-        "message": "壁にさわることができる展示パネルがあります。",
-        "message_en": "There is an exhibition panel on the wall that you can touch.",
-        "message_pron": "壁にさわることができる展示パネルがあります。",
+        "message_language": {
+            "text": "壁にさわることができる展示パネルがあります。",
+            "text_en": "There is an exhibition panel on the wall that you can touch.",
+            "text_pron": "壁にさわることができる展示パネルがあります。",
+        },
     },
     {
         "direction": 0,
-        "message": "%@先。進行方向です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 3,
+        "message_language": {
+            "text": "%@先。進行方向です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 3,
+        },
     }]
 },
 {
@@ -994,16 +1139,20 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 90,
-        "message": "壁にさわることができる展示パネルがあります。",
-        "message_en": "There is an exhibition panel on the wall that you can touch.",
-        "message_pron": "壁にさわることができる展示パネルがあります。",
+        "message_language": {
+            "text": "壁にさわることができる展示パネルがあります。",
+            "text_en": "There is an exhibition panel on the wall that you can touch.",
+            "text_pron": "壁にさわることができる展示パネルがあります。",
+        },
     },
     {
         "direction": 0,
-        "message": "%@先。進行方向です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 1,
+        "message_language": {
+            "text": "%@先。進行方向です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 1,
+        },
     }]
 },
 {
@@ -1014,10 +1163,12 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先。進行方向です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 3,
+        "message_language": {
+            "text": "%@先。進行方向です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 3,
+        },
     }]
 },
 {
@@ -1028,10 +1179,12 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先。進行方向です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 3,
+        "message_language": {
+            "text": "%@先。進行方向です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 3,
+        },
     }]
 },
 {
@@ -1042,10 +1195,12 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先。進行方向です。正面に植木があります。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。正面に植木があります。",
-        "internal_distance" : 4,
+        "message_language": {
+            "text": "%@先。進行方向です。正面に植木があります。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。正面に植木があります。",
+            "internal_distance" : 4,
+        },
     }]
 },
 {
@@ -1056,10 +1211,12 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先。進行方向です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 2.5,
+        "message_language": {
+            "text": "%@先。進行方向です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 2.5,
+        },
     }]
 },
 {
@@ -1070,10 +1227,12 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@進んで下さい。地面が土になっています。室内に庭園があります。2m進んだ後に左に5m進んで下さい。庭園が終わり、正面の壁に展示パネルがあります。",
-        "message_en": "",
-        "message_pron": "%@進んで下さい。地面が土になっています。室内に庭園があります。2メートル進んだ後に左に5メートル進んで下さい。庭園が終わり、正面の壁に展示パネルがあります。",
-        "internal_distance" : 2,
+        "message_language": {
+            "text": "%@進んで下さい。地面が土になっています。室内に庭園があります。2m進んだ後に左に5m進んで下さい。庭園が終わり、正面の壁に展示パネルがあります。",
+            "text_en": "",
+            "text_pron": "%@進んで下さい。地面が土になっています。室内に庭園があります。2メートル進んだ後に左に5メートル進んで下さい。庭園が終わり、正面の壁に展示パネルがあります。",
+            "internal_distance" : 2,
+        },
     }]
 },
 {
@@ -1084,16 +1243,20 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 90,
-        "message": "壁に展示パネルがあります。",
-        "message_en": "There are display panels on the wall.",
-        "message_pron": "壁に展示パネルがあります。",
+        "message_language": {
+            "text": "壁に展示パネルがあります。",
+            "text_en": "There are display panels on the wall.",
+            "text_pron": "壁に展示パネルがあります。",
+        },
     },
     {
         "direction": 0,
-        "message": "%@先。進行方向です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 3,
+        "message_language": {
+            "text": "%@先。進行方向です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 3,
+        },
     }]
 },
 {
@@ -1104,10 +1267,12 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先。進行方向です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 3,
+        "message_language": {
+            "text": "%@先。進行方向です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 3,
+        },
     }]
 },
 {
@@ -1118,16 +1283,20 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 90,
-        "message": "壁に展示パネルがあります。",
-        "message_en": "There are display panels on the wall.",
-        "message_pron": "壁に展示パネルがあります。",
+        "message_language": {
+            "text": "壁に展示パネルがあります。",
+            "text_en": "There are display panels on the wall.",
+            "text_pron": "壁に展示パネルがあります。",
+        },
     },
     {
         "direction": 0,
-        "message": "%@先。進行方向です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 5,
+        "message_language": {
+            "text": "%@先。進行方向です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 5,
+        },
     }]
 },
 {
@@ -1138,10 +1307,12 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先。出口です。",
-        "message_en": "%@ ahead. Exit.",
-        "message_pron": "%@先。出口です。",
-        "internal_distance" : 1,
+        "message_language": {
+            "text": "%@先。出口です。",
+            "text_en": "%@ ahead. Exit.",
+            "text_pron": "%@先。出口です。",
+            "internal_distance" : 1,
+        },
     }]
 },
 {
@@ -1152,10 +1323,12 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先。進行方向です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 3,
+        "message_language": {
+            "text": "%@先。進行方向です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 3,
+        },
     }]
 },
 {
@@ -1166,10 +1339,12 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先。進行方向です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 2,
+        "message_language": {
+            "text": "%@先。進行方向です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 2,
+        },
     }]
 },
 
@@ -1181,10 +1356,12 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先に机があります。",
-        "message_en": "There is a desk %@ away.",
-        "message_pron": "%@先。進行方向。机があります。",
-        "internal_distance" : 2,
+        "message_language": {
+            "text": "%@先に机があります。",
+            "text_en": "There is a desk %@ away.",
+            "text_pron": "%@先。進行方向。机があります。",
+            "internal_distance" : 2,
+        },
     }]
 },
 {
@@ -1195,16 +1372,20 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 270,
-        "message": "机の上に音声対話ができるヌカボットがあります。",
-        "message_en": "",
-        "message_pron": "机の上に音声対話ができるヌカボットがあります。",
+        "message_language": {
+            "text": "机の上に音声対話ができるヌカボットがあります。",
+            "text_en": "",
+            "text_pron": "机の上に音声対話ができるヌカボットがあります。",
+        },
     },
     {
         "direction": 0,
-        "message": "%@先。進行方向です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 1.5,
+        "message_language": {
+            "text": "%@先。進行方向です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 1.5,
+        },
     }]
 },
 {
@@ -1215,10 +1396,12 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 0,
-        "message": "%@先。進行方向です。",
-        "message_en": "%@ ahead. Direction of travel.",
-        "message_pron": "%@先。進行方向です。",
-        "internal_distance" : 1.5,
+        "message_language": {
+            "text": "%@先。進行方向です。",
+            "text_en": "%@ ahead. Direction of travel.",
+            "text_pron": "%@先。進行方向です。",
+            "internal_distance" : 1.5,
+        },
     }]
 },
 {
@@ -1229,9 +1412,11 @@
     "title_pron": "ビジョナリーラボ",
     "flat_guide": [{
         "direction": 90,
-        "message": "壁にさわることができる展示パネルがあります。",
-        "message_en": "There is an exhibition panel on the wall that you can touch.",
-        "message_pron": "壁にさわることができる展示パネルがあります。",
+        "message_language": {
+            "text": "壁にさわることができる展示パネルがあります。",
+            "text_en": "There is an exhibition panel on the wall that you can touch.",
+            "text_pron": "壁にさわることができる展示パネルがあります。",
+        },
     }]
 },
 {
@@ -1243,9 +1428,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "地球の今をみる\n今、地球環境の悪化が心配されています。地球の歴史は46億年。あなたにとって、現在の地球はどのような状態なのでしょうか？\n奇跡の1万年\n地球は誕生以来、激しい変化をくり返してきました。\nそのなかで過去1万年のあいだは、とても安定した気候が続いています。\nその気候のおかげで、私たち人類は文明を発展させることができました。",
-        "message_en": "Watching the Present Earth.",
-        "message_pron": "地球の今をみる\n\n今、地球環境の悪化が心配されています。地球の歴史は46億年。あなたにとって、現在の地球はどのような状態なのでしょうか？\n\n奇跡の1万年\n\n地球は誕生以来、激しい変化をくり返してきました。\nそのなかで過去1万年のあいだは、とても安定した気候が続いています。\nその気候のおかげで、私たち人類は文明を発展させることができました。",
+        "message_language": {
+            "text": "地球の今をみる\n今、地球環境の悪化が心配されています。地球の歴史は46億年。あなたにとって、現在の地球はどのような状態なのでしょうか？\n奇跡の1万年\n地球は誕生以来、激しい変化をくり返してきました。\nそのなかで過去1万年のあいだは、とても安定した気候が続いています。\nその気候のおかげで、私たち人類は文明を発展させることができました。",
+            "text_en": "Watching the Present Earth.",
+            "text_pron": "地球の今をみる\n\n今、地球環境の悪化が心配されています。地球の歴史は46億年。あなたにとって、現在の地球はどのような状態なのでしょうか？\n\n奇跡の1万年\n\n地球は誕生以来、激しい変化をくり返してきました。\nそのなかで過去1万年のあいだは、とても安定した気候が続いています。\nその気候のおかげで、私たち人類は文明を発展させることができました。",
+        },
     },
 },
 {
@@ -1257,9 +1444,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "本質をとらえる\nこの1万年のあいだ奇跡的に気候が安定している地球。\nしかし今、私たちは急激な環境変化に直面しています。\nこの変化は何によるのでしょうか?\n\n循環という地球のしくみ\n安定した気候のもとで、「私たち人間や他の生物の活動を支えてきたのは、地球がもっている循環というしくみです。\n地球上では、すべての生物がさまざまな物質とエネルギーのやりとりによってつながっています。\n\n循環を乱す人間の活動\n\n今、私たち人間の活動によって、循環が滞ったり、とぎれたりしています。その結果、さまざまな問題が生じています。",
-        "message_en": "",
-        "message_pron":        "本質をとらえる\n\nこの1万年のあいだ奇跡的に気候が安定している地球。\nしかし今、私たちは急激な環境変化に直面しています。\nこの変化は何によるのでしょうか?\n\n循環という地球の'しくみ'\n\n安定した気候のもとで、「私たち人間や他の生物の活動を支えてきたのは、地球がもっている循環という'しくみ'です。\n地球上では、すべての生物がさまざまな物質とエネルギーのやりとりによってつながっています。\n\n循環を乱す人間の活動\n\n今、私たち人間の活動によって、循環が滞ったり、とぎれたりしています。その結果、さまざまな問題が生じています。",
+        "message_language": {
+            "text": "本質をとらえる\nこの1万年のあいだ奇跡的に気候が安定している地球。\nしかし今、私たちは急激な環境変化に直面しています。\nこの変化は何によるのでしょうか?\n\n循環という地球のしくみ\n安定した気候のもとで、「私たち人間や他の生物の活動を支えてきたのは、地球がもっている循環というしくみです。\n地球上では、すべての生物がさまざまな物質とエネルギーのやりとりによってつながっています。\n\n循環を乱す人間の活動\n\n今、私たち人間の活動によって、循環が滞ったり、とぎれたりしています。その結果、さまざまな問題が生じています。",
+            "text_en": "",
+            "text_pron":        "本質をとらえる\n\nこの1万年のあいだ奇跡的に気候が安定している地球。\nしかし今、私たちは急激な環境変化に直面しています。\nこの変化は何によるのでしょうか?\n\n循環という地球の'しくみ'\n\n安定した気候のもとで、「私たち人間や他の生物の活動を支えてきたのは、地球がもっている循環という'しくみ'です。\n地球上では、すべての生物がさまざまな物質とエネルギーのやりとりによってつながっています。\n\n循環を乱す人間の活動\n\n今、私たち人間の活動によって、循環が滞ったり、とぎれたりしています。その結果、さまざまな問題が生じています。",
+        },
     },
 },
 {
@@ -1271,9 +1460,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 2,
-        "message": "未来を描く\nこれからも地球で暮らしつづけるために、私たちは社会にどのようなしくみをつくればよいのでしょうか？そのために、どのような科学技術が必要なのでしょうか？",
-        "message_en": "",
-        "message_pron": "未来を描く\n\nこれからも地球で暮らしつづけるために、私たちは社会にどのような'しくみ'をつくればよいのでしょうか？そのために、どのような科学技術が必要なのでしょうか？",
+        "message_language": {
+            "text": "未来を描く\nこれからも地球で暮らしつづけるために、私たちは社会にどのようなしくみをつくればよいのでしょうか？そのために、どのような科学技術が必要なのでしょうか？",
+            "text_en": "",
+            "text_pron": "未来を描く\n\nこれからも地球で暮らしつづけるために、私たちは社会にどのような'しくみ'をつくればよいのでしょうか？そのために、どのような科学技術が必要なのでしょうか？",
+        },
     },
 },
 {
@@ -1285,9 +1476,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "循環するものづくり\n私たちは石油や金属などの地下資源を原料にして、ものをつくっては捨てています。しかし、このような一方向のものの流れは、いずれ止まってしまいます。\nものづくりを続けるためには、すでに自然界で循環している生物資源を、さまざまな原料にすることが考えられます。また、地下資源は社会のなかで循環させていくしくみが必要です。",
-        "message_en": "",
-        "message_pron": "循環するものづくり\n\n私たちは石油や金属などの地下資源を原料にして、ものをつくっては捨てています。しかし、このような一方向のものの流れは、いずれ止まってしまいます。\n\nものづくりを続けるためには、すでに自然界で循環している生物資源を、さまざまな原料にすることが考えられます。また、地下資源は社会のなかで循環させていく'しくみ'が必要です。",
+        "message_language": {
+            "text": "循環するものづくり\n私たちは石油や金属などの地下資源を原料にして、ものをつくっては捨てています。しかし、このような一方向のものの流れは、いずれ止まってしまいます。\nものづくりを続けるためには、すでに自然界で循環している生物資源を、さまざまな原料にすることが考えられます。また、地下資源は社会のなかで循環させていくしくみが必要です。",
+            "text_en": "",
+            "text_pron": "循環するものづくり\n\n私たちは石油や金属などの地下資源を原料にして、ものをつくっては捨てています。しかし、このような一方向のものの流れは、いずれ止まってしまいます。\n\nものづくりを続けるためには、すでに自然界で循環している生物資源を、さまざまな原料にすることが考えられます。また、地下資源は社会のなかで循環させていく'しくみ'が必要です。",
+        },
     },
 },
 {
@@ -1299,10 +1492,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "畑で育てるプラスチック\nプラスチックは石油からつくられるものと、決まっているわけではありません。プラスチックを植物につくらせる研究が行われています。\n\n植物のものづくり\n\n植物は二酸化炭素と水を原料に、太陽光エネルギーを使って自らの体をつくり出すしくみをもっています。\n植物にプラスチックをつくらせることができれば、使い終わったあとは二酸化炭素と水に戻せるので、資源は循環します。\n\n植物にプラスチックをつくらせる\n\n生物は、体内でさまざまな物質をつくっています。\nある種の微生物はプラスチックをつくります。この機能を改良するとともに、微生物から植物に移す研究が行われています。\n\n未来の農作物\n\n農業にプラスチック生産という新しい役割が加わろうとしています。限られた農地を有効に使うために、ひとつの植物から食料、燃料、材料を同時に収穫することも考えられるでしょう。",
-        "message_en": "",
-        "message_pron": "畑で育てるプラスチック\n\nプラスチックは石油からつくられるものと、決まっているわけではありません。プラスチックを植物につくらせる研究が行われています。\n\n植物のものづくり\n\n植物は二酸化炭素と水を原料に、太陽光エネルギーを使って自らの体をつくり出す'しくみ'をもっています。\n植物にプラスチックをつくらせることができれば、使い終わったあとは二酸化炭素と水に戻せるので、資源は循環します。\n\n植物にプラスチックをつくらせる\n\n生物は、体内でさまざまな物質をつくっています。\nあるシュの微生物はプラスチックをつくります。この機能を改良するとともに、微生物から植物に移す研究が行われています。\n\n未来の農作物\n\n農業にプラスチック生産という新しい役割が加わろうとしています。限られた農地を有効に使うために、ひとつの植物から食料、燃料、材料を同時に収穫することも考えられるでしょう。",
-
+        "message_language": {
+            "text": "畑で育てるプラスチック\nプラスチックは石油からつくられるものと、決まっているわけではありません。プラスチックを植物につくらせる研究が行われています。\n\n植物のものづくり\n\n植物は二酸化炭素と水を原料に、太陽光エネルギーを使って自らの体をつくり出すしくみをもっています。\n植物にプラスチックをつくらせることができれば、使い終わったあとは二酸化炭素と水に戻せるので、資源は循環します。\n\n植物にプラスチックをつくらせる\n\n生物は、体内でさまざまな物質をつくっています。\nある種の微生物はプラスチックをつくります。この機能を改良するとともに、微生物から植物に移す研究が行われています。\n\n未来の農作物\n\n農業にプラスチック生産という新しい役割が加わろうとしています。限られた農地を有効に使うために、ひとつの植物から食料、燃料、材料を同時に収穫することも考えられるでしょう。",
+            "text_en": "",
+            "text_pron": "畑で育てるプラスチック\n\nプラスチックは石油からつくられるものと、決まっているわけではありません。プラスチックを植物につくらせる研究が行われています。\n\n植物のものづくり\n\n植物は二酸化炭素と水を原料に、太陽光エネルギーを使って自らの体をつくり出す'しくみ'をもっています。\n植物にプラスチックをつくらせることができれば、使い終わったあとは二酸化炭素と水に戻せるので、資源は循環します。\n\n植物にプラスチックをつくらせる\n\n生物は、体内でさまざまな物質をつくっています。\nあるシュの微生物はプラスチックをつくります。この機能を改良するとともに、微生物から植物に移す研究が行われています。\n\n未来の農作物\n\n農業にプラスチック生産という新しい役割が加わろうとしています。限られた農地を有効に使うために、ひとつの植物から食料、燃料、材料を同時に収穫することも考えられるでしょう。",
+        },
     },
 },
 {
@@ -1314,9 +1508,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "木から始まる新しい工業\n木は、私たちが使いこなせていなかった隠れた能力をもっています。将来、石油に代わって多くの製品を、木からつくれるようになるかもしれません。\n分子レベルで木を見る\n\n私たちはこれまで木を、家具などの木材として主に利用してきました。しかし、ミクロのスケールで見えてくる分子の機能を使いこなせていませんでした。木の複雑な分子を解きほぐすことで、さまざまな原料を生み出すことができます。\n自然にならって木を使う\n自然界では、木の分子はさまざまな生物によって何度もくり返して利用されています。\n自然界にならい、木からつくった原料を形を変えながらくり返し利用する、新しい工業が提案されています。",
-        "message_en": "",
-        "message_pron": "木から始まる新しい工業\n\n木は、私たちが使いこなせていなかった隠れた能力をもっています。将来、石油に代わって多くの製品を、木からつくれるようになるかもしれません。\n\n分子レベルで木を見る\n\n私たちはこれまで木を、家具などの木材として主に利用してきました。しかし、ミクロのスケールで見えてくる分子の機能を使いこなせていませんでした。木の複雑な分子を解きほぐすことで、さまざまな原料を生み出すことができます。\n\n自然にならって木を使う\n\n自然界では、木の分子はさまざまな生物によって何度もくり返して利用されています。\n\n自然界にならい、木からつくった原料を形を変えながらくり返し利用する、新しい工業が提案されています。",
+        "message_language": {
+            "text": "木から始まる新しい工業\n木は、私たちが使いこなせていなかった隠れた能力をもっています。将来、石油に代わって多くの製品を、木からつくれるようになるかもしれません。\n分子レベルで木を見る\n\n私たちはこれまで木を、家具などの木材として主に利用してきました。しかし、ミクロのスケールで見えてくる分子の機能を使いこなせていませんでした。木の複雑な分子を解きほぐすことで、さまざまな原料を生み出すことができます。\n自然にならって木を使う\n自然界では、木の分子はさまざまな生物によって何度もくり返して利用されています。\n自然界にならい、木からつくった原料を形を変えながらくり返し利用する、新しい工業が提案されています。",
+            "text_en": "",
+            "text_pron": "木から始まる新しい工業\n\n木は、私たちが使いこなせていなかった隠れた能力をもっています。将来、石油に代わって多くの製品を、木からつくれるようになるかもしれません。\n\n分子レベルで木を見る\n\n私たちはこれまで木を、家具などの木材として主に利用してきました。しかし、ミクロのスケールで見えてくる分子の機能を使いこなせていませんでした。木の複雑な分子を解きほぐすことで、さまざまな原料を生み出すことができます。\n\n自然にならって木を使う\n\n自然界では、木の分子はさまざまな生物によって何度もくり返して利用されています。\n\n自然界にならい、木からつくった原料を形を変えながらくり返し利用する、新しい工業が提案されています。",
+        },
     },
 },
 {
@@ -1328,9 +1524,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "資源がめぐる社会\n金属は、石油と同じ限りある地下資源。掘って捨ててをくり返すのではなく、社会のなかで循環させることが求められています。\n金の指輪の重さ\n電化製品や自動車など、今の私たちの生活は、金属なしには考えられません。しかし、この便利さの背後で、環境破壊が生じることがあります。わずかな金属を得るために、大量の土石が自然環境から削りとられているのです。\n都市に眠る金属資源\n現在の日本には、すでに製品やごみとして膨大な量の金属が蓄えられています。その総量は、それぞれの金属を最も多く輸出している国の埋蔵量に匹敵するほどです。これら都市のなかの金属を原料にすれば、自然環境を破壊せずに製品をつくりつづけることができるでしょう。\n情報がものの流れを変える\n製品やごみとして社会に散らばってしまった金属資源を、再び集めて利用するためには、製品を見守りつづけるしくみが必要でしょう。リペア、リュース、リサイクルを助ける情報技術が注目されています。",
-        "message_en": "",
-        "message_pron": "資源がめぐる社会\n\n金属は、石油と同じ限りある地下資源。掘って捨ててをくり返すのではなく、社会のなかで循環させることが求められています。\n\nキンの指輪の重さ\n\n電化製品や自動車など、今の私たちの生活は、金属なしには考えられません。しかし、この便利さの背後で、環境破壊が生じることがあります。わずかな金属を得るために、大量の土石が自然環境から削りとられているのです。\n\n都市に眠る金属資源\n\n現在の日本には、すでに製品やごみとして膨大な量の金属が蓄えられています。その総量は、それぞれの金属を最も多く輸出している国の埋蔵量に匹敵するほどです。これら都市のなかの金属を原料にすれば、自然環境を破壊せずに製品をつくりつづけることができるでしょう。\n\n情報がものの流れを変える\n\n製品やごみとして社会に散らばってしまった金属資源を、再び集めて利用するためには、製品を見守りつづける'しくみ'が必要でしょう。リペア、リュース、リサイクルを助ける情報技術が注目されています。",
+        "message_language": {
+            "text": "資源がめぐる社会\n金属は、石油と同じ限りある地下資源。掘って捨ててをくり返すのではなく、社会のなかで循環させることが求められています。\n金の指輪の重さ\n電化製品や自動車など、今の私たちの生活は、金属なしには考えられません。しかし、この便利さの背後で、環境破壊が生じることがあります。わずかな金属を得るために、大量の土石が自然環境から削りとられているのです。\n都市に眠る金属資源\n現在の日本には、すでに製品やごみとして膨大な量の金属が蓄えられています。その総量は、それぞれの金属を最も多く輸出している国の埋蔵量に匹敵するほどです。これら都市のなかの金属を原料にすれば、自然環境を破壊せずに製品をつくりつづけることができるでしょう。\n情報がものの流れを変える\n製品やごみとして社会に散らばってしまった金属資源を、再び集めて利用するためには、製品を見守りつづけるしくみが必要でしょう。リペア、リュース、リサイクルを助ける情報技術が注目されています。",
+            "text_en": "",
+            "text_pron": "資源がめぐる社会\n\n金属は、石油と同じ限りある地下資源。掘って捨ててをくり返すのではなく、社会のなかで循環させることが求められています。\n\nキンの指輪の重さ\n\n電化製品や自動車など、今の私たちの生活は、金属なしには考えられません。しかし、この便利さの背後で、環境破壊が生じることがあります。わずかな金属を得るために、大量の土石が自然環境から削りとられているのです。\n\n都市に眠る金属資源\n\n現在の日本には、すでに製品やごみとして膨大な量の金属が蓄えられています。その総量は、それぞれの金属を最も多く輸出している国の埋蔵量に匹敵するほどです。これら都市のなかの金属を原料にすれば、自然環境を破壊せずに製品をつくりつづけることができるでしょう。\n\n情報がものの流れを変える\n\n製品やごみとして社会に散らばってしまった金属資源を、再び集めて利用するためには、製品を見守りつづける'しくみ'が必要でしょう。リペア、リュース、リサイクルを助ける情報技術が注目されています。",
+        },
     },
 },
 {
@@ -1342,9 +1540,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "循環を乱さないエネルギー\n私たちの生活を支えているエネルギー。そのほとんどは石油や石炭、天然ガスから得られています。\nしかし、これらの化石エネルギー資源には限りがあり、また燃やすことで、循環しきれないほど大量の二酸化炭素が生じます。\n枯渇しない、そして二酸化炭素を出さないエネルギーへの転換が必要です。",
-        "message_en": "",
-        "message_pron": "循環を乱さないエネルギー\n\n私たちの生活を支えているエネルギー。そのほとんどは石油や石炭、天然ガスから得られています。\nしかし、これらの化石エネルギー資源には限りがあり、また燃やすことで、循環しきれないほど大量の二酸化炭素が生じます。\n枯渇しない、そして二酸化炭素を出さないエネルギーへの転換が必要です。",
+        "message_language": {
+            "text": "循環を乱さないエネルギー\n私たちの生活を支えているエネルギー。そのほとんどは石油や石炭、天然ガスから得られています。\nしかし、これらの化石エネルギー資源には限りがあり、また燃やすことで、循環しきれないほど大量の二酸化炭素が生じます。\n枯渇しない、そして二酸化炭素を出さないエネルギーへの転換が必要です。",
+            "text_en": "",
+            "text_pron": "循環を乱さないエネルギー\n\n私たちの生活を支えているエネルギー。そのほとんどは石油や石炭、天然ガスから得られています。\nしかし、これらの化石エネルギー資源には限りがあり、また燃やすことで、循環しきれないほど大量の二酸化炭素が生じます。\n枯渇しない、そして二酸化炭素を出さないエネルギーへの転換が必要です。",
+        },
     },
 },
 {
@@ -1356,10 +1556,12 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": " どこにでもあるエネルギー\n地上には太陽光が降りそそぎ、地下には高温のマグマが存在しています。太陽と地球がある限り枯渇せず、どこにでもある自然エネルギーの活用が望まれています。\n集めれば膨大\n自然エネルギーは、地球上に薄く広く存在しています。\nそれらを集めれば、世界で今使われているエネルギー量の1万倍にもおよびます。\n自然エネルギーをつかむ\n光や熱、流れといった自然のエネルギーは扱いにくいので、電気や燃料など使いやすい形に変える技術が必要です。\nまた、いつでもどこでも使えるように、エネルギーをためる工夫も大事です。\n未来へのスイッチ\n自然エネルギーの普及のためには、技術の開発と、新しい社会のしくみが必要です。",
-        "message_en": "",
-        "message_pron": "どこにでもあるエネルギー\n\n地上には太陽光が降りそそぎ、地下には高温のマグマが存在しています。太陽と地球がある限り枯渇せず、どこにでもある自然エネルギーの活用が望まれています。\n\n集めれば膨大\n\n自然エネルギーは、地球上に薄く広く存在しています。\nそれらを集めれば、世界で今使われているエネルギー量の1万倍にもおよびます。\n\n自然エネルギーをつかむ\n\n光や熱、流れといった自然のエネルギーは扱いにくいので、電気や燃料など使いやすい形に変える技術が必要です。\nまた、いつでもどこでも使えるように、エネルギーをためる工夫も大事です。\n\n未来へのスイッチ\n\n自然エネルギーの普及のためには、技術の開発と、新しい社会の'しくみ'が必要です。",
-        "message_exception": "自然エネルギー利用の未来をひらく、最先端のとり組みを紹介します。",
+        "message_language": {
+            "text": " どこにでもあるエネルギー\n地上には太陽光が降りそそぎ、地下には高温のマグマが存在しています。太陽と地球がある限り枯渇せず、どこにでもある自然エネルギーの活用が望まれています。\n集めれば膨大\n自然エネルギーは、地球上に薄く広く存在しています。\nそれらを集めれば、世界で今使われているエネルギー量の1万倍にもおよびます。\n自然エネルギーをつかむ\n光や熱、流れといった自然のエネルギーは扱いにくいので、電気や燃料など使いやすい形に変える技術が必要です。\nまた、いつでもどこでも使えるように、エネルギーをためる工夫も大事です。\n未来へのスイッチ\n自然エネルギーの普及のためには、技術の開発と、新しい社会のしくみが必要です。",
+            "text_en": "",
+            "text_pron": "どこにでもあるエネルギー\n\n地上には太陽光が降りそそぎ、地下には高温のマグマが存在しています。太陽と地球がある限り枯渇せず、どこにでもある自然エネルギーの活用が望まれています。\n\n集めれば膨大\n\n自然エネルギーは、地球上に薄く広く存在しています。\nそれらを集めれば、世界で今使われているエネルギー量の1万倍にもおよびます。\n\n自然エネルギーをつかむ\n\n光や熱、流れといった自然のエネルギーは扱いにくいので、電気や燃料など使いやすい形に変える技術が必要です。\nまた、いつでもどこでも使えるように、エネルギーをためる工夫も大事です。\n\n未来へのスイッチ\n\n自然エネルギーの普及のためには、技術の開発と、新しい社会の'しくみ'が必要です。",
+            "message_exception": "自然エネルギー利用の未来をひらく、最先端のとり組みを紹介します。",
+        },
     },
 },
 {
@@ -1371,9 +1573,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "地上に太陽をつくる\n核融合という新しいエネルギー技術によって、人類は地上に太陽をつくろうとしています。\n1千万年分のエネルギー\n石油や石炭によって発展してきた私たちは、わずか数百年でその資源を使い果たそうとしています。\n核融合エネルギーの資源は非常に豊富なので、実現すれば人類の未来を支え続けることができるでしょう。\n人工太陽づくりに挑む\n\n太陽は熱いガス状の星。核融合によって燃えています。\nその太陽を地上に再現する実験が行われています。\n特殊な容器のなかで、燃料の水素を1億度という超高温の状態に加熱し、核融合反応を起こさせます。\n発電へのロードマップ\n人類はこれからも大量のエネルギーを必要としています。核融合発電を今世紀半ばごろまでに実現するという目標のもと、世界規模の共同研究が始まりました。\nその第一歩、ITER 実験には、日本をはじめ7つの国と地域が参加しています。",
-        "message_en": "",
-        "message_pron": "地上に太陽をつくる\n\n核融合という新しいエネルギー技術によって、人類は地上に太陽をつくろうとしています。\n\n1千万年分のエネルギー\n\n石油や石炭によって発展してきた私たちは、わずか数百年でその資源を使い果たそうとしています。\n核融合エネルギーの資源は非常に豊富なので、実現すれば人類の未来を支え続けることができるでしょう。\n\n人工太陽づくりに挑む\n\n太陽は熱いガス状の星。核融合によって燃えています。\nその太陽を地上に再現する実験が行われています。\n特殊な容器のなかで、燃料の水素を1億度という超高温の状態に加熱し、核融合反応を起こさせます。\n\n発電へのロードマップ\n\n人類はこれからも大量のエネルギーを必要としています。核融合発電を今世紀半ばごろまでに実現するという目標のもと、世界規模の共同研究が始まりました。\nそのダイイッポ、イーター 実験には、日本をはじめ7つの国と地域が参加しています。",
+        "message_language": {
+            "text": "地上に太陽をつくる\n核融合という新しいエネルギー技術によって、人類は地上に太陽をつくろうとしています。\n1千万年分のエネルギー\n石油や石炭によって発展してきた私たちは、わずか数百年でその資源を使い果たそうとしています。\n核融合エネルギーの資源は非常に豊富なので、実現すれば人類の未来を支え続けることができるでしょう。\n人工太陽づくりに挑む\n\n太陽は熱いガス状の星。核融合によって燃えています。\nその太陽を地上に再現する実験が行われています。\n特殊な容器のなかで、燃料の水素を1億度という超高温の状態に加熱し、核融合反応を起こさせます。\n発電へのロードマップ\n人類はこれからも大量のエネルギーを必要としています。核融合発電を今世紀半ばごろまでに実現するという目標のもと、世界規模の共同研究が始まりました。\nその第一歩、ITER 実験には、日本をはじめ7つの国と地域が参加しています。",
+            "text_en": "",
+            "text_pron": "地上に太陽をつくる\n\n核融合という新しいエネルギー技術によって、人類は地上に太陽をつくろうとしています。\n\n1千万年分のエネルギー\n\n石油や石炭によって発展してきた私たちは、わずか数百年でその資源を使い果たそうとしています。\n核融合エネルギーの資源は非常に豊富なので、実現すれば人類の未来を支え続けることができるでしょう。\n\n人工太陽づくりに挑む\n\n太陽は熱いガス状の星。核融合によって燃えています。\nその太陽を地上に再現する実験が行われています。\n特殊な容器のなかで、燃料の水素を1億度という超高温の状態に加熱し、核融合反応を起こさせます。\n\n発電へのロードマップ\n\n人類はこれからも大量のエネルギーを必要としています。核融合発電を今世紀半ばごろまでに実現するという目標のもと、世界規模の共同研究が始まりました。\nそのダイイッポ、イーター 実験には、日本をはじめ7つの国と地域が参加しています。",
+        },
     },
 },
 {
@@ -1385,9 +1589,11 @@
     "description": {
         "short_distance": 0,
         "long_distance": 3,
-        "message": "社会の中で語り合う\n環境問題に対する意見は、さまざまです。科学技術だけでは問題を解決できないでしょう。立場の違いを超えて目標を共有するため、あなたの参加も期待されています。",
-        "message_en": "",
-        "message_pron": "社会の中で語り合う\n\n環境問題に対する意見は、さまざまです。科学技術だけでは問題を解決できないでしょう。立場の違いを超えて目標を共有するため、あなたの参加も期待されています。",
+        "message_language": {
+            "text": "社会の中で語り合う\n環境問題に対する意見は、さまざまです。科学技術だけでは問題を解決できないでしょう。立場の違いを超えて目標を共有するため、あなたの参加も期待されています。",
+            "text_en": "",
+            "text_pron": "社会の中で語り合う\n\n環境問題に対する意見は、さまざまです。科学技術だけでは問題を解決できないでしょう。立場の違いを超えて目標を共有するため、あなたの参加も期待されています。",
+        },
     },
 },
 {
@@ -1399,14 +1605,18 @@
     "description": {
         "short_distance": 0,
         "long_distance": 2.5,
-        "message": "ここは幹細胞の展示です。正面に大きな2面のパネルと映像があり、実際の顕微鏡がケースの中に展示されています。\n幹細胞とは「分裂して増える能力と、体のさまざまな部位の細胞になる能力」をもった細胞です。\n幹細胞を研究することで、治療法のない病気の解明や、新しい薬の開発に役立てることができます。\nまた、病気になった細胞を、幹細胞からつくった元気な細胞と入れ替える「再生治療」が可能になります。\n\n左に5メートル進んでください。",
-        "message_en": "",
-        "message_pron": "ここはカンサイボウの展示です。正面に大きな2面のパネルと映像があり、実際の顕微鏡がケースの中に展示されています。\nカンサイボウとは「分裂して増える能力と、体のさまざまな部位の細胞になる能力」をもった細胞です。\nカンサイボウを研究することで、治療法のない病気の解明や、新しい薬の開発に役立てることができます。\nまた、病気になった細胞を、カンサイボウからつくった元気な細胞と入れ替える「再生治療」が可能になります。。。\n左に5メートル進んでください。",
+        "message_language": {
+            "text": "ここは幹細胞の展示です。正面に大きな2面のパネルと映像があり、実際の顕微鏡がケースの中に展示されています。\n幹細胞とは「分裂して増える能力と、体のさまざまな部位の細胞になる能力」をもった細胞です。\n幹細胞を研究することで、治療法のない病気の解明や、新しい薬の開発に役立てることができます。\nまた、病気になった細胞を、幹細胞からつくった元気な細胞と入れ替える「再生治療」が可能になります。\n\n左に5メートル進んでください。",
+            "text_en": "",
+            "text_pron": "ここはカンサイボウの展示です。正面に大きな2面のパネルと映像があり、実際の顕微鏡がケースの中に展示されています。\nカンサイボウとは「分裂して増える能力と、体のさまざまな部位の細胞になる能力」をもった細胞です。\nカンサイボウを研究することで、治療法のない病気の解明や、新しい薬の開発に役立てることができます。\nまた、病気になった細胞を、カンサイボウからつくった元気な細胞と入れ替える「再生治療」が可能になります。。。\n左に5メートル進んでください。",
+        },
     },
     "description_detail": {
-        "message": "幹細胞には三種類あります。\n\n体性幹細胞。\n\n体の中に元々ある幹細胞で、「新しい細胞をつくる能力」をもっています。傷ついたり、古くなった細胞を入れ替えたり、病気やケガで失われた細胞を補います。1965年から始まった骨髄移植では、ドナーの体性幹細胞を患者に移植する方法がとられています。自分自身の細胞を使うことで、拒絶反応が少ない治療も可能です。体性幹細胞では、分化できる細胞の種類が限定されます。また、細胞の種類によって、取り出しやすさや、取り出せる細胞の数、新しい細胞をつくる能力に違いがあります。\n\nES細胞。\n\n胚性幹細胞とも呼ばれます。\n受精後、しばらく成長した受精卵からとった幹細胞で、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは1998年に初めて培養に成功しました。体性幹細胞と比べて、体中の細胞をつくることができます。ES細胞では、主に不妊治療で不要となった受精卵からつくります。そのため、材料となる細胞が限られるので、細胞の周りのゲノム(全遺伝情報)の多様性も限られます。また、治療の際には、患者と同じゲノムを持った細胞を使う事ができません。\n\niPS細胞。\n\n人工多能性幹細胞とも呼ばれます。\n体をつくる幹細胞に遺伝子を入れてつくった幹細胞で、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは2007年に初めて作製に成功しました。iPS細胞は、皮膚や血液などの体細胞に操作を行ってつくるため、もとの体細胞がもつゲノムに異常がないかや、つくられたiPS細胞がその異常を引き継いでいないか、人為的な操作による影響を受けていないかを調べています。",
-        "message_en": "",
-        "message_pron": "カンサイボウには三種類あります。タイセイカンサイボウ。体の中に元々あるカンサイボウで、「新しい細胞をつくる能力」をもっています。傷ついたり、古くなった細胞を入れ替えたり、病気やケガで失われた細胞を補います。1965年から始まった骨髄移植では、ドナーのタイセイカンサイボウを患者に移植する方法がとられています。自分自身の細胞を使うことで、拒絶反応が少ない治療も可能です。タイセイカンサイボウでは、分化できる細胞の種類が限定されます。また、細胞の種類によって、取り出しやすさや、取り出せる細胞の数、新しい細胞をつくる能力に違いがあります。。。 イーエス細胞。ハイセイカンサイボウとも呼ばれます。受精後、しばらく成長した受精卵からとったカンサイボウで、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは1998年に初めて培養に成功しました。タイセイカンサイボウと比べて、体中の細胞をつくることができます。イーエス細胞では、主に不妊治療で不要となった受精卵からつくります。そのため、材料となる細胞が限られるので、細胞の周りのゲノム(全遺伝情報)の多様性も限られます。また、治療の際には、患者と同じゲノムを持った細胞を使う事ができません。。。 iPS細胞。人工多能性カンサイボウとも呼ばれます。体をつくるカンサイボウに遺伝子を入れてつくったカンサイボウで、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは2007年に初めて作製に成功しました。iPS細胞は、皮膚や血液などのタイサイボウに操作を行ってつくるため、もとのタイサイボウがもつゲノムに異常がないかや、つくられたiPS細胞がその異常を引き継いでいないか、人為的な操作による影響を受けていないかを調べています。",
+        "message_language": {
+            "text": "幹細胞には三種類あります。\n\n体性幹細胞。\n\n体の中に元々ある幹細胞で、「新しい細胞をつくる能力」をもっています。傷ついたり、古くなった細胞を入れ替えたり、病気やケガで失われた細胞を補います。1965年から始まった骨髄移植では、ドナーの体性幹細胞を患者に移植する方法がとられています。自分自身の細胞を使うことで、拒絶反応が少ない治療も可能です。体性幹細胞では、分化できる細胞の種類が限定されます。また、細胞の種類によって、取り出しやすさや、取り出せる細胞の数、新しい細胞をつくる能力に違いがあります。\n\nES細胞。\n\n胚性幹細胞とも呼ばれます。\n受精後、しばらく成長した受精卵からとった幹細胞で、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは1998年に初めて培養に成功しました。体性幹細胞と比べて、体中の細胞をつくることができます。ES細胞では、主に不妊治療で不要となった受精卵からつくります。そのため、材料となる細胞が限られるので、細胞の周りのゲノム(全遺伝情報)の多様性も限られます。また、治療の際には、患者と同じゲノムを持った細胞を使う事ができません。\n\niPS細胞。\n\n人工多能性幹細胞とも呼ばれます。\n体をつくる幹細胞に遺伝子を入れてつくった幹細胞で、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは2007年に初めて作製に成功しました。iPS細胞は、皮膚や血液などの体細胞に操作を行ってつくるため、もとの体細胞がもつゲノムに異常がないかや、つくられたiPS細胞がその異常を引き継いでいないか、人為的な操作による影響を受けていないかを調べています。",
+            "text_en": "",
+            "text_pron": "カンサイボウには三種類あります。タイセイカンサイボウ。体の中に元々あるカンサイボウで、「新しい細胞をつくる能力」をもっています。傷ついたり、古くなった細胞を入れ替えたり、病気やケガで失われた細胞を補います。1965年から始まった骨髄移植では、ドナーのタイセイカンサイボウを患者に移植する方法がとられています。自分自身の細胞を使うことで、拒絶反応が少ない治療も可能です。タイセイカンサイボウでは、分化できる細胞の種類が限定されます。また、細胞の種類によって、取り出しやすさや、取り出せる細胞の数、新しい細胞をつくる能力に違いがあります。。。 イーエス細胞。ハイセイカンサイボウとも呼ばれます。受精後、しばらく成長した受精卵からとったカンサイボウで、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは1998年に初めて培養に成功しました。タイセイカンサイボウと比べて、体中の細胞をつくることができます。イーエス細胞では、主に不妊治療で不要となった受精卵からつくります。そのため、材料となる細胞が限られるので、細胞の周りのゲノム(全遺伝情報)の多様性も限られます。また、治療の際には、患者と同じゲノムを持った細胞を使う事ができません。。。 iPS細胞。人工多能性カンサイボウとも呼ばれます。体をつくるカンサイボウに遺伝子を入れてつくったカンサイボウで、「無限に増えて、さまざまな細胞になることができる能力(多能性)」をもっています。ヒトでは2007年に初めて作製に成功しました。iPS細胞は、皮膚や血液などのタイサイボウに操作を行ってつくるため、もとのタイサイボウがもつゲノムに異常がないかや、つくられたiPS細胞がその異常を引き継いでいないか、人為的な操作による影響を受けていないかを調べています。",
+        },
     },
 },
 {
@@ -1418,16 +1628,20 @@
     "guide_to_here": {
         "short_distance": 2.2,
         "long_distance": 6,
-        "message": "%@先。正面の壁。展示パネルがあります。",
-        "message_en": "%@ ahead. Front wall. There are display panels.",
-        "message_pron": "%@先。正面の壁。展示パネルがあります。",
+        "message_language": {
+            "text": "%@先。正面の壁。展示パネルがあります。",
+            "text_en": "%@ ahead. Front wall. There are display panels.",
+            "text_pron": "%@先。正面の壁。展示パネルがあります。",
+        },
     },
     "description": {
         "short_distance": 0,
         "long_distance": 2,
-        "message": "ここから「あなたと細胞のストーリー」という展示が始まります。\n壁の右方向に沿って約8メートルにわたって続きます。\n一つ目は「はじまりはひとつの細胞から。」という映像展示です。\n 細胞は、生命活動の基本単位です。「生きている」という状態の、もっとも小さな姿が細胞です。\nあなたは受精卵という、たった一つの細胞からはじまりました。両親の遺伝子を引きついだ受精卵は、「体の全ての細胞になれる」特別な細胞です。受精卵が分裂し数を増やしていくうちに、細胞ごとに異なる遺伝子がはたらき、体がつくられはじめます。そして今、40兆ほどの細胞があなたの体をかたちづくり、あなたを生かしています。\n\n右に３メートル進んでください。",
-        "message_en": "",
-        "message_pron": "ここから「あなたと細胞のストーリー」という展示が始まります。\n壁の右方向に沿って約8メートルにわたって続きます。\n一つ目は「はじまりはひとつの細胞から。」という映像展示です。\n 細胞は、生命活動の基本単位です。「生きている」という状態の、もっとも小さな姿が細胞です。\nあなたは受精卵という、たった一つの細胞からはじまりました。両親の遺伝子を引きついだ受精卵は、「体の全ての細胞になれる」特別な細胞です。受精卵が分裂し数を増やしていくうちに、細胞ごとに異なる遺伝子がはたらき、体がつくられはじめます。そして今、40チョウほどの細胞があなたの体をかたちづくり、あなたを生かしています。。。\n右に３メートル進んでください。",
+        "message_language": {
+            "text": "ここから「あなたと細胞のストーリー」という展示が始まります。\n壁の右方向に沿って約8メートルにわたって続きます。\n一つ目は「はじまりはひとつの細胞から。」という映像展示です。\n 細胞は、生命活動の基本単位です。「生きている」という状態の、もっとも小さな姿が細胞です。\nあなたは受精卵という、たった一つの細胞からはじまりました。両親の遺伝子を引きついだ受精卵は、「体の全ての細胞になれる」特別な細胞です。受精卵が分裂し数を増やしていくうちに、細胞ごとに異なる遺伝子がはたらき、体がつくられはじめます。そして今、40兆ほどの細胞があなたの体をかたちづくり、あなたを生かしています。\n\n右に３メートル進んでください。",
+            "text_en": "",
+            "text_pron": "ここから「あなたと細胞のストーリー」という展示が始まります。\n壁の右方向に沿って約8メートルにわたって続きます。\n一つ目は「はじまりはひとつの細胞から。」という映像展示です。\n 細胞は、生命活動の基本単位です。「生きている」という状態の、もっとも小さな姿が細胞です。\nあなたは受精卵という、たった一つの細胞からはじまりました。両親の遺伝子を引きついだ受精卵は、「体の全ての細胞になれる」特別な細胞です。受精卵が分裂し数を増やしていくうちに、細胞ごとに異なる遺伝子がはたらき、体がつくられはじめます。そして今、40チョウほどの細胞があなたの体をかたちづくり、あなたを生かしています。。。\n右に３メートル進んでください。",
+        },
     },
 },
 {
@@ -1439,16 +1653,20 @@
     "guide_to_here": {
         "short_distance": 1.2,
         "long_distance": 6,
-        "message": "%@先。正面の壁にさわることができる展示パネルがあります。",
-        "message_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
-        "message_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
+        "message_language": {
+            "text": "%@先。正面の壁にさわることができる展示パネルがあります。",
+            "text_en": "%@ ahead. There is an exhibition panel on the front wall that you can touch.",
+            "text_pron": "%@先。正面の壁にさわることができる展示パネルがあります。",
+        },
     },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
-        "message": "ここは受精卵の展示「あなたの体ができるまで」です。\nこの展示では，受精卵から成長していく胎児の過程を触りながら体感することができます。\n腰ほどの高さに幅1メートルほどの棚があります。\n棚の上には横一列に7つの円形のスペースがあり、その中心に胎児の実寸台の模型が配置されています。\nまず初めに一番左にある受精卵を触ってみましょう。\n直径は約160マイクロメートルほどです。\n\n次にその右隣にある19日後の胎児を触ってみましょう。\nこのあたりで赤血球になる細胞が現れ始めます。\n\nその右隣にあるのは28日後の胎児です。\nこのあたりから眼ができはじめ、脳を作る細胞の一部がせりだしてきています。\n\nその右隣にあるのが40日後の胎児です。\nこのころには腕や脚になる細胞のかたまりができはじめています。\n\nその右隣にあるのが44日後の胎児です。\nこのあたりから肺などの器官の形ができてきます。\n\nその右隣にあるのが50日後の胎児です。\nすでにおおまかな体が出来上がっています。しかし、それぞれの細胞や組織はまだ未成熟なので、ここから30週あまりをかけて、生きるためのしっかりとした構造と機能を作っていきます。\n\nその右隣にあるのが56日後の胎児です。\n先ほどの50日後の胎児から6日たっただけで大きく成長していることがわかると思います。\n\nまた、正面顔ほどの高さの壁には受精から約32週の胎児の模型があります。\n触ってみてください。\n\nこれは受精から約32週の胎児です。生まれた後も、新しい細胞を作り続ける「幹細胞」により、体は大きく成長します。古くなった細胞の入れ替えや、病気やケガで失われた細胞の補充も、幹細胞によって行われています。\nこのようにあなたの体がつくられるなかで、細胞は特定のはたらきをもつ細胞へと「分化」します。血液や眼など、それぞれの役割を担う細胞へと変化します。受精卵から約56日かけておおまかな体のかたちができあがります。その後、臓器や組織の細かい構造がつくられ、きちんとはたらけるようになり、受精から約38週ほどであなたは生まれてきたのです。\n\n壁に沿って右方向に進んでください。",
-        "message_en": "",
-        "message_pron": "ここは受精卵の展示「あなたの体ができるまで」です。\nこの展示では、受精卵から成長していく胎児の過程を触りながら体感することができます。\n腰ほどの高さに幅1メートルほどの棚があります。\n棚の上には横一列に7つの円形のスペースがあり、その中心に胎児の実寸台のモケイが配置されています。\nまず初めに一番左にある受精卵を触ってみましょう。\n直径は約160マイクロメートルほどです。|||\n次にその右隣にある19日後の胎児を触ってみましょう。\nこのあたりでセッケッキュウになる細胞が現れ始めます。|||\nその右隣にあるのは28日後の胎児です。\nこのあたりから眼ができはじめ，脳を作る細胞の一部がせりだしてきています。|||\nその右隣にあるのが40日後の胎児です。\nこのころには腕や脚になる細胞のかたまりができはじめています。|||\nその右隣にあるのが44日後の胎児です。\nこのあたりから肺などの器官の形ができてきます。|||\nその右隣にあるのが50日後の胎児です。\nすでにおおまかな体が出来上がっています。しかし、それぞれの細胞や組織はまだミセイジュクなので、ここから30週あまりをかけて、生きるためのしっかりとした構造と機能を作っていきます。|||\nその右隣にあるのが56日後の胎児です。\n先ほどの50日後の胎児から6日たっただけで大きく成長していることがわかると思います。|||\nまた、正面顔ほどの高さの壁には受精から約32週の胎児のモケイがあります。\n触ってみてください。|||\nこれは受精から約32週の胎児です。生まれた後も、新しい細胞を作り続ける「カンサイボウ」により、体は大きく成長します。古くなった細胞の入れ替えや、病気やケガで失われた細胞の補充も、カンサイボウによって行われています。\nこのようにあなたの体がつくられるなかで、細胞は特定のはたらきをもつ細胞へと「分化」します。血液や眼など、それぞれの役割を担う細胞へと変化します。受精卵から約56日かけておおまかな体のかたちができあがります。その後、臓器や組織の細かい構造がつくられ、きちんとはたらけるようになり、受精から約38週ほどであなたは生まれてきたのです。|||\n壁に沿って右方向に進んでください。",
+        "message_language": {
+            "text": "ここは受精卵の展示「あなたの体ができるまで」です。\nこの展示では，受精卵から成長していく胎児の過程を触りながら体感することができます。\n腰ほどの高さに幅1メートルほどの棚があります。\n棚の上には横一列に7つの円形のスペースがあり、その中心に胎児の実寸台の模型が配置されています。\nまず初めに一番左にある受精卵を触ってみましょう。\n直径は約160マイクロメートルほどです。\n\n次にその右隣にある19日後の胎児を触ってみましょう。\nこのあたりで赤血球になる細胞が現れ始めます。\n\nその右隣にあるのは28日後の胎児です。\nこのあたりから眼ができはじめ、脳を作る細胞の一部がせりだしてきています。\n\nその右隣にあるのが40日後の胎児です。\nこのころには腕や脚になる細胞のかたまりができはじめています。\n\nその右隣にあるのが44日後の胎児です。\nこのあたりから肺などの器官の形ができてきます。\n\nその右隣にあるのが50日後の胎児です。\nすでにおおまかな体が出来上がっています。しかし、それぞれの細胞や組織はまだ未成熟なので、ここから30週あまりをかけて、生きるためのしっかりとした構造と機能を作っていきます。\n\nその右隣にあるのが56日後の胎児です。\n先ほどの50日後の胎児から6日たっただけで大きく成長していることがわかると思います。\n\nまた、正面顔ほどの高さの壁には受精から約32週の胎児の模型があります。\n触ってみてください。\n\nこれは受精から約32週の胎児です。生まれた後も、新しい細胞を作り続ける「幹細胞」により、体は大きく成長します。古くなった細胞の入れ替えや、病気やケガで失われた細胞の補充も、幹細胞によって行われています。\nこのようにあなたの体がつくられるなかで、細胞は特定のはたらきをもつ細胞へと「分化」します。血液や眼など、それぞれの役割を担う細胞へと変化します。受精卵から約56日かけておおまかな体のかたちができあがります。その後、臓器や組織の細かい構造がつくられ、きちんとはたらけるようになり、受精から約38週ほどであなたは生まれてきたのです。\n\n壁に沿って右方向に進んでください。",
+            "text_en": "",
+            "text_pron": "ここは受精卵の展示「あなたの体ができるまで」です。\nこの展示では、受精卵から成長していく胎児の過程を触りながら体感することができます。\n腰ほどの高さに幅1メートルほどの棚があります。\n棚の上には横一列に7つの円形のスペースがあり、その中心に胎児の実寸台のモケイが配置されています。\nまず初めに一番左にある受精卵を触ってみましょう。\n直径は約160マイクロメートルほどです。|||\n次にその右隣にある19日後の胎児を触ってみましょう。\nこのあたりでセッケッキュウになる細胞が現れ始めます。|||\nその右隣にあるのは28日後の胎児です。\nこのあたりから眼ができはじめ，脳を作る細胞の一部がせりだしてきています。|||\nその右隣にあるのが40日後の胎児です。\nこのころには腕や脚になる細胞のかたまりができはじめています。|||\nその右隣にあるのが44日後の胎児です。\nこのあたりから肺などの器官の形ができてきます。|||\nその右隣にあるのが50日後の胎児です。\nすでにおおまかな体が出来上がっています。しかし、それぞれの細胞や組織はまだミセイジュクなので、ここから30週あまりをかけて、生きるためのしっかりとした構造と機能を作っていきます。|||\nその右隣にあるのが56日後の胎児です。\n先ほどの50日後の胎児から6日たっただけで大きく成長していることがわかると思います。|||\nまた、正面顔ほどの高さの壁には受精から約32週の胎児のモケイがあります。\n触ってみてください。|||\nこれは受精から約32週の胎児です。生まれた後も、新しい細胞を作り続ける「カンサイボウ」により、体は大きく成長します。古くなった細胞の入れ替えや、病気やケガで失われた細胞の補充も、カンサイボウによって行われています。\nこのようにあなたの体がつくられるなかで、細胞は特定のはたらきをもつ細胞へと「分化」します。血液や眼など、それぞれの役割を担う細胞へと変化します。受精卵から約56日かけておおまかな体のかたちができあがります。その後、臓器や組織の細かい構造がつくられ、きちんとはたらけるようになり、受精から約38週ほどであなたは生まれてきたのです。|||\n壁に沿って右方向に進んでください。",
+        },
     },
 },
 ]

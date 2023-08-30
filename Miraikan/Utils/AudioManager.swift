@@ -109,17 +109,18 @@ final public class AudioManager: NSObject {
     }
 
     func addGuide(voiceModel: VoiceModel, soundEffect: Bool = false) {
+//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), ■■■ isPlaying: \(self.isPlaying) ------")
         if voiceModel.voice.isEmpty || reserveStatus { return }
 
         if UserDefaults.standard.bool(forKey: "ARMarkerWait") {
-            if self.isPlaying {
+            if self.isPlaying || AudioManager.shared.isSpeaking() {
                 return
             }
         }
 
         var waitTime = 0.0
         
-        if self.isPlaying {
+        if self.isPlaying || AudioManager.shared.isSpeaking() {
             if self.speakingData?.id == voiceModel.id ||
                 voiceModel.id == nil {
                 // 再生中の同一音声は追加しない
@@ -250,10 +251,11 @@ final public class AudioManager: NSObject {
         self.reserveData = nil
         self.speakingData = model
         
-        if UIAccessibility.isVoiceOverRunning &&
+        if UserDefaults.standard.bool(forKey: "ARCameraLockMarker") &&
+            UIAccessibility.isVoiceOverRunning &&
             model.id != nil {
-            self.isPlaying = false
-            self.lastSpeakTime = Date().timeIntervalSince1970
+//            self.isPlaying = false
+//            self.lastSpeakTime = Date().timeIntervalSince1970
         } else {
             if self.speakingData?.type == .lockGuide {
                 progress = .title
@@ -294,30 +296,25 @@ final public class AudioManager: NSObject {
     }
 
     func nextStep() {
-//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line) progress: \(progress)")
         if let speakingData = self.speakingData,
-           speakingData.type == .lockGuide {
-
-            var internalString: String?
-            if let internalDistance = speakingData.descriptionDetail?.internalDistance {
-                internalString = StrUtil.distanceString(distance: internalDistance)
-            }
+           speakingData.type == .lockGuide,
+           let speakingId = speakingData.id {
+            NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), id: \(speakingId), progress: \(progress)")
 
             switch progress {
             case .title:
                 progress = .mainText
-                if let mainText = speakingData.descriptionDetail?.mainText,
-                   let mainTextPron = speakingData.descriptionDetail?.mainTextPron {
-                    var message = speakingData.message + "\n"
-                    var text = ""
-                    if let internalString = internalString {
-                        message += String(format: mainText, internalString)
-                        text = String(format: mainTextPron, internalString)
-                    } else {
-                        message += mainText
-                        text = mainTextPron
+                if let mainText = speakingData.descriptionDetail?.mainTextLanguage?.text(),
+                   let mainTextPron = speakingData.descriptionDetail?.mainTextLanguage?.text(pron: true) {
+
+                    var title = ""
+                    var titlePron = ""
+                    if let text = speakingData.descriptionDetail?.titleLanguage?.text(),
+                       let textPron = speakingData.descriptionDetail?.titleLanguage?.text(pron: true) {
+                        title = text
+                        titlePron = textPron
                     }
-                    tts.speak(text, callback: { [weak self] in
+                    tts.speak(mainTextPron, callback: { [weak self] in
                         guard let self = self else { return }
                         if let delegate = self.systemDelegate {
                             delegate.speakFinish(speakingData: speakingData)
@@ -325,19 +322,14 @@ final public class AudioManager: NSObject {
                     })
                     
                     if let delegate = delegate {
-                        delegate.speakingMessage(speakingData: VoiceModel(id: speakingData.id, voice: speakingData.voice + text, message: message, priority: 10))
+                        // VoiceOver用、タイトルと本文組み合わせ
+                        delegate.speakingMessage(speakingData: VoiceModel(id: speakingId, voice: titlePron + mainTextPron, message: title + "\n\n" + mainText, priority: 10))
                     }
                 }
 
             case .mainText:
                 progress = .next
-                if let nextGuide = speakingData.descriptionDetail?.nextGuidePron {
-                    var text = ""
-                    if let internalString = internalString {
-                        text = String(format: nextGuide, internalString)
-                    } else {
-                        text = nextGuide
-                    }
+                if let text = speakingData.descriptionDetail?.nextGuideLanguage?.text(pron: true) {
 
                     tts.speak(text, callback: { [weak self] in
                         guard let self = self else { return }
@@ -352,9 +344,7 @@ final public class AudioManager: NSObject {
                 self.isPlaying = false
                 self.lastSpeakTime = Date().timeIntervalSince1970
                 
-                if let id = speakingData.id {
-                    ArUcoManager.shared.setFinishDate(key: id)
-                }
+                ArUcoManager.shared.setFinishDate(key: speakingId)
 
                 if let reserveData = self.reserveData {
                     self.play(model: reserveData)
