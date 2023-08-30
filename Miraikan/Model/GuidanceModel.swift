@@ -31,7 +31,7 @@ struct GuidanceModel: Codable {
     var shortDistance: Double?
     // 有効最長距離
     var longDistance: Double?
-    // 方向
+    // 方向, 床に設置　0:正面, 90:左, 180:後ろ, 270:右
     var direction:  Double?
 
     var messageLanguage: VoiceGuideModel?
