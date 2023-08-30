@@ -58,37 +58,19 @@ struct GuidanceModel: Codable {
         return ""
     }
 
-    func unionMessage() -> String {
+    func unionMessage(pron: Bool = false) -> String {
         var message = ""
         
         if let text = self.titleLanguage {
-            message += text.text()
+            message += text.text(pron: pron)
         }
 
         if let text = self.mainTextLanguage {
-            message += text.text()
+            message += text.text(pron: pron)
         }
 
         if let text = self.nextGuideLanguage {
-            message += text.text()
-        }
-
-        return message
-    }
-
-    func unionMessagePron() -> String {
-        var message = ""
-        
-        if let text = self.titleLanguage {
-            message += text.text(pron: true)
-        }
-
-        if let text = self.mainTextLanguage {
-            message += text.text(pron: true)
-        }
-
-        if let text = self.nextGuideLanguage {
-            message += text.text(pron: true)
+            message += text.text(pron: pron)
         }
 
         return message

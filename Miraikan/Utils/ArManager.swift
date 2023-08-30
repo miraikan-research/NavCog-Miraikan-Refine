@@ -156,10 +156,10 @@ final public class ArManager: NSObject {
             }
         }
 
-        if (arUcoModel.markerPoint ?? false) && isDebug && !arUcoModel.titleLang().isEmpty {
+        if (arUcoModel.markerPoint ?? false) && isDebug && !arUcoModel.title().isEmpty {
             let str = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
                              meterString,
-                             arUcoModel.titleLang(true))
+                             arUcoModel.title(pron: true))
             phonationModel.append(str: str)
         }
 
@@ -284,11 +284,11 @@ final public class ArManager: NSObject {
         let ratio = ArUcoManager.shared.getMarkerSizeRatio(arUcoModel: arUcoModel)
         let distance = Double(transform.distance) * ratio
 
-        if distance < 1.2 && !arUcoModel.titleLang().isEmpty && isEntrance {
+        if distance < 1.2 && !arUcoModel.title().isEmpty && isEntrance {
             let str = String(format: NSLocalizedString("Entrance to %@.", comment: ""),
-                             arUcoModel.titleLang())
+                             arUcoModel.title())
             let voice = String(format: NSLocalizedString("Entrance to %@.", comment: ""),
-                               arUcoModel.titleLang(true))
+                               arUcoModel.title(pron: true))
             
             AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, descriptionDetail: arUcoModel.descriptionDetail))
             return
@@ -336,7 +336,7 @@ final public class ArManager: NSObject {
                 markerCenterFlag = true
             } else if guideSoundTime != 0 &&
                         guideSoundTime + 1.0 < now &&
-                        !arUcoModel.titleLang().isEmpty &&
+                        !arUcoModel.title().isEmpty &&
                         isEntrance {
                 guideSoundTime = now + 10.0
                 markerCenterFlag = true
@@ -344,10 +344,10 @@ final public class ArManager: NSObject {
                 let meterString = StrUtil.distanceString(distance: distance)
                 let str = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
                                  meterString,
-                                 arUcoModel.titleLang())
+                                 arUcoModel.title())
                 let voice = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
                                    meterString,
-                                   arUcoModel.titleLang(true))
+                                   arUcoModel.title(pron: true))
                 AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, descriptionDetail: arUcoModel.descriptionDetail))
             }
             return

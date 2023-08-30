@@ -75,7 +75,7 @@ struct ArUcoModel: Codable {
     // 管理用コメント
     var comment: String?
 
-    func titleLang(_ pron: Bool = false) -> String {
+    func title(pron: Bool = false) -> String {
         if let text = self.titleLanguage {
             return text.text(pron: pron)
         }

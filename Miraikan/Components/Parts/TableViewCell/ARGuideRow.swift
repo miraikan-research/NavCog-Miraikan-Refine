@@ -85,7 +85,7 @@ class ARGuideRow: UITableViewCell {
         var voice = model.voice
         if model.type == .lockGuide,
            let descriptionDetail = model.descriptionDetail {
-            voice = descriptionDetail.unionMessagePron()
+            voice = descriptionDetail.unionMessage(pron: true)
         }
 
         titleLabel.text = model.message

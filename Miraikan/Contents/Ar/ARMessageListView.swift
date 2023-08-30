@@ -154,7 +154,7 @@ extension ARMessageListView: AudioManagerDelegate {
                 
                 if speakingData.type == .lockGuide,
                    let descriptionDetail = speakingData.descriptionDetail {
-                    voice = descriptionDetail.unionMessagePron()
+                    voice = descriptionDetail.unionMessage(pron: true)
                 }
                 let announcementString = NSAttributedString(string: voice,
                                                             attributes: [.accessibilitySpeechQueueAnnouncement: false])
