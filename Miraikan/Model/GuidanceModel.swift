@@ -27,8 +27,11 @@
 import Foundation
 
 struct GuidanceModel: Codable {
+    // 有効最短距離
     var shortDistance: Double?
+    // 有効最長距離
     var longDistance: Double?
+    // 方向
     var direction:  Double?
 
     var messageLanguage: VoiceGuideModel?

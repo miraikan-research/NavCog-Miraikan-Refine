@@ -1,11 +1,13 @@
 [{
     "id": 0,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_ko": "세포들 연구 개발 중",
-    "title_zh": "研究开发中的细胞",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
     "marker_point": true,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 30,
@@ -18,43 +20,36 @@
 },
 {
     "id": 1,
-    "marker": 20,
-    "title": "",
-    "title_en": "",
-    "title_pron": "",
+    "marker_size": 20,
     "marker_point": true,
     "sound_guide": 1,
     "comment": "右方向へ誘導",
 },
 {
     "id": 2,
-    "marker": 20,
-    "title": "",
-    "title_en": "",
-    "title_pron": "",
+    "marker_size": 20,
     "marker_point": true,
     "sound_guide": -1,
     "comment": "左方向へ誘導",
 },
 {
     "id": 3,
-    "marker": 20,
-    "title": "",
-    "title_en": "",
-    "title_pron": "",
+    "marker_size": 20,
     "marker_point": true,
     "sound_guide": 0,
     "comment": "中央方向へ誘導",
 },
 {
     "id": 500,
-    "marker": 8,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_ko": "세포들 연구 개발 중",
-    "title_zh": "研究开发中的细胞",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 8,
     "marker_point": true,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 100,
@@ -62,10 +57,14 @@
 },
 {
     "id": 501,
-    "marker": 8,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 8,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 5,
@@ -79,10 +78,14 @@
 },
 {
     "id": 502,
-    "marker": 8,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 8,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 3,
@@ -97,10 +100,14 @@
 
 {
     "id": 503,
-    "marker": 4,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 4,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1.8,
@@ -113,10 +120,14 @@
 },
 {
     "id": 504,
-    "marker": 4,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 4,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1.8,
@@ -129,10 +140,14 @@
 },
 {
     "id": 505,
-    "marker": 4,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 4,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1.8,
@@ -145,10 +160,14 @@
 },
 {
     "id": 506,
-    "marker": 4,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 4,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1.8,
@@ -161,10 +180,14 @@
 },
 {
     "id": 507,
-    "marker": 8,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 8,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 1.5,
@@ -203,10 +226,14 @@
 },
 {
     "id": 508,
-    "marker": 8,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 8,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "guide_to_here": {
         "short_distance": 2,
         "long_distance": 6,
@@ -219,10 +246,14 @@
 },
 {
     "id": 509,
-    "marker": 8,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 8,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 2,
@@ -235,10 +266,14 @@
 },
 {
     "id": 510,
-    "marker": 8,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 8,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "guide_to_here": {
         "short_distance": 1.2,
         "long_distance": 5,
@@ -274,10 +309,14 @@
 },
 {
     "id": 511,
-    "marker": 4,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 4,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 1,
@@ -316,10 +355,14 @@
 },
 {
     "id": 512,
-    "marker": 8,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 8,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 2,
@@ -332,10 +375,14 @@
 },
 {
     "id": 513,
-    "marker": 8,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 8,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 2,
@@ -348,10 +395,14 @@
 },
 {
     "id": 514,
-    "marker": 8,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 8,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 1.5,
@@ -390,10 +441,14 @@
 },
 {
     "id": 515,
-    "marker": 8,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 8,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1.5,
@@ -406,10 +461,14 @@
 },
 {
     "id": 516,
-    "marker": 8,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 8,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 2.5,
@@ -422,10 +481,14 @@
 },
 {
     "id": 551,
-    "marker": 4,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 4,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -447,10 +510,14 @@
 },
 {
     "id": 552,
-    "marker": 4,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 4,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -472,10 +539,14 @@
 },
 {
     "id": 553,
-    "marker": 4,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 4,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -488,10 +559,14 @@
 },
 {
     "id": 554,
-    "marker": 4,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 4,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -504,10 +579,14 @@
 },
 {
     "id": 555,
-    "marker": 4,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 4,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -520,10 +599,14 @@
 },
 {
     "id": 556,
-    "marker": 4,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 4,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "flat_guide": [{
             "direction": 120,
             "message_language": {
@@ -545,10 +628,14 @@
 },
 {
     "id": 557,
-    "marker": 4,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 4,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "flat_guide": [{
         "direction": 120,
         "message_language": {
@@ -570,10 +657,14 @@
 },
 {
     "id": 558,
-    "marker": 4,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 4,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "flat_guide": [{
         "direction": 150,
         "message_language": {
@@ -595,41 +686,45 @@
 },
 {
     "id": 300,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_ko": "비저너리 라보",
-    "title_zh": "创想者工坊",
-    "title_pron": "ビジョナリーラボ",
     "marker_point": true,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
 },
 {
     "id": 390,
-    "marker": 15,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_ko": "비저너리 라보",
-    "title_zh": "创想者工坊",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 15,
     "marker_point": true,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
 },
 {
     "id": 391,
-    "marker": 20,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_ko": "비저너리 라보",
-    "title_zh": "创想者工坊",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 20,
     "marker_point": true,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
 },
 {
     "id": 301,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_zh": "创想者工坊",
-    "title_ko": "비저너리 라보",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1.5,
@@ -642,10 +737,13 @@
 },
 {
     "id": 302,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1.5,
@@ -658,10 +756,13 @@
 },
 {
     "id": 303,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description_title": {
         "message_language": {
             "text": "Nukabotの解説",
@@ -681,10 +782,13 @@
 },
 {
     "id": 304,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description_title": {
         "message_language": {
             "text": "Nukabotの取り扱い",
@@ -704,10 +808,13 @@
 },
 {
     "id": 305,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -720,10 +827,13 @@
 },
 {
     "id": 306,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 1,
@@ -745,10 +855,13 @@
 },
 {
     "id": 307,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -761,10 +874,13 @@
 },
 {
     "id": 308,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -778,10 +894,13 @@
 
 {
     "id": 309,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "guide_to_here": {
         "short_distance": 0,
         "long_distance": 1,
@@ -804,10 +923,13 @@
 
 {
     "id": 310,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -820,10 +942,13 @@
 },
 {
     "id": 311,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -836,10 +961,13 @@
 },
 {
     "id": 312,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -852,10 +980,13 @@
 },
 {
     "id": 313,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -868,10 +999,13 @@
 },
 {
     "id": 314,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -884,10 +1018,13 @@
 },
 {
     "id": 315,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -900,10 +1037,13 @@
 },
 {
     "id": 316,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -917,10 +1057,13 @@
 
 {
     "id": 317,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -933,10 +1076,13 @@
 },
 {
     "id": 318,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -949,10 +1095,13 @@
 },
 {
     "id": 319,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -965,10 +1114,13 @@
 },
 {
     "id": 320,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -981,10 +1133,13 @@
 },
 {
     "id": 321,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -997,10 +1152,13 @@
 },
 {
     "id": 322,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 1,
@@ -1013,10 +1171,13 @@
 },
 {
     "id": 351,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -1029,10 +1190,13 @@
 },
 {
     "id": 352,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -1045,10 +1209,13 @@
 },
 {
     "id": 353,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 270,
         "message_language": {
@@ -1069,10 +1236,13 @@
 },
 {
     "id": 354,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 270,
         "message_language": {
@@ -1093,10 +1263,13 @@
 },
 {
     "id": 355,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -1109,10 +1282,13 @@
 },
 {
     "id": 356,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 90,
         "message_language": {
@@ -1133,10 +1309,13 @@
 },
 {
     "id": 357,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 90,
         "message_language": {
@@ -1157,10 +1336,13 @@
 },
 {
     "id": 358,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -1173,10 +1355,13 @@
 },
 {
     "id": 359,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -1189,10 +1374,13 @@
 },
 {
     "id": 360,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -1205,10 +1393,13 @@
 },
 {
     "id": 361,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -1221,10 +1412,13 @@
 },
 {
     "id": 362,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -1237,10 +1431,13 @@
 },
 {
     "id": 363,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 90,
         "message_language": {
@@ -1261,10 +1458,13 @@
 },
 {
     "id": 364,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -1277,10 +1477,13 @@
 },
 {
     "id": 365,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 90,
         "message_language": {
@@ -1301,10 +1504,13 @@
 },
 {
     "id": 366,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -1317,10 +1523,13 @@
 },
 {
     "id": 370,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -1333,10 +1542,13 @@
 },
 {
     "id": 380,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -1350,10 +1562,13 @@
 
 {
     "id": 381,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -1366,10 +1581,13 @@
 },
 {
     "id": 382,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 270,
         "message_language": {
@@ -1390,10 +1608,13 @@
 },
 {
     "id": 383,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 0,
         "message_language": {
@@ -1406,10 +1627,13 @@
 },
 {
     "id": 384,
-    "marker": 5,
-    "title": "ビジョナリーラボ",
-    "title_en": "Visionaries Lab",
-    "title_pron": "ビジョナリーラボ",
+    "marker_size": 5,
+    "title_language": {
+        "text": "ビジョナリーラボ",
+        "text_en": "Visionaries Lab",
+        "text_ko": "비저너리 라보",
+        "text_zh": "创想者工坊",
+    },
     "flat_guide": [{
         "direction": 90,
         "message_language": {
@@ -1421,10 +1645,14 @@
 },
 {
     "id": 901,
-    "marker": 15,
-    "title": "地球環境とわたし",
-    "title_en": "Earth Environment and Me",
-    "title_pron": "チキュウカンキョウトワタシ",
+    "marker_size": 15,
+    "title_language": {
+        "text": "地球環境とわたし",
+        "text_en": "Earth Environment and Me",
+        "text_ko": "지구환경과 나",
+        "text_zh": "地球环境与我",
+        "text_pron": "チキュウカンキョウトワタシ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 3,
@@ -1437,10 +1665,14 @@
 },
 {
     "id": 902,
-    "marker": 15,
-    "title": "地球環境とわたし",
-    "title_en": "Earth Environment and Me",
-    "title_pron": "チキュウカンキョウトワタシ",
+    "marker_size": 15,
+    "title_language": {
+        "text": "地球環境とわたし",
+        "text_en": "Earth Environment and Me",
+        "text_ko": "지구환경과 나",
+        "text_zh": "地球环境与我",
+        "text_pron": "チキュウカンキョウトワタシ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 3,
@@ -1453,10 +1685,14 @@
 },
 {
     "id": 903,
-    "marker": 15,
-    "title": "地球環境とわたし",
-    "title_en": "Earth Environment and Me",
-    "title_pron": "チキュウカンキョウトワタシ",
+    "marker_size": 15,
+    "title_language": {
+        "text": "地球環境とわたし",
+        "text_en": "Earth Environment and Me",
+        "text_ko": "지구환경과 나",
+        "text_zh": "地球环境与我",
+        "text_pron": "チキュウカンキョウトワタシ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 2,
@@ -1469,10 +1705,14 @@
 },
 {
     "id": 904,
-    "marker": 15,
-    "title": "地球環境とわたし",
-    "title_en": "Earth Environment and Me",
-    "title_pron": "チキュウカンキョウトワタシ",
+    "marker_size": 15,
+    "title_language": {
+        "text": "地球環境とわたし",
+        "text_en": "Earth Environment and Me",
+        "text_ko": "지구환경과 나",
+        "text_zh": "地球环境与我",
+        "text_pron": "チキュウカンキョウトワタシ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 3,
@@ -1485,10 +1725,14 @@
 },
 {
     "id": 905,
-    "marker": 15,
-    "title": "地球環境とわたし",
-    "title_en": "Earth Environment and Me",
-    "title_pron": "チキュウカンキョウトワタシ",
+    "marker_size": 15,
+    "title_language": {
+        "text": "地球環境とわたし",
+        "text_en": "Earth Environment and Me",
+        "text_ko": "지구환경과 나",
+        "text_zh": "地球环境与我",
+        "text_pron": "チキュウカンキョウトワタシ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 3,
@@ -1501,10 +1745,14 @@
 },
 {
     "id": 906,
-    "marker": 15,
-    "title": "地球環境とわたし",
-    "title_en": "Earth Environment and Me",
-    "title_pron": "チキュウカンキョウトワタシ",
+    "marker_size": 15,
+    "title_language": {
+        "text": "地球環境とわたし",
+        "text_en": "Earth Environment and Me",
+        "text_ko": "지구환경과 나",
+        "text_zh": "地球环境与我",
+        "text_pron": "チキュウカンキョウトワタシ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 3,
@@ -1517,10 +1765,14 @@
 },
 {
     "id": 907,
-    "marker": 15,
-    "title": "地球環境とわたし",
-    "title_en": "Earth Environment and Me",
-    "title_pron": "チキュウカンキョウトワタシ",
+    "marker_size": 15,
+    "title_language": {
+        "text": "地球環境とわたし",
+        "text_en": "Earth Environment and Me",
+        "text_ko": "지구환경과 나",
+        "text_zh": "地球环境与我",
+        "text_pron": "チキュウカンキョウトワタシ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 3,
@@ -1533,10 +1785,14 @@
 },
 {
     "id": 908,
-    "marker": 15,
-    "title": "地球環境とわたし",
-    "title_en": "Earth Environment and Me",
-    "title_pron": "チキュウカンキョウトワタシ",
+    "marker_size": 15,
+    "title_language": {
+        "text": "地球環境とわたし",
+        "text_en": "Earth Environment and Me",
+        "text_ko": "지구환경과 나",
+        "text_zh": "地球环境与我",
+        "text_pron": "チキュウカンキョウトワタシ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 3,
@@ -1549,10 +1805,14 @@
 },
 {
     "id": 909,
-    "marker": 15,
-    "title": "地球環境とわたし",
-    "title_en": "Earth Environment and Me",
-    "title_pron": "チキュウカンキョウトワタシ",
+    "marker_size": 15,
+    "title_language": {
+        "text": "地球環境とわたし",
+        "text_en": "Earth Environment and Me",
+        "text_ko": "지구환경과 나",
+        "text_zh": "地球环境与我",
+        "text_pron": "チキュウカンキョウトワタシ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 3,
@@ -1566,10 +1826,14 @@
 },
 {
     "id": 910,
-    "marker": 15,
-    "title": "地球環境とわたし",
-    "title_en": "Earth Environment and Me",
-    "title_pron": "チキュウカンキョウトワタシ",
+    "marker_size": 15,
+    "title_language": {
+        "text": "地球環境とわたし",
+        "text_en": "Earth Environment and Me",
+        "text_ko": "지구환경과 나",
+        "text_zh": "地球环境与我",
+        "text_pron": "チキュウカンキョウトワタシ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 3,
@@ -1582,10 +1846,14 @@
 },
 {
     "id": 911,
-    "marker": 15,
-    "title": "地球環境とわたし",
-    "title_en": "Earth Environment and Me",
-    "title_pron": "チキュウカンキョウトワタシ",
+    "marker_size": 15,
+    "title_language": {
+        "text": "地球環境とわたし",
+        "text_en": "Earth Environment and Me",
+        "text_ko": "지구환경과 나",
+        "text_zh": "地球环境与我",
+        "text_pron": "チキュウカンキョウトワタシ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 3,
@@ -1598,10 +1866,14 @@
 },
 {
     "id": 203,
-    "marker": 4,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 4,
+    "title_language": {
+        "text": "地球環境とわたし",
+        "text_en": "Earth Environment and Me",
+        "text_ko": "지구환경과 나",
+        "text_zh": "地球环境与我",
+        "text_pron": "チキュウカンキョウトワタシ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 2.5,
@@ -1621,10 +1893,14 @@
 },
 {
     "id": 207,
-    "marker": 8,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 8,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "guide_to_here": {
         "short_distance": 2.2,
         "long_distance": 6,
@@ -1646,10 +1922,14 @@
 },
 {
     "id": 210,
-    "marker": 8,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "marker_size": 8,
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "guide_to_here": {
         "short_distance": 1.2,
         "long_distance": 6,

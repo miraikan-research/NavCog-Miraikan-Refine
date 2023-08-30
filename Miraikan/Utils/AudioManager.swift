@@ -92,7 +92,7 @@ final public class AudioManager: NSObject {
         
         var msg = NSLocalizedString("Point your phone's camera at the front and slowly move left and right to look for sound guidance.", comment: "")
         msg += NSLocalizedString("Audio stops when you tap the screen.", comment: "")
-        self.voiceList.append(VoiceModel(id: nil, voice: msg, message: msg, priority: 10))
+        self.voiceList.append(VoiceModel(id: nil, voice: msg, message: msg))
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             _ = self.dequeueSpeak()
         }
@@ -101,7 +101,7 @@ final public class AudioManager: NSObject {
     func setupStartingPoint() {
         self.stop()
         let msg = NSLocalizedString("With your smartphone's camera facing forward and upwards, slowly turn left and right, looking for sound guidance.", comment: "")
-        self.voiceList.append(VoiceModel(id: nil, voice: msg, message: msg, priority: 10))
+        self.voiceList.append(VoiceModel(id: nil, voice: msg, message: msg))
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             _ = self.dequeueSpeak()
@@ -231,7 +231,7 @@ final public class AudioManager: NSObject {
     }
 
     func forcedSpeak(text: String) {
-        let voiceModel = VoiceModel(id: nil, voice: text, message: text, priority: 100)
+        let voiceModel = VoiceModel(id: nil, voice: text, message: text)
         if self.isPlaying {
             self.stop()
             reserveData = voiceModel
@@ -323,7 +323,7 @@ final public class AudioManager: NSObject {
                     
                     if let delegate = delegate {
                         // VoiceOver用、タイトルと本文組み合わせ
-                        delegate.speakingMessage(speakingData: VoiceModel(id: speakingId, voice: titlePron + mainTextPron, message: title + "\n\n" + mainText, priority: 10))
+                        delegate.speakingMessage(speakingData: VoiceModel(id: speakingId, voice: titlePron + mainTextPron, message: title + "\n\n" + mainText))
                     }
                 }
 

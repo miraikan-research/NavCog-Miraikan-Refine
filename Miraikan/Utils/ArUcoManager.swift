@@ -70,11 +70,7 @@ final public class ArUcoManager: NSObject {
     }
 
     func getMarkerSizeRatio(arUcoModel: ArUcoModel) -> Double {
-        var ratio: Double = 1
-        if let markerSize = arUcoModel.marker {
-            ratio = Double((markerSize / 100) / ArucoMarkerSize)
-        }
-        return ratio
+        return Double((arUcoModel.getMarkerSize() / 100) / ArucoMarkerSize)
     }
     
     func loadActiveSettings() {

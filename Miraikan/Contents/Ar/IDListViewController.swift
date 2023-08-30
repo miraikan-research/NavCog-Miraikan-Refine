@@ -193,7 +193,7 @@ extension IDListViewController {
         if let comment = arUcoModel.comment {
             addComment = "[\(comment)]"
         }
-        cell.textLabel?.text = String(arUcoModel.id) + "  markerSize  " + String(arUcoModel.marker ?? 10) + "cm  " + markerType + "\n" + phonationModel.string + addComment
+        cell.textLabel?.text = String(arUcoModel.id) + "  markerSize  " + String(arUcoModel.getMarkerSize()) + "cm  " + markerType + "\n" + phonationModel.string + addComment
         cell.textLabel?.accessibilityLabel = phonationModel.phonation
     }
 }

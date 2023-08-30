@@ -1,12 +1,16 @@
 [
 {
     "id": 503,
-    "marker": 4,
+    "marker_size": 4,
     "maintaining_marker": true,
     "marker_induction": true,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 2.5,
@@ -31,12 +35,16 @@
 },
 {
     "id": 507,
-    "marker": 8,
+    "marker_size": 8,
     "maintaining_marker": true,
     "marker_induction": true,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "guide_to_here": {
         "short_distance": 2.2,
         "long_distance": 6,
@@ -69,12 +77,16 @@
 },
 {
     "id": 510,
-    "marker": 8,
+    "marker_size": 8,
     "maintaining_marker": true,
     "marker_induction": true,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "guide_to_here": {
         "short_distance": 1.2,
         "long_distance": 6,
@@ -107,12 +119,16 @@
 },
 {
     "id": 512,
-    "marker": 8,
+    "marker_size": 8,
     "maintaining_marker": true,
     "marker_induction": true,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 2,
@@ -136,12 +152,16 @@
 },
 {
     "id": 513,
-    "marker": 8,
+    "marker_size": 8,
     "maintaining_marker": true,
     "marker_induction": true,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 2,
@@ -165,12 +185,16 @@
 },
 {
     "id": 515,
-    "marker": 8,
+    "marker_size": 8,
     "maintaining_marker": true,
     "marker_induction": true,
-    "title": "細胞たち研究開発中",
-    "title_en": "CELLS in Progress",
-    "title_pron": "サイボウタチケンキュウカイハツチュウ",
+    "title_language": {
+        "text": "細胞たち研究開発中",
+        "text_en": "CELLS in Progress",
+        "text_ko": "세포들 연구 개발 중",
+        "text_zh": "研究开发中的细胞",
+        "text_pron": "サイボウタチケンキュウカイハツチュウ",
+    },
     "description": {
         "short_distance": 0,
         "long_distance": 2,

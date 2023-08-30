@@ -156,10 +156,10 @@ final public class ArManager: NSObject {
             }
         }
 
-        if (arUcoModel.markerPoint ?? false) && isDebug && !arUcoModel.title.isEmpty {
+        if (arUcoModel.markerPoint ?? false) && isDebug && !arUcoModel.titleLang().isEmpty {
             let str = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
                              meterString,
-                             arUcoModel.titleLang(NSLocalizedString("lang", comment: ""), pron: true))
+                             arUcoModel.titleLang(true))
             phonationModel.append(str: str)
         }
 
@@ -284,13 +284,13 @@ final public class ArManager: NSObject {
         let ratio = ArUcoManager.shared.getMarkerSizeRatio(arUcoModel: arUcoModel)
         let distance = Double(transform.distance) * ratio
 
-        if distance < 1.2 && !arUcoModel.title.isEmpty && isEntrance {
+        if distance < 1.2 && !arUcoModel.titleLang().isEmpty && isEntrance {
             let str = String(format: NSLocalizedString("Entrance to %@.", comment: ""),
-                             arUcoModel.titleLang(NSLocalizedString("lang", comment: "")))
+                             arUcoModel.titleLang())
             let voice = String(format: NSLocalizedString("Entrance to %@.", comment: ""),
-                               arUcoModel.titleLang(NSLocalizedString("lang", comment: ""), pron: true))
+                               arUcoModel.titleLang(true))
             
-            AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, descriptionDetail: arUcoModel.descriptionDetail, priority: 10))
+            AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, descriptionDetail: arUcoModel.descriptionDetail))
             return
         }
 
@@ -336,7 +336,7 @@ final public class ArManager: NSObject {
                 markerCenterFlag = true
             } else if guideSoundTime != 0 &&
                         guideSoundTime + 1.0 < now &&
-                        !arUcoModel.title.isEmpty &&
+                        !arUcoModel.titleLang().isEmpty &&
                         isEntrance {
                 guideSoundTime = now + 10.0
                 markerCenterFlag = true
@@ -344,11 +344,11 @@ final public class ArManager: NSObject {
                 let meterString = StrUtil.distanceString(distance: distance)
                 let str = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
                                  meterString,
-                                 arUcoModel.titleLang(NSLocalizedString("lang", comment: "")))
+                                 arUcoModel.titleLang())
                 let voice = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
                                    meterString,
-                                   arUcoModel.titleLang(NSLocalizedString("lang", comment: ""), pron: true))
-                AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, descriptionDetail: arUcoModel.descriptionDetail, priority: 10))
+                                   arUcoModel.titleLang(true))
+                AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, descriptionDetail: arUcoModel.descriptionDetail))
             }
             return
         } else if arFrameSize.height * minMarginRange / widthBaseRatio < transform.intersection.y &&

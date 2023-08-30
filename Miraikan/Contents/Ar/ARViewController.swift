@@ -277,7 +277,7 @@ extension ARViewController {
                 if arUcoModel.id == transform.arucoId {
                     let ratio = ArUcoManager.shared.getMarkerSizeRatio(arUcoModel: arUcoModel)
                     let distance = Double(transform.distance) * ratio
-                    let checkStr = String(format: "id: %d, marker: %.1f, distance: %.4f", arUcoModel.id, arUcoModel.marker ?? 10, distance)
+                    let checkStr = String(format: "id: %d, marker: %.1f, distance: %.4f", arUcoModel.id, arUcoModel.getMarkerSize(), distance)
                     cognition += "\n" + checkStr
 //                    NSLog("\(checkStr), hit: \(hit), isPlaying: \(AudioManager.shared.isPlaying), isSpeaking: \(AudioManager.shared.isSpeaking()), isPause: \(AudioManager.shared.isPause()), progress: \(AudioManager.shared.progress), tapPause: \(tapPause)")
                     if !hit &&
@@ -350,8 +350,7 @@ extension ARViewController {
                                                                 type: arUcoModel.getArType(),
                                                                 voice: phonationModel.phonation,
                                                                 message: phonationModel.string,
-                                                                descriptionDetail: arUcoModel.descriptionDetail == nil ? arUcoModel.description : arUcoModel.descriptionDetail,
-                                                                priority: 10),
+                                                                descriptionDetail: arUcoModel.descriptionDetail == nil ? arUcoModel.description : arUcoModel.descriptionDetail),
                                          soundEffect: true)
             locationChangedTime = now
             if phonationModel.explanation {
