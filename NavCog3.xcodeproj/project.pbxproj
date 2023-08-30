@@ -253,8 +253,8 @@
 		E5C59C032A08EA8100577740 /* ARDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C59C012A08EA8100577740 /* ARDetailViewController.swift */; };
 		E5C59C052A0A34C400577740 /* SoundEffect51.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5C59C042A0A34C400577740 /* SoundEffect51.mp3 */; };
 		E5C59C062A0A34C400577740 /* SoundEffect51.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5C59C042A0A34C400577740 /* SoundEffect51.mp3 */; };
-		E5EE1CF52A8F069A004C1331 /* VoiceGuideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF42A8F069A004C1331 /* VoiceGuideModel.swift */; };
-		E5EE1CF62A8F069A004C1331 /* VoiceGuideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF42A8F069A004C1331 /* VoiceGuideModel.swift */; };
+		E5EE1CF52A8F069A004C1331 /* GuideLanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF42A8F069A004C1331 /* GuideLanguageModel.swift */; };
+		E5EE1CF62A8F069A004C1331 /* GuideLanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF42A8F069A004C1331 /* GuideLanguageModel.swift */; };
 		E5EE1CF82A8F07B7004C1331 /* ArAnchorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF72A8F07B7004C1331 /* ArAnchorManager.swift */; };
 		E5EE1CF92A8F07B7004C1331 /* ArAnchorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF72A8F07B7004C1331 /* ArAnchorManager.swift */; };
 		E5EE1CFB2A8F07D6004C1331 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CFA2A8F07D6004C1331 /* MotionManager.swift */; };
@@ -629,7 +629,7 @@
 		E5C59BFE2A08CE2000577740 /* ARGuideRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARGuideRow.swift; sourceTree = "<group>"; };
 		E5C59C012A08EA8100577740 /* ARDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailViewController.swift; sourceTree = "<group>"; };
 		E5C59C042A0A34C400577740 /* SoundEffect51.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SoundEffect51.mp3; sourceTree = "<group>"; };
-		E5EE1CF42A8F069A004C1331 /* VoiceGuideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceGuideModel.swift; sourceTree = "<group>"; };
+		E5EE1CF42A8F069A004C1331 /* GuideLanguageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideLanguageModel.swift; sourceTree = "<group>"; };
 		E5EE1CF72A8F07B7004C1331 /* ArAnchorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArAnchorManager.swift; sourceTree = "<group>"; };
 		E5EE1CFA2A8F07D6004C1331 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		E5EE1CFD2A8F07E6004C1331 /* InquiryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquiryManager.swift; sourceTree = "<group>"; };
@@ -1344,7 +1344,7 @@
 				E5B61E5429823B2D00533B6F /* GuidanceModel.swift */,
 				E5B61E5329823B2D00533B6F /* PhonationModel.swift */,
 				E5B61E5129823B2C00533B6F /* VoiceModel.swift */,
-				E5EE1CF42A8F069A004C1331 /* VoiceGuideModel.swift */,
+				E5EE1CF42A8F069A004C1331 /* GuideLanguageModel.swift */,
 				E53814052989F3D30098E082 /* SliderModel.swift */,
 				E53814082989F4DC0098E082 /* SwitchModel.swift */,
 				E538140B2989F4F50098E082 /* LabelModel.swift */,
@@ -1811,7 +1811,7 @@
 				E506A01B29923FB60046134F /* DestinationViewController.swift in Sources */,
 				E58B00BB2A0CACFC00437E2D /* ARMessageListView.swift in Sources */,
 				E5F6FF862977CC3700D5C22B /* EventDetailView.swift in Sources */,
-				E5EE1CF52A8F069A004C1331 /* VoiceGuideModel.swift in Sources */,
+				E5EE1CF52A8F069A004C1331 /* GuideLanguageModel.swift in Sources */,
 				E5F6001C2977CCE000D5C22B /* UINavigationControllerExtension.swift in Sources */,
 				E5F6FFBA2977CC9300D5C22B /* DescriptionRow.swift in Sources */,
 				E5F600222977CCFC00D5C22B /* LoginTabController.swift in Sources */,
@@ -1886,7 +1886,7 @@
 				E59424FB298CF57900EF2F65 /* WebFloorMapView.swift in Sources */,
 				E5B61E6A298245A700533B6F /* ARViewController.swift in Sources */,
 				E5B61E6629823F0200533B6F /* MarkerWorldTransform.mm in Sources */,
-				E5EE1CF62A8F069A004C1331 /* VoiceGuideModel.swift in Sources */,
+				E5EE1CF62A8F069A004C1331 /* GuideLanguageModel.swift in Sources */,
 				E5B61E6729823F0200533B6F /* OpenCVWrapper.mm in Sources */,
 				E5B61E5D29823E1300533B6F /* ArUcoModel.swift in Sources */,
 				E5B61E5E29823E1300533B6F /* GuidanceModel.swift in Sources */,

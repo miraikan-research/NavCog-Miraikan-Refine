@@ -55,7 +55,7 @@ struct ArUcoModel: Codable {
     // 注視マーカー
     var maintainingMarker: Bool?
     // 施設名
-    var titleLanguage: VoiceGuideModel?
+    var titleLanguage: GuideLanguageModel?
     // マーカー位置に誘導
     var guideToHere: GuidanceModel?
     // マーカー位置から次へ誘導

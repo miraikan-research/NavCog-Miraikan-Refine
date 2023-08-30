@@ -34,10 +34,10 @@ struct GuidanceModel: Codable {
     // 方向, 床に設置　0:正面, 90:左, 180:後ろ, 270:右
     var direction:  Double?
 
-    var messageLanguage: VoiceGuideModel?
-    var titleLanguage: VoiceGuideModel?
-    var mainTextLanguage: VoiceGuideModel?
-    var nextGuideLanguage: VoiceGuideModel?
+    var messageLanguage: GuideLanguageModel?
+    var titleLanguage: GuideLanguageModel?
+    var mainTextLanguage: GuideLanguageModel?
+    var nextGuideLanguage: GuideLanguageModel?
 
     func isDistance(_ distance: Double) -> Bool {
         if let shortDistance = shortDistance,

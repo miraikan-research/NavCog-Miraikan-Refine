@@ -404,7 +404,7 @@ final public class ArManager: NSObject {
         return StrUtil.getDirectionString(angle: angle)
     }
 
-    private func setPhonation(_ phonation: PhonationModel, guidance: VoiceGuideModel?, distance: Double? = nil) {
+    private func setPhonation(_ phonation: PhonationModel, guidance: GuideLanguageModel?, distance: Double? = nil) {
         phonation.append(guidance: guidance, distance: distance)
     }
 }

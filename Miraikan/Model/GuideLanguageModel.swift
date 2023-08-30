@@ -1,5 +1,5 @@
 //
-//  VoiceGuideModel.swift
+//  GuideLanguageModel.swift
 //  NavCogMiraikan
 //
 /*******************************************************************************
@@ -26,7 +26,7 @@
 
 import Foundation
 
-struct VoiceGuideModel: Codable {
+struct GuideLanguageModel: Codable {
     // 日本語表示用
     var text: String
     // 日本語発音用

@@ -62,7 +62,7 @@ class PhonationModel {
         }
     }
 
-    func append(guidance: VoiceGuideModel?, distance: Double? = nil, isDelimiter: Bool = true) {
+    func append(guidance: GuideLanguageModel?, distance: Double? = nil, isDelimiter: Bool = true) {
         guard let guidance = guidance else { return }
 
         if !string.isEmpty && isDelimiter {
@@ -77,7 +77,7 @@ class PhonationModel {
         phonation += guidance.text(pron: true, distance: distance)
     }
 
-    private func setPhonation(_ phonation: PhonationModel, guidance: VoiceGuideModel?, distance: Double? = nil) {
+    private func setPhonation(_ phonation: PhonationModel, guidance: GuideLanguageModel?, distance: Double? = nil) {
         phonation.append(guidance: guidance, distance: distance)
     }
 }
