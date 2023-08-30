@@ -23,14 +23,14 @@
     "marker_size": 20,
     "marker_point": true,
     "sound_guide": 1,
-    "comment": "右方向へ誘導",
+    "comment": "このマーカーから右方向へ誘導、このマーカーの右側に有効なマーカーを設定する、展示入り口を遠距離から識別時に使用",
 },
 {
     "id": 2,
     "marker_size": 20,
     "marker_point": true,
     "sound_guide": -1,
-    "comment": "左方向へ誘導",
+    "comment": "このマーカーから左方向へ誘導、このマーカーの左側に有効なマーカーを設定する、展示入り口を遠距離から識別時に使用",
 },
 {
     "id": 3,
@@ -686,27 +686,6 @@
 },
 {
     "id": 300,
-    "marker_point": true,
-    "title_language": {
-        "text": "ビジョナリーラボ",
-        "text_en": "Visionaries Lab",
-        "text_ko": "비저너리 라보",
-        "text_zh": "创想者工坊",
-    },
-},
-{
-    "id": 390,
-    "marker_size": 15,
-    "marker_point": true,
-    "title_language": {
-        "text": "ビジョナリーラボ",
-        "text_en": "Visionaries Lab",
-        "text_ko": "비저너리 라보",
-        "text_zh": "创想者工坊",
-    },
-},
-{
-    "id": 391,
     "marker_size": 20,
     "marker_point": true,
     "title_language": {

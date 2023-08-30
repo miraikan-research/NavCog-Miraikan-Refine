@@ -70,7 +70,7 @@ struct ArUcoModel: Codable {
     var descriptionDetail: GuidanceModel?
     // 床マーカー
     var flatGuide: [GuidanceModel]?
-    // 0:正面から音が聞こえる, 1:右から音が聞こえる, 2:左から音が聞こえる
+    // 0:正面から音が聞こえる, 1:右から音が聞こえる, -1:左から音が聞こえる
     var soundGuide: Float?
     // 管理用コメント
     var comment: String?
