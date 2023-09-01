@@ -61,7 +61,7 @@ final public class ArUcoManager: NSObject {
 #if targetEnvironment(simulator)
             for arUcoModel in self.arUcoList {
                 if let description = arUcoModel.description {
-                    print("\(arUcoModel.id), \(description.message.trimmingCharacters(in: .newlines))")
+                    print("\(arUcoModel.id), \(description.message() .trimmingCharacters(in: .newlines))")
                 }
             }
 #endif
