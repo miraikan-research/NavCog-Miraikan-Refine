@@ -30,8 +30,6 @@ import Foundation
 // Singleton
 final public class AudioGuideManager: NSObject {
     
-    var data: [VoiceModel] = []
-
     private var temporaryFloor = 0
     private var currentFloor = 0
     private var continueFloorCount = 0
