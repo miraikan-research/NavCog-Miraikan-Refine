@@ -26,6 +26,7 @@
 
 import Foundation
 
+// NavCogのwebmapをアプリ起動中に維持
 // Singleton
 final public class MapManager: NSObject {
     

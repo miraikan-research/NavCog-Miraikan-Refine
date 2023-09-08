@@ -24,9 +24,9 @@
  * THE SOFTWARE.
  *******************************************************************************/
 
-
 import Foundation
 
+// ArUcoマーカーデータ管理
 // Singleton
 final public class ArUcoManager: NSObject {
     

@@ -1017,6 +1017,22 @@
 			path = Destination;
 			sourceTree = "<group>";
 		};
+		E50A5A412AA8768E002A44AB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E5B61E4A29823B0F00533B6F /* ArManager.swift */,
+				E5EE1CF72A8F07B7004C1331 /* ArAnchorManager.swift */,
+				E5B61E4929823B0F00533B6F /* ArUcoManager.swift */,
+				E50A5A392AA85B59002A44AB /* ArVoiceManager.swift */,
+				E5B61E4B29823B0F00533B6F /* AudioManager.swift */,
+				E5F6000A2977CCD500D5C22B /* AudioGuideManager.swift */,
+				E5EE1CFA2A8F07D6004C1331 /* MotionManager.swift */,
+				E5EE1CFD2A8F07E6004C1331 /* InquiryManager.swift */,
+				E5F600012977CCD500D5C22B /* MapManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		E54F24432980E84100F3A83C /* Event */ = {
 			isa = PBXGroup;
 			children = (
@@ -1392,7 +1408,8 @@
 		E5F6FF5D2977CB8C00D5C22B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E5F6000A2977CCD500D5C22B /* AudioGuideManager.swift */,
+				E5F6FF5E2977CB9700D5C22B /* Extension */,
+				E50A5A412AA8768E002A44AB /* Manager */,
 				E5F600092977CCD500D5C22B /* DefaultTTS.swift */,
 				E5F600052977CCD500D5C22B /* ExhibitionDataStore.swift */,
 				E5F600022977CCD500D5C22B /* Host.swift */,
@@ -1400,17 +1417,8 @@
 				E5F600032977CCD500D5C22B /* ImageAdaptor.swift */,
 				E5F600082977CCD500D5C22B /* ImageType.swift */,
 				E5F600062977CCD500D5C22B /* LineSegment.swift */,
-				E5F600012977CCD500D5C22B /* MapManager.swift */,
 				E5F600042977CCD500D5C22B /* MiraikanUtil.swift */,
-				E5B61E4A29823B0F00533B6F /* ArManager.swift */,
-				E5EE1CF72A8F07B7004C1331 /* ArAnchorManager.swift */,
-				E5B61E4929823B0F00533B6F /* ArUcoManager.swift */,
-				E50A5A392AA85B59002A44AB /* ArVoiceManager.swift */,
-				E5B61E4B29823B0F00533B6F /* AudioManager.swift */,
-				E5EE1CFA2A8F07D6004C1331 /* MotionManager.swift */,
-				E5EE1CFD2A8F07E6004C1331 /* InquiryManager.swift */,
 				E5B61E4829823B0F00533B6F /* StrUtil.swift */,
-				E5F6FF5E2977CB9700D5C22B /* Extension */,
 			);
 			path = Utils;
 			sourceTree = "<group>";

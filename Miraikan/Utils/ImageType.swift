@@ -28,6 +28,7 @@ import Foundation
 
 /**
  Determine the image size
+  内部組み込み画像、ASIMOがあった時代、テストデータ用、端末種類未考慮
  */
 enum ImageType : String {
     case ASIMO

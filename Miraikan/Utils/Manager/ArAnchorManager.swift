@@ -28,6 +28,7 @@ import Foundation
 import SceneKit
 import ARKit
 
+// ARアンカー試験
 // Singleton
 final public class ArAnchorManager: NSObject {
     

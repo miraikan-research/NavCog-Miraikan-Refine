@@ -26,6 +26,7 @@
 
 import Foundation
 
+// 音声発音したARマーカーデータ管理
 // Singleton
 final public class ArVoiceManager: NSObject {
     

@@ -1,5 +1,4 @@
 //
-//
 //  LineSegment.swift
 //  NavCogMiraikan
 //

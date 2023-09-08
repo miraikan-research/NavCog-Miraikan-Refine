@@ -24,9 +24,9 @@
  * THE SOFTWARE.
  *******************************************************************************/
 
-
 import Foundation
 
+// AR識別管理
 // Singleton
 final public class ArManager: NSObject {
     

@@ -26,6 +26,7 @@
 
 import CoreMotion
 
+// 端末の動作検知
 // Singleton
 final public class MotionManager: NSObject {
     
