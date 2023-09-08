@@ -142,7 +142,7 @@ static NavDeviceTTS *instance = nil;
 
 - (BOOL)isSpeaking
 {
-    return [voice isSpeaking];
+    return [voice isSpeaking] | isSpeaking;
 }
 
 - (BOOL)isPause

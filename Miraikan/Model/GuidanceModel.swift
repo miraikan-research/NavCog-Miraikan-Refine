@@ -27,21 +27,17 @@
 import Foundation
 
 struct GuidanceModel: Codable {
+    // 有効最短距離
     var shortDistance: Double?
+    // 有効最長距離
     var longDistance: Double?
+    // 方向, 床に設置　0:正面, 90:左, 180:後ろ, 270:右
     var direction:  Double?
-    var message: String
-    var messageEn: String
-    var messageKo: String?
-    var messageZh: String?
-    var messagePron: String
-    var internalDistance: Double?
-    var title: String?
-    var mainText: String?
-    var nextGuide: String?
-    var titlePron: String?
-    var mainTextPron: String?
-    var nextGuidePron: String?
+
+    var messageLanguage: GuideLanguageModel?
+    var titleLanguage: GuideLanguageModel?
+    var mainTextLanguage: GuideLanguageModel?
+    var nextGuideLanguage: GuideLanguageModel?
 
     func isDistance(_ distance: Double) -> Bool {
         if let shortDistance = shortDistance,
@@ -55,55 +51,28 @@ struct GuidanceModel: Codable {
         return false
     }
 
-    func messageLang(_ lang: String, pron: Bool = false) -> String {
-        if lang == "en",
-           !messageEn.isEmpty {
-            return messageEn
+    func message(pron: Bool = false, distance: Double? = nil) -> String {
+        if let messageLanguage = messageLanguage {
+            return messageLanguage.text(pron: pron, distance: distance)
         }
-        if lang == "ko",
-           let message = messageKo {
-            return message
-        }
-        if lang == "zh",
-           let message = messageZh {
-            return message
-        }
-        return pron ? messagePron : message
+        return ""
     }
 
-    func unionMessage() -> String {
+    func unionMessage(pron: Bool = false) -> String {
         var message = ""
-        var internalString = ""
-        if let internalDistance = self.internalDistance {
-            internalString = StrUtil.distanceString(distance: internalDistance)
+        
+        if let text = self.titleLanguage {
+            message += text.text(pron: pron)
         }
-        if let title = self.title {
-            message += String(format: title, internalString)
-        }
-        if let mainText = self.mainText {
-            message += String(format: mainText, internalString)
-        }
-        if let nextGuide = self.nextGuide {
-            message += String(format: nextGuide, internalString)
-        }
-        return message
-    }
 
-    func unionMessagePron() -> String {
-        var message = ""
-        var internalString = ""
-        if let internalDistance = self.internalDistance {
-            internalString = StrUtil.distanceString(distance: internalDistance)
+        if let text = self.mainTextLanguage {
+            message += text.text(pron: pron)
         }
-        if let title = self.titlePron {
-            message += String(format: title, internalString)
+
+        if let text = self.nextGuideLanguage {
+            message += text.text(pron: pron)
         }
-        if let mainText = self.mainTextPron {
-            message += String(format: mainText, internalString)
-        }
-        if let nextGuide = self.nextGuidePron {
-            message += String(format: nextGuide, internalString)
-        }
+
         return message
     }
 }

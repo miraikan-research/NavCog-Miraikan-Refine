@@ -26,6 +26,7 @@
 
 import CoreMotion
 
+// 端末の動作検知
 // Singleton
 final public class MotionManager: NSObject {
     
@@ -76,9 +77,9 @@ final public class MotionManager: NSObject {
 
         // 空間ベクトル
         let vector = sqrt(pow(acceleX, 2) + pow(acceleY, 2) + pow(acceleZ, 2))
-        
-        if vector < 0.1 {
-            // 動きが小さい時間を起点とする
+        // 端末の動きの大きさ
+        if vector < 0.08 {
+            // 動きが小さい時間を起点時間として、リセットする
             checkStartTime = Date().timeIntervalSince1970
         }
     }
@@ -86,5 +87,9 @@ final public class MotionManager: NSObject {
     // 動きが大きい状態が指定時間続いたかの判定
     func checkMovementTime(time: Double) -> Bool {
         checkStartTime + time < Date().timeIntervalSince1970
+    }
+
+    func updateMovementTime(time: Double = 0) {
+        checkStartTime = Date().timeIntervalSince1970 + time
     }
 }

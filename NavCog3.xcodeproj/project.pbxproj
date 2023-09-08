@@ -75,6 +75,8 @@
 		E506A01E29937BB20046134F /* ar_exhibition.json in Resources */ = {isa = PBXBuildFile; fileRef = E506A01D2993790F0046134F /* ar_exhibition.json */; };
 		E506A0232994BEB80046134F /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A0222994BEB80046134F /* MenuCell.swift */; };
 		E506A0242994BEB80046134F /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A0222994BEB80046134F /* MenuCell.swift */; };
+		E50A5A3A2AA85B59002A44AB /* ArVoiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A5A392AA85B59002A44AB /* ArVoiceManager.swift */; };
+		E50A5A3B2AA85B59002A44AB /* ArVoiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A5A392AA85B59002A44AB /* ArVoiceManager.swift */; };
 		E52D54B629A32B8700D48CF9 /* RadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52D54B529A32B8700D48CF9 /* RadioCell.swift */; };
 		E52D54B729A32B8700D48CF9 /* RadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52D54B529A32B8700D48CF9 /* RadioCell.swift */; };
 		E52D54BA29A335A900D48CF9 /* RadioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52D54B929A335A900D48CF9 /* RadioModel.swift */; };
@@ -253,8 +255,8 @@
 		E5C59C032A08EA8100577740 /* ARDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C59C012A08EA8100577740 /* ARDetailViewController.swift */; };
 		E5C59C052A0A34C400577740 /* SoundEffect51.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5C59C042A0A34C400577740 /* SoundEffect51.mp3 */; };
 		E5C59C062A0A34C400577740 /* SoundEffect51.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5C59C042A0A34C400577740 /* SoundEffect51.mp3 */; };
-		E5EE1CF52A8F069A004C1331 /* VoiceGuideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF42A8F069A004C1331 /* VoiceGuideModel.swift */; };
-		E5EE1CF62A8F069A004C1331 /* VoiceGuideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF42A8F069A004C1331 /* VoiceGuideModel.swift */; };
+		E5EE1CF52A8F069A004C1331 /* GuideLanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF42A8F069A004C1331 /* GuideLanguageModel.swift */; };
+		E5EE1CF62A8F069A004C1331 /* GuideLanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF42A8F069A004C1331 /* GuideLanguageModel.swift */; };
 		E5EE1CF82A8F07B7004C1331 /* ArAnchorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF72A8F07B7004C1331 /* ArAnchorManager.swift */; };
 		E5EE1CF92A8F07B7004C1331 /* ArAnchorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF72A8F07B7004C1331 /* ArAnchorManager.swift */; };
 		E5EE1CFB2A8F07D6004C1331 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CFA2A8F07D6004C1331 /* MotionManager.swift */; };
@@ -583,6 +585,7 @@
 		E506A01A29923FB60046134F /* DestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
 		E506A01D2993790F0046134F /* ar_exhibition.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ar_exhibition.json; sourceTree = "<group>"; };
 		E506A0222994BEB80046134F /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
+		E50A5A392AA85B59002A44AB /* ArVoiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArVoiceManager.swift; sourceTree = "<group>"; };
 		E52D54B529A32B8700D48CF9 /* RadioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioCell.swift; sourceTree = "<group>"; };
 		E52D54B929A335A900D48CF9 /* RadioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioModel.swift; sourceTree = "<group>"; };
 		E53814052989F3D30098E082 /* SliderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderModel.swift; sourceTree = "<group>"; };
@@ -629,7 +632,7 @@
 		E5C59BFE2A08CE2000577740 /* ARGuideRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARGuideRow.swift; sourceTree = "<group>"; };
 		E5C59C012A08EA8100577740 /* ARDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailViewController.swift; sourceTree = "<group>"; };
 		E5C59C042A0A34C400577740 /* SoundEffect51.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SoundEffect51.mp3; sourceTree = "<group>"; };
-		E5EE1CF42A8F069A004C1331 /* VoiceGuideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceGuideModel.swift; sourceTree = "<group>"; };
+		E5EE1CF42A8F069A004C1331 /* GuideLanguageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideLanguageModel.swift; sourceTree = "<group>"; };
 		E5EE1CF72A8F07B7004C1331 /* ArAnchorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArAnchorManager.swift; sourceTree = "<group>"; };
 		E5EE1CFA2A8F07D6004C1331 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
 		E5EE1CFD2A8F07E6004C1331 /* InquiryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InquiryManager.swift; sourceTree = "<group>"; };
@@ -1014,6 +1017,22 @@
 			path = Destination;
 			sourceTree = "<group>";
 		};
+		E50A5A412AA8768E002A44AB /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				E5B61E4A29823B0F00533B6F /* ArManager.swift */,
+				E5EE1CF72A8F07B7004C1331 /* ArAnchorManager.swift */,
+				E5B61E4929823B0F00533B6F /* ArUcoManager.swift */,
+				E50A5A392AA85B59002A44AB /* ArVoiceManager.swift */,
+				E5B61E4B29823B0F00533B6F /* AudioManager.swift */,
+				E5F6000A2977CCD500D5C22B /* AudioGuideManager.swift */,
+				E5EE1CFA2A8F07D6004C1331 /* MotionManager.swift */,
+				E5EE1CFD2A8F07E6004C1331 /* InquiryManager.swift */,
+				E5F600012977CCD500D5C22B /* MapManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
 		E54F24432980E84100F3A83C /* Event */ = {
 			isa = PBXGroup;
 			children = (
@@ -1344,7 +1363,7 @@
 				E5B61E5429823B2D00533B6F /* GuidanceModel.swift */,
 				E5B61E5329823B2D00533B6F /* PhonationModel.swift */,
 				E5B61E5129823B2C00533B6F /* VoiceModel.swift */,
-				E5EE1CF42A8F069A004C1331 /* VoiceGuideModel.swift */,
+				E5EE1CF42A8F069A004C1331 /* GuideLanguageModel.swift */,
 				E53814052989F3D30098E082 /* SliderModel.swift */,
 				E53814082989F4DC0098E082 /* SwitchModel.swift */,
 				E538140B2989F4F50098E082 /* LabelModel.swift */,
@@ -1389,7 +1408,8 @@
 		E5F6FF5D2977CB8C00D5C22B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E5F6000A2977CCD500D5C22B /* AudioGuideManager.swift */,
+				E5F6FF5E2977CB9700D5C22B /* Extension */,
+				E50A5A412AA8768E002A44AB /* Manager */,
 				E5F600092977CCD500D5C22B /* DefaultTTS.swift */,
 				E5F600052977CCD500D5C22B /* ExhibitionDataStore.swift */,
 				E5F600022977CCD500D5C22B /* Host.swift */,
@@ -1397,16 +1417,8 @@
 				E5F600032977CCD500D5C22B /* ImageAdaptor.swift */,
 				E5F600082977CCD500D5C22B /* ImageType.swift */,
 				E5F600062977CCD500D5C22B /* LineSegment.swift */,
-				E5F600012977CCD500D5C22B /* MapManager.swift */,
 				E5F600042977CCD500D5C22B /* MiraikanUtil.swift */,
-				E5B61E4A29823B0F00533B6F /* ArManager.swift */,
-				E5EE1CF72A8F07B7004C1331 /* ArAnchorManager.swift */,
-				E5B61E4929823B0F00533B6F /* ArUcoManager.swift */,
-				E5B61E4B29823B0F00533B6F /* AudioManager.swift */,
-				E5EE1CFA2A8F07D6004C1331 /* MotionManager.swift */,
-				E5EE1CFD2A8F07E6004C1331 /* InquiryManager.swift */,
 				E5B61E4829823B0F00533B6F /* StrUtil.swift */,
-				E5F6FF5E2977CB9700D5C22B /* Extension */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1811,7 +1823,7 @@
 				E506A01B29923FB60046134F /* DestinationViewController.swift in Sources */,
 				E58B00BB2A0CACFC00437E2D /* ARMessageListView.swift in Sources */,
 				E5F6FF862977CC3700D5C22B /* EventDetailView.swift in Sources */,
-				E5EE1CF52A8F069A004C1331 /* VoiceGuideModel.swift in Sources */,
+				E5EE1CF52A8F069A004C1331 /* GuideLanguageModel.swift in Sources */,
 				E5F6001C2977CCE000D5C22B /* UINavigationControllerExtension.swift in Sources */,
 				E5F6FFBA2977CC9300D5C22B /* DescriptionRow.swift in Sources */,
 				E5F600222977CCFC00D5C22B /* LoginTabController.swift in Sources */,
@@ -1864,6 +1876,7 @@
 				E5F6FFFE2977CCC100D5C22B /* LoginView.swift in Sources */,
 				E5B61E5029823B0F00533B6F /* AudioManager.swift in Sources */,
 				E5F6FFD72977CCA500D5C22B /* AdditionalLocationModel.swift in Sources */,
+				E50A5A3A2AA85B59002A44AB /* ArVoiceManager.swift in Sources */,
 				7EA49A351F9AE21900E1369B /* WebViewController.m in Sources */,
 				E5F600262977CCFC00D5C22B /* StaffTabController.swift in Sources */,
 				7EF6FBB21DA4DD8200382F76 /* NavSound.m in Sources */,
@@ -1886,7 +1899,7 @@
 				E59424FB298CF57900EF2F65 /* WebFloorMapView.swift in Sources */,
 				E5B61E6A298245A700533B6F /* ARViewController.swift in Sources */,
 				E5B61E6629823F0200533B6F /* MarkerWorldTransform.mm in Sources */,
-				E5EE1CF62A8F069A004C1331 /* VoiceGuideModel.swift in Sources */,
+				E5EE1CF62A8F069A004C1331 /* GuideLanguageModel.swift in Sources */,
 				E5B61E6729823F0200533B6F /* OpenCVWrapper.mm in Sources */,
 				E5B61E5D29823E1300533B6F /* ArUcoModel.swift in Sources */,
 				E5B61E5E29823E1300533B6F /* GuidanceModel.swift in Sources */,
@@ -1933,6 +1946,7 @@
 				E53750952977D73900BC3ACA /* BaseView.swift in Sources */,
 				E53750962977D73900BC3ACA /* BaseWebView.swift in Sources */,
 				E53750972977D73900BC3ACA /* BlankView.swift in Sources */,
+				E50A5A3B2AA85B59002A44AB /* ArVoiceManager.swift in Sources */,
 				E53750982977D73900BC3ACA /* BaseButton.swift in Sources */,
 				E53750992977D73900BC3ACA /* ContentRow.swift in Sources */,
 				E537509A2977D73900BC3ACA /* DescriptionRow.swift in Sources */,

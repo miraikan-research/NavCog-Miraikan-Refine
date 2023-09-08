@@ -1,5 +1,4 @@
 //
-//
 //  AudioGuideManager.swift
 //  NavCogMiraikan
 //
@@ -27,11 +26,10 @@
 
 import Foundation
 
+// 館内移動により最寄りの展示音声案内、NavCogでの位置情報使用
 // Singleton
 final public class AudioGuideManager: NSObject {
     
-    var data: [VoiceModel] = []
-
     private var temporaryFloor = 0
     private var currentFloor = 0
     private var continueFloorCount = 0

@@ -24,9 +24,9 @@
  * THE SOFTWARE.
  *******************************************************************************/
 
-
 import Foundation
 
+// ArUcoマーカーデータ管理
 // Singleton
 final public class ArUcoManager: NSObject {
     
@@ -61,7 +61,7 @@ final public class ArUcoManager: NSObject {
 #if targetEnvironment(simulator)
             for arUcoModel in self.arUcoList {
                 if let description = arUcoModel.description {
-                    print("\(arUcoModel.id), \(description.message.trimmingCharacters(in: .newlines))")
+                    print("\(arUcoModel.id), \(description.message() .trimmingCharacters(in: .newlines))")
                 }
             }
 #endif
@@ -70,11 +70,7 @@ final public class ArUcoManager: NSObject {
     }
 
     func getMarkerSizeRatio(arUcoModel: ArUcoModel) -> Double {
-        var ratio: Double = 1
-        if let markerSize = arUcoModel.marker {
-            ratio = Double((markerSize / 100) / ArucoMarkerSize)
-        }
-        return ratio
+        return Double((arUcoModel.getMarkerSize() / 100) / ArucoMarkerSize)
     }
     
     func loadActiveSettings() {

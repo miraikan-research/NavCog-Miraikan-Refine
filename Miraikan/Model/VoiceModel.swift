@@ -32,5 +32,4 @@ struct VoiceModel: Identifiable {
     var voice: String
     var message: String
     var descriptionDetail: GuidanceModel?
-    var priority: Int
 }

@@ -1,5 +1,4 @@
 //
-//
 //  HTTPAdaptor.swift
 //  NavCogMiraikan
 //

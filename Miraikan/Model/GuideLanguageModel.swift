@@ -1,5 +1,5 @@
 //
-//  VoiceGuideModel.swift
+//  GuideLanguageModel.swift
 //  NavCogMiraikan
 //
 /*******************************************************************************
@@ -26,7 +26,7 @@
 
 import Foundation
 
-struct VoiceGuideModel {
+struct GuideLanguageModel: Codable {
     // 日本語表示用
     var text: String
     // 日本語発音用
@@ -40,29 +40,39 @@ struct VoiceGuideModel {
     // テキスト内のメートル数値、フィート変換出来るように別定義
     var internalDistance: Double?
 
-    func textLang(_ lang: String, pron: Bool = false) -> String {
-        // 距離単位変換用、別設定
-        var internalString = ""
-        if let internalDistance = internalDistance {
-            internalString = StrUtil.distanceString(distance: internalDistance)
-        }
+    func text(pron: Bool = false, distance: Double? = nil) -> String {
+        let lang = NSLocalizedString("lang", comment: "")
 
         var str = text
         if lang == "en",
-           let text = textEn {
+           let text = textEn,
+           !text.isEmpty {
             str = text
         } else if lang == "ko",
-            let text = textKo {
+                  let text = textKo,
+                  !text.isEmpty {
             str = text
         } else if lang == "zh",
-            let text = textZh {
+                  let text = textZh,
+                  !text.isEmpty {
             str = text
-        } else if pron,
-           lang == "ja",
-            let text = textPron {
+        } else if lang == "ja",
+                  pron,
+                  let text = textPron,
+                  !text.isEmpty {
+            // 日本語発音
             str = text
         }
 
-        return String(format: str, internalString)
+        // 距離単位変換用、別設定
+        if let internalDistance = self.internalDistance {
+            let internalString = StrUtil.distanceString(distance: internalDistance)
+            return String(format: str, internalString)
+        } else if let distance = distance {
+            let internalString = StrUtil.distanceString(distance: distance)
+            return String(format: str, internalString)
+        }
+
+        return str
     }
 }

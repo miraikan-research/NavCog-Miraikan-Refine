@@ -24,9 +24,9 @@
  * THE SOFTWARE.
  *******************************************************************************/
 
-
 import Foundation
 
+// AR識別管理
 // Singleton
 final public class ArManager: NSObject {
     
@@ -76,7 +76,7 @@ final public class ArManager: NSObject {
                 AudioManager.shared.stop()
             }
         }
-//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), lockArMarker.id: \(lockArMarker?.id), marker: \(marker.id) serialMarker: \(serialMarker), keepMarkerFlag: \(keepMarkerFlag), isPlaying: \(AudioManager.shared.isPlaying), isPause: \(AudioManager.shared.isPause())")
+//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), lockArMarker.id: \(lockArMarker?.id), marker: \(marker.id) serialMarker: \(serialMarker), keepMarkerFlag: \(keepMarkerFlag), isPlaying: \(AudioManager.shared.isPlaying), isSpeaking: \(AudioManager.shared.isSpeaking()), isPause: \(AudioManager.shared.isPause())")
         lockArMarker = marker
         lastCheckMarkerTime = Date().timeIntervalSince1970
 
@@ -119,43 +119,24 @@ final public class ArManager: NSObject {
         if arUcoModel.getArType() != .lockGuide,
            let guideToHere = arUcoModel.guideToHere,
            guideToHere.isDistance(distance) || isDebug {
-            
-            if let internalDistance = guideToHere.internalDistance {
-                let internalString = StrUtil.distanceString(distance: internalDistance)
-                setPhonation(phonationModel, strParam: internalString, guidance: guideToHere)
-            } else {
-                setPhonation(phonationModel, strParam: meterString, guidance: guideToHere)
-            }
+            // 現在地から目的地まで
+            setPhonation(phonationModel, guidance: guideToHere.messageLanguage, distance: distance)
         }
         
         if let description = arUcoModel.description {
             if description.isDistance(distance) || isDebug {
                 if arUcoModel.getArType() == .lockGuide {
-                    if let title = description.title {
-                        var titlePron = title
-                        if let titlePronStr = description.titlePron {
-                            titlePron = titlePronStr
-                        }
-                        phonationModel.append(str: title, phon: titlePron)
-                        phonationModel.explanation = true
-                    }
-                    
+                    // 注視マーカーのタイトル
+                    phonationModel.append(guidance: description.titleLanguage)
+                    phonationModel.explanation = true
                 } else {
                     if let descriptionTitle = arUcoModel.descriptionTitle,
                        descriptionTitle.isDistance(distance) {
-                        if let internalDistance = descriptionTitle.internalDistance {
-                            let internalString = StrUtil.distanceString(distance: internalDistance)
-                            setPhonation(phonationModel, strParam: internalString, guidance: descriptionTitle)
-                        } else {
-                            setPhonation(phonationModel, strParam: meterString, guidance: descriptionTitle)
-                        }
+                        // 展示のタイトル
+                        setPhonation(phonationModel, guidance: descriptionTitle.messageLanguage, distance: distance)
                     }
-                    if let internalDistance = description.internalDistance {
-                        let internalString = StrUtil.distanceString(distance: internalDistance)
-                        setPhonation(phonationModel, strParam: internalString, guidance: description)
-                    } else {
-                        setPhonation(phonationModel, strParam: meterString, guidance: description)
-                    }
+                    // 展示本文
+                    setPhonation(phonationModel, guidance: description.messageLanguage, distance: distance)
                 }
                 phonationModel.explanation = true
             }
@@ -163,30 +144,22 @@ final public class ArManager: NSObject {
             if arUcoModel.getArType() != .lockGuide,
                let nextGuide = arUcoModel.nextGuide,
                nextGuide.isDistance(distance) || isDebug {
-                if let internalDistance = nextGuide.internalDistance {
-                    let internalString = StrUtil.distanceString(distance: internalDistance)
-                    setPhonation(phonationModel, strParam: internalString, guidance: nextGuide)
-                } else {
-                    setPhonation(phonationModel, strParam: meterString, guidance: nextGuide)
-                }
+                // 次の案内
+                setPhonation(phonationModel, guidance: nextGuide.messageLanguage, distance: distance)
             }
 
             if arUcoModel.getArType() != .lockGuide,
                let guideFromHere = arUcoModel.guideFromHere,
                guideFromHere.isDistance(distance) || isDebug {
-                if let internalDistance = guideFromHere.internalDistance {
-                    let internalString = StrUtil.distanceString(distance: internalDistance)
-                    setPhonation(phonationModel, strParam: internalString, guidance: guideFromHere)
-                } else {
-                    setPhonation(phonationModel, strParam: meterString, guidance: guideFromHere)
-                }
+                // 現在地から次の目的地
+                setPhonation(phonationModel, guidance: guideFromHere.messageLanguage, distance: distance)
             }
         }
 
-        if (arUcoModel.markerPoint ?? false) && isDebug && !arUcoModel.title.isEmpty {
+        if (arUcoModel.markerPoint ?? false) && isDebug && !arUcoModel.title().isEmpty {
             let str = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
                              meterString,
-                             arUcoModel.titleLang(NSLocalizedString("lang", comment: ""), pron: true))
+                             arUcoModel.title(pron: true))
             phonationModel.append(str: str)
         }
 
@@ -220,13 +193,8 @@ final public class ArManager: NSObject {
                         if let targetDirection = flatGuide.direction {
                             let directionStr = getDirectionString(direction: targetDirection, currentDirection: direction)
                             phonationModel.append(str: directionStr.string, phon: directionStr.phonation, isDelimiter: false)
-
-                            if let internalDistance = flatGuide.internalDistance {
-                                let internalString = StrUtil.distanceString(distance: internalDistance)
-                                setPhonation(phonationModel, strParam: internalString, guidance: flatGuide)
-                            } else {
-                                setPhonation(phonationModel, guidance: flatGuide)
-                            }
+                            // 地面案内
+                            setPhonation(phonationModel, guidance: flatGuide.messageLanguage)
                         }
                     }
                 }
@@ -316,13 +284,13 @@ final public class ArManager: NSObject {
         let ratio = ArUcoManager.shared.getMarkerSizeRatio(arUcoModel: arUcoModel)
         let distance = Double(transform.distance) * ratio
 
-        if distance < 1.2 && !arUcoModel.title.isEmpty && isEntrance {
+        if distance < 1.2 && !arUcoModel.title().isEmpty && isEntrance {
             let str = String(format: NSLocalizedString("Entrance to %@.", comment: ""),
-                             arUcoModel.titleLang(NSLocalizedString("lang", comment: "")))
+                             arUcoModel.title())
             let voice = String(format: NSLocalizedString("Entrance to %@.", comment: ""),
-                               arUcoModel.titleLang(NSLocalizedString("lang", comment: ""), pron: true))
+                               arUcoModel.title(pron: true))
             
-            AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, descriptionDetail: arUcoModel.descriptionDetail, priority: 10))
+            AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, descriptionDetail: arUcoModel.descriptionDetail))
             return
         }
 
@@ -368,7 +336,7 @@ final public class ArManager: NSObject {
                 markerCenterFlag = true
             } else if guideSoundTime != 0 &&
                         guideSoundTime + 1.0 < now &&
-                        !arUcoModel.title.isEmpty &&
+                        !arUcoModel.title().isEmpty &&
                         isEntrance {
                 guideSoundTime = now + 10.0
                 markerCenterFlag = true
@@ -376,11 +344,11 @@ final public class ArManager: NSObject {
                 let meterString = StrUtil.distanceString(distance: distance)
                 let str = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
                                  meterString,
-                                 arUcoModel.titleLang(NSLocalizedString("lang", comment: "")))
+                                 arUcoModel.title())
                 let voice = String(format: NSLocalizedString("%1$@ to the entrance of %2$@", comment: ""),
                                    meterString,
-                                   arUcoModel.titleLang(NSLocalizedString("lang", comment: ""), pron: true))
-                AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, descriptionDetail: arUcoModel.descriptionDetail, priority: 10))
+                                   arUcoModel.title(pron: true))
+                AudioManager.shared.addGuide(voiceModel: VoiceModel(id: arUcoModel.id, voice: voice, message: str, descriptionDetail: arUcoModel.descriptionDetail))
             }
             return
         } else if arFrameSize.height * minMarginRange / widthBaseRatio < transform.intersection.y &&
@@ -436,20 +404,8 @@ final public class ArManager: NSObject {
         return StrUtil.getDirectionString(angle: angle)
     }
 
-    private func setPhonation(_ phonation: PhonationModel, strParam: String? = nil, guidance: GuidanceModel) {
-        if NSLocale.preferredLanguages.first?.components(separatedBy: "-").first == "ja" {
-            if let strParam = strParam {
-                phonation.append(str: String(format: guidance.message, strParam), phon: String(format: guidance.messagePron, strParam))
-            } else {
-                phonation.append(str: guidance.message, phon: guidance.messagePron)
-            }
-        } else {
-            if let strParam = strParam {
-                phonation.append(str: String(format: guidance.messageEn, strParam))
-            } else {
-                phonation.append(str: guidance.messageEn)
-            }
-        }
+    private func setPhonation(_ phonation: PhonationModel, guidance: GuideLanguageModel?, distance: Double? = nil) {
+        phonation.append(guidance: guidance, distance: distance)
     }
 }
 
@@ -465,9 +421,15 @@ extension ArManager: AudioManagerSystemDelegate {
                 AudioManager.shared.nextStep()
                 keepMarkerFlag = false
             } else {
+                if AudioManager.shared.progress == .mainText {
+                    AudioManager.shared.nextStep()
+                }
                 keepMarkerFlag = true
             }
         } else {
+            if let id = speakingData.id {
+                ArUcoManager.shared.setFinishDate(key: id)
+            }
             keepMarkerFlag = false
         }
     }

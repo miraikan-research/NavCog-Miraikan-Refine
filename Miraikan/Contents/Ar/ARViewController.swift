@@ -222,7 +222,7 @@ extension ARViewController {
 //        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), isPlaying: \(AudioManager.shared.isPlaying), isSpeaking: \(AudioManager.shared.isSpeaking()), isPause: \(AudioManager.shared.isPause()), progress: \(AudioManager.shared.progress), speechStatus: \(AudioManager.shared.speechStatus()), tapPause: \(tapPause)")
         DispatchQueue.main.async {
             
-            if AudioManager.shared.isPlaying {
+            if AudioManager.shared.isPlaying || AudioManager.shared.isSpeaking() {
                 
                 if UserDefaults.standard.bool(forKey: "ARCameraLockMarker") {
                     AudioManager.shared.stop()
@@ -277,7 +277,7 @@ extension ARViewController {
                 if arUcoModel.id == transform.arucoId {
                     let ratio = ArUcoManager.shared.getMarkerSizeRatio(arUcoModel: arUcoModel)
                     let distance = Double(transform.distance) * ratio
-                    let checkStr = String(format: "id: %d, marker: %.1f, distance: %.4f", arUcoModel.id, arUcoModel.marker ?? 10, distance)
+                    let checkStr = String(format: "id: %d, marker: %.1f, distance: %.4f", arUcoModel.id, arUcoModel.getMarkerSize(), distance)
                     cognition += "\n" + checkStr
 //                    NSLog("\(checkStr), hit: \(hit), isPlaying: \(AudioManager.shared.isPlaying), isSpeaking: \(AudioManager.shared.isSpeaking()), isPause: \(AudioManager.shared.isPause()), progress: \(AudioManager.shared.progress), tapPause: \(tapPause)")
                     if !hit &&
@@ -334,6 +334,11 @@ extension ARViewController {
             return
         }
 
+        if AudioManager.shared.isSpeaking() &&
+            arUcoModel.id == AudioManager.shared.speakingID() {
+            return
+        }
+
         // 同一ID読み終わり, 連続読み上げ間隔チェック
         if !ArUcoManager.shared.checkFinishSettings(key: arUcoModel.id) {
             return
@@ -345,8 +350,7 @@ extension ARViewController {
                                                                 type: arUcoModel.getArType(),
                                                                 voice: phonationModel.phonation,
                                                                 message: phonationModel.string,
-                                                                descriptionDetail: arUcoModel.descriptionDetail == nil ? arUcoModel.description : arUcoModel.descriptionDetail,
-                                                                priority: 10),
+                                                                descriptionDetail: arUcoModel.descriptionDetail == nil ? arUcoModel.description : arUcoModel.descriptionDetail),
                                          soundEffect: true)
             locationChangedTime = now
             if phonationModel.explanation {
@@ -364,9 +368,10 @@ extension ARViewController {
     }
 
     @objc private func voiceOverNotification() {
+//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), isPlaying:\(AudioManager.shared.isPlaying), isSpeaking:\(AudioManager.shared.isSpeaking())")
         UIAccessibility.post(notification: .screenChanged, argument: controlView)
         setFooterView()
-        if AudioManager.shared.isPlaying {
+        if AudioManager.shared.isPlaying || AudioManager.shared.isSpeaking() {
             AudioManager.shared.stop()
         }
         
@@ -395,16 +400,17 @@ extension ARViewController: ARSessionDelegate {
 
         if !UserDefaults.standard.bool(forKey: "ARCameraLockMarker") &&
             AudioManager.shared.progress == .mainText &&
-            AudioManager.shared.isPlaying {
+            (AudioManager.shared.isPlaying || AudioManager.shared.isSpeaking()) {
 //            NSLog("isPlaying: \(AudioManager.shared.isPlaying), isSpeaking: \(AudioManager.shared.isSpeaking()), isPause: \(AudioManager.shared.isPause()), progress: \(AudioManager.shared.progress), tapPause: \(tapPause), movementFlag: \(MotionManager.shared.checkMovementTime(time: 1.0))")
             if AudioManager.shared.isSpeaking() &&
                 self.tapPause == SpeechStatusContinue {
                 // 本文音声再生中でタップで再開している状態で、端末を大きく動作させた場合は、次に進む案内を行う
                 // 意図的に再開しているため、大きく動作させる時間は通常より長くする
                 // 音声停止させてから、次に進む
-                if MotionManager.shared.checkMovementTime(time: 4.0) {
+                if MotionManager.shared.checkMovementTime(time: 2.0) {
                     AudioManager.shared.stop()
                     AudioManager.shared.nextStep()
+                    MotionManager.shared.updateMovementTime(time: 2.0)
                     DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 1.0, execute: {
                         self.mutexLock = false
                     })
@@ -412,9 +418,10 @@ extension ARViewController: ARSessionDelegate {
                 }
             } else {
                 // 本文音声の一時停止中で端末を大きく動作させた場合は、次に進む案内を行う
-                if MotionManager.shared.checkMovementTime(time: 2.0) {
+                if MotionManager.shared.checkMovementTime(time: 1.0) {
                     AudioManager.shared.stop()
                     AudioManager.shared.nextStep()
+                    MotionManager.shared.updateMovementTime(time: 1.0)
                     DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 1.0, execute: {
                         self.mutexLock = false
                     })
@@ -448,13 +455,15 @@ extension ARViewController: ARSessionDelegate {
                     return
                 }
                 
-                // 本文音声再生中に一定時間以上ARマーカーの認識が出来なくなった場合は、本文音声を一時停止する
-                if ArManager.shared.lastCheckMarkerTime + 0.6 < Date().timeIntervalSince1970 &&
+                // 本文音声再生中に大きく動作させた場合は、本文音声を一時停止する
+                if MotionManager.shared.checkMovementTime(time: 0.3) &&
                     AudioManager.shared.isPlaying &&
                     AudioManager.shared.isSpeaking() &&
+                    !ArManager.shared.serialMarker &&
                     !AudioManager.shared.isPause() {
                     switch AudioManager.shared.progress {
                     case .mainText:
+                        MotionManager.shared.updateMovementTime(time: 0.3)
                         AudioManager.shared.pauseToggle(forcedPause: true)
                     default:
                         break

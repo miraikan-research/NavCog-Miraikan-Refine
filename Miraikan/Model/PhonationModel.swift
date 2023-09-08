@@ -61,4 +61,23 @@ class PhonationModel {
             phonation += str
         }
     }
+
+    func append(guidance: GuideLanguageModel?, distance: Double? = nil, isDelimiter: Bool = true) {
+        guard let guidance = guidance else { return }
+
+        if !string.isEmpty && isDelimiter {
+            string += Delimiter
+        }
+
+        if !phonation.isEmpty && isDelimiter {
+            phonation += NSLocalizedString("PERIOD", comment: "")
+        }
+
+        string += guidance.text(distance: distance)
+        phonation += guidance.text(pron: true, distance: distance)
+    }
+
+    private func setPhonation(_ phonation: PhonationModel, guidance: GuideLanguageModel?, distance: Double? = nil) {
+        phonation.append(guidance: guidance, distance: distance)
+    }
 }

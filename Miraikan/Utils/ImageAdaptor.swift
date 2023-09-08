@@ -1,5 +1,4 @@
 //
-//
 //  ImageAdaptor.swift
 //  NavCogMiraikan
 //

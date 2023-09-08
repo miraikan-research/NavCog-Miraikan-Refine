@@ -31,53 +31,61 @@ enum ARType {
     case none
     // 入り口案内
     case target
-    //
+    // 展示案内
     case exposition
     // 地面
     case floor
-    // 展示案内
+    // 移動の案内（展示説明無し）
     case guide
     // マーカー注視音声
     case lockGuide
 }
 
+// デフォルトARマーカーサイズ(cm)
+let DefultMarkerSize: Float = 10
+
 struct ArUcoModel: Codable {
     var id: Int
-    var marker: Float?
+    // マーカーサイズ(相対距離算出用)
+    var markerSize: Float?
+    // 目標マーカー
     var markerPoint: Bool?
+    // 音で誘導マーカー
     var markerInduction: Bool?
+    // 注視マーカー
     var maintainingMarker: Bool?
-    var title: String
-    var titleEn: String
-    var titleKo: String?
-    var titleZh: String?
-    var titlePron: String
+    // 施設名
+    var titleLanguage: GuideLanguageModel?
+    // マーカー位置に誘導
     var guideToHere: GuidanceModel?
+    // マーカー位置から次へ誘導
     var guideFromHere: GuidanceModel?
+    // 次の案内
     var nextGuide: GuidanceModel?
+    // 案内文章のタイトル
     var descriptionTitle: GuidanceModel?
+    // 案内本文
     var description: GuidanceModel?
+    // 案内本文詳細、ARマーカーを読み取った後に個別にセルを選択すると、AR読み取り時よりも詳細な内容で案内する仕様
     var descriptionDetail: GuidanceModel?
+    // 床マーカー
     var flatGuide: [GuidanceModel]?
+    // 0:正面から音が聞こえる, 1:右から音が聞こえる, -1:左から音が聞こえる
     var soundGuide: Float?
+    // 管理用コメント
     var comment: String?
 
-    func titleLang(_ lang: String, pron: Bool = false) -> String {
-        if lang == "en",
-           !titleEn.isEmpty {
-            return titleEn
+    func title(pron: Bool = false) -> String {
+        if let text = self.titleLanguage {
+            return text.text(pron: pron)
         }
-        if lang == "ko",
-           let title = titleKo {
-            return title
-        }
-        if lang == "zh",
-           let title = titleZh {
-            return title
-        }
-        return pron ? titlePron : title
+        return ""
     }
-    
+
+    func getMarkerSize() -> Float {
+        return markerSize ?? DefultMarkerSize
+    }
+
     func getArType() -> ARType {
 
         if self.maintainingMarker ?? false &&

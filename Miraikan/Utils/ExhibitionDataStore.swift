@@ -99,8 +99,6 @@ struct EventTypeModel : Decodable {
     
     @objc static let shared = ExhibitionDataStore()
     
-//    var exhibitions: [ExhibitionModel]?
-    
     var schedules: [ScheduleModel]?
     
     var events: [EventModel]?

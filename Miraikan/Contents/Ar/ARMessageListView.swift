@@ -135,15 +135,16 @@ extension ARMessageListView: AudioManagerDelegate {
         DispatchQueue.main.async {
             self.tableView.beginUpdates()
             self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
-            if let index = AudioGuideManager.shared.data.firstIndex(where: { $0.id == speakingData.id }) {
-                AudioGuideManager.shared.data.remove(at: index)
+            if let index = ArVoiceManager.shared.data.firstIndex(where: { $0.id == speakingData.id }) {
+                ArVoiceManager.shared.data.remove(at: index)
             }
-            AudioGuideManager.shared.data.insert(speakingData, at: 0)
+            ArVoiceManager.shared.data.insert(speakingData, at: 0)
             self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)],
                                       with: .automatic)
             self.tableView.endUpdates()
 
-            if UIAccessibility.isVoiceOverRunning {
+            if UserDefaults.standard.bool(forKey: "ARCameraLockMarker") &&
+                UIAccessibility.isVoiceOverRunning {
                 if AudioManager.shared.isPlaying {
                     AudioManager.shared.stop()
                 }
@@ -153,12 +154,12 @@ extension ARMessageListView: AudioManagerDelegate {
                 
                 if speakingData.type == .lockGuide,
                    let descriptionDetail = speakingData.descriptionDetail {
-                    voice = descriptionDetail.unionMessagePron()
+                    voice = descriptionDetail.unionMessage(pron: true)
                 }
                 let announcementString = NSAttributedString(string: voice,
                                                             attributes: [.accessibilitySpeechQueueAnnouncement: false])
                 UIAccessibility.post(notification: .announcement, argument: announcementString)
-                NSLog("Voice Over \(voice)")
+                NSLog("VoiceOver \(voice)")
             }
         }
     }
@@ -173,15 +174,15 @@ extension ARMessageListView: UITableViewDelegate , UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AudioGuideManager.shared.data.count
+        return ArVoiceManager.shared.data.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
             as? ARGuideRow {
             
-            if indexPath.row < AudioGuideManager.shared.data.count {
-                cell.configure(AudioGuideManager.shared.data[indexPath.row], lines: indexPath.row == 0 ? 0 : 1)
+            if indexPath.row < ArVoiceManager.shared.data.count {
+                cell.configure(ArVoiceManager.shared.data[indexPath.row], lines: indexPath.row == 0 ? 0 : 1)
             }
             return cell
         }
