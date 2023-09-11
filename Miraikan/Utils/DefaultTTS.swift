@@ -29,6 +29,12 @@ class DefaultTTS: TTSProtocol {
                                     completionHandler: callback)
     }
 
+    func speak(_ text:String?, selfspeak:Bool, quickAnswer:Bool, callback:@escaping ()->(Void)) {
+        NavDeviceTTS.shared().speak(text,
+                                    withOptions: ["selfspeak": selfspeak, "quickAnswer": quickAnswer],
+                                    completionHandler: callback)
+    }
+
     func stop() {
         self.stop(false)
     }
