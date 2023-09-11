@@ -77,6 +77,8 @@
 		E506A0242994BEB80046134F /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E506A0222994BEB80046134F /* MenuCell.swift */; };
 		E50A5A3A2AA85B59002A44AB /* ArVoiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A5A392AA85B59002A44AB /* ArVoiceManager.swift */; };
 		E50A5A3B2AA85B59002A44AB /* ArVoiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A5A392AA85B59002A44AB /* ArVoiceManager.swift */; };
+		E50A5A432AAAEA14002A44AB /* AccessibilityLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A5A422AAAEA14002A44AB /* AccessibilityLabel.swift */; };
+		E50A5A442AAAEA14002A44AB /* AccessibilityLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A5A422AAAEA14002A44AB /* AccessibilityLabel.swift */; };
 		E52D54B629A32B8700D48CF9 /* RadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52D54B529A32B8700D48CF9 /* RadioCell.swift */; };
 		E52D54B729A32B8700D48CF9 /* RadioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52D54B529A32B8700D48CF9 /* RadioCell.swift */; };
 		E52D54BA29A335A900D48CF9 /* RadioModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52D54B929A335A900D48CF9 /* RadioModel.swift */; };
@@ -586,6 +588,7 @@
 		E506A01D2993790F0046134F /* ar_exhibition.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ar_exhibition.json; sourceTree = "<group>"; };
 		E506A0222994BEB80046134F /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		E50A5A392AA85B59002A44AB /* ArVoiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArVoiceManager.swift; sourceTree = "<group>"; };
+		E50A5A422AAAEA14002A44AB /* AccessibilityLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityLabel.swift; sourceTree = "<group>"; };
 		E52D54B529A32B8700D48CF9 /* RadioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioCell.swift; sourceTree = "<group>"; };
 		E52D54B929A335A900D48CF9 /* RadioModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioModel.swift; sourceTree = "<group>"; };
 		E53814052989F3D30098E082 /* SliderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderModel.swift; sourceTree = "<group>"; };
@@ -1306,6 +1309,7 @@
 				E5F6FFA12977CC9300D5C22B /* LinkingHeader.swift */,
 				E5F6FF9D2977CC9200D5C22B /* ScheduleListHeader.swift */,
 				E5F6FFAB2977CC9300D5C22B /* ThroughView.swift */,
+				E50A5A422AAAEA14002A44AB /* AccessibilityLabel.swift */,
 				E5B61E782983BF1400533B6F /* Button */,
 				E5B61E772983BDDE00533B6F /* TableViewCell */,
 			);
@@ -1790,6 +1794,7 @@
 				E53814062989F3D30098E082 /* SliderModel.swift in Sources */,
 				7E08DB581DB9F08E00E82161 /* ConfigManager.m in Sources */,
 				7EF7F7AB1DD189B0000A625A /* NavPreviewer.m in Sources */,
+				E50A5A432AAAEA14002A44AB /* AccessibilityLabel.swift in Sources */,
 				E54F24282980E26E00F3A83C /* RouteMode.swift in Sources */,
 				E5F6FF892977CC3700D5C22B /* VoiceGuideController.swift in Sources */,
 				E5F600232977CCFC00D5C22B /* AITabController.swift in Sources */,
@@ -1935,6 +1940,7 @@
 				E537508D2977D73900BC3ACA /* EventViewController.swift in Sources */,
 				E537508E2977D73900BC3ACA /* ExhibitionView.swift in Sources */,
 				E537508F2977D73900BC3ACA /* FloorMapView.swift in Sources */,
+				E50A5A442AAAEA14002A44AB /* AccessibilityLabel.swift in Sources */,
 				E5EE1CFF2A8F07E6004C1331 /* InquiryManager.swift in Sources */,
 				E5B61E7629838DEE00533B6F /* IDListViewController.swift in Sources */,
 				E52D54B729A32B8700D48CF9 /* RadioCell.swift in Sources */,
