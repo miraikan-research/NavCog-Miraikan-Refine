@@ -804,6 +804,23 @@ typedef NS_ENUM(NSInteger, ViewState) {
             return;
         }
         
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        if ([ud boolForKey:@"CoordinateSurvey"]) {
+            // dummy
+            [_webView sendData:@{
+                @"lat": @([ud doubleForKey:@"input_latitude"]),
+                @"lng": @([ud doubleForKey:@"input_longitude"]),
+                @"floor": @([ud doubleForKey:@"input_floor"]),
+                @"accuracy": @(0),
+                @"rotate": @(0), // dummy
+                @"orientation": @(999), //dummy
+                @"debug_info": [NSNull null],
+                @"debug_latlng": [NSNull null]
+                }
+                      withName:@"XYZ"];
+            return;
+        }
+        
         NSDictionary *locations = [note userInfo];
         if (!locations) {
             return;

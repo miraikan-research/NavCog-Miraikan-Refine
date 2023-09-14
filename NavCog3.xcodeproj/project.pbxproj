@@ -151,6 +151,8 @@
 		E5C59C002A08CE2000577740 /* ARGuideRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C59BFE2A08CE2000577740 /* ARGuideRow.swift */; };
 		E5C59C032A08EA8100577740 /* ARDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C59C012A08EA8100577740 /* ARDetailViewController.swift */; };
 		E5C59C062A0A34C400577740 /* SoundEffect51.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E5C59C042A0A34C400577740 /* SoundEffect51.mp3 */; };
+		E5E885CE2AB182BE009D2F68 /* TextfieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E885CD2AB182BE009D2F68 /* TextfieldCell.swift */; };
+		E5E885D02AB18576009D2F68 /* TextFieldModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E885CF2AB18575009D2F68 /* TextFieldModel.swift */; };
 		E5EE1CF62A8F069A004C1331 /* GuideLanguageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF42A8F069A004C1331 /* GuideLanguageModel.swift */; };
 		E5EE1CF92A8F07B7004C1331 /* ArAnchorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CF72A8F07B7004C1331 /* ArAnchorManager.swift */; };
 		E5EE1CFC2A8F07D6004C1331 /* MotionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EE1CFA2A8F07D6004C1331 /* MotionManager.swift */; };
@@ -414,6 +416,8 @@
 		E5C59BFE2A08CE2000577740 /* ARGuideRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARGuideRow.swift; sourceTree = "<group>"; };
 		E5C59C012A08EA8100577740 /* ARDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARDetailViewController.swift; sourceTree = "<group>"; };
 		E5C59C042A0A34C400577740 /* SoundEffect51.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = SoundEffect51.mp3; sourceTree = "<group>"; };
+		E5E885CD2AB182BE009D2F68 /* TextfieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextfieldCell.swift; sourceTree = "<group>"; };
+		E5E885CF2AB18575009D2F68 /* TextFieldModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModel.swift; sourceTree = "<group>"; };
 		E5EE1CF42A8F069A004C1331 /* GuideLanguageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuideLanguageModel.swift; sourceTree = "<group>"; };
 		E5EE1CF72A8F07B7004C1331 /* ArAnchorManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArAnchorManager.swift; sourceTree = "<group>"; };
 		E5EE1CFA2A8F07D6004C1331 /* MotionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionManager.swift; sourceTree = "<group>"; };
@@ -1004,6 +1008,7 @@
 				E506A01629923F630046134F /* DestinationCell.swift */,
 				E506A0222994BEB80046134F /* MenuCell.swift */,
 				E52D54B529A32B8700D48CF9 /* RadioCell.swift */,
+				E5E885CD2AB182BE009D2F68 /* TextfieldCell.swift */,
 			);
 			path = TableViewCell;
 			sourceTree = "<group>";
@@ -1135,6 +1140,7 @@
 				E538140B2989F4F50098E082 /* LabelModel.swift */,
 				E538140E2989F50B0098E082 /* ButtonModel.swift */,
 				E52D54B929A335A900D48CF9 /* RadioModel.swift */,
+				E5E885CF2AB18575009D2F68 /* TextFieldModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1427,6 +1433,7 @@
 				E53750922977D73900BC3ACA /* VoiceGuideController.swift in Sources */,
 				E53750932977D73900BC3ACA /* BaseListView.swift in Sources */,
 				E53750942977D73900BC3ACA /* BaseScrollView.swift in Sources */,
+				E5E885CE2AB182BE009D2F68 /* TextfieldCell.swift in Sources */,
 				E53750952977D73900BC3ACA /* BaseView.swift in Sources */,
 				E53750962977D73900BC3ACA /* BaseWebView.swift in Sources */,
 				E53750972977D73900BC3ACA /* BlankView.swift in Sources */,
@@ -1531,6 +1538,7 @@
 				E54F24492980E93300F3A83C /* AskAIView.swift in Sources */,
 				E5F6FF232977B2F700D5C22B /* HLPSetting.m in Sources */,
 				E5F6FF242977B2F700D5C22B /* MapNavigationController.m in Sources */,
+				E5E885D02AB18576009D2F68 /* TextFieldModel.swift in Sources */,
 				E5F6FF252977B2F700D5C22B /* HLPDataUtil.m in Sources */,
 				E5F6FF262977B2F700D5C22B /* NavDebugHelper.m in Sources */,
 				E53814132989F5690098E082 /* SliderCell.swift in Sources */,

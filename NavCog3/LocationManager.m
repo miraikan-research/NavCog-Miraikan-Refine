@@ -215,7 +215,9 @@ static int continueFloorCount;
         [self writeData: [NSString stringWithFormat: @"%@,%@,%@,%@,%@,%@,%@,%@\n", dateString, @(location.lng), @(location.lat), @(location.accuracy), @(location.floor), @(location.speed), @(location.orientation), @(location.orientationAccuracy)]];
     }
 
-    if (isnan(location.lat) || isnan(location.lng)) {
+    NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+    if ([ud boolForKey:@"CoordinateSurvey"]) {
+    } else if (isnan(location.lat) || isnan(location.lng)) {
         // handle location information nan here
         return;
     }
@@ -232,6 +234,15 @@ static int continueFloorCount;
        @"accuracy":@(location.accuracy),
        @"orientationAccuracy":@(location.orientationAccuracy),
        } mutableCopy];
+
+    if ([ud boolForKey:@"CoordinateSurvey"]) {
+        double floor = [ud doubleForKey:@"input_floor"];
+        double latitude = [ud doubleForKey:@"input_latitude"];
+        double longitude = [ud doubleForKey:@"input_longitude"];
+        [data setObject:@(floor) forKey:@"floor"];
+        [data setObject:@(latitude) forKey:@"lat"];
+        [data setObject:@(longitude) forKey:@"lng"];
+    }
     
     // Floor change continuity check
     if (temporaryFloor == location.floor) {

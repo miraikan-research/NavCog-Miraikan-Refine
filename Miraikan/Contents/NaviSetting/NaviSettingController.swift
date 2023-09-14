@@ -35,6 +35,7 @@ class NaviSettingController : BaseListController, BaseListDelegate {
     private let switchId = "switchCell"
     private let sliderId = "sliderCell"
     private let buttonId = "buttonCell"
+    private let textId = "textfieldCell"
     
     private struct SectionModel {
         let title: String
@@ -58,6 +59,7 @@ class NaviSettingController : BaseListController, BaseListDelegate {
         self.tableView.register(SwitchCell.self, forCellReuseIdentifier: switchId)
         self.tableView.register(SliderCell.self, forCellReuseIdentifier: sliderId)
         self.tableView.register(ButtonCell.self, forCellReuseIdentifier: buttonId)
+        self.tableView.register(TextfieldCell.self, forCellReuseIdentifier: textId)
         self.tableView.separatorStyle = .none
 
         var sectionList: [SectionModel] = []
@@ -321,6 +323,42 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      desc: NSLocalizedString("AR reading interval",
                                                                              comment: "AR reading interval"))))
 
+        cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("coordinate survey", comment: ""),
+                                                     key: "CoordinateSurvey",
+                                                     isOn: UserDefaults.standard.bool(forKey: "CoordinateSurvey"),
+                                                     isEnabled: nil)))
+        cellList.append(CellModel(cellId: textId,
+                                  model: TextFieldModel(title: NSLocalizedString("number of floor", comment: ""),
+                                                        key: "input_floor",
+                                                        defaultValue: MiraikanUtil.surveyFloor)))
+        cellList.append(CellModel(cellId: textId,
+                                  model: TextFieldModel(title: NSLocalizedString("latitude", comment: ""),
+                                                        key: "input_latitude",
+                                                        defaultValue: MiraikanUtil.surveyLatitude)))
+        cellList.append(CellModel(cellId: textId,
+                                  model: TextFieldModel(title: NSLocalizedString("longitude", comment: ""),
+                                                        key: "input_longitude",
+                                                        defaultValue: MiraikanUtil.surveyLongitude)))
+        
+        cellList.append(CellModel(cellId: buttonId,
+                                  model: ButtonModel(title: NSLocalizedString("Dummy_Location", comment: ""),
+                                                     key: "",
+                                                     isEnabled: nil,
+                                                     tapAction: { [weak self] in
+                                                        guard let _ = self else { return }
+            let center = NotificationCenter.default
+            let userInfo =
+            ["userInfo":
+                ["current":
+                    ["floor": String(MiraikanUtil.surveyFloor),
+                                    "lat": String(MiraikanUtil.surveyLatitude),
+                                    "lng": String(MiraikanUtil.surveyLongitude)
+                    ]
+                ]
+            ]
+            center.post(name: NSNotification.Name(rawValue: NAV_LOCATION_CHANGED_NOTIFICATION), object: userInfo)
+        })))
 
         cellList.append(CellModel(cellId: buttonId,
                                   model: ButtonModel(title: NSLocalizedString("Reset_Location", comment: ""),
@@ -394,6 +432,10 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                 return cell
             } else if let cell = cell as? ButtonCell,
                         let model = item.model as? ButtonModel {
+                cell.configure(model)
+                return cell
+            } else if let cell = cell as? TextfieldCell,
+                        let model = item.model as? TextFieldModel {
                 cell.configure(model)
                 return cell
             }

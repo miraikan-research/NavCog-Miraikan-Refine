@@ -544,6 +544,7 @@ final public class AudioGuideManager: NSObject {
         return nil
     }
 
+    // 展示エリアにいるか
     func isExhibitionZone(current: HLPLocation) -> Bool {
         let startPoint = CGPoint(x: 139.77607, y: 35.61905)
         let endPoint = CGPoint(x: 139.7772, y: 35.61963)
@@ -555,7 +556,8 @@ final public class AudioGuideManager: NSObject {
         
         return isExhibitionZone
     }
-    
+
+    // シンボルゾーンにいるか
     func isSymbolZone(current: HLPLocation) -> Bool {
         let startPoint = CGPoint(x: 139.77693, y: 35.619495)
         let endPoint = CGPoint(x: 139.77711, y: 35.61927)

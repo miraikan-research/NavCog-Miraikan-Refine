@@ -1,9 +1,9 @@
 //
-//  Host.swift
+//  TextFieldModel.swift
 //  NavCogMiraikan
 //
 /*******************************************************************************
- * Copyright (c) 2022 © Miraikan - The National Museum of Emerging Science and Innovation
+ * Copyright (c) 2023 © Miraikan - The National Museum of Emerging Science and Innovation
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,13 +26,8 @@
 
 import Foundation
 
-enum Host {
-    case miraikan
-    
-    var address: String {
-        switch self {
-        case .miraikan:
-            return "https://www.miraikan.jst.go.jp"
-        }
-    }
+struct TextFieldModel {
+    let title: String
+    let key: String
+    let defaultValue: Double
 }
