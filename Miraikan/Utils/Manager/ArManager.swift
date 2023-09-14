@@ -73,7 +73,9 @@ final public class ArManager: NSObject {
             serialMarker = lockArMarker.id == marker.id
             if !serialMarker {
                 // マーカーが変更された
-                AudioManager.shared.stop()
+                if UserDefaults.standard.bool(forKey: "ARCameraLockMarker") {
+                    AudioManager.shared.stop()
+                }
             }
         }
 //        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), lockArMarker.id: \(lockArMarker?.id), marker: \(marker.id) serialMarker: \(serialMarker), keepMarkerFlag: \(keepMarkerFlag), isPlaying: \(AudioManager.shared.isPlaying), isSpeaking: \(AudioManager.shared.isSpeaking()), isPause: \(AudioManager.shared.isPause())")

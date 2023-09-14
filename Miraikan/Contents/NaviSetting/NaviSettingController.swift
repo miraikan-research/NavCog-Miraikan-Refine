@@ -349,12 +349,10 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                         guard let _ = self else { return }
             let center = NotificationCenter.default
             let userInfo =
-            ["userInfo":
-                ["current":
-                    ["floor": String(MiraikanUtil.surveyFloor),
-                                    "lat": String(MiraikanUtil.surveyLatitude),
-                                    "lng": String(MiraikanUtil.surveyLongitude)
-                    ]
+            ["current":
+                ["floor": String(MiraikanUtil.surveyFloor),
+                 "lat": String(MiraikanUtil.surveyLatitude),
+                 "lng": String(MiraikanUtil.surveyLongitude)
                 ]
             ]
             center.post(name: NSNotification.Name(rawValue: NAV_LOCATION_CHANGED_NOTIFICATION), object: userInfo)
