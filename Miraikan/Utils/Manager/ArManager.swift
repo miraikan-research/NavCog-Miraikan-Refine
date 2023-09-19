@@ -62,19 +62,24 @@ final public class ArManager: NSObject {
         self.arFrameSize = arFrameSize
     }
 
-    func setLockArMarker(marker: ArUcoModel) -> Bool {
+    func setLockArMarker(marker: ArUcoModel, transform: MarkerWorldTransform) -> Bool {
         // 読み終わりマーカーの場合は、処理しない
         if !ArUcoManager.shared.checkFinishSettings(key: marker.id) {
             return serialMarker
         }
 
         if let lockArMarker = lockArMarker {
-            // 識別マーカーの変更状態
-            serialMarker = lockArMarker.id == marker.id
-            if !serialMarker {
-                // マーカーが変更された
-                if UserDefaults.standard.bool(forKey: "ARCameraLockMarker") {
-                    AudioManager.shared.stop()
+            let ratio = ArUcoManager.shared.getMarkerSizeRatio(arUcoModel: marker)
+            let distance = Double(transform.distance) * ratio
+            if let description = marker.description,
+                description.isDistance(distance) {
+                // 識別マーカーの変更状態
+                serialMarker = lockArMarker.id == marker.id
+                if !serialMarker {
+                    // マーカーが変更された
+                    if UserDefaults.standard.bool(forKey: "ARCameraLockMarker") {
+                        AudioManager.shared.stop()
+                    }
                 }
             }
         }

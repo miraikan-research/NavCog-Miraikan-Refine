@@ -116,7 +116,7 @@ static NavDeviceTTS *instance = nil;
 - (void)stop:(BOOL)immediate
 {
     NSLog(@"NavDeviceTTS stop");
-    if (isSpeaking || isProcessing) {
+    if ([voice isSpeaking] || isSpeaking || isProcessing) {
         speechStatus = SpeechStatusStopProcessing;
         isSpeaking = NO;
         [speaking removeAllObjects];
@@ -127,7 +127,7 @@ static NavDeviceTTS *instance = nil;
 /// 一時停止、再開切り替え, forcedPause:trueの時は強制一時停止
 - (void)pauseToggle:(BOOL)immediate forcedPause:(BOOL)forcedPause
 {
-    if (isSpeaking || isProcessing) {
+    if ([voice isSpeaking] || isSpeaking || isProcessing) {
         if ([voice isPaused] && !forcedPause) {
             // 再開
             speechStatus = SpeechStatusPauseProcessing;
@@ -443,6 +443,7 @@ static NavDeviceTTS *instance = nil;
             if (se && se.completionHandler) {
                 se.completionHandler();
             }
+            speechStatus = SpeechStatusStop;
         }
     }
 }
@@ -461,9 +462,9 @@ static NavDeviceTTS *instance = nil;
         [processing removeObjectForKey:utterance.speechString];
 
         if (se.completionHandler) {
-            speechStatus = SpeechStatusStop;
             se.completionHandler();
         }
+        speechStatus = SpeechStatusStop;
     }
 }
 
@@ -507,9 +508,9 @@ static NavDeviceTTS *instance = nil;
         isProcessing = NO;
         expire = NAN;
         if (se.completionHandler) {
-            speechStatus = SpeechStatusStop;
             se.completionHandler();
         }
+        speechStatus = SpeechStatusStop;
     }    
 }
 

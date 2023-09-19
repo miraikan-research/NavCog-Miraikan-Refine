@@ -306,7 +306,7 @@ extension ARViewController {
             } else {
                 setAudioData(arUcoModel: arUcoModel, transform: transform)
             }
-        } else if ArManager.shared.setLockArMarker(marker: arUcoModel) {
+        } else if ArManager.shared.setLockArMarker(marker: arUcoModel, transform: transform) {
             if self.tapPause == SpeechStatusPause {
                 // タップで一時停止している場合
                 return
@@ -330,9 +330,9 @@ extension ARViewController {
         ArManager.shared.setFlatSoundEffect(arUcoModel: arUcoModel, transform: transform)
 
         let now = Date().timeIntervalSince1970
-        if locationChangedTime + CheckTime > now {
-            return
-        }
+//        if locationChangedTime + CheckTime > now {
+//            return
+//        }
 
         if AudioManager.shared.isSpeaking() &&
             arUcoModel.id == AudioManager.shared.speakingID() {
