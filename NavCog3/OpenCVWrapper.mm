@@ -72,7 +72,6 @@ static void detect(std::vector<std::vector<cv::Point2f> > &corners, std::vector<
     cv::aruco::detectMarkers(mat, ptrDictionary, corners, ids);
 
     CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);
-    
 }
 
 + (cv::Mat)getCVToGLMat {

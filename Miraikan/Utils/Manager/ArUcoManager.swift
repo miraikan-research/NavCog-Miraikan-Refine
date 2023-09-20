@@ -108,13 +108,13 @@ final public class ArUcoManager: NSObject {
     func setActiveDate(key: Int) {
         let strKey = String(key)
         self.activeDateList[strKey] = Date()
-//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), \(strKey), \( self.activeDateList[strKey])")
+//        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line), \(strKey), \( self.activeDateList[strKey])")
     }
 
     func setFinishDate(key: Int) {
         let strKey = String(key)
         self.finishDateList[strKey] = Date()
-//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), \(strKey), \( self.finishDateList[strKey])")
+//        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line), \(strKey), \( self.finishDateList[strKey])")
     }
 
     func checkFinishSettings(key: Int) -> Bool {

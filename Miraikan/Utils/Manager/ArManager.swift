@@ -83,7 +83,7 @@ final public class ArManager: NSObject {
                 }
             }
         }
-//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), lockArMarker.id: \(lockArMarker?.id), marker: \(marker.id) serialMarker: \(serialMarker), keepMarkerFlag: \(keepMarkerFlag), isPlaying: \(AudioManager.shared.isPlaying), isSpeaking: \(AudioManager.shared.isSpeaking()), isPause: \(AudioManager.shared.isPause())")
+//        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line), lockArMarker.id: \(lockArMarker?.id), marker: \(marker.id) serialMarker: \(serialMarker), keepMarkerFlag: \(keepMarkerFlag), isPlaying: \(AudioManager.shared.isPlaying), isSpeaking: \(AudioManager.shared.isSpeaking()), isPause: \(AudioManager.shared.isPause())")
         lockArMarker = marker
         lastCheckMarkerTime = Date().timeIntervalSince1970
 
@@ -419,7 +419,7 @@ final public class ArManager: NSObject {
 // MARK: - AudioManagerDelegate
 extension ArManager: AudioManagerSystemDelegate {
     func speakFinish(speakingData: VoiceModel) {
-//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), id:\(speakingData.id)")
+//        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line), id:\(speakingData.id)")
 
         if speakingData.type == .lockGuide {
             if AudioManager.shared.progress == .next {

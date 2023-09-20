@@ -513,7 +513,7 @@ class Home : BaseListView {
                     
                     guard let res = MiraikanUtil.decdoeToJSON(type: [CardModel].self, data: data)
                     else { return }
-//                    NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), \(_endpoint)")
+//                    NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line), \(_endpoint)")
                     let filtered = res.filter({ model in
                         let now = Date()
                         let start = MiraikanUtil.parseDate(model.start)!
