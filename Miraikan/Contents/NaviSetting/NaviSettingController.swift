@@ -163,29 +163,6 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      isEnabled: nil)))
         sectionList.append(SectionModel(title: title, items: cellList))
 
-        let sectionDistance = sectionList.count
-        title = NSLocalizedString("Distance unit", comment: "") + "(" + NSLocalizedString("user_blind", comment: "") + ")"
-        cellList.removeAll()
-        cellList.append(CellModel(cellId: radioId,
-                                  model: RadioModel(title: NSLocalizedString("Meter", comment: ""),
-                                                    key: "unit_meter",
-                                                    group: "distance_unit",
-                                                    isEnabled: nil,
-                                                    tapAction: { [weak self] in
-            guard let self = self else { return }
-            self.reloadSection(sectionDistance)
-        })))
-        cellList.append(CellModel(cellId: radioId,
-                                  model: RadioModel(title: NSLocalizedString("Feet", comment: ""),
-                                                    key: "unit_feet",
-                                                    group: "distance_unit",
-                                                    isEnabled: nil,
-                                                    tapAction: { [weak self] in
-            guard let self = self else { return }
-            self.reloadSection(sectionDistance)
-        })))
-        sectionList.append(SectionModel(title: title, items: cellList))
-        
         title = NSLocalizedString("Augmented Reality", comment: "")
         cellList.removeAll()
         cellList.append(CellModel(cellId: switchId,
@@ -322,7 +299,33 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      name: "ARReadingInterval",
                                                      desc: NSLocalizedString("AR reading interval",
                                                                              comment: "AR reading interval"))))
+        sectionList.append(SectionModel(title: title, items: cellList))
 
+        let sectionDistance = sectionList.count
+        title = NSLocalizedString("Distance unit", comment: "") + "(" + NSLocalizedString("user_blind", comment: "") + ")"
+        cellList.removeAll()
+        cellList.append(CellModel(cellId: radioId,
+                                  model: RadioModel(title: NSLocalizedString("Meter", comment: ""),
+                                                    key: "unit_meter",
+                                                    group: "distance_unit",
+                                                    isEnabled: nil,
+                                                    tapAction: { [weak self] in
+            guard let self = self else { return }
+            self.reloadSection(sectionDistance)
+        })))
+        cellList.append(CellModel(cellId: radioId,
+                                  model: RadioModel(title: NSLocalizedString("Feet", comment: ""),
+                                                    key: "unit_feet",
+                                                    group: "distance_unit",
+                                                    isEnabled: nil,
+                                                    tapAction: { [weak self] in
+            guard let self = self else { return }
+            self.reloadSection(sectionDistance)
+        })))
+        sectionList.append(SectionModel(title: title, items: cellList))
+
+        title = NSLocalizedString("Debug", comment: "")
+        cellList.removeAll()
         cellList.append(CellModel(cellId: switchId,
                                   model: SwitchModel(desc: NSLocalizedString("coordinate survey", comment: ""),
                                                      key: "CoordinateSurvey",
