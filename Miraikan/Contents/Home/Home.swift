@@ -423,7 +423,7 @@ fileprivate enum MenuSection : CaseIterable {
         case .map:
             return [.floorMap, .nearestWashroom]
         case .settings:
-            return [.setting, .miraikanIDmyPage, .aboutMiraikan, .aboutApp]
+            return [.setting, .aboutMiraikan, .aboutApp]
         default:
             return nil
         }

@@ -394,12 +394,16 @@ typedef NS_ENUM(NSInteger, ViewState) {
                     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DebugMode"]) {
                         self.navigationItem.rightBarButtonItems = @[searchButton, settingButton];
                     } else {
-                        self.navigationItem.rightBarButtonItems = @[settingButton];
+                        self.navigationItem.rightBarButtonItems = @[];
                     }
                     self.navigationItem.leftBarButtonItems = @[backButton];
                     break;
                 case ViewStateSearch:
-                    self.navigationItem.rightBarButtonItems = @[settingButton];
+                    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DebugMode"]) {
+                        self.navigationItem.rightBarButtonItems = @[settingButton];
+                    } else {
+                        self.navigationItem.rightBarButtonItems = @[];
+                    }
                     self.navigationItem.leftBarButtonItems = @[backButton];
                     break;
                 case ViewStateSearchDetail:
@@ -431,7 +435,11 @@ typedef NS_ENUM(NSInteger, ViewState) {
                     self.navigationItem.leftBarButtonItems = @[backButton];
                     break;
                 case ViewStateLoading:
-                    self.navigationItem.rightBarButtonItems = @[settingButton];
+                    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DebugMode"]) {
+                        self.navigationItem.rightBarButtonItems = @[settingButton];
+                    } else {
+                        self.navigationItem.rightBarButtonItems = @[];
+                    }
                     self.navigationItem.leftBarButtonItems = @[backButton];
                     break;
             }

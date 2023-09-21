@@ -201,6 +201,19 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                    )))
 
         cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("Debug Mode", comment: ""),
+                                                     key: "DebugMode",
+                                                     isOn: UserDefaults.standard.bool(forKey: "DebugMode"),
+                                                     isEnabled: nil)))
+
+
+        cellList.append(CellModel(cellId: switchId,
+                                  model: SwitchModel(desc: NSLocalizedString("Old Mode", comment: ""),
+                                                     key: "OldMode",
+                                                     isOn: UserDefaults.standard.bool(forKey: "OldMode"),
+                                                     isEnabled: nil)))
+
+        cellList.append(CellModel(cellId: switchId,
                model: SwitchModel(desc: NSLocalizedString("Preview", comment: ""),
                                   key: "OnPreview",
                                   isOn: MiraikanUtil.isPreview,
@@ -215,20 +228,6 @@ class NaviSettingController : BaseListController, BaseListDelegate {
                                                      name: "preview_speed",
                                                      desc: NSLocalizedString("Preview Speed Description",
                                                                              comment: "Description for VoiceOver"))))
-
-        cellList.append(CellModel(cellId: switchId,
-                                  model: SwitchModel(desc: NSLocalizedString("Debug Mode", comment: ""),
-                                                     key: "DebugMode",
-                                                     isOn: UserDefaults.standard.bool(forKey: "DebugMode"),
-                                                     isEnabled: nil)))
-
-
-        cellList.append(CellModel(cellId: switchId,
-                                  model: SwitchModel(desc: NSLocalizedString("Old Mode", comment: ""),
-                                                     key: "OldMode",
-                                                     isOn: UserDefaults.standard.bool(forKey: "OldMode"),
-                                                     isEnabled: nil)))
-
 
         cellList.append(CellModel(cellId: switchId,
                                   model: SwitchModel(desc: NSLocalizedString("AR Audio interrupt disabled", comment: ""),
