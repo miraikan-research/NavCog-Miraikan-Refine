@@ -37,7 +37,7 @@ class MiraikanController: BaseController {
 
     init(title: String) {
         super.init(home, title: title)
-        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line)")
+        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line)")
     }
 
     required init?(coder: NSCoder) {

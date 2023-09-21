@@ -1,5 +1,5 @@
 //
-//  AccessibilityLabel.swift
+//  TextFieldModel.swift
 //  NavCogMiraikan
 //
 /*******************************************************************************
@@ -24,27 +24,10 @@
  * THE SOFTWARE.
  *******************************************************************************/
 
-import UIKit
+import Foundation
 
-class AccessibilityLabel: UILabel {
-    
-    private let tts = DefaultTTS()
-    var accessibilityText: String?
-
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame:frame)
-    }
-
-    override open func accessibilityElementDidBecomeFocused() {
-        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line)")
-//        if let accessibilityText = accessibilityText {
-//            tts.speak(accessibilityText, selfspeak: false, quickAnswer: false, callback: { [weak self] in
-//                guard let _ = self else { return }
-//            })
-//        }
-    }
+struct TextFieldModel {
+    let title: String
+    let key: String
+    let defaultValue: Double
 }

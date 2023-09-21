@@ -423,7 +423,7 @@ fileprivate enum MenuSection : CaseIterable {
         case .map:
             return [.floorMap, .nearestWashroom]
         case .settings:
-            return [.setting, .miraikanIDmyPage, .aboutMiraikan, .aboutApp]
+            return [.setting, .aboutMiraikan, .aboutApp]
         default:
             return nil
         }
@@ -513,7 +513,7 @@ class Home : BaseListView {
                     
                     guard let res = MiraikanUtil.decdoeToJSON(type: [CardModel].self, data: data)
                     else { return }
-//                    NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), \(_endpoint)")
+//                    NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line), \(_endpoint)")
                     let filtered = res.filter({ model in
                         let now = Date()
                         let start = MiraikanUtil.parseDate(model.start)!

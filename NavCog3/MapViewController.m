@@ -394,12 +394,16 @@ typedef NS_ENUM(NSInteger, ViewState) {
                     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DebugMode"]) {
                         self.navigationItem.rightBarButtonItems = @[searchButton, settingButton];
                     } else {
-                        self.navigationItem.rightBarButtonItems = @[settingButton];
+                        self.navigationItem.rightBarButtonItems = @[];
                     }
                     self.navigationItem.leftBarButtonItems = @[backButton];
                     break;
                 case ViewStateSearch:
-                    self.navigationItem.rightBarButtonItems = @[settingButton];
+                    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DebugMode"]) {
+                        self.navigationItem.rightBarButtonItems = @[settingButton];
+                    } else {
+                        self.navigationItem.rightBarButtonItems = @[];
+                    }
                     self.navigationItem.leftBarButtonItems = @[backButton];
                     break;
                 case ViewStateSearchDetail:
@@ -431,7 +435,11 @@ typedef NS_ENUM(NSInteger, ViewState) {
                     self.navigationItem.leftBarButtonItems = @[backButton];
                     break;
                 case ViewStateLoading:
-                    self.navigationItem.rightBarButtonItems = @[settingButton];
+                    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"DebugMode"]) {
+                        self.navigationItem.rightBarButtonItems = @[settingButton];
+                    } else {
+                        self.navigationItem.rightBarButtonItems = @[];
+                    }
                     self.navigationItem.leftBarButtonItems = @[backButton];
                     break;
             }
@@ -801,6 +809,23 @@ typedef NS_ENUM(NSInteger, ViewState) {
     dispatch_async(dispatch_get_main_queue(), ^{
         UIApplicationState appState = [[UIApplication sharedApplication] applicationState];
         if (appState == UIApplicationStateBackground || appState == UIApplicationStateInactive) {
+            return;
+        }
+        
+        NSUserDefaults *ud = [NSUserDefaults standardUserDefaults];
+        if ([ud boolForKey:@"CoordinateSurvey"]) {
+            // dummy
+            [_webView sendData:@{
+                @"lat": @([ud doubleForKey:@"input_latitude"]),
+                @"lng": @([ud doubleForKey:@"input_longitude"]),
+                @"floor": @([ud doubleForKey:@"input_floor"]),
+                @"accuracy": @(0),
+                @"rotate": @(0), // dummy
+                @"orientation": @(999), //dummy
+                @"debug_info": [NSNull null],
+                @"debug_latlng": [NSNull null]
+                }
+                      withName:@"XYZ"];
             return;
         }
         

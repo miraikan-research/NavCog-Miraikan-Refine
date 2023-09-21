@@ -108,7 +108,7 @@ final public class AudioManager: NSObject {
     }
 
     func addGuide(voiceModel: VoiceModel, soundEffect: Bool = false) {
-//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), ■■■ isPlaying: \(self.isPlaying) ------")
+//        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line), ■■■ isPlaying: \(self.isPlaying) ------")
         if voiceModel.voice.isEmpty || reserveStatus { return }
 
         if UserDefaults.standard.bool(forKey: "ARMarkerWait") {
@@ -298,7 +298,7 @@ final public class AudioManager: NSObject {
         if let speakingData = self.speakingData,
            speakingData.type == .lockGuide,
            let speakingId = speakingData.id {
-            NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), id: \(speakingId), progress: \(progress)")
+            NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line), id: \(speakingId), progress: \(progress)")
 
             switch progress {
             case .title:

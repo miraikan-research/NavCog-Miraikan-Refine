@@ -219,7 +219,7 @@ extension ARViewController {
     }
 
     private func tapAction() {
-//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), isPlaying: \(AudioManager.shared.isPlaying), isSpeaking: \(AudioManager.shared.isSpeaking()), isPause: \(AudioManager.shared.isPause()), progress: \(AudioManager.shared.progress), speechStatus: \(AudioManager.shared.speechStatus()), tapPause: \(tapPause)")
+//        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line), isPlaying: \(AudioManager.shared.isPlaying), isSpeaking: \(AudioManager.shared.isSpeaking()), isPause: \(AudioManager.shared.isPause()), progress: \(AudioManager.shared.progress), speechStatus: \(AudioManager.shared.speechStatus()), tapPause: \(tapPause)")
         DispatchQueue.main.async {
             
             if AudioManager.shared.isPlaying || AudioManager.shared.isSpeaking() {
@@ -234,27 +234,27 @@ extension ARViewController {
                     if self.tapPause == SpeechStatusContinue {
                         // マーカーがフレーム内にある場合のみ読み上げる通常の挙動にする
                         self.tapPause = nil
-                        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), マーカーがフレーム内にある場合のみ読み上げる通常の挙動にする")
+                        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line), マーカーがフレーム内にある場合のみ読み上げる通常の挙動にする")
                     } else {
                         self.tapPause = SpeechStatusPause
-                        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), 通常一時停止")
+                        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line), 通常一時停止")
                     }
                     AudioManager.shared.pauseToggle()
                 case SpeechStatusPause:
                     if self.tapPause == SpeechStatusPause &&
                         self.inFrame {
                         // マーカーがフレーム内にある状態で、音声再開した場合は、マーカーがフレーム内にある場合のみ読み上げる通常の挙動にする
-                        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), マーカーがフレーム内にある状態で、音声再開した場合は、マーカーがフレーム内にある場合のみ読み上げる通常の挙動にする")
+                        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line), マーカーがフレーム内にある状態で、音声再開した場合は、マーカーがフレーム内にある場合のみ読み上げる通常の挙動にする")
                         self.tapPause = nil
                     } else {
                         // マーカーがフレーム外にある状態で、音声再開した場合は、マーカーがフレーム外にあっても読み上げを継続させる状態にする
-                        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), マーカーがフレーム外にある状態で、音声再開した場合は、マーカーがフレーム外にあっても読み上げを継続させる状態にする")
+                        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line), マーカーがフレーム外にある状態で、音声再開した場合は、マーカーがフレーム外にあっても読み上げを継続させる状態にする")
                         self.tapPause = SpeechStatusContinue
                     }
                     AudioManager.shared.pauseToggle()
                 case SpeechStatusStop:
                     // 音声が停止中に再開した場合は、次の状態に移行する。マーカーがフレーム外にあっても読み上げを継続させる状態にする
-                    NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), 音声が停止中に再開した場合は、次の状態に移行する。マーカーがフレーム外にあっても読み上げを継続させる状態にする")
+                    NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line), 音声が停止中に再開した場合は、次の状態に移行する。マーカーがフレーム外にあっても読み上げを継続させる状態にする")
                     self.tapPause = SpeechStatusContinue
                     AudioManager.shared.nextStep()
                 default:
@@ -265,7 +265,7 @@ extension ARViewController {
     }
 
     private func updateArContent(transforms: Array<MarkerWorldTransform>) -> String {
-//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line)")
+//        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line)")
 
         var hit = false
         var cognition = ""
@@ -293,7 +293,7 @@ extension ARViewController {
     }
 
     private func activeArUcoData(arUcoModel: ArUcoModel, transform: MarkerWorldTransform) {
-//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), \(arUcoModel.id), speechStatus: \(AudioManager.shared.speechStatus())")
+//        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line), \(arUcoModel.id), speechStatus: \(AudioManager.shared.speechStatus())")
         // 音声停止終了している場合は、一時停止・再開は無いため、タップステータスをクリア
         if AudioManager.shared.speechStatus() == SpeechStatusStop {
             self.tapPause = nil
@@ -306,7 +306,7 @@ extension ARViewController {
             } else {
                 setAudioData(arUcoModel: arUcoModel, transform: transform)
             }
-        } else if ArManager.shared.setLockArMarker(marker: arUcoModel) {
+        } else if ArManager.shared.setLockArMarker(marker: arUcoModel, transform: transform) {
             if self.tapPause == SpeechStatusPause {
                 // タップで一時停止している場合
                 return
@@ -330,9 +330,9 @@ extension ARViewController {
         ArManager.shared.setFlatSoundEffect(arUcoModel: arUcoModel, transform: transform)
 
         let now = Date().timeIntervalSince1970
-        if locationChangedTime + CheckTime > now {
-            return
-        }
+//        if locationChangedTime + CheckTime > now {
+//            return
+//        }
 
         if AudioManager.shared.isSpeaking() &&
             arUcoModel.id == AudioManager.shared.speakingID() {
@@ -368,7 +368,7 @@ extension ARViewController {
     }
 
     @objc private func voiceOverNotification() {
-//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line), isPlaying:\(AudioManager.shared.isPlaying), isSpeaking:\(AudioManager.shared.isSpeaking())")
+//        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line), isPlaying:\(AudioManager.shared.isPlaying), isSpeaking:\(AudioManager.shared.isSpeaking())")
         UIAccessibility.post(notification: .screenChanged, argument: controlView)
         setFooterView()
         if AudioManager.shared.isPlaying || AudioManager.shared.isSpeaking() {
@@ -509,17 +509,17 @@ extension ARViewController: ARSessionDelegate {
 
     // アンカー更新
     func session(_ session: ARSession, didUpdate anchors: [ARAnchor]) {
-//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line)")
+//        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line)")
     }
 
     // アンカー追加
     func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
-//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line)")
+//        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line)")
     }
 
     // アンカー削除
     func session(_ session: ARSession, didRemove anchors: [ARAnchor]) {
-//        NSLog("\(URL(string: #file)!.lastPathComponent) \(#function): \(#line)")
+//        NSLog("\(URL(fileURLWithPath: #file).lastPathComponent) \(#function): \(#line)")
     }
 }
 

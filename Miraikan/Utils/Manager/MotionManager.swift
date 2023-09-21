@@ -78,7 +78,7 @@ final public class MotionManager: NSObject {
         // 空間ベクトル
         let vector = sqrt(pow(acceleX, 2) + pow(acceleY, 2) + pow(acceleZ, 2))
         // 端末の動きの大きさ
-        if vector < 0.08 {
+        if vector < 0.075 {
             // 動きが小さい時間を起点時間として、リセットする
             checkStartTime = Date().timeIntervalSince1970
         }

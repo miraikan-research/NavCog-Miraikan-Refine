@@ -83,6 +83,36 @@ class MiraikanUtil : NSObject {
         return val
     }
     
+    static public var surveyFloor: Double {
+        var val = UserDefaults.standard.double(forKey: "input_floor")
+        if val > 7 {
+            val = 7
+            UserDefaults.standard.set(val, forKey: "input_floor")
+        } else if val < -2 {
+            val = -2
+            UserDefaults.standard.set(val, forKey: "input_floor")
+        }
+        return val
+    }
+
+    static public var surveyLatitude: Double {
+        var val = UserDefaults.standard.double(forKey: "input_latitude")
+        if val == 0 {
+            val = 35.6195
+            UserDefaults.standard.set(val, forKey: "input_latitude")
+        }
+        return val
+    }
+
+    static public var surveyLongitude: Double {
+        var val = UserDefaults.standard.double(forKey: "input_longitude")
+        if val == 0 {
+            val = 139.7768
+            UserDefaults.standard.set(val, forKey: "input_longitude")
+        }
+        return val
+    }
+
     // Navigation preview on/off
     @objc static public var isPreview: Bool {
         return !isLocated || UserDefaults.standard.bool(forKey: "OnPreview")
@@ -246,22 +276,12 @@ class MiraikanUtil : NSObject {
                                              event: event)
                 
                 if let window = UIApplication.shared.windows.first,
-//                   let tab = window.rootViewController as? TabController {
                    let tab = window.rootViewController as? MainTabController {
                     tab.selectedIndex = 2
                     
                     if let baseTab = tab.selectedViewController as? BaseTabController {
                         baseTab.popToRootViewController(animated: false)
                         baseTab.nav.show(EventDetailViewController(model: model, title: model.event.title), sender: nil)
-//                        baseTab.nav.openMap(nodeId: nodeId)
-
-//                        let today = Date()
-//                        if date < today {
-//                            let alert = UIAlertController(title: nil, message: "本日のイベントは終了しています", preferredStyle: .alert)
-//                            let yesAction = UIAlertAction(title: "OK", style: .default)
-//                            alert.addAction(yesAction)
-//                            parent(alert, animated: true, completion: nil)
-//                        }
 
                         return
                     }
@@ -270,7 +290,6 @@ class MiraikanUtil : NSObject {
         }
 
         if let window = UIApplication.shared.windows.first,
-//           let tab = window.rootViewController as? TabController {
            let tab = window.rootViewController as? MainTabController {
             tab.selectedIndex = 2
             

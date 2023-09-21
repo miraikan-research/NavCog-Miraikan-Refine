@@ -71,6 +71,13 @@
 - (void)updateView
 {
     dispatch_async(dispatch_get_main_queue(), ^{
+
+        // NavCogサーバが動作しないときの開発動作対応起点
+        // 起動直後にNavCog未使用にする場合、位置情報管理などの他の初期化を別途実施
+//        HomeTabController *vc = [[HomeTabController alloc] init];
+//        UIWindow *window = UIApplication.sharedApplication.windows.firstObject;
+//        window.rootViewController = vc;
+
         if (networkError) {
             self.statusLabel.text = NSLocalizedString(@"checkNetworkConnection",@"");
         } else {

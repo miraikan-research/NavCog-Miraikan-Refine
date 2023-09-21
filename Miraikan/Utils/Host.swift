@@ -28,14 +28,11 @@ import Foundation
 
 enum Host {
     case miraikan
-    case inkNavi
     
     var address: String {
         switch self {
         case .miraikan:
             return "https://www.miraikan.jst.go.jp"
-        case .inkNavi:
-            return ""
         }
     }
 }

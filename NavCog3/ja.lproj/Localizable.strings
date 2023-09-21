@@ -140,6 +140,7 @@
 
 "for_bone_conduction_headset" = "骨伝導ヘッドフォン用の効果音";
 
+"Dummy_Location" = "ダミー位置推定送信";
 "Reset_Location" = "位置推定をやり直す";
 "Stop_Location" = "位置推定停止";
 "Start_Location" = "位置推定開始";
@@ -291,6 +292,11 @@ NavCogの設定画面から
 "Move Log End" = "移動\n記録\n終了";
 "Location information input" = "位置情報入力";
 "Location Input" = "位置\n入力";
+
+"coordinate survey" = "座標調査";
+"number of floor" = "階数";
+"latitude" = "緯度";
+"longitude" = "経度";
 
 "Old Mode" = "旧表示";
 
